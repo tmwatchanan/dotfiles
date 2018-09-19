@@ -1,6 +1,10 @@
 # X Server
 export DISPLAY=:0
 
+# Windows
+export WIN_DESKTOP="/mnt/c/Users/Watchanan/Desktop"
+alias wd="cd $WIN_DESKTOP"
+
 # Aliases
 alias sudo='sudo '
 alias vim=nvim
@@ -9,6 +13,8 @@ alias cfv="nvim ~/.config/nvim/init.vim"
 alias cfb="nvim ~/.bashrc"
 alias cfi3="nvim ~/.config/i3/config"
 alias cfp="nvim ~/.config/polybar/config"
+alias cvenv="python3 -m venv venv"
+alias avenv="source venv/bin/activate"
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)

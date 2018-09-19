@@ -4,6 +4,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'joshdick/onedark.vim'
 Plug 'scrooloose/nerdcommenter'
 call plug#end()
+filetype plugin on
 
 " vim-airline
 let g:airline_powerline_fonts = 1

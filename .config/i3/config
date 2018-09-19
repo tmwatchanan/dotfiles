@@ -24,6 +24,10 @@ bindsym Mod1+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 bindsym Mod1+t exec gnome-terminal -t "file browser" -e ranger
 
+# set variable for web browser
+set $webbrowser firefox
+bindsym Mod1+b exec --no-startup-id $webbrowser
+
 # DEFAULT CONFIGURATION ----------------------------------------------
 
 # Font for window titles. Will also be used by the bar unless a different font
