@@ -3,7 +3,8 @@ export DISPLAY=:0
 
 # Windows
 export WIN_DESKTOP="/mnt/c/Users/Watchanan/Desktop"
-alias wd="cd $WIN_DESKTOP"
+alias cdd="cd $WIN_DESKTOP"
+alias cdc="cd $WIN_DESKTOP/coding"
 
 # Aliases
 alias sudo='sudo '
@@ -15,6 +16,7 @@ alias cfi3="nvim ~/.config/i3/config"
 alias cfp="nvim ~/.config/polybar/config"
 alias cvenv="python3 -m venv venv"
 alias avenv="source venv/bin/activate"
+alias dvenv=deactivate
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
