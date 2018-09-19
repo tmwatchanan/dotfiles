@@ -2,6 +2,7 @@
 call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'joshdick/onedark.vim'
+Plug 'scrooloose/nerdcommenter'
 call plug#end()
 
 " vim-airline
@@ -21,6 +22,12 @@ set relativenumber
 
 " set encoding to UTF-8
 set encoding=utf-8
+
+" disable swap file .swp
+set noswapfile
+
+" disable highlight in / (search) after pressing <Enter>
+"set nohlsearch
 
 " set tabs to have 4 spaces
 set ts=4
@@ -52,3 +59,9 @@ inoremap jk <Esc>
 autocmd FileType html inoremap ;i <em></em><Space><Esc>Fet>i
 
 set colorcolumn=80
+
+" set <leader> key
+:let mapleader = " "
+
+" clear highlight on pressing <Esc>
+nnoremap <Esc> <Esc>:noh<CR><Esc>

@@ -10,13 +10,6 @@ alias cfb="nvim ~/.bashrc"
 alias cfi3="nvim ~/.config/i3/config"
 alias cfp="nvim ~/.config/polybar/config"
 
-konsolex=$(qdbus | grep konsole | cut -f 2 -d\ )
- if [ -n "$konsolex" ]; then
- for konsole in `xdotool search --class konsole`; do
- xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id $konsole;
- done
- fi
-
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
