@@ -14,6 +14,7 @@ alias cfv="nvim ~/.config/nvim/init.vim"
 alias cfb="nvim ~/.bashrc"
 alias cfi3="nvim ~/.config/i3/config"
 alias cfp="nvim ~/.config/polybar/config"
+alias cfr="nvim ~/.config/ranger/rc.conf"
 alias cvenv="python3 -m venv venv"
 alias avenv="source venv/bin/activate"
 alias dvenv=deactivate
