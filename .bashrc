@@ -2,22 +2,24 @@
 export DISPLAY=:0
 
 # Windows
-export WIN_DESKTOP="/mnt/c/Users/Watchanan/Desktop"
-alias cdd="cd $WIN_DESKTOP"
-alias cdc="cd $WIN_DESKTOP/coding"
+#export WIN_DESKTOP="/mnt/c/Users/Watchanan/Desktop"
+#alias cdd="cd $WIN_DESKTOP"
+#alias cdc="cd $WIN_DESKTOP/coding"
 
 # Aliases
 alias sudo='sudo '
 alias vim=nvim
 alias v=nvim
-alias cfv="nvim ~/.config/nvim/init.vim"
-alias cfb="nvim ~/.bashrc"
-alias cfi3="nvim ~/.config/i3/config"
-alias cfp="nvim ~/.config/polybar/config"
-alias cfr="nvim ~/.config/ranger/rc.conf"
+alias vv='sudo nvim'
+alias cfv=" nvim ~/.config/nvim/init.vim"
+alias cfb=" nvim ~/.bashrc"
+alias cfi3=" nvim ~/.config/i3/config"
+alias cfp=" nvim ~/.config/polybar/config"
+alias cfr=" nvim ~/.config/ranger/rc.conf"
 alias cvenv="python3 -m venv venv"
 alias avenv="source venv/bin/activate"
 alias dvenv=deactivate
+alias pac="sudo pacman"
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)

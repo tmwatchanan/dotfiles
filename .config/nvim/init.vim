@@ -8,7 +8,6 @@ filetype plugin on
 
 " vim-airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme='onedark'
 
 set nocompatible
 "filetyle plugin on
