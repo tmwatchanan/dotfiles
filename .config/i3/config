@@ -14,6 +14,9 @@
 # gaps
 gaps outer 15
 gaps inner 5
+workspace 2 gaps outer 0
+workspace 2 gaps inner 0
+exec --no-startup-id i3-msg 'workspace 2; exec /usr/bin/firefox'
 
 
 # keyboard layout
@@ -155,6 +158,8 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+
+# assign specific applications to workspace
 
 
 # switch to workspace
