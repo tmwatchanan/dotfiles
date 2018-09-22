@@ -1,8 +1,10 @@
 " plugin via vim-plug
 call plug#begin()
 Plug 'vim-airline/vim-airline'
-Plug 'joshdick/onedark.vim'
 Plug 'scrooloose/nerdcommenter'
+
+"Plug 'joshdick/onedark.vim'
+"colorscheme onedark
 call plug#end()
 filetype plugin on
 
@@ -12,9 +14,14 @@ let g:airline_powerline_fonts = 1
 set nocompatible
 "filetyle plugin on
 
+" set <leader> key
+let mapleader = "\<Space>"
+
 " enable syntax highlighting
 syntax on
-colorscheme onedark
+
+" change highlight color when searching with /
+highlight Search ctermfg=black
 
 " show line numbers
 set number
@@ -51,17 +58,14 @@ set showmatch
 let python_highlight_all = 1
 
 " find the next placeholder 
-inoremap <Space><Space> <Esc>/<++><CR>"_c4l
+nnoremap <leader><leader> <Esc>/<++><CR>"_c4l
 
 " switch back from insert mode to normal mode quickly
 inoremap jk <Esc>
 
-autocmd FileType html inoremap ;i <em></em><Space><Esc>Fet>i
+autocmd FileType html inoremap ;i <em></em><leader><Esc>Fet>i
 
 set colorcolumn=80
-
-" set <leader> key
-:let mapleader = " "
 
 " clear highlight on pressing <Esc>
 nnoremap <Esc> <Esc>:noh<CR><Esc>
