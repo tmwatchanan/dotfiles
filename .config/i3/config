@@ -39,7 +39,7 @@ exec_always --no-startup-id "feh --randomize --bg-fill $HOME/.wallpaper/*"
 
 # compton fron transparency
 exec_always --no_startup-d "compton -b"
-bindsym Mod1+z exec "compton -b"
+bindsym Mod1+z exec "pkill compton && compton -b"
 
 # launch polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh

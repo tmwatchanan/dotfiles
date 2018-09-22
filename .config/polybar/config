@@ -54,12 +54,12 @@ module-margin-right = 2
 
 font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
+font-2 = WunconSiji:pixelsize=10;1
 
 modules-left = bspwm i3
 modules-center =
-#wlan eth mpd
-modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu battery temperature date powermenu
+#mpd
+modules-right = filesystem xbacklight alsa pulseaudio xkeyboard wlan eth memory cpu battery temperature date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -137,6 +137,8 @@ type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
+
+; icon
 
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
@@ -223,7 +225,7 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wifi2
+interface = wlp6s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -245,7 +247,7 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = eth1
+interface = enp0s20u1
 interval = 3.0
 
 format-connected-underline = #55aa55
