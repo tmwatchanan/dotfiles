@@ -5,6 +5,7 @@ export DISPLAY=:0
 #export WIN_DESKTOP="/mnt/c/Users/Watchanan/Desktop"
 #alias cdd="cd $WIN_DESKTOP"
 #alias cdc="cd $WIN_DESKTOP/coding"
+alias cdc="cd $HOME/coding"
 
 # Aliases
 alias sudo='sudo '
