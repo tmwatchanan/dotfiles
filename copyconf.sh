@@ -11,8 +11,9 @@ cp $HOME/.config/polybar/config $HOME/dotfiles/.config/polybar/
 cp $HOME/.config/polybar/launch.sh $HOME/dotfiles/.config/polybar/
 cp $HOME/.config/ranger/commands.py $HOME/dotfiles/.config/ranger/
 cp $HOME/.config/ranger/rc.conf $HOME/dotfiles/.config/ranger/
-cp $HOME/.config/ranger/rifile.conf $HOME/dotfiles/.config/ranger/
+cp $HOME/.config/ranger/rifle.conf $HOME/dotfiles/.config/ranger/
 cp $HOME/.config/ranger/scope.sh $HOME/dotfiles/.config/ranger/
+cp $HOME/polybar-scripts/info-pingrtt.sh $HOME/dotfiles/polybar-scripts/
 
 cp -r $HOME/.wallpaper $HOME/dotfiles/
 
