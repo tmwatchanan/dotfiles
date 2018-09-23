@@ -56,9 +56,9 @@ module-margin-right = 2
 font-0 = NotoSans-Regular:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = WunconSiji:pixelsize=10;1
-font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=8;1"
-font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=8;1"
-font-5 = "Font Awesome 5 Brands:pixelsize=8;1"
+font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=12;1"
+font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=12;1"
+font-5 = "Font Awesome 5 Brands:pixelsize=12;1"
 
 
 modules-left = bspwm i3 xwindow
@@ -93,7 +93,7 @@ label = %title:0:50:...%
 type = internal/xkeyboard
 blacklist-0 = num lock
 
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-prefix-underline = ${colors.secondary}
 
@@ -110,6 +110,7 @@ type = internal/fs
 interval = 25
 
 mount-0 = /
+mount-1 = /home
 
 label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
@@ -144,8 +145,11 @@ index-sort = true
 wrapping-scroll = false
 
 ; icon
-ws-icon-0 = 1;
-ws-icon-1 = 2;♛
+ws-icon-0 = "4;"
+ws-icon-1 = "1;"
+ws-icon-2 = "2;"
+ws-icon-3 = "3;"
+ws-icon-default = ♟
 
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
@@ -196,7 +200,7 @@ label-song-ellipsis = true
 type = internal/xbacklight
 
 format = <label> <bar>
-label = BL
+label = 
 
 bar-width = 10
 bar-indicator = |
@@ -278,20 +282,20 @@ date-alt = " %A, %d %B %Y"
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = 
+format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 
-label = %date%  %time%
+label = " %date%  %time%"
 
 [module/pulseaudio]
 type = internal/pulseaudio
 
 format-volume = <label-volume> <bar-volume>
-label-volume = VOL %percentage%%
+label-volume =  %percentage%%
 label-volume-foreground = ${root.foreground}
 
-label-muted = 🔇 muted
+label-muted =  muted
 label-muted-foreground = #666
 
 bar-volume-width = 10
@@ -315,10 +319,10 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 type = internal/alsa
 
 format-volume = <label-volume> <bar-volume>
-label-volume = VOL
+label-volume = 
 label-volume-foreground = ${root.foreground}
 
-format-muted-prefix = " "
+format-muted-prefix = " "
 format-muted-foreground = ${colors.foreground-alt}
 label-muted = sound muted
 
@@ -351,7 +355,7 @@ format-charging-underline = #ffb52a
 format-discharging = <animation-discharging> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 
-format-full-prefix = " "
+format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
 
@@ -360,15 +364,15 @@ ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-foreground = ${colors.foreground-alt}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
 animation-charging-foreground = ${colors.foreground-alt}
 animation-charging-framerate = 750
 
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
 animation-discharging-foreground = ${colors.foreground-alt}
 animation-discharging-framerate = 750
 
@@ -386,9 +390,10 @@ label = %temperature-c%
 label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+
 ramp-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
