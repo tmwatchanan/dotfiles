@@ -55,11 +55,15 @@ module-margin-right = 2
 font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = WunconSiji:pixelsize=10;1
+font-3 = "Font Awesome 5 Free:pixelsize=10;3"
+font-4 = "Font Awesome 5 FreeSolid:pixelsize=10;3"
+font-5 = "Font Awesome 5 Brands:pixelsize=10;3"
 
-modules-left = bspwm i3
+
+modules-left = bspwm i3 xwindow
 modules-center =
 #mpd
-modules-right = filesystem xbacklight alsa pulseaudio xkeyboard wlan eth memory cpu battery temperature date powermenu
+modules-right = filesystem xbacklight alsa pulseaudio xkeyboard info-pingrtt wlan eth memory cpu battery temperature date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -82,7 +86,7 @@ cursor-scroll = ns-resize
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:30:...%
+label = %title:0:50:...%
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -139,6 +143,8 @@ index-sort = true
 wrapping-scroll = false
 
 ; icon
+ws-icon-0 = 1;
+ws-icon-1 = 2;♛
 
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
@@ -265,7 +271,7 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date = %a %b %d, %Y
+date = %a %b %d
 date-alt = " %A, %d %B %Y"
 
 time = %H:%M
@@ -425,3 +431,85 @@ margin-top = 5
 margin-bottom = 5
 
 ; vim:ft=dosini
+
+[module/info-pingrtt]
+type = custom/script
+exec = ~/polybar-scripts/info-pingrtt.sh
+interval = 10
+
+[module/ewmh]
+type = internal/xworkspaces
+
+; Only show workspaces defined on the same output as the bar
+;
+; Useful if you want to show monitor specific workspaces
+; on different bars
+;
+; Default: false
+pin-workspaces = true
+
+; Create click handler used to focus desktop
+; Default: true
+enable-click = false
+
+; Create scroll handlers used to cycle desktops
+; Default: true
+enable-scroll = false
+
+; icon-[0-9]+ = <desktop-name>;<icon>
+; NOTE: The desktop name needs to match the name configured by the WM
+; You can get a list of the defined desktops using:
+; $ xprop -root _NET_DESKTOP_NAMES
+icon-0 = code;♚
+icon-1 = office;♛
+icon-2 = graphics;♜
+icon-3 = mail;♝
+icon-4 = web;♞
+icon-default = ♟
+
+; Available tags:
+;   <label-monitor>
+;   <label-state> - gets replaced with <label-(active|urgent|occupied|empty)>
+; Default: <label-state>
+format = <label-state> <label-monitor>
+
+; Available tokens:
+;   %name%
+; Default: %name%
+label-monitor = %name%
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon%  %name%
+label-active = %icon% %name%
+label-active-foreground = #ffffff
+label-active-background = #3f3f3f
+label-active-underline = #fba922
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon%  %name%
+label-occupied = %icon%
+label-occupied-underline = #555555
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon%  %name%
+label-urgent = %icon%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-underline = #9b0a20
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon%  %name%
+label-empty = %icon%
+label-empty-foreground = #55

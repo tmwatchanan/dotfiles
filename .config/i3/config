@@ -21,7 +21,6 @@ workspace 2 gaps outer 0
 workspace 2 gaps inner 0
 exec --no-startup-id i3-msg 'workspace 2; exec /usr/bin/firefox'
 
-
 # keyboard layout
 exec_always --no-startup-id "setxkbmap -option grp:alt_shift_toggle \\"us,th\\""
 
@@ -34,6 +33,9 @@ bindsym $sup+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $sup+t exec urxvt -t "file browser" -e ranger
 bindsym $sup+o exec urxvt -t "OneNote" -e 'ranger /opt/p3x-onenote'
 
+# move focused workspace between monitors (https://unix.stackexchange.com/questions/397269/i3wm-how-to-move-workspaces-between-monitors)
+bindsym $sup+Ctrl+greater move workspace to output right
+bindsym $sup+Ctrl+less move workspace to output left
 # external monitors via HDMI port
 exec_always --no-startup-id "sudo xrandr --output HDMI1 --mode 1280x1024 --right-of eDP1"
 
@@ -50,6 +52,16 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # set variable for web browser
 set $webbrowser firefox
 bindsym $sup+b exec --no-startup-id $webbrowser
+
+# hide title bar except stacked or tabbed mode
+new_window 1pixel
+
+# focused window
+for_window [class="^.*"] border pixel 2
+# class              border  backgr. text    indicator child_border 
+client.focused_inactive #0d1010 #212121 #d9d9d9 #0d1010 #063340 
+client.unfocused        #0d1010 #212121 #d9d9d9 #424242 #063340
+client.focused          #d9d9d9 #cecece #000000 #d9d9d9 #d9d9d9     
 
 # DEFAULT CONFIGURATION ----------------------------------------------
 
