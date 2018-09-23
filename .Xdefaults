@@ -1,4 +1,4 @@
-URxvt.font: xft:Monaco:size=11
+URxvt.font: xft:Hack:size=11
 !URxvt*depth: 32
 !URxvt.transparent: true
 !URxvt.shading: 20
@@ -22,7 +22,7 @@ URxvt.keysym.Control-Right:  \033[1;5C
 
 ! Snazzy - Converted from https://github.com/sindresorhus/iterm2-snazzy
 !          using https://github.com/richo/itermcolors2xdefaults
-#URxvt*background:   [90]#1e1f28
+!URxvt*background:   [90]#1e1f28
 URxvt*background:   [100]#000000
 URxvt*foreground:   #ebece6
 URxvt*cursorColor:   #e4e4e4
