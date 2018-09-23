@@ -1,4 +1,4 @@
-URxvt.font: xft:hack:size=11
+URxvt.font: xft:Monaco:size=11
 !URxvt*depth: 32
 !URxvt.transparent: true
 !URxvt.shading: 20
