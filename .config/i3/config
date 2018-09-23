@@ -21,6 +21,8 @@ workspace 2 gaps outer 0
 workspace 2 gaps inner 0
 exec --no-startup-id i3-msg 'workspace 2; exec /usr/bin/firefox'
 
+# special keys binding (e.g., volume)
+exec --no-startup-id "xbindkeys -p"
 # keyboard layout
 exec_always --no-startup-id "setxkbmap -option grp:alt_shift_toggle \\"us,th\\""
 
@@ -37,14 +39,13 @@ bindsym $sup+o exec urxvt -t "OneNote" -e 'ranger /opt/p3x-onenote'
 bindsym $sup+Ctrl+greater move workspace to output right
 bindsym $sup+Ctrl+less move workspace to output left
 # external monitors via HDMI port
-exec_always --no-startup-id "sudo xrandr --output HDMI1 --mode 1280x1024 --right-of eDP1"
+exec_always --no-startup-id "xrandr --output HDMI1 --mode 1280x1024 --right-of eDP1"
 
 # wallpapers
 exec_always --no-startup-id "feh --randomize --bg-fill $HOME/.wallpaper/*"
 
 # compton fron transparency
-exec_always --no_startup-d "compton -b"
-bindsym $sup+z exec "pkill compton && compton -b"
+exec_always --no_startup-id "compton"
 
 # launch polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
