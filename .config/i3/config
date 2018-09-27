@@ -44,8 +44,9 @@ exec_always --no-startup-id "xrandr --output HDMI1 --mode 1280x1024 --right-of e
 # wallpapers
 exec_always --no-startup-id "feh --randomize --bg-fill $HOME/.wallpaper/*"
 
-# compton fron transparency
-exec_always --no_startup-id "compton"
+# compton from transparency
+exec_always --no_startup-id "pkill compton && compton -b"
+#exec --no-startup-id compton -b -c -f
 
 # launch polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
@@ -84,10 +85,10 @@ font pango:Hack 8
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
-set $up l
-set $down k
-set $left j
-set $right semicolon
+set $up k
+set $down j
+set $left h
+set $right l
 
 # use Mouse+$sup to drag floating windows to their wanted position
 floating_modifier $sup
@@ -131,10 +132,10 @@ bindsym $sup+Shift+Up move up
 bindsym $sup+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $sup+h split h
+#bindsym $sup+h split h
 
 # split in vertical orientation
-bindsym $sup+v split v
+bindsym $sup+v split toggle
 
 # enter fullscreen mode for the focused container
 bindsym $sup+f fullscreen toggle
