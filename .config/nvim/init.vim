@@ -2,11 +2,20 @@
 call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdcommenter'
+Plug 'chrisbra/NrrwRgn'
+Plug 'leshill/vim-json'
+
+"colorscheme
+"Plug 'sheerun/vim-polyglot'
+"Plug 'trevordmiller/nova-vim'
 
 "Plug 'joshdick/onedark.vim'
 "colorscheme onedark
 call plug#end()
 filetype plugin on
+
+
+"colorscheme nova
 
 " vim-airline
 let g:airline_powerline_fonts = 1
@@ -21,7 +30,7 @@ let mapleader = "\<Space>"
 syntax on
 
 " change highlight color when searching with /
-highlight Search ctermfg=black
+"highlight Search ctermfg=black
 
 " show line numbers
 set number
@@ -99,3 +108,4 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
+

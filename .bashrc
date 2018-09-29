@@ -22,6 +22,9 @@ alias avenv="source venv/bin/activate"
 alias dvenv=deactivate
 alias pac="sudo pacman"
 
+# ranger (file manager)
+export EDITOR=nvim
+
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples

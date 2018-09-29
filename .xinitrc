@@ -1,5 +1,5 @@
 # Activate Numlock on Bootup
-#numlockx &
+numlockx &
 
 xrandr --setprovideroutputsource modesetting NVIDIA-0
 xrandr --auto
