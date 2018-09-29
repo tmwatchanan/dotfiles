@@ -26,6 +26,25 @@ foreground-alt = #555
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
+; Base colors from .Xresources
+bg          =  ${xrdb:background}
+bg-alt      =  #c5c5c5
+fg          =  ${xrdb:foreground}
+fg-alt      =  ${xrdb:color8}
+red         =  ${xrdb:color1}
+red-alt     =  ${xrdb:color9}
+green       =  ${xrdb:color2}
+green-alt   =  ${xrdb:color10}
+yellow      =  ${xrdb:color3}
+yellow-alt  =  ${xrdb:color11}
+blue        =  ${xrdb:color4}
+blue-alt    =  ${xrdb:color12}
+magenta     =  ${xrdb:color5}
+magenta-alt =  ${xrdb:color13}
+cyan        =  ${xrdb:color6}
+cyan-alt    =  ${xrdb:color14}
+white       =  ${xrdb:color7}
+white-alt = ${xrdb:color15}
 
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -62,9 +81,9 @@ font-5 = "Font Awesome 5 Brands:pixelsize=12;1"
 
 
 modules-left = bspwm i3 xwindow
-modules-center =
-#mpd
-modules-right = filesystem xbacklight alsa pulseaudio xkeyboard info-pingrtt wlan eth memory cpu battery temperature date powermenu
+modules-center =  uptime
+;mpd
+modules-right = filesystem xbacklight alsa pulseaudio xkeyboard info-pingrtt wired-network wireless-network memory cpu battery temperature date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -145,42 +164,42 @@ index-sort = true
 wrapping-scroll = false
 
 ; icon
-ws-icon-0 = "4;"
-ws-icon-1 = "1;"
-ws-icon-2 = "2;"
-ws-icon-3 = "3;"
-ws-icon-default = ♟
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-default = 
 
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
+
+strip-wsnumbers = true
 
 label-mode-padding = 2
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
-label-focused = %index%
+label-focused = %icon% %index%
 label-focused-background = ${module/bspwm.label-focused-background}
 label-focused-underline = ${module/bspwm.label-focused-underline}
 label-focused-padding = ${module/bspwm.label-focused-padding}
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %index%
+label-unfocused = %icon% %index%
 label-unfocused-padding = ${module/bspwm.label-occupied-padding}
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %index%
+label-visible = %icon% %index%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %index%
+label-urgent = %icon% %index%
 label-urgent-background = ${module/bspwm.label-urgent-background}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
 ; Separator in between workspaces
-; label-separator = |
+;label-separator = |
 
 
 [module/mpd]
@@ -221,7 +240,7 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #f90000
 label = %percentage:2%%
@@ -229,12 +248,12 @@ label = %percentage:2%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
 label = %percentage_used%%
 
-[module/wlan]
+[module/wireless-network]
 type = internal/network
 interface = wlp6s0
 interval = 3.0
@@ -256,9 +275,9 @@ ramp-signal-3 = 
 ramp-signal-4 = 
 ramp-signal-foreground = ${colors.foreground-alt}
 
-[module/eth]
+[module/wired-network]
 type = internal/network
-interface = enp0s20u1
+interface = usb0
 interval = 3.0
 
 format-connected-underline = #55aa55
@@ -403,7 +422,7 @@ expand-right = true
 
 format-spacing = 1
 
-label-open = 
+label-open = 
 label-open-foreground = ${colors.secondary}
 label-close =  cancel
 label-close-foreground = ${colors.secondary}
@@ -440,8 +459,16 @@ margin-bottom = 5
 
 [module/info-pingrtt]
 type = custom/script
-exec = ~/polybar-scripts/info-pingrtt.sh
+exec = $HOME/.config/polybar/info-pingrtt.sh
 interval = 10
+
+[module/uptime]
+type = custom/script
+interval = 1200
+format = "<label> "
+format-prefix = " "
+;format-prefix-foreground = ${colors.red}
+exec = $HOME/.config/polybar/uptime.sh
 
 [module/ewmh]
 type = internal/xworkspaces
