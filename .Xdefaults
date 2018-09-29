@@ -1,7 +1,9 @@
-URxvt.font: xft:Inconsolata\ for\ Powerline:size=13
+URxvt.font: xft:Hack-Bold:size=12
 !URxvt*depth: 32
 !URxvt.transparent: true
 !URxvt.shading: 20
+
+URxvt*termName: rxvt-unicode-256color
 
 ! remove scroll bar
 URxvt.scrollBar: false
@@ -10,7 +12,7 @@ URxvt.scrollBar: false
 URxvt*scrollWithBuffer: True
 
 ! Clickable URLs
-URxvt.perl-ext-commin: default,matcher
+URxvt.perl-ext-common: default,matcher,font-size
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
 
@@ -19,6 +21,10 @@ URxvt.keysym.Control-Up:     \033[1;5A
 URxvt.keysym.Control-Down:   \033[1;5B
 URxvt.keysym.Control-Left:   \033[1;5D
 URxvt.keysym.Control-Right:  \033[1;5C
+
+! disable Ctrl+Shift default bindings
+URxvt.iso14755: false
+URxvt.iso14755_52: false
 
 !! Colors
 #include "/home/tommiekub/.config/colors/gotham" 

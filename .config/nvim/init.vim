@@ -5,20 +5,26 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'chrisbra/NrrwRgn'
 Plug 'leshill/vim-json'
 
-"colorscheme
-"Plug 'sheerun/vim-polyglot'
-"Plug 'trevordmiller/nova-vim'
-
-"Plug 'joshdick/onedark.vim'
-"colorscheme onedark
+Plug 'altercation/vim-colors-solarized'
 call plug#end()
 filetype plugin on
 
+let g:solarized_termcolors=256
+let g:solarized_bold = 1
+let g:solarized_underline = 1
+let g:solarized_italic = 1
 
-"colorscheme nova
+set background=dark
+"set notermguicolors
+colorscheme solarized
+"colorscheme material-monokai
+let g:materialmonokai_italic=1
+let g:materialmonokai_subtle_spell=1
+let g:materialmonokai_custom_lint_indicators=0
+let g:airline_theme='materialmonokai'
+let g:materialmonokai_subtle_airline=1
 
-" vim-airline
-let g:airline_powerline_fonts = 1
+"colorscheme onedark
 
 set nocompatible
 "filetyle plugin on
