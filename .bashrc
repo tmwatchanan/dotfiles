@@ -7,6 +7,10 @@ export DISPLAY=:0
 #alias cdc="cd $WIN_DESKTOP/coding"
 alias cdc="cd $HOME/coding"
 
+# Productivity
+shopt -s autocd # (like in zsh) allows you to cd into directory merely by typing the directory name
+HISTSIZE=HISTFILESIZE= # left it as empty for unlimited infinite history
+
 # Aliases
 alias sudo='sudo '
 alias vim=nvim
@@ -17,10 +21,15 @@ alias cfb=" nvim ~/.bashrc"
 alias cfi3=" nvim ~/.config/i3/config"
 alias cfp=" nvim ~/.config/polybar/config"
 alias cfr=" nvim ~/.config/ranger/rc.conf"
+alias cfc="nvim ~/.config/compton.conf"
 alias cvenv="python3 -m venv venv"
 alias avenv="source venv/bin/activate"
 alias dvenv=deactivate
 alias pac="sudo pacman"
+alias ccat="highlight --out-format=ansi" # color + cat = print file with syntax highlighting
+
+# download PDF from sci-hub
+shdl() { curl -O $(curl -s http://sci-hub.tw/"$@" | grep location.href | grep -o http.*pdf) ;}
 
 # ranger (file manager)
 export EDITOR=nvim
@@ -41,10 +50,6 @@ HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
 shopt -s histappend
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
