@@ -16,7 +16,7 @@ set $sup Mod4
 #
 # gaps
 gaps outer 15
-gaps inner 5
+gaps inner 8
 workspace 2 gaps outer 0
 workspace 2 gaps inner 0
 exec --no-startup-id i3-msg 'workspace 2; exec /usr/bin/firefox'
@@ -45,7 +45,7 @@ exec_always --no-startup-id "xrandr --output HDMI1 --mode 1280x1024 --right-of e
 exec_always --no-startup-id "feh --randomize --bg-fill $HOME/.wallpaper/*"
 
 # compton from transparency
-exec_always --no_startup-id "pkill compton && compton -b"
+exec_always --no-startup-id "pkill compton && compton --config $HOME/.config/compton.conf -b"
 #exec --no-startup-id compton -b -c -f
 
 # launch polybar
