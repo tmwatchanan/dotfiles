@@ -9,6 +9,7 @@ Plug 'altercation/vim-colors-solarized'
 call plug#end()
 filetype plugin on
 
+hi Normal ctermfg=NONE
 let g:solarized_termcolors=256
 let g:solarized_bold = 1
 let g:solarized_underline = 1
@@ -23,8 +24,6 @@ let g:materialmonokai_subtle_spell=1
 let g:materialmonokai_custom_lint_indicators=0
 let g:airline_theme='materialmonokai'
 let g:materialmonokai_subtle_airline=1
-
-"colorscheme onedark
 
 set nocompatible
 "filetyle plugin on

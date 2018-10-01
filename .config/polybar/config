@@ -82,8 +82,8 @@ font-5 = "Font Awesome 5 Brands:pixelsize=12;1"
 
 modules-left = bspwm i3 xwindow
 modules-center =  uptime
-;mpd
-modules-right = info-pingrtt filesystem xbacklight alsa pulseaudio xkeyboard wired-network wireless-network memory cpu battery temperature date powermenu
+;mpd alsa
+modules-right = info-pingrtt filesystem xbacklight pulseaudio xkeyboard wired-network wireless-network memory cpu battery temperature date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -347,7 +347,7 @@ label-volume-foreground = ${root.foreground}
 
 format-muted-prefix = " "
 format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
+label-muted = muted
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55

@@ -1,7 +1,8 @@
-URxvt.font: xft:Hack-Bold:size=12
-!URxvt*depth: 32
-!URxvt.transparent: true
-!URxvt.shading: 20
+URxvt.font: xft:Hack-Regular:size=12
+URxvt*depth: 32
+URxvt.transparent: true
+URxvt.shading: 20
+urxvt*tintColor: #000000
 
 URxvt*termName: rxvt-unicode-256color
 
@@ -29,28 +30,70 @@ URxvt.iso14755_52: false
 !! Colors
 #include "/home/tommiekub/.config/colors/gotham" 
 
+! Solarized (http://github.com/altercation/solarized)
+URxvt.intensityStyles: false!
+URxvt*background: #002b36
+URxvt*foreground: #657b83
+!!*fading: 40
+URxvt*fadeColor: #002b36
+URxvt*cursorColor: #93a1a1
+URxvt*pointerColorBackground: #586e75
+*pointerColorForeground: #93a1a1
+
+!! black dark/light
+URxvt*color0: #073642
+URxvt*color8: #002b36
+
+!! red dark/light
+URxvt*color1: #dc322f
+URxvt*color9: #cb4b16
+
+!! green dark/light
+URxvt*color2: #859900
+URxvt*color10: #586e75
+
+!! yellow dark/light
+URxvt*color3: #b58900
+URxvt*color11: #657b83
+
+!! blue dark/light
+URxvt*color4: #268bd2
+URxvt*color12: #839496
+
+!! magenta dark/light
+URxvt*color5: #d33682
+URxvt*color13: #6c71c4
+
+!! cyan dark/light
+URxvt*color6: #2aa198
+URxvt*color14: #93a1a1
+
+!! white dark/light
+URxvt*color7: #eee8d5
+URxvt*color15: #fdf6e3!
+
 ! Snazzy - Converted from https://github.com/sindresorhus/iterm2-snazzy
 !          using https://github.com/richo/itermcolors2xdefaults
 !URxvt*background:   [90]#1e1f28
-URxvt*background:   [100]#000000
-URxvt*foreground:   #ebece6
-URxvt*cursorColor:   #e4e4e4
-URxvt*color0:   #000
-URxvt*color1:   #fb4245
-URxvt*color2:   #50fa7b
-URxvt*color3:   #f0fa8b
-URxvt*color4:   #49b9fe
-URxvt*color5:   #fb4cb3
-URxvt*color6:   #8be9fd
-URxvt*color7:   #ededec
-URxvt*color8:   #555555
-URxvt*color9:   #fb4245
-URxvt*color10:   #50fa7b
-URxvt*color11:   #f0fa8b
-URxvt*color12:   #49b9fe
-URxvt*color13:   #fb4cb3
-URxvt*color14:   #8be9fd
-URxvt*color15:   #ededec
+!URxvt*background:   [100]#000000
+!URxvt*foreground:   #ebece6
+!URxvt*cursorColor:   #e4e4e4
+!URxvt*color0:   #000
+!URxvt*color1:   #fb4245
+!URxvt*color2:   #50fa7b
+!URxvt*color3:   #f0fa8b
+!URxvt*color4:   #49b9fe
+!URxvt*color5:   #fb4cb3
+!URxvt*color6:   #8be9fd
+!URxvt*color7:   #ededec
+!URxvt*color8:   #555555
+!URxvt*color9:   #fb4245
+!URxvt*color10:   #50fa7b
+!URxvt*color11:   #f0fa8b
+!URxvt*color12:   #49b9fe
+!URxvt*color13:   #fb4cb3
+!URxvt*color14:   #8be9fd
+!URxvt*color15:   #ededec
 
 
 ! OneDark
