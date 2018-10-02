@@ -26,7 +26,7 @@ alias cvenv="python3 -m venv venv"
 alias avenv="source venv/bin/activate"
 alias dvenv=deactivate
 alias pac="sudo pacman"
-alias ccat="highlight --out-format=ansi" # color + cat = print file with syntax highlighting
+alias st="speedtest-cli"
 
 # download PDF from sci-hub
 shdl() { curl -O $(curl -s http://sci-hub.tw/"$@" | grep location.href | grep -o http.*pdf) ;}
