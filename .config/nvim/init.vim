@@ -4,10 +4,43 @@ Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdcommenter'
 Plug 'chrisbra/NrrwRgn'
 Plug 'leshill/vim-json'
+Plug 'kien/ctrlp.vim'
+Plug 'easymotion/vim-easymotion'
 
-Plug 'altercation/vim-colors-solarized'
+" Plug 'altercation/vim-colors-solarized'
+Plug 'sheerun/vim-polyglot'
+Plug 'joshdick/onedark.vim'
 call plug#end()
 filetype plugin on
+
+set background=dark
+colorscheme onedark
+let g:onedark_terminal_bold = 1
+let g:onedark_terminal_italics = 1
+let g:onedark_terminal_underline = 1
+let g:airline_theme='onedark' 
+"set notermguicolors
+
+" set <leader> key
+let mapleader = "\<Space>"
+
+" vim-easymotion : key binding
+map <Leader> <Plug>(easymotion-prefix)
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+" hjkl motion
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
+" Without these mappings, `n` & `N` works fine. (These mappings just provide
+" different highlight method and have some other features )
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
 
 hi Normal ctermfg=NONE
 let g:solarized_termcolors=256
@@ -15,21 +48,16 @@ let g:solarized_bold = 1
 let g:solarized_underline = 1
 let g:solarized_italic = 1
 
-set background=dark
-"set notermguicolors
-colorscheme solarized
+" colorscheme solarized
 "colorscheme material-monokai
-let g:materialmonokai_italic=1
-let g:materialmonokai_subtle_spell=1
-let g:materialmonokai_custom_lint_indicators=0
-let g:airline_theme='materialmonokai'
-let g:materialmonokai_subtle_airline=1
+"let g:materialmonokai_italic=1
+"let g:materialmonokai_subtle_spell=1
+"let g:materialmonokai_custom_lint_indicators=0
+"let g:airline_theme='materialmonokai'
+"let g:materialmonokai_subtle_airline=1
 
 set nocompatible
 "filetyle plugin on
-
-" set <leader> key
-let mapleader = "\<Space>"
 
 " enable syntax highlighting
 syntax on
@@ -113,4 +141,8 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
+
+" NERDCommenter
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
 

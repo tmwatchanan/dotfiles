@@ -1,5 +1,7 @@
 URxvt.font: xft:Hack-Regular:size=12
 
+*.internalBorder: 0
+
 ! real transparency (composite)
 URxvt*depth: 32
 urxvt*tintColor: #000000
@@ -31,49 +33,93 @@ URxvt.iso14755: false
 URxvt.iso14755_52: false
 
 !! Colors
-#include "/home/tommiekub/.config/colors/gotham" 
+!#include "/home/tommiekub/.config/colors/gotham" 
+
+
+! Flatland color scheme
+*.foreground:  #b8dbef
+*.background:  #1d1f21
+*.cursorColor: #708284
+!
+! Black
+*.color0:      #1d1d19
+*.color8:      #1d1d19
+!
+! Red
+*.color1:      #f18339
+*.color9:      #d22a24
+!
+! Green
+*.color2:      #9fd364
+*.color10:     #a7d42c
+!
+! Yellow
+*.color3:      #f4ef6d
+*.color11:     #ff8949
+!
+! Blue
+*.color4:      #5096be
+*.color12:     #61b9d0
+!
+! Magenta
+*.color5:      #695abc
+*.color13:     #695abc
+!
+! Cyan
+*.color6:      #d63865
+*.color14:     #d63865
+!
+! White
+*.color7:      #ffffff
+*.color15:     #ffffff
+!
+! Bold, Italic, Underline
+*.colorBD:     #ffffff
+!*.colorIT:
+!*.colorUL:
+
 
 ! Solarized (http://github.com/altercation/solarized)
-URxvt.intensityStyles: false!
-URxvt*background: [90]#002b36
-URxvt*foreground: #657b83
-!!*fading: 40
-URxvt*fadeColor: #002b36
-URxvt*cursorColor: #93a1a1
-URxvt*pointerColorBackground: #586e75
-*pointerColorForeground: #93a1a1
+! URxvt.intensityStyles: false!
+! URxvt*background: [90]#002b36
+! URxvt*foreground: #657b83
+! !!*fading: 40
+! URxvt*fadeColor: #002b36
+! URxvt*cursorColor: #93a1a1
+! URxvt*pointerColorBackground: #586e75
+! *pointerColorForeground: #93a1a1
 
-!! black dark/light
-URxvt*color0: #073642
-URxvt*color8: #002b36
+! !! black dark/light
+! URxvt*color0: #073642
+! URxvt*color8: #002b36
 
-!! red dark/light
-URxvt*color1: #dc322f
-URxvt*color9: #cb4b16
+! !! red dark/light
+! URxvt*color1: #dc322f
+! URxvt*color9: #cb4b16
 
-!! green dark/light
-URxvt*color2: #859900
-URxvt*color10: #586e75
+! !! green dark/light
+! URxvt*color2: #859900
+! URxvt*color10: #586e75
 
-!! yellow dark/light
-URxvt*color3: #b58900
-URxvt*color11: #657b83
+! !! yellow dark/light
+! URxvt*color3: #b58900
+! URxvt*color11: #657b83
 
-!! blue dark/light
-URxvt*color4: #268bd2
-URxvt*color12: #839496
+! !! blue dark/light
+! URxvt*color4: #268bd2
+! URxvt*color12: #839496
 
-!! magenta dark/light
-URxvt*color5: #d33682
-URxvt*color13: #6c71c4
+! !! magenta dark/light
+! URxvt*color5: #d33682
+! URxvt*color13: #6c71c4
 
-!! cyan dark/light
-URxvt*color6: #2aa198
-URxvt*color14: #93a1a1
+! !! cyan dark/light
+! URxvt*color6: #2aa198
+! URxvt*color14: #93a1a1
 
-!! white dark/light
-URxvt*color7: #eee8d5
-URxvt*color15: #fdf6e3!
+! !! white dark/light
+! URxvt*color7: #eee8d5
+! URxvt*color15: #fdf6e3!
 
 ! Snazzy - Converted from https://github.com/sindresorhus/iterm2-snazzy
 !          using https://github.com/richo/itermcolors2xdefaults
