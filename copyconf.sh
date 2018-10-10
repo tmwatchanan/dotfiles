@@ -14,6 +14,7 @@ cp $HOME/.config/ranger/commands.py $HOME/dotfiles/.config/ranger/
 cp $HOME/.config/ranger/rc.conf $HOME/dotfiles/.config/ranger/
 cp $HOME/.config/ranger/rifle.conf $HOME/dotfiles/.config/ranger/
 cp $HOME/.config/ranger/scope.sh $HOME/dotfiles/.config/ranger/
+cp $HOME/.config/dunst/* $HOME/dotfiles/.config/dunst/
 
 cp -r $HOME/.config/colors/* $HOME/dotfiles/.config/colors/
 rm -rf $HOME/dotfiles/.wallpaper && cp -r $HOME/.wallpaper $HOME/dotfiles/

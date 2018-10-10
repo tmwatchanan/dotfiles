@@ -81,9 +81,9 @@ font-5 = "Font Awesome 5 Brands:pixelsize=12;1"
 
 
 modules-left = bspwm i3 xwindow
-modules-center =  uptime
-;mpd alsa
-modules-right = info-pingrtt filesystem xbacklight pulseaudio xkeyboard wired-network wireless-network memory cpu battery temperature date powermenu
+modules-center = 
+;mpd alsa temperature uptime
+modules-right = info-pingrtt filesystem xbacklight pulseaudio xkeyboard wired-network wireless-network memory cpu battery date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -106,7 +106,7 @@ cursor-scroll = ns-resize
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:50:...%
+label = %title:0:35:...%
 
 [module/xkeyboard]
 type = internal/xkeyboard

@@ -44,8 +44,14 @@ exec_always --no-startup-id "xrandr --output HDMI1 --mode 1280x1024 --right-of e
 # wallpapers
 exec_always --no-startup-id "feh --randomize --bg-fill $HOME/.wallpaper/*"
 
+# notification
+exec killall -q dunst
+exec --no-startup-id dunst -config $HOME/.config/dunst/dunstrc
+bindsym $sup+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
+
 # compton from transparency
-exec_always --no-startup-id "pkill compton && compton --config $HOME/.config/compton.conf -b"
+exec --no-startup-id compton
+# exec_always --no-startup-id "pkill compton && compton --config $HOME/.config/compton.conf -b"
 #exec --no-startup-id compton -b -c -f
 
 # launch polybar
@@ -170,18 +176,18 @@ bindsym $sup+Shift+Up move up
 bindsym $sup+Shift+Right move right
 
 # split in horizontal orientation
-#bindsym $sup+h split h
+#bindsym $sup+h split h;exec notify-send --expire-time=500 'Split [h]Horizontal'
 
 # split in vertical orientation
-bindsym $sup+v split toggle
+bindsym $sup+v split toggle;exec notify-send --expire-time=500 'Split Orientation Toggle'
 
 # enter fullscreen mode for the focused container
 bindsym $sup+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $sup+s layout stacking
-bindsym $sup+w layout tabbed
-bindsym $sup+e layout toggle split
+bindsym $sup+s layout stacking;exec notify-send --expire-time=500 'Layout Stacking'
+bindsym $sup+w layout tabbed;exec notify-send --expire-time=500 'Layout Tabbed'
+bindsym $sup+e layout toggle split;exec notify-send --expire-time=500 'Layout Split'
 
 # toggle tiling / floating
 bindsym $sup+Shift+space floating toggle
