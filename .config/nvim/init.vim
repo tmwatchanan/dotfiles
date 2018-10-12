@@ -36,7 +36,10 @@ set showmatch " show the matching part of the pair for [] {} and ()
 
 " geek ======================================================
 " find the next placeholder 
-nnoremap <leader><leader> <Esc>/<++><CR>"_c4l
+nnoremap <leader><Tab> <Esc>/<++><CR>"_c4l
+inoremap <leader><Tab> <Esc>/<++><Enter>"_c4l
+vnoremap <leader><Tab> <Esc>/<++><Enter>"_c4l
+map <leader><Tab> <Esc>/<++><Enter>"_c4l
 " switch back from insert mode to normal mode quickly
 inoremap jk <Esc>
 " geek ======================================================
@@ -124,4 +127,19 @@ let python_highlight_all = 1
 
 " HTML
 autocmd FileType html inoremap ;i <em></em><leader><Esc>Fet>i
+
+" Markdown language
+autocmd Filetype markdown map <leader>w yiWi[<esc>Ea](<esc>pa)
+autocmd Filetype markdown inoremap ,n ---<Enter><Enter>
+autocmd Filetype markdown inoremap ,b ****<++><Esc>F*hi
+autocmd Filetype markdown inoremap ,s ~~~~<++><Esc>F~hi
+autocmd Filetype markdown inoremap ,e **<++><Esc>F*i
+autocmd Filetype markdown inoremap ,h ====<Space><++><Esc>F=hi
+autocmd Filetype markdown inoremap ,i ![](<++>)<++><Esc>F[a
+autocmd Filetype markdown inoremap ,a [](<++>)<++><Esc>F[a
+autocmd Filetype markdown inoremap ,1 #<Space><Enter><++><Esc>kA
+autocmd Filetype markdown inoremap ,2 ##<Space><Enter><++><Esc>kA
+autocmd Filetype markdown inoremap ,3 ###<Space><Enter><++><Esc>kA
+autocmd Filetype markdown inoremap ,l --------<Enter>
+
 " developement ==============================================
