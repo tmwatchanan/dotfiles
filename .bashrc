@@ -3,9 +3,9 @@ export DISPLAY=:0
 
 # Windows
 #export WIN_DESKTOP="/mnt/c/Users/Watchanan/Desktop"
-#alias cdd="cd $WIN_DESKTOP"
-#alias cdc="cd $WIN_DESKTOP/coding"
-alias cdc="cd $HOME/coding"
+#alias cddt="cd $WIN_DESKTOP"
+#alias cdd="cd $WIN_DESKTOP/dev"
+alias cdd="cd $HOME/dev"
 
 # Productivity
 shopt -s autocd # (like in zsh) allows you to cd into directory merely by typing the directory name
@@ -27,6 +27,7 @@ alias avenv="source venv/bin/activate"
 alias dvenv=deactivate
 alias pac="sudo pacman"
 alias st="speedtest-cli"
+alias rg="ranger --cmd='cd pwd'"
 
 # download PDF from sci-hub
 shdl() { curl -O $(curl -s http://sci-hub.tw/"$@" | grep location.href | grep -o http.*pdf) ;}
