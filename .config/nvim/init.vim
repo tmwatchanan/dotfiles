@@ -6,8 +6,14 @@ Plug 'chrisbra/NrrwRgn'
 Plug 'leshill/vim-json'
 Plug 'kien/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tpope/vim-surround'
+Plug 'airblade/vim-gitgutter'
+Plug 'godlygeek/tabular'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-syntastic/syntastic'
 
-" Plug 'altercation/vim-colors-solarized'
 Plug 'sheerun/vim-polyglot'
 Plug 'joshdick/onedark.vim'
 call plug#end()
@@ -54,6 +60,27 @@ let g:onedark_terminal_underline = 1
 let g:airline_theme='onedark' 
 "set notermguicolors
 " theme =====================================================
+
+" tabularize
+if exists(":Tabularize")
+  nmap ,a= :Tabularize /=<CR>
+  vmap ,a= :Tabularize /=<CR>
+  nmap ,a: :Tabularize /:\zs<CR>
+  vmap ,a: :Tabularize /:\zs<CR>
+endif
+
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+function! s:align()
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
+endfunction
+" tabularize
 
 " vim-easymotion ============================================
 map <Leader> <Plug>(easymotion-prefix)
@@ -122,8 +149,20 @@ map <C-l> <C-w>l
 " miscellaneous =============================================
 
 " developement ==============================================
+" NERDtree
+map <C-n> :NERDTreeToggle<CR>"
+
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " HTML
 autocmd FileType html inoremap ;i <em></em><leader><Esc>Fet>i
