@@ -17,12 +17,16 @@ set $sup Mod4
 # gaps
 gaps outer 15
 gaps inner 8
-workspace 2 gaps outer 0
-workspace 2 gaps inner 0
-exec --no-startup-id i3-msg 'workspace 2; exec /usr/bin/firefox'
+workspace 1 gaps outer 0
+workspace 1 gaps inner 0
+exec --no-startup-id i3-msg 'workspace 1; exec /usr/bin/firefox'
 
 # special keys binding (e.g., volume)
 exec --no-startup-id "xbindkeys -p"
+# Media volume controls
+bindsym XF86AudioMute exec amixer sset 'Master' toggle
+bindsym XF86AudioLowerVolume exec amixer sset 'Master' 5%-
+bindsym XF86AudioRaiseVolume exec amixer sset 'Master' 5%+
 # keyboard layout
 exec_always --no-startup-id "setxkbmap -option grp:alt_shift_toggle \\"us,th\\""
 
