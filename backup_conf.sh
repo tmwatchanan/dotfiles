@@ -6,6 +6,7 @@ cp $HOME/.bashrc $HOME/dotfiles/
 cp $HOME/.xinitrc $HOME/dotfiles/
 cp $HOME/.xbindkeysrc $HOME/dotfiles/
 cp $HOME/.profile $HOME/dotfiles/
+cp $HOME/.tmux.conf $HOME/dotfiles/
 
 cp $HOME/.config/compton.conf $HOME/dotfiles/.config/
 cp $HOME/.config/i3/config $HOME/dotfiles/.config/i3/
