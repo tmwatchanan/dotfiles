@@ -9,5 +9,8 @@
 # pyenv
 eval "$(pyenv init -)"
 # pyenv-virtualenvwrapper
-#export WORKON_HOME=$HOME/.virtualenvs
-
+eval "$(pyenv virtualenv-init -)"
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+export WORKON_HOME=$HOME/.virtualenvs
+# pyenv virtualenvwrapper_lazy
+export PATH='/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin':"$PATH"
