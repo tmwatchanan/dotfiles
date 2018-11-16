@@ -32,7 +32,7 @@ set encoding=utf-8
 set noswapfile " disable swap file .swp
 syntax on
 set autoindent
-set ts=4 " 1 tab = 4 spaces
+set ts=4 " 1 tab = 4 spaces (ts is tabstop)
 set shiftwidth=4 " >> or << commands, shift lines by 4 spaces
 set expandtab " expand tabs into spaces
 set showmatch " show the matching part of the pair for [] {} and ()
@@ -134,6 +134,10 @@ let g:airline_symbols.linenr = ''
 let g:NERDSpaceDelims = 1
 " NERDCommenter =============================================
 
+" ctrlp =====================================================
+let g:ctrlp_match_window = 'results:100' " overcome limit imposed by max height
+" ctrlp =====================================================
+
 " miscellaneous =============================================
 set colorcolumn=80
 
@@ -150,7 +154,9 @@ map <C-l> <C-w>l
 
 " developement ==============================================
 " NERDtree
-map <C-n> :NERDTreeToggle<CR>"
+" map <C-n> :NERDTreeToggle<CR>"
+map <C-n> :NERDTreeFind<CR>
+
 
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
