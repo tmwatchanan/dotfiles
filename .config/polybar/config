@@ -17,34 +17,14 @@
 ;==========================================================
 
 [colors]
-;background = ${xrdb:color0:#222}
 background = #222
 background-alt = #444
-;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
 foreground-alt = #555
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
-; Base colors from .Xresources
-bg          =  ${xrdb:background}
-bg-alt      =  #c5c5c5
-fg          =  ${xrdb:foreground}
-fg-alt      =  ${xrdb:color8}
-red         =  ${xrdb:color1}
-red-alt     =  ${xrdb:color9}
-green       =  ${xrdb:color2}
-green-alt   =  ${xrdb:color10}
-yellow      =  ${xrdb:color3}
-yellow-alt  =  ${xrdb:color11}
-blue        =  ${xrdb:color4}
-blue-alt    =  ${xrdb:color12}
-magenta     =  ${xrdb:color5}
-magenta-alt =  ${xrdb:color13}
-cyan        =  ${xrdb:color6}
-cyan-alt    =  ${xrdb:color14}
-white       =  ${xrdb:color7}
-white-alt = ${xrdb:color15}
+bg-alt = #c5c5c5
 
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -166,8 +146,8 @@ index-sort = true
 wrapping-scroll = false
 
 ; icon
-ws-icon-0 = 1;
-ws-icon-1 = 2;
+ws-icon-0 = 1;
+ws-icon-1 = 2;
 ws-icon-default = 
 
 ; Only show workspaces on the same output as the bar
@@ -369,12 +349,12 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 [module/battery]
 type = internal/battery
 battery = BAT0
-adapter = ADP1
+adapter = AC
 full-at = 98
 
 ;format-charging = Charging... <label-charging>
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = ${xrdb:color3}
+format-charging-underline = ${colors.bg-alt}
 
 ;format-discharging = <label-discharging>
 format-discharging = <ramp-capacity> <label-discharging>
