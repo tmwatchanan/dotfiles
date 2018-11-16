@@ -12,6 +12,8 @@ shopt -s autocd # (like in zsh) allows you to cd into directory merely by typing
 HISTSIZE=HISTFILESIZE= # left it as empty for unlimited infinite history
 
 # Aliases
+alias ..='cd ..'
+alias ...='cd ../..'
 alias sudo='sudo '
 alias vim=nvim
 alias v=nvim
@@ -22,12 +24,15 @@ alias cfi3=" nvim ~/.config/i3/config"
 alias cfp=" nvim ~/.config/polybar/config"
 alias cfr=" nvim ~/.config/ranger/rc.conf"
 alias cfc="nvim ~/.config/compton.conf"
+alias cftm="nvim ~/.tmux.conf"
 alias cvenv="python3 -m venv venv"
 alias avenv="source venv/bin/activate"
 alias dvenv=deactivate
 alias pac="sudo pacman"
 alias st="speedtest-cli"
 alias rg="ranger --cmd='cd pwd'"
+alias rgg="urxvt -e ranger --cmd='cd pwd' &"
+alias cat="bat"
 
 # download PDF from sci-hub
 shdl() { curl -O $(curl -s http://sci-hub.tw/"$@" | grep location.href | grep -o http.*pdf) ;}
