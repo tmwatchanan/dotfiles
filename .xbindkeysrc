@@ -69,17 +69,17 @@
 ## Watchanan Chantapakul's =========================================
 # Increase volume
 #"pactl set-sink-volume @DEFAULT_SINK@ +1000"
-"amixer set Master 5%+ unmute"
+"amixer -q -D pulse set Master 5%+ unmute"
    XF86AudioRaiseVolume
 
 # Decrease volume
 #"pactl set-sink-volume @DEFAULT_SINK@ -1000"
-"amixer set Master 5%- unmute"
+"amixer -q -D pulse set Master 5%- unmute"
    XF86AudioLowerVolume
 
 # Mute volume
 #"pactl set-sink-mute @DEFAULT_SINK@ toggle"
-"amixer set Master toggle"
+"amixer -q -d pulse set Master toggle"
    XF86AudioMute
 
 "playerctl play-pause"
