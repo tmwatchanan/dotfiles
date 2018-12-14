@@ -13,7 +13,6 @@ sudo apt install -y neovim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 sudo apt install -y build-essential
-sudo apt install -y git
 git config --global user.email "tmwatchanan@gmail.com"
 git config --global user.name "tmwatchanan"
 git config credential.helper store
@@ -24,10 +23,15 @@ sudo apt update
 sudo apt install -y feh
 sudo apt install -y compton
 sudo apt install -y rofi
-sudo apt install -y nvidia-settings
 sudo apt install -y x11-xserver-utils
+# playing audio
+sudo apt install -y pulseaudio
+sudo apt install -y pavucontrol
+# playing videos
+sudo apt install -y libavcodec-extra 
 
 # nvidia driver
+sudo apt install -y nvidia-settings
 sudo apt install -y ubuntu-drivers-common
 sudo ubuntu-drivers autoinstall
 
