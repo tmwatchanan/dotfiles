@@ -21,6 +21,7 @@ sudo apt install -y ranger
 sudo apt install -y firefox
 sudo apt-add-repository ppa:richardgv/compton
 sudo apt update
+sudo apt install -y feh
 sudo apt install -y compton
 sudo apt install -y rofi
 sudo apt install -y nvidia-settings
