@@ -60,13 +60,16 @@ cd build
 ../configure --prefix=/usr --sysconfdir=/etc
 make
 sudo make install
-rm -rf i3-gaps
+cd /tmp && rm -rf i3-gaps
 
 # install polybar
 # ref: https://medium.com/@tatianaensslin/install-polybar-in-3-steps-on-debian-stretch-c64ab6157fb1
 sudo apt-get install cmake cmake-data libcairo2-dev libxcb1-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen xcb-proto libxcb-xrm-dev i3-wm libasound2-dev libmpdclient-dev libiw-dev libcurl4-openssl-dev libpulse-dev
-cd /tmp && git clone https://github.com/jaagr/polybar.git
-cd polybar && ./build.sh
-
+cd /tmp && git clone --branch 3.2 --recursive https://github.com/jaagr/polybarcd polybar && ./build.sh
+mkdir polybar/build
+cd polybar/build
+cmake ..
+sudo make install
+cd /tmp && rm -rf polybar
 # set default editor for sudoedit
 sudo update-alternatives --config editor
