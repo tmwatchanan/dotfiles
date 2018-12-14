@@ -12,6 +12,7 @@ sudo apt install -y build-essential
 sudo apt install -y git
 git config --global user.email "tmwatchanan@gmail.com"
 git config --global user.name "tmwatchanan"
+git config credential.helper store
 sudo apt install -y ranger
 sudo apt install -y firefox
 sudo apt-add-repository ppa:richardgv/compton
