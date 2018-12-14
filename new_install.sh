@@ -16,7 +16,18 @@ sudo apt install -y build-essential
 git config --global user.email "tmwatchanan@gmail.com"
 git config --global user.name "tmwatchanan"
 git config credential.helper store
+# restore dotfiles
+cd ~
+git clone https://github.com/tmwatchanan/dotfiles
+cd dotfiles
+./restore_conf.sh
+fc-cache -f -v
+# install tmux and tpm (tmux plugin manager)
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+tmux source ~/.tmux.conf # reload tmux environment
+# install misc
 sudo apt install -y ranger
+sudo apt install -y poppler-utils # pdftoppm
 sudo apt install -y firefox
 sudo apt-add-repository ppa:richardgv/compton
 sudo apt update
@@ -29,18 +40,11 @@ sudo apt install -y pulseaudio
 sudo apt install -y pavucontrol
 # playing videos
 sudo apt install -y libavcodec-extra 
-
 # nvidia driver
 sudo apt install -y nvidia-settings
 sudo apt install -y ubuntu-drivers-common
 sudo ubuntu-drivers autoinstall
 
-# restore dotfiles
-cd ~
-git clone https://github.com/tmwatchanan/dotfiles
-cd dotfiles
-./restore_conf.sh
-fc-cache -f -v
 
 # i3-gaps
 # ref: https://github.com/Airblader/i3/wiki/Compiling-&-Installing
