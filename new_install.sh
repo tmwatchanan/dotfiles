@@ -23,6 +23,7 @@ sudo apt update
 sudo apt install -y compton
 sudo apt install -y rofi
 sudo apt install -y nvidia-settings
+sudo apt install -y x11-xserver-utils
 
 # restore dotfiles
 cd ~
@@ -73,5 +74,7 @@ cd polybar/build
 cmake ..
 sudo make install
 cd /tmp && rm -rf polybar
+# set environment variable for polybar
+export MONITOR=eDP1
 # set default editor for sudoedit
 sudo update-alternatives --config editor
