@@ -33,6 +33,7 @@ alias st="speedtest-cli"
 alias rg="ranger --cmd='cd pwd'"
 alias rgg="urxvt -e ranger --cmd='cd pwd' &"
 alias cat="bat"
+alias rmp="shred -zvu -n 5"
 
 # download PDF from sci-hub
 shdl() { curl -O $(curl -s http://sci-hub.tw/"$@" | grep location.href | grep -o http.*pdf) ;}
