@@ -29,6 +29,7 @@ tmux source ~/.tmux.conf # reload tmux environment
 sudo apt install -y ranger
 sudo apt install -y poppler-utils # pdftoppm
 sudo apt install -y mupdf
+sudo apt install -y imagemagick
 sudo apt install -y firefox
 sudo apt-add-repository ppa:richardgv/compton
 sudo apt update
