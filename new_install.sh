@@ -10,7 +10,8 @@ sudo wget ftp://ftp.psu.ac.th/pub/thaifonts/sipa-fonts/*ttf -P /usr/share/fonts/
 
 sudo apt install -y build-essential
 sudo apt install -y git
-sudo apt install -y git
+git config --global user.email "tmwatchanan@gmail.com"
+git config --global user.name "tmwatchanan"
 sudo apt install -y ranger
 sudo apt install -y firefox
 sudo apt-add-repository ppa:richardgv/compton
