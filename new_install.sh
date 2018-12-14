@@ -26,6 +26,10 @@ sudo apt install -y rofi
 sudo apt install -y nvidia-settings
 sudo apt install -y x11-xserver-utils
 
+# nvidia driver
+sudo apt install -y ubuntu-drivers-common
+sudo ubuntu-drivers autoinstall
+
 # restore dotfiles
 cd ~
 git clone https://github.com/tmwatchanan/dotfiles
