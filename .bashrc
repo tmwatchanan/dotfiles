@@ -157,3 +157,5 @@ fi
 
 # added by Miniconda3 installer
 export PATH="/home/tommie/miniconda3/bin:$PATH"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

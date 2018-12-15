@@ -27,6 +27,10 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux source ~/.tmux.conf # reload tmux environment
 # install misc
 sudo apt install -y ranger
+# install fuzzy finder
+sudo apt install -y findutils mlocate
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
 sudo apt install -y poppler-utils # pdftoppm
 sudo apt install -y mupdf
 sudo apt install -y imagemagick
