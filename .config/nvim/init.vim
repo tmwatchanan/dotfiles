@@ -155,7 +155,9 @@ map <C-l> <C-w>l
 " developement ==============================================
 " NERDtree
 " map <C-n> :NERDTreeToggle<CR>"
-map <C-n> :NERDTreeFind<CR>
+" map <C-n> :NERDTreeFind<CR>
+map <C-n> :NERDTreeToggle %<CR>
+let g:NERDTreeWinSize = 25
 
 " Tab navigation like Firefox.
 nnoremap <A-S-tab> :tabprevious<CR>
