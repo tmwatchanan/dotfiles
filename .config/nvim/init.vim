@@ -157,6 +157,27 @@ map <C-l> <C-w>l
 " map <C-n> :NERDTreeToggle<CR>"
 map <C-n> :NERDTreeFind<CR>
 
+" Tab navigation like Firefox.
+nnoremap <A-S-tab> :tabprevious<CR>
+nnoremap <A-tab>   :tabnext<CR>
+nnoremap <A-t>     :tabnew<CR>
+nnoremap <A-w>     :tabclose<CR>
+inoremap <A-S-tab> <Esc>:tabprevious<CR>i
+inoremap <A-tab>   <Esc>:tabnext<CR>i
+inoremap <A-t>     <Esc>:tabnew<CR>
+inoremap <A-w>     <Esc>:tabclose<CR>
+nnoremap <A-1> 1gt
+nnoremap <A-2> 2gt
+nnoremap <A-3> 3gt
+nnoremap <A-4> 4gt
+nnoremap <A-5> 5gt
+nnoremap <A-6> 6gt
+nnoremap <A-7> 7gt
+nnoremap <A-8> 8gt
+nnoremap <A-9> 9gt
+nnoremap <A-0> 10gt
+" nnoremap H gT
+" nnoremap L gt
 
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
