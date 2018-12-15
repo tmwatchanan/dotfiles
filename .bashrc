@@ -37,12 +37,31 @@ alias cat="bat"
 alias rmp="shred -zvu -n 5"
 alias j="jobs -l"
 
+# git alias
+alias g?="git status"
+alias ga="git add"
+alias gc="git commit -m"
+alias gd="git diff"
+alias gp="git pull"
+alias gs="git stash"
+alias gsa="git stash apply"
+
+# useful functions
 
 # download PDF from sci-hub
 shdl() { curl -O $(curl -s http://sci-hub.tw/"$@" | grep location.href | grep -o http.*pdf) ;}
+# make a folder and cd at the same time
+mkcd() { mkdir -p $1; cd $1; }
+# compress/extract .tar.gz 
+targz() { tar -zcvf $1.tar.gz $1; rm -r $1; }
+untargz() { tar -zxvf $1; rm -r $1; }
+
 
 # ranger (file manager)
 export EDITOR=nvim
+
+# make all scripts in ~/bin global
+export PATH=$HOME/bin:$PATH
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
