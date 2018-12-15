@@ -45,6 +45,8 @@ alias gd="git diff"
 alias gp="git pull"
 alias gs="git stash"
 alias gsa="git stash apply"
+alias gl="git log"
+alias glg="git log --graph --oneline --decorate --all"
 
 # useful functions
 
