@@ -51,6 +51,8 @@ sudo apt install -y libavcodec-extra
 sudo apt install -y nvidia-settings
 sudo apt install -y ubuntu-drivers-common
 sudo ubuntu-drivers autoinstall
+# utilities
+sudo apt install -y detox # clean up filenames
 
 
 # i3-gaps
