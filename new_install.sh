@@ -32,7 +32,7 @@ sudo apt install -y findutils mlocate
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 sudo apt install -y poppler-utils # pdftoppm
-sudo apt install -y mupdf
+sudo apt install -y zathura
 sudo apt install -y imagemagick
 sudo apt install -y firefox
 sudo apt-add-repository ppa:richardgv/compton

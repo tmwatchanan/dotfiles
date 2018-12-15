@@ -211,7 +211,7 @@ autocmd Filetype markdown inoremap ,l --------<Enter>
 " LaTeX
 
     " Open corresponding.pdf
-	map <leader>p :!mupdf %:r.pdf &<CR><CR>
+	map <leader>p :!zathura %:r.pdf &<CR><CR>
 	" Word count:
 	autocmd FileType tex map <F3> :w !detex \| wc -w<CR>
 	autocmd FileType tex inoremap <F3> <Esc>:w !detex \| wc -w<CR>
