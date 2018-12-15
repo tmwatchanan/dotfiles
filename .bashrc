@@ -6,6 +6,7 @@ export DISPLAY=:0
 #alias cddt="cd $WIN_DESKTOP"
 #alias cdd="cd $WIN_DESKTOP/dev"
 alias cdd="cd $HOME/dev"
+alias cdtk="cd /var/www/html/tksrisangar"
 
 # Productivity
 shopt -s autocd # (like in zsh) allows you to cd into directory merely by typing the directory name
@@ -34,6 +35,8 @@ alias rg="ranger --cmd='cd pwd'"
 alias rgg="urxvt -e ranger --cmd='cd pwd' &"
 alias cat="bat"
 alias rmp="shred -zvu -n 5"
+alias j="jobs -l"
+
 
 # download PDF from sci-hub
 shdl() { curl -O $(curl -s http://sci-hub.tw/"$@" | grep location.href | grep -o http.*pdf) ;}
