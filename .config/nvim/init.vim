@@ -27,6 +27,7 @@ set nocompatible
 "filetyle plugin on
 set number
 set relativenumber
+autocmd FileType nerdtree setlocal relativenumber
 set cursorline
 set encoding=utf-8
 set noswapfile " disable swap file .swp
@@ -158,6 +159,7 @@ map <C-l> <C-w>l
 " map <C-n> :NERDTreeFind<CR>
 map <C-n> :NERDTreeToggle %<CR>
 let g:NERDTreeWinSize = 25
+let g:NERDTreeShowLineNumbers = 1
 
 " Tab navigation like Firefox.
 nnoremap <A-S-tab> :tabprevious<CR>
