@@ -51,6 +51,8 @@ sudo apt install -y libavcodec-extra
 sudo apt install -y nvidia-settings
 sudo apt install -y ubuntu-drivers-common
 sudo ubuntu-drivers autoinstall
+# wireless devices
+sudo apt install -y rfkill
 # utilities
 sudo apt install -y detox # clean up filenames
 
