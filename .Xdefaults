@@ -1,4 +1,4 @@
-URxvt.font: xft:Hack-Regular:size=12
+URxvt.font: xft:Hack-Regular:size=11
 
 *.internalBorder: 0
 

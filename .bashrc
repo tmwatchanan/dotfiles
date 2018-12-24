@@ -21,6 +21,7 @@ alias v=nvim
 alias vv='sudo nvim'
 alias cfv=" nvim ~/.config/nvim/init.vim"
 alias cfb=" nvim ~/.bashrc"
+alias cft=" nvim ~/.Xdefaults"
 alias cfi3=" nvim ~/.config/i3/config"
 alias cfp=" nvim ~/.config/polybar/config"
 alias cfr=" nvim ~/.config/ranger/rc.conf"
