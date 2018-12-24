@@ -52,6 +52,7 @@ bindsym $sup+Ctrl+less move workspace to output left
 
 # external monitors via HDMI port
 exec_always --no-startup-id "xrandr && xrandr --output HDMI1 --mode 1280x1024 --right-of eDP1"
+# exec_always --no-startup-id "xrandr && xrandr --output HDMI1 --mode 1600x900 --right-of eDP1"
 
 # run a bash script on startup
 # exec_always --no-startup-id $HOME/.config/i3/startup.sh
