@@ -182,4 +182,7 @@ fi
 # added by Miniconda3 installer
 export PATH="/home/tommie/miniconda3/bin:$PATH"
 
+# flutter
+export PATH=$PATH:$HOME/dev/flutter/bin
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
