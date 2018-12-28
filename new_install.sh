@@ -42,6 +42,7 @@ sudo apt install -y feh
 sudo apt install -y compton
 sudo apt install -y rofi
 sudo apt install -y x11-xserver-utils
+sudo apt install -y mmv # rename files with pattern
 # playing audio
 sudo apt install -y pulseaudio
 sudo apt install -y pavucontrol
