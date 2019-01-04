@@ -27,6 +27,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux source ~/.tmux.conf # reload tmux environment
 # install misc
 sudo apt install -y ranger
+sudo apt install -y atool # managing file archives
 # install fuzzy finder
 sudo apt install -y findutils mlocate
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
