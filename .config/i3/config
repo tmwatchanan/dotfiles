@@ -80,11 +80,16 @@ set $webbrowser firefox
 bindsym $sup+b exec --no-startup-id $webbrowser
 
 # screenshot
+# import from Imagemagick
+bindsym Print exec --no-startup-id import -window root $HOME/Images/$(date +"%Y-%m-%d_%H-%M-%S").png
+# click on a window to capture the entire window
+# or hold mouse to create a captured region
+bindsym --release Ctrl+Print exec --no-startup-id import $HOME/Images/$(date +"%Y-%m-%d_%H-%M-%S").png
 # scrot & gimp - root
-bindsym Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
+# bindsym Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
 # scrot & gimp - select window or rectangle
-bindsym $sup+Print exec scrot -u -e 'mv $f /tmp/ && gimp /tmp/$f'
-bindsym --release Ctrl+Print exec scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f'
+# bindsym $sup+Print exec scrot -u -e 'mv $f /tmp/ && gimp /tmp/$f'
+# bindsym --release Ctrl+Print exec scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f'
 
 # hide title bar except stacked or tabbed mode
 new_window 1pixel
