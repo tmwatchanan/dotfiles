@@ -4,19 +4,33 @@ Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdcommenter'
 Plug 'chrisbra/NrrwRgn'
 Plug 'leshill/vim-json'
-Plug 'kien/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-surround'
-Plug 'airblade/vim-gitgutter'
 Plug 'godlygeek/tabular'
-Plug 'tpope/vim-fugitive'
+
+" file browsing
+Plug 'ervandew/supertab'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
+" syntax checking
 Plug 'vim-syntastic/syntastic'
+" syntax highlighting
+Plug 'sheerun/vim-polyglot'
+
+" git
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+" auto completion
+Plug 'kien/ctrlp.vim'
 Plug 'w0rp/ale'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+"
+" supertab
+Plug 'ervandew/supertab'
 
-Plug 'sheerun/vim-polyglot'
 Plug 'joshdick/onedark.vim'
 call plug#end()
 filetype plugin on
@@ -151,17 +165,30 @@ let b:ale_fixers = ['autopep8', 'yapf']
 " ale =======================================================
 
 " YouCompleteMe =============================================
+" ref: https://stackoverflow.com/a/22253548/7150241
+" make YCM compatible with UltiSnips (using supertab)"
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
 " auto close preview window without pressing ctrl-w z
 " let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 
 " auto trigger completion without pressing ctrl-space
 let g:ycm_auto_trigger = 1
-let g:ycm_min_num_of_chars_for_completion = 3
+let g:ycm_min_num_of_chars_for_completion = 1
 
 " python language
 let g:ycm_python_binary_path = 'python'
 " YouCompleteMe =============================================
+
+" UltiSnips =================================================
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+" UltiSnips =================================================
 
 " miscellaneous =============================================
 set colorcolumn=80
