@@ -10,12 +10,13 @@ Plug 'godlygeek/tabular'
 
 " file browsing
 Plug 'ervandew/supertab'
+Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 " tag browsing
 Plug 'majutsushi/tagbar'
 
 " syntax checking
-Plug 'vim-syntastic/syntastic'
+Plug 'w0rp/ale'
 " syntax highlighting
 Plug 'sheerun/vim-polyglot'
 
@@ -25,7 +26,6 @@ Plug 'airblade/vim-gitgutter'
 
 " auto completion
 Plug 'kien/ctrlp.vim'
-Plug 'w0rp/ale'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -33,6 +33,8 @@ Plug 'honza/vim-snippets'
 " supertab
 Plug 'ervandew/supertab'
 
+" color theme
+Plug 'trevordmiller/nova-vim'
 Plug 'joshdick/onedark.vim'
 call plug#end()
 filetype plugin on
@@ -63,7 +65,7 @@ set showmatch " show the matching part of the pair for [] {} and ()
 " auto-reload configuration =================================
 
 " geek ======================================================
-" find the next placeholder 
+" find the next placeholder
 nnoremap <leader><Tab> <Esc>/<++><CR>"_c4l
 inoremap <leader><Tab> <Esc>/<++><Enter>"_c4l
 vnoremap <leader><Tab> <Esc>/<++><Enter>"_c4l
@@ -79,7 +81,7 @@ colorscheme onedark
 let g:onedark_terminal_bold = 1
 let g:onedark_terminal_italics = 1
 let g:onedark_terminal_underline = 1
-let g:airline_theme='onedark' 
+let g:airline_theme='onedark'
 "set notermguicolors
 " theme =====================================================
 
@@ -161,9 +163,24 @@ let g:ctrlp_match_window = 'results:100' " overcome limit imposed by max height
 " ctrlp =====================================================
 
 " ale =======================================================
-let b:ale_linters = ['flake8', 'pylint']
+" let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
+let g:ale_linters = {
+  \ 'python': ['flake8', 'pylint'],
+  \ 'javascript': ['eslint']
+\}
 " Fix Python files with autopep8 and yapf.
-let b:ale_fixers = ['autopep8', 'yapf']
+let g:ale_fixers = {
+  \ 'python': ['autopep8', 'yapf'],
+  \ 'javascript': ['eslint']
+\ }
+let g:ale_lint_on_save = 1
+let g:ale_fix_on_save = 1
+let g:airline#extensions#ale#enabled = 1
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+" let g:airline#extensions#ale#enabled = 1
+highlight ALEErrorSign ctermbg=NONE ctermfg=red
+highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
 " ale =======================================================
 
 " YouCompleteMe =============================================
@@ -244,13 +261,13 @@ nnoremap <A-0> 10gt
 let python_highlight_all = 1
 
 " syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
 " HTML
 autocmd FileType html inoremap ;i <em></em><leader><Esc>Fet>i
@@ -272,49 +289,49 @@ autocmd Filetype markdown inoremap ,l --------<Enter>
 " LaTeX
 
     " Open corresponding.pdf
-	map <leader>p :!zathura %:r.pdf &<CR><CR>
-	" Word count:
-	autocmd FileType tex map <F3> :w !detex \| wc -w<CR>
-	autocmd FileType tex inoremap <F3> <Esc>:w !detex \| wc -w<CR>
-	" Compile document using xelatex:
-	autocmd FileType tex inoremap <F5> <Esc>:!xelatex<space><c-r>%<Enter>a
-	autocmd FileType tex nnoremap <F5> :!xelatex<space><c-r>%<Enter>
-	" Code snippets
-	autocmd FileType tex inoremap ,fr \begin{frame}<Enter>\frametitle{}<Enter><Enter><++><Enter><Enter>\end{frame}<Enter><Enter><++><Esc>6kf}i
-	autocmd FileType tex inoremap ,fi \begin{fitch}<Enter><Enter>\end{fitch}<Enter><Enter><++><Esc>3kA
-	autocmd FileType tex inoremap ,exe \begin{exe}<Enter>\ex<Space><Enter>\end{exe}<Enter><Enter><++><Esc>3kA
-	autocmd FileType tex inoremap ,em \emph{}<++><Esc>T{i
-	autocmd FileType tex inoremap ,bf \textbf{}<++><Esc>T{i
-	autocmd FileType tex vnoremap , <ESC>`<i\{<ESC>`>2la}<ESC>?\\{<Enter>a
-	autocmd FileType tex inoremap ,it \textit{}<++><Esc>T{i
-	autocmd FileType tex inoremap ,ct \textcite{}<++><Esc>T{i
-	autocmd FileType tex inoremap ,cp \parencite{}<++><Esc>T{i
-	autocmd FileType tex inoremap ,glos {\gll<Space><++><Space>\\<Enter><++><Space>\\<Enter>\trans{``<++>''}}<Esc>2k2bcw
-	autocmd FileType tex inoremap ,x \begin{xlist}<Enter>\ex<Space><Enter>\end{xlist}<Esc>kA<Space>
-	autocmd FileType tex inoremap ,ol \begin{enumerate}<Enter><Enter>\end{enumerate}<Enter><Enter><++><Esc>3kA\item<Space>
-	autocmd FileType tex inoremap ,ul \begin{itemize}<Enter><Enter>\end{itemize}<Enter><Enter><++><Esc>3kA\item<Space>
-	autocmd FileType tex inoremap ,li <Enter>\item<Space>
-	autocmd FileType tex inoremap ,ref \ref{}<Space><++><Esc>T{i
-	autocmd FileType tex inoremap ,tab \begin{tabular}<Enter><++><Enter>\end{tabular}<Enter><Enter><++><Esc>4kA{}<Esc>i
-	autocmd FileType tex inoremap ,ot \begin{tableau}<Enter>\inp{<++>}<Tab>\const{<++>}<Tab><++><Enter><++><Enter>\end{tableau}<Enter><Enter><++><Esc>5kA{}<Esc>i
-	autocmd FileType tex inoremap ,can \cand{}<Tab><++><Esc>T{i
-	autocmd FileType tex inoremap ,con \const{}<Tab><++><Esc>T{i
-	autocmd FileType tex inoremap ,v \vio{}<Tab><++><Esc>T{i
-	autocmd FileType tex inoremap ,a \href{}{<++>}<Space><++><Esc>2T{i
-	autocmd FileType tex inoremap ,sc \textsc{}<Space><++><Esc>T{i
-	autocmd FileType tex inoremap ,chap \chapter{}<Enter><Enter><++><Esc>2kf}i
-	autocmd FileType tex inoremap ,sec \section{}<Enter><Enter><++><Esc>2kf}i
-	autocmd FileType tex inoremap ,ssec \subsection{}<Enter><Enter><++><Esc>2kf}i
-	autocmd FileType tex inoremap ,sssec \subsubsection{}<Enter><Enter><++><Esc>2kf}i
-	autocmd FileType tex inoremap ,st <Esc>F{i*<Esc>f}i
-	autocmd FileType tex inoremap ,beg \begin{DELRN}<Enter><++><Enter>\end{DELRN}<Enter><Enter><++><Esc>4k0fR:MultipleCursorsFind<Space>DELRN<Enter>c
-	autocmd FileType tex inoremap ,up <Esc>/usepackage<Enter>o\usepackage{}<Esc>i
-	autocmd FileType tex nnoremap ,up /usepackage<Enter>o\usepackage{}<Esc>i
-	autocmd FileType tex inoremap ,tt \texttt{}<Space><++><Esc>T{i
-	autocmd FileType tex inoremap ,bt {\blindtext}
-	autocmd FileType tex inoremap ,nu $\varnothing$
-	autocmd FileType tex inoremap ,col \begin{columns}[T]<Enter>\begin{column}{.5\textwidth}<Enter><Enter>\end{column}<Enter>\begin{column}{.5\textwidth}<Enter><++><Enter>\end{column}<Enter>\end{columns}<Esc>5kA
-	autocmd FileType tex inoremap ,rn (\ref{})<++><Esc>F}i
+    map <leader>p :!zathura %:r.pdf &<CR><CR>
+    " Word count:
+    autocmd FileType tex map <F3> :w !detex \| wc -w<CR>
+    autocmd FileType tex inoremap <F3> <Esc>:w !detex \| wc -w<CR>
+    " Compile document using xelatex:
+    autocmd FileType tex inoremap <F5> <Esc>:!xelatex<space><c-r>%<Enter>a
+    autocmd FileType tex nnoremap <F5> :!xelatex<space><c-r>%<Enter>
+    " Code snippets
+    autocmd FileType tex inoremap ,fr \begin{frame}<Enter>\frametitle{}<Enter><Enter><++><Enter><Enter>\end{frame}<Enter><Enter><++><Esc>6kf}i
+    autocmd FileType tex inoremap ,fi \begin{fitch}<Enter><Enter>\end{fitch}<Enter><Enter><++><Esc>3kA
+    autocmd FileType tex inoremap ,exe \begin{exe}<Enter>\ex<Space><Enter>\end{exe}<Enter><Enter><++><Esc>3kA
+    autocmd FileType tex inoremap ,em \emph{}<++><Esc>T{i
+    autocmd FileType tex inoremap ,bf \textbf{}<++><Esc>T{i
+    autocmd FileType tex vnoremap , <ESC>`<i\{<ESC>`>2la}<ESC>?\\{<Enter>a
+    autocmd FileType tex inoremap ,it \textit{}<++><Esc>T{i
+    autocmd FileType tex inoremap ,ct \textcite{}<++><Esc>T{i
+    autocmd FileType tex inoremap ,cp \parencite{}<++><Esc>T{i
+    autocmd FileType tex inoremap ,glos {\gll<Space><++><Space>\\<Enter><++><Space>\\<Enter>\trans{``<++>''}}<Esc>2k2bcw
+    autocmd FileType tex inoremap ,x \begin{xlist}<Enter>\ex<Space><Enter>\end{xlist}<Esc>kA<Space>
+    autocmd FileType tex inoremap ,ol \begin{enumerate}<Enter><Enter>\end{enumerate}<Enter><Enter><++><Esc>3kA\item<Space>
+    autocmd FileType tex inoremap ,ul \begin{itemize}<Enter><Enter>\end{itemize}<Enter><Enter><++><Esc>3kA\item<Space>
+    autocmd FileType tex inoremap ,li <Enter>\item<Space>
+    autocmd FileType tex inoremap ,ref \ref{}<Space><++><Esc>T{i
+    autocmd FileType tex inoremap ,tab \begin{tabular}<Enter><++><Enter>\end{tabular}<Enter><Enter><++><Esc>4kA{}<Esc>i
+    autocmd FileType tex inoremap ,ot \begin{tableau}<Enter>\inp{<++>}<Tab>\const{<++>}<Tab><++><Enter><++><Enter>\end{tableau}<Enter><Enter><++><Esc>5kA{}<Esc>i
+    autocmd FileType tex inoremap ,can \cand{}<Tab><++><Esc>T{i
+    autocmd FileType tex inoremap ,con \const{}<Tab><++><Esc>T{i
+    autocmd FileType tex inoremap ,v \vio{}<Tab><++><Esc>T{i
+    autocmd FileType tex inoremap ,a \href{}{<++>}<Space><++><Esc>2T{i
+    autocmd FileType tex inoremap ,sc \textsc{}<Space><++><Esc>T{i
+    autocmd FileType tex inoremap ,chap \chapter{}<Enter><Enter><++><Esc>2kf}i
+    autocmd FileType tex inoremap ,sec \section{}<Enter><Enter><++><Esc>2kf}i
+    autocmd FileType tex inoremap ,ssec \subsection{}<Enter><Enter><++><Esc>2kf}i
+    autocmd FileType tex inoremap ,sssec \subsubsection{}<Enter><Enter><++><Esc>2kf}i
+    autocmd FileType tex inoremap ,st <Esc>F{i*<Esc>f}i
+    autocmd FileType tex inoremap ,beg \begin{DELRN}<Enter><++><Enter>\end{DELRN}<Enter><Enter><++><Esc>4k0fR:MultipleCursorsFind<Space>DELRN<Enter>c
+    autocmd FileType tex inoremap ,up <Esc>/usepackage<Enter>o\usepackage{}<Esc>i
+    autocmd FileType tex nnoremap ,up /usepackage<Enter>o\usepackage{}<Esc>i
+    autocmd FileType tex inoremap ,tt \texttt{}<Space><++><Esc>T{i
+    autocmd FileType tex inoremap ,bt {\blindtext}
+    autocmd FileType tex inoremap ,nu $\varnothing$
+    autocmd FileType tex inoremap ,col \begin{columns}[T]<Enter>\begin{column}{.5\textwidth}<Enter><Enter>\end{column}<Enter>\begin{column}{.5\textwidth}<Enter><++><Enter>\end{column}<Enter>\end{columns}<Esc>5kA
+    autocmd FileType tex inoremap ,rn (\ref{})<++><Esc>F}i
 
 " developement ==============================================
 
