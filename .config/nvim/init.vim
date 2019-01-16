@@ -13,6 +13,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-syntastic/syntastic'
+Plug 'w0rp/ale'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 
 Plug 'sheerun/vim-polyglot'
 Plug 'joshdick/onedark.vim'
@@ -40,6 +42,9 @@ set showmatch " show the matching part of the pair for [] {} and ()
 " disable highlight in / (search) after pressing <Enter>
 "set nohlsearch
 " basic configs =============================================
+
+" auto-reload configuration =================================
+" auto-reload configuration =================================
 
 " geek ======================================================
 " find the next placeholder 
@@ -138,6 +143,25 @@ let g:NERDSpaceDelims = 1
 " ctrlp =====================================================
 let g:ctrlp_match_window = 'results:100' " overcome limit imposed by max height
 " ctrlp =====================================================
+
+" ale =======================================================
+let b:ale_linters = ['flake8', 'pylint']
+" Fix Python files with autopep8 and yapf.
+let b:ale_fixers = ['autopep8', 'yapf']
+" ale =======================================================
+
+" YouCompleteMe =============================================
+" auto close preview window without pressing ctrl-w z
+" let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+
+" auto trigger completion without pressing ctrl-space
+let g:ycm_auto_trigger = 1
+let g:ycm_min_num_of_chars_for_completion = 3
+
+" python language
+let g:ycm_python_binary_path = 'python'
+" YouCompleteMe =============================================
 
 " miscellaneous =============================================
 set colorcolumn=80
@@ -260,3 +284,4 @@ autocmd Filetype markdown inoremap ,l --------<Enter>
 	autocmd FileType tex inoremap ,rn (\ref{})<++><Esc>F}i
 
 " developement ==============================================
+
