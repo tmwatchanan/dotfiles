@@ -11,6 +11,8 @@ Plug 'godlygeek/tabular'
 " file browsing
 Plug 'ervandew/supertab'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+" tag browsing
+Plug 'majutsushi/tagbar'
 
 " syntax checking
 Plug 'vim-syntastic/syntastic'
@@ -189,6 +191,10 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " UltiSnips =================================================
+
+" Tagbar ====================================================
+nmap <F8> :TagbarToggle<CR>
+" Tagbar ====================================================
 
 " miscellaneous =============================================
 set colorcolumn=80
