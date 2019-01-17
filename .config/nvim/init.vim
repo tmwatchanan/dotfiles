@@ -182,16 +182,20 @@ let g:ctrlp_match_window = 'results:100' " overcome limit imposed by max height
 " ctrlp =====================================================
 
 " ale =======================================================
-" let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
 let g:ale_linters = {
   \ 'python': ['flake8', 'pylint'],
-  \ 'javascript': ['eslint']
+  \ 'javascript': ['eslint'],
+  \ 'json': ['jsonlint']
 \}
-" Fix Python files with autopep8 and yapf.
 let g:ale_fixers = {
   \ 'python': ['autopep8', 'yapf'],
-  \ 'javascript': ['eslint']
+  \ 'javascript': ['eslint'],
+  \ 'json': ['fixjson']
 \ }
+
+" python
+let g:ale_python_pylint_options = "--extension-pkg-whitelist=cv2"
+
 let g:ale_lint_on_save = 1
 let g:ale_fix_on_save = 1
 let g:airline#extensions#ale#enabled = 1
