@@ -1,12 +1,16 @@
 " plugin via vim-plug
 call plug#begin()
 Plug 'vim-airline/vim-airline'
-Plug 'scrooloose/nerdcommenter'
 Plug 'chrisbra/NrrwRgn'
-Plug 'leshill/vim-json'
-Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
 Plug 'godlygeek/tabular'
+
+" movement
+Plug 'easymotion/vim-easymotion'
+Plug 'wesQ3/vim-windowswap'
+
+" software development
+Plug 'scrooloose/nerdcommenter'
 
 " indentation
 Plug 'Yggdroot/indentLine'
