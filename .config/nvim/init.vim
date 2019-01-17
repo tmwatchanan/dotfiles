@@ -8,6 +8,9 @@ Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
 Plug 'godlygeek/tabular'
 
+" indentation
+Plug 'Yggdroot/indentLine'
+
 " file browsing
 Plug 'ervandew/supertab'
 Plug 'scrooloose/nerdtree'
@@ -64,6 +67,7 @@ set tabstop=4
 autocmd Filetype html setlocal ts=2 sw=2 expandtab
 autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
 autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 expandtab
+autocmd Filetype python setlocal ts=4 sw=4 sts=4 expandtab
 " indentation ===============================================
 
 set expandtab " expand tabs into spaces
@@ -95,6 +99,10 @@ let g:onedark_terminal_underline = 1
 let g:airline_theme='onedark'
 "set notermguicolors
 " theme =====================================================
+
+" indentLine ================================================
+let g:indentLine_char = '¦' " ¦, ┆, │, ⎸, or ▏
+" indentLine ================================================
 
 " tabularize
 if exists(":Tabularize")
