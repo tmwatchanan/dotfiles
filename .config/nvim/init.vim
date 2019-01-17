@@ -53,8 +53,19 @@ set encoding=utf-8
 set noswapfile " disable swap file .swp
 syntax on
 set autoindent
-set ts=4 " 1 tab = 4 spaces (ts is tabstop)
-set shiftwidth=4 " >> or << commands, shift lines by 4 spaces
+" set ts=4 " 1 tab = 4 spaces (ts is tabstop)
+" set shiftwidth=4 " >> or << commands, shift lines by 4 spaces
+" indentation ===============================================
+" default indentation
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+" customized indentation based on filetype
+autocmd Filetype html setlocal ts=2 sw=2 expandtab
+autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
+autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 expandtab
+" indentation ===============================================
+
 set expandtab " expand tabs into spaces
 set showmatch " show the matching part of the pair for [] {} and ()
 " disable highlight in / (search) after pressing <Enter>
