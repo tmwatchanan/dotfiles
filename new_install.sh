@@ -12,6 +12,7 @@ sudo apt install -y network-manager
 sudo apt install -y neovim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+nvim +PlugInstall +qall
 sudo apt install -y exuberant-ctags # for Tagbar vim plugin
 sudo apt install -y build-essential
 git config --global user.email "tmwatchanan@gmail.com"
