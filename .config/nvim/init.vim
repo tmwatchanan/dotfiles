@@ -9,14 +9,11 @@ Plug 'godlygeek/tabular'
 Plug 'easymotion/vim-easymotion'
 Plug 'wesQ3/vim-windowswap'
 
-" software development
-Plug 'scrooloose/nerdcommenter'
-
 " indentation
 Plug 'Yggdroot/indentLine'
 
 " file browsing
-Plug 'ervandew/supertab'
+Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 " tag browsing
@@ -32,11 +29,14 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
 " auto completion
-Plug 'kien/ctrlp.vim'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-"
+
+" software development
+Plug 'scrooloose/nerdcommenter'
+Plug 'ternjs/tern_for_vim' " must be underneath YouCompleteMe
+
 " supertab
 Plug 'ervandew/supertab'
 
@@ -48,6 +48,8 @@ filetype plugin on
 
 " set <leader> key
 let mapleader = "\<Space>"
+" set <localleader> key
+let maplocalleader = "\\"
 
 " basic configs =============================================
 set nocompatible
@@ -130,6 +132,7 @@ endfunction
 " tabularize
 
 " vim-easymotion ============================================
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
 map <Leader> <Plug>(easymotion-prefix)
 " Turn on case insensitive feature
 let g:EasyMotion_smartcase = 1
@@ -239,6 +242,10 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " Tagbar ====================================================
 nmap <F8> :TagbarToggle<CR>
 " Tagbar ====================================================
+
+" tern_for_vim ==============================================
+let g:tern_map_keys=1
+" tern_for_vim ==============================================
 
 " miscellaneous =============================================
 set colorcolumn=80

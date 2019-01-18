@@ -1,5 +1,4 @@
-URxvt.font: xft:Hack-Regular:size=11
-
+URxvt.font: xft:Fira Code:size=11
 *.internalBorder: 0
 
 ! real transparency (composite)

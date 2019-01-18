@@ -59,6 +59,9 @@ sudo ubuntu-drivers autoinstall
 sudo apt install -y rfkill
 # utilities
 sudo apt install -y detox # clean up filenames
+# fonts
+sudo add-apt-repository universe
+sudo apt install -y fonts-firacode
 
 
 # i3-gaps
