@@ -10,6 +10,7 @@ cp $HOME/.tmux.conf $HOME/dotfiles/
 
 cp $HOME/.config/compton.conf $HOME/dotfiles/.config/
 cp $HOME/.config/i3/config $HOME/dotfiles/.config/i3/
+cp $HOME/.config/kitty/kitty.conf $HOME/dotfiles/.config/kitty/
 cp $HOME/.config/nvim/init.vim $HOME/dotfiles/.config/nvim/
 cp -r $HOME/.config/polybar/* $HOME/dotfiles/.config/polybar/
 cp $HOME/.config/ranger/commands.py $HOME/dotfiles/.config/ranger/

@@ -8,6 +8,9 @@ sudo apt -y upgrade
 sudo apt install -y xfonts-thai 
 sudo wget ftp://ftp.psu.ac.th/pub/thaifonts/sipa-fonts/*ttf -P /usr/share/fonts/truetype/thai
 
+# install terminal emulator
+curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+
 sudo apt install -y network-manager
 sudo apt install -y neovim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \

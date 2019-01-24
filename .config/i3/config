@@ -168,7 +168,10 @@ set $right l
 floating_modifier $sup
 
 # start a terminal
-bindsym $sup+Return exec i3-sensible-terminal
+# urxvt
+# bindsym $sup+Return exec i3-sensible-terminal
+# kitty
+bindsym $sup+Return exec ~/.local/kitty.app/bin/kitty
 
 # kill focused window
 bindsym $sup+Shift+q kill
