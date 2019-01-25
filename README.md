@@ -10,7 +10,9 @@
 + `neovim` for text editing
 + `dunst` for notification server
 + `Xbindkeys` for binding special keys
-+ imagemagick for every possible image manipulation
++ `imagemagick` for every possible image manipulation
++ `zathura` as a PDF viewer
++ `fzf` for fuzzy finder
 
 ## Set Wallpapers
 ```feh --randomize --bg-fill $HOME/.wallpapers/*```
