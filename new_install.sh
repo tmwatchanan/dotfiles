@@ -65,7 +65,9 @@ sudo apt install -y detox # clean up filenames
 # fonts
 sudo add-apt-repository universe
 sudo apt install -y fonts-firacode
-
+# latex
+sudo apt install -y texlive-latex-extra
+sudo apt install -y texlive-xetex
 
 # i3-gaps
 # ref: https://github.com/Airblader/i3/wiki/Compiling-&-Installing
