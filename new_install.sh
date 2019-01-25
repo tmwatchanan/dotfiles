@@ -31,20 +31,21 @@ fc-cache -f -v
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux source ~/.tmux.conf # reload tmux environment
 # install misc
-sudo apt install -y ranger
+sudo apt install -y ranger # vim-like file browser
 sudo apt install -y atool # managing file archives
 # install fuzzy finder
 sudo apt install -y findutils mlocate
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 sudo apt install -y poppler-utils # pdftoppm
-sudo apt install -y zathura
-sudo apt install -y imagemagick
-sudo apt install -y firefox
+sudo apt install -y zathura # vim-like pdf viewer
+sudo snap install pdftk # pdf merge toolkit
+sudo apt install -y imagemagick # the best image manipulation tool
+sudo apt install -y firefox # web browser
+sudo apt install -y xbacklight
+sudo apt install -y feh # background image changer
 sudo apt-add-repository ppa:richardgv/compton
 sudo apt update
-sudo apt install -y xbacklight
-sudo apt install -y feh
 sudo apt install -y compton
 sudo apt install -y rofi
 sudo apt install -y x11-xserver-utils
