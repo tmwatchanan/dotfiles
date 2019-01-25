@@ -40,6 +40,10 @@ Plug 'ternjs/tern_for_vim' " must be underneath YouCompleteMe
 " supertab
 Plug 'ervandew/supertab'
 
+" markdown
+" have nodejs and yarn
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+
 " color theme
 Plug 'trevordmiller/nova-vim'
 Plug 'joshdick/onedark.vim'
