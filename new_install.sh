@@ -32,6 +32,9 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux source ~/.tmux.conf # reload tmux environment
 # install misc
 sudo apt install -y ranger # vim-like file browser
+# ranger plugins
+cd /tmp && git clone https://github.com/alexanderjeurissen/ranger_devicons
+cd /tmp/ranger_devicons/ && make install
 sudo apt install -y atool # managing file archives
 # install fuzzy finder
 sudo apt install -y findutils mlocate
