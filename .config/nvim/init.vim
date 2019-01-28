@@ -44,6 +44,9 @@ Plug 'ervandew/supertab'
 " have nodejs and yarn
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
+" csv
+Plug 'chrisbra/csv.vim'
+
 " color theme
 Plug 'trevordmiller/nova-vim'
 Plug 'joshdick/onedark.vim'
