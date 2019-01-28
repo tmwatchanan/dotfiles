@@ -13,7 +13,7 @@ Plug 'wesQ3/vim-windowswap'
 Plug 'Yggdroot/indentLine'
 
 " file browsing
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 " tag browsing
