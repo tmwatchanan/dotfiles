@@ -214,6 +214,12 @@ let g:ale_fixers = {
 " python
 let g:ale_python_pylint_options = "--extension-pkg-whitelist=cv2"
 
+let g:ale_virtualtext_cursor = 1
+let g:ale_virtualtext_prefix = "--> "
+let g:ale_echo_msg_error_str='[ERROR]'
+let g:ale_echo_msg_info_str='[INFO]'
+let g:ale_echo_msg_warning_str='[WARNING]'
+let g:ale_echo_msg_format = '%severity% -> %linter% -> %code% %s'
 let g:ale_lint_on_save = 1
 let g:ale_fix_on_save = 1
 let g:airline#extensions#ale#enabled = 1

@@ -12,7 +12,7 @@ sudo wget ftp://ftp.psu.ac.th/pub/thaifonts/sipa-fonts/*ttf -P /usr/share/fonts/
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 
 sudo apt install -y network-manager
-sudo apt install -y neovim
+sudo apt install -y neovim # need version >= 0.3.2 for virtual text
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 nvim +PlugInstall +qall
