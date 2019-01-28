@@ -47,6 +47,10 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 " color theme
 Plug 'trevordmiller/nova-vim'
 Plug 'joshdick/onedark.vim'
+
+" always load the vim-devicons as the very last one
+" it does require Nerd Font
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 filetype plugin on
 
