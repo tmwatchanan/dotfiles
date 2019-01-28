@@ -2,6 +2,7 @@
 
 cp $HOME/.Xdefaults $HOME/dotfiles/
 cp $HOME/.bash_profile $HOME/dotfiles/
+cp $HOME/.zshrc $HOME/dotfiles/
 cp $HOME/.bashrc $HOME/dotfiles/
 cp $HOME/.xinitrc $HOME/dotfiles/
 cp $HOME/.xbindkeysrc $HOME/dotfiles/
