@@ -33,10 +33,13 @@ fc-cache -f -v
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux source ~/.tmux.conf # reload tmux environment
 # install misc
-sudo apt install -y ranger # vim-like file browser
+# ranger = a vim-like file browser
+cd /tmp && git clone https://github.com/hut/ranger.git
+cd /tmp/ranger && sudo make install
+rm -rf /tmp/ranger
 # ranger plugins
 cd /tmp && git clone https://github.com/alexanderjeurissen/ranger_devicons
-cd /tmp/ranger_devicons/ && make install
+cd /tmp/ranger_devicons/ && sudo make install
 sudo apt install -y atool # managing file archives
 # install fuzzy finder
 sudo apt install -y findutils mlocate
@@ -49,9 +52,17 @@ sudo apt install -y imagemagick # the best image manipulation tool
 sudo apt install -y firefox # web browser
 sudo apt install -y xbacklight
 sudo apt install -y feh # background image changer
-sudo apt-add-repository ppa:richardgv/compton
-sudo apt update
-sudo apt install -y compton
+# original compton
+# sudo apt-add-repository ppa:richardgv/compton
+# sudo apt update
+# sudo apt install -y compton
+# modified compton
+sudo apt install -y libconfig-dev dbus libdbus-1-dev libdbus-glib-1-2 libdbus-glib-1-dev libgl1-mesa-dev
+git clone https://github.com/tryone144/compton /tmp/
+cd /tmp/compton
+make
+make install
+rm -r /tmp/compton
 sudo apt install -y rofi
 sudo apt install -y x11-xserver-utils
 sudo apt install -y mmv # rename files with pattern
