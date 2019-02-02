@@ -386,3 +386,6 @@ autocmd Filetype markdown inoremap ,l --------<Enter>
 
 " developement ==============================================
 
+" fix issue with spurious q's appearing
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
+set guicursor=
