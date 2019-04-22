@@ -1,72 +1,3 @@
-# X Server
-export DISPLAY=:0
-
-# Windows
-#export WIN_DESKTOP="/mnt/c/Users/Watchanan/Desktop"
-#alias cddt="cd $WIN_DESKTOP"
-#alias cdd="cd $WIN_DESKTOP/dev"
-alias cdd="cd $HOME/dev"
-alias cdtk="cd /var/www/html/tksrisangar"
-
-# Productivity
-shopt -s autocd # (like in zsh) allows you to cd into directory merely by typing the directory name
-HISTSIZE=HISTFILESIZE= # left it as empty for unlimited infinite history
-
-# Aliases
-alias ..='cd ..'
-alias ...='cd ../..'
-alias sudo='sudo '
-alias vim=nvim
-alias v=nvim
-alias vv='sudo nvim'
-alias cfv=" nvim ~/.config/nvim/init.vim"
-alias cfb=" nvim ~/.bashrc"
-alias cfrxvt=" nvim ~/.Xdefaults"
-alias cfk=" nvim ~/.config/kitty/kitty.conf"
-alias cfi3=" nvim ~/.config/i3/config"
-alias cfp=" nvim ~/.config/polybar/config"
-alias cfr=" nvim ~/.config/ranger/rc.conf"
-alias cfc="nvim ~/.config/compton.conf"
-alias cftm="nvim ~/.tmux.conf"
-alias cvenv="python3 -m venv venv"
-alias avenv="source venv/bin/activate"
-alias dvenv=deactivate
-alias pac="sudo pacman"
-alias st="speedtest-cli"
-alias rg="ranger --cmd='cd pwd'"
-alias rgg="urxvt -e ranger --cmd='cd pwd' &"
-alias cat="bat"
-alias rmp="shred -zvu -n 5"
-alias j="jobs -l"
-
-# git alias
-alias g?="git status"
-alias ga="git add"
-alias gc="git commit -m"
-alias gd="git diff"
-alias gp="git pull"
-alias gs="git stash"
-alias gsa="git stash apply"
-alias gl="git log"
-alias glg="git log --graph --oneline --decorate --all"
-
-# useful functions
-
-# download PDF from sci-hub
-shdl() { curl -O $(curl -s http://sci-hub.tw/"$@" | grep location.href | grep -o http.*pdf) ;}
-# make a folder and cd at the same time
-mkcd() { mkdir -p $1; cd $1; }
-# compress/extract .tar.gz 
-targz() { tar -zcvf $1.tar.gz $1; rm -r $1; }
-untargz() { tar -zxvf $1; rm -r $1; }
-
-
-# ranger (file manager)
-export EDITOR=nvim
-
-# make all scripts in ~/bin global
-export PATH=$HOME/bin:$PATH
-
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -83,6 +14,10 @@ HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
 shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -180,11 +115,21 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-# added by Miniconda3 installer
-export PATH="/home/tommie/miniconda3/bin:$PATH"
-
-# flutter
-export PATH=$PATH:$HOME/dev/flutter/bin
+# added by Miniconda3 4.5.12 installer
+# >>> conda init >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$(CONDA_REPORT_ERRORS=false '/home/tommie/miniconda3/bin/conda' shell.bash hook 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    \eval "$__conda_setup"
+else
+    if [ -f "/home/tommie/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/tommie/miniconda3/etc/profile.d/conda.sh"
+        CONDA_CHANGEPS1=false conda activate base
+    else
+        \export PATH="/home/tommie/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda init <<<
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

@@ -1,8 +1,15 @@
 # Set up the prompt
 
-autoload -Uz promptinit
-promptinit
-prompt pure
+# Path to your oh-my-zsh installation.
+  export ZSH="/home/tommie/.oh-my-zsh"
+
+# pure theme
+fpath=( "$HOME/.zfunctions" $fpath )
+source $ZSH/oh-my-zsh.sh
+ZSH_THEME="spaceship"
+autoload -Uz promptinit; promptinit
+# prompt spaceship
+# prompt pure
 
 setopt histignorealldups sharehistory
 
@@ -48,6 +55,7 @@ alias v=nvim
 alias vv='sudo nvim'
 alias cdd="cd $HOME/dev"
 alias cfv=" nvim ~/.config/nvim/init.vim"
+alias cfz=" nvim ~/.zshrc"
 alias cfb=" nvim ~/.bashrc"
 alias cfrxvt=" nvim ~/.Xdefaults"
 alias cfk=" nvim ~/.config/kitty/kitty.conf"
@@ -66,6 +74,7 @@ alias rgg="urxvt -e ranger --cmd='cd pwd' &"
 alias cat="bat"
 alias rmp="shred -zvu -n 5"
 alias j="jobs -l"
+alias sudodolphin="pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY KDE_SESSION_VERSION=5 KDE_FULL_SESSION=true dolphin"
 alias cdtk="cd /var/www/html/tksrisangar"
 # git alias
 # alias g?="git status"
