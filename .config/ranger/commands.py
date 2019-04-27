@@ -13,9 +13,18 @@ from ranger.api.commands import *
 # You can import any python module as needed.
 import os
 from ranger.core.loader import CommandLoader
+from ranger.api.commands import Command
 
 # Any class that is a subclass of "Command" will be integrated into ranger as a
 # command.  Try typing ":my_edit<ENTER>" in ranger!
+
+
+class paste_as_root(Command):
+    def execute(self):
+        if self.fm.do_cut:
+            self.fm.execute_console('shell sudo mv %c .')
+        else:
+            self.fm.execute_console('shell sudo cp -r %c .')
 
 
 class my_edit(Command):
@@ -87,9 +96,11 @@ class extracthere(Command):
         if len(copied_files) == 1:
             descr = "extracting: " + os.path.basename(one_file.path)
         else:
-            descr = "extracting files from: " + os.path.basename(one_file.dirname)
-        obj = CommandLoader(args=['aunpack'] + au_flags \
-                + [f.path for f in copied_files], descr=descr)
+            descr = "extracting files from: " + \
+                os.path.basename(one_file.dirname)
+        obj = CommandLoader(args=['aunpack'] + au_flags +
+                            [f.path for f in copied_files],
+                            descr=descr)
 
         obj.signal_bind('after', refresh)
         self.fm.loader.add(obj)
@@ -113,8 +124,10 @@ class compress(Command):
         au_flags = parts[1:]
 
         descr = "compressing files in: " + os.path.basename(parts[1])
-        obj = CommandLoader(args=['apack'] + au_flags + \
-                [os.path.relpath(f.path, cwd.path) for f in marked_files], descr=descr)
+        obj = CommandLoader(
+            args=['apack'] + au_flags +
+            [os.path.relpath(f.path, cwd.path) for f in marked_files],
+            descr=descr)
 
         obj.signal_bind('after', refresh)
         self.fm.loader.add(obj)
@@ -123,10 +136,13 @@ class compress(Command):
         """ Complete with current folder name """
 
         extension = ['.zip', '.tar.gz', '.rar', '.7z']
-        return ['compress ' + os.path.basename(self.fm.thisdir.path) + ext for ext in extension]
+        return [
+            'compress ' + os.path.basename(self.fm.thisdir.path) + ext
+            for ext in extension
+        ]
 
 
-# Require: ranger fzf findutils mlocate 
+# Require: ranger fzf findutils mlocate
 # https://github.com/gotbletu/shownotes/blob/master/ranger_file_locate_fzf.md
 # https://github.com/ranger/ranger/wiki/Integrating-File-Search-with-fzf
 # Now, simply bind this function to a key, by adding this to your ~/.config/ranger/rc.conf: map <C-f> fzf_select
@@ -140,16 +156,19 @@ class fzf_select(Command):
 
     See: https://github.com/junegunn/fzf
     """
+
     def execute(self):
         import subprocess
         if self.quantifier:
             # match only directories
-            command="find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
+            command = "find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
             -o -type d -print 2> /dev/null | sed 1d | cut -b3- | fzf +m"
+
         else:
             # match files and directories
-            command="find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
+            command = "find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
             -o -print 2> /dev/null | sed 1d | cut -b3- | fzf +m"
+
         fzf = self.fm.execute_command(command, stdout=subprocess.PIPE)
         stdout, stderr = fzf.communicate()
         if fzf.returncode == 0:
@@ -158,7 +177,11 @@ class fzf_select(Command):
                 self.fm.cd(fzf_file)
             else:
                 self.fm.select_file(fzf_file)
+
+
 # fzf_locate
+
+
 class fzf_locate(Command):
     """
     :fzf_locate
@@ -169,12 +192,13 @@ class fzf_locate(Command):
 
     See: https://github.com/junegunn/fzf
     """
+
     def execute(self):
         import subprocess
         if self.quantifier:
-            command="locate home media | fzf -e -i"
+            command = "locate home media | fzf -e -i"
         else:
-            command="locate home media | fzf -e -i"
+            command = "locate home media | fzf -e -i"
         fzf = self.fm.execute_command(command, stdout=subprocess.PIPE)
         stdout, stderr = fzf.communicate()
         if fzf.returncode == 0:
