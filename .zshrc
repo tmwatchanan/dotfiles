@@ -1,12 +1,26 @@
 # Set up the prompt
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/tommie/.oh-my-zsh"
+  export ZSH="$HOME/.oh-my-zsh"
+
+ZSH_THEME="spaceship"
+
+# ranger (file manager)
+export EDITOR=nvim
+
+# make all scripts in ~/bin global
+export PATH=$HOME/bin:$PATH
+
+# added by Miniconda3 installer
+export PATH="/home/tommie/miniconda3/bin:$PATH"
+
+# flutter
+export PATH=$PATH:$HOME/dev/flutter/bin
 
 # pure theme
 fpath=( "$HOME/.zfunctions" $fpath )
+plugins=(git)
 source $ZSH/oh-my-zsh.sh
-ZSH_THEME="spaceship"
 autoload -Uz promptinit; promptinit
 # prompt spaceship
 # prompt pure
@@ -98,17 +112,5 @@ mkcd() { mkdir -p $1; cd $1; }
 # compress/extract .tar.gz 
 targz() { tar -zcvf $1.tar.gz $1; rm -r $1; }
 untargz() { tar -zxvf $1; rm -r $1; }
-
-# ranger (file manager)
-export EDITOR=nvim
-
-# make all scripts in ~/bin global
-export PATH=$HOME/bin:$PATH
-
-# added by Miniconda3 installer
-export PATH="/home/tommie/miniconda3/bin:$PATH"
-
-# flutter
-export PATH=$PATH:$HOME/dev/flutter/bin
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
