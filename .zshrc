@@ -11,9 +11,6 @@ export EDITOR=nvim
 # make all scripts in ~/bin global
 export PATH=$HOME/bin:$PATH
 
-# added by Miniconda3 installer
-export PATH="/home/tommie/miniconda3/bin:$PATH"
-
 # flutter
 export PATH=$PATH:$HOME/dev/flutter/bin
 
@@ -78,9 +75,7 @@ alias cfp=" nvim ~/.config/polybar/config"
 alias cfr=" nvim ~/.config/ranger/rc.conf"
 alias cfc="nvim ~/.config/compton.conf"
 alias cftm="nvim ~/.tmux.conf"
-alias cvenv="python3 -m venv venv"
-alias avenv="source venv/bin/activate"
-alias dvenv=deactivate
+alias cv="conda activate cv"
 alias pac="sudo pacman"
 alias st="speedtest-cli"
 alias rg="ranger --cmd='cd pwd'"
@@ -114,3 +109,27 @@ targz() { tar -zcvf $1.tar.gz $1; rm -r $1; }
 untargz() { tar -zxvf $1; rm -r $1; }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/tommie/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/tommie/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/tommie/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/tommie/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+#.# zsh-syntax-highlighting
+#
+# Fish shell like syntax highlighting for Zsh
+#
+# @link: http://github.com/zsh-users/zsh-syntax-highlighting
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red') # To have commands starting with `rm -rf` in red:
