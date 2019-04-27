@@ -16,7 +16,7 @@ export PATH=$PATH:$HOME/dev/flutter/bin
 
 # pure theme
 fpath=( "$HOME/.zfunctions" $fpath )
-plugins=(git)
+plugins=(archlinux sudo systemd vi-mode tmux wd z history colored-man-pages extract git copyfile gem npm yarn ruby gem composer python pip docker)
 source $ZSH/oh-my-zsh.sh
 autoload -Uz promptinit; promptinit
 # prompt spaceship
@@ -76,7 +76,6 @@ alias cfr=" nvim ~/.config/ranger/rc.conf"
 alias cfc="nvim ~/.config/compton.conf"
 alias cftm="nvim ~/.tmux.conf"
 alias cv="conda activate cv"
-alias pac="sudo pacman"
 alias st="speedtest-cli"
 alias rg="ranger --cmd='cd pwd'"
 alias rgg="urxvt -e ranger --cmd='cd pwd' &"
@@ -85,16 +84,6 @@ alias rmp="shred -zvu -n 5"
 alias j="jobs -l"
 alias sudodolphin="pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY KDE_SESSION_VERSION=5 KDE_FULL_SESSION=true dolphin"
 alias cdtk="cd /var/www/html/tksrisangar"
-# git alias
-# alias g?="git status"
-alias ga="git add"
-alias gc="git commit -m"
-alias gd="git diff"
-alias gp="git pull"
-alias gs="git stash"
-alias gsa="git stash apply"
-alias gl="git log"
-alias glg="git log --graph --oneline --decorate --all"
 
 # useful functions
 
@@ -133,3 +122,5 @@ unset __conda_setup
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red') # To have commands starting with `rm -rf` in red:
+
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
