@@ -120,10 +120,6 @@ super + alt + shift + {h,j,k,l}
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
-## Launch common apps
-super + shift + {b}
-    {firefox}
-
 ## Volume control
 XF86Audio{RaiseVolume,LowerVolume}
 	pactl set-sink-volume 0 {+5%, -5%}
@@ -135,3 +131,14 @@ XF86AudioMute
 ## Music control
 XF86Audio{Next,Prev,Play,Stop}
     mpc {next,prev,toggle,stop}
+
+#
+# applications
+#
+
+## Launch common apps
+super + {e}
+    {kitty ranger}
+
+super + shift + {e, b}
+    {pcmanfm, firefox}
