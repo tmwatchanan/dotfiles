@@ -125,8 +125,12 @@ super + shift + {b}
     {firefox}
 
 ## Volume control
-XF86Audio{RaiseVolume,LowerVolume,Mute}
-	amixer {-q set Master 5%+,-q set Master 5%-,set Master toggle}
+XF86Audio{RaiseVolume,LowerVolume}
+	pactl set-sink-volume 0 {+5%, -5%}
+
+XF86AudioMute
+    amixer -D pulse set Master 1+ toggle
+    ##amixer -q set Master toggle
 	
 ## Music control
 XF86Audio{Next,Prev,Play,Stop}
