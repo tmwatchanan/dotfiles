@@ -38,6 +38,8 @@ setopt auto_cd
 # Use modern completion system
 autoload -Uz compinit
 compinit
+# Completion for kitty
+kitty + complete setup zsh | source /dev/stdin
 
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
