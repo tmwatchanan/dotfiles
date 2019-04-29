@@ -2,8 +2,10 @@
 
 sxhkd &
 
-bspc monitor -d I II III IV V VI VII VIII IX X
+bspc monitor eDP-1 -d I II III IV V
+bspc monitor HDMI-1 -d VI VII VIII IX X
 
+bspc config bottom_padding       20
 bspc config border_width         2
 bspc config window_gap          12
 
@@ -17,4 +19,6 @@ bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
-bspc config focus_follows_pointer true
+bspc config focus_follows_pointer   true
+bspc config click_to_focus          true
+bspc config pointer_follows_monitor true

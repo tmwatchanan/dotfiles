@@ -12,6 +12,8 @@ cp $HOME/.condarc $HOME/dotfiles/
 
 cp $HOME/.config/compton.conf $HOME/dotfiles/.config/
 cp $HOME/.config/i3/config $HOME/dotfiles/.config/i3/
+cp $HOME/.config/bspwm/* $HOME/dotfiles/.config/bspwm/
+cp $HOME/.config/sxhkd/* $HOME/dotfiles/.config/sxhkd/
 cp $HOME/.config/kitty/kitty.conf $HOME/dotfiles/.config/kitty/
 cp $HOME/.config/nvim/init.vim $HOME/dotfiles/.config/nvim/
 cp -r $HOME/.config/polybar/* $HOME/dotfiles/.config/polybar/
