@@ -1,7 +1,8 @@
 # install nodejs
-curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
-sudo apt-get install -y nodejs
+mkdir $HOME/.nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+nvm install node
 
-sudo npm install -g jsonlint fixjson
+npm install -g jsonlint fixjson
 
 cd ~/.config/nvim/plugged/tern_for_vim && npm install
