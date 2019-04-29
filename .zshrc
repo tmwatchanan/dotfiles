@@ -16,7 +16,7 @@ export PATH=$PATH:$HOME/dev/flutter/bin
 
 # pure theme
 fpath=( "$HOME/.zfunctions" $fpath )
-plugins=(archlinux sudo systemd vi-mode tmux wd z history colored-man-pages extract git copyfile gem npm yarn ruby gem composer python pip docker)
+plugins=(sudo systemd vi-mode tmux wd z history colored-man-pages extract git copyfile gem npm yarn ruby gem composer python pip docker zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 autoload -Uz promptinit; promptinit
 # prompt spaceship
@@ -115,15 +115,8 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 #.# zsh-syntax-highlighting
-#
-# Fish shell like syntax highlighting for Zsh
-#
-# @link: http://github.com/zsh-users/zsh-syntax-highlighting
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
-ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red') # To have commands starting with `rm -rf` in red:
-
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red') # To have commands st
 
 # nvm (node.js)
 export NVM_DIR="$HOME/.nvm"
