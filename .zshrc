@@ -1,5 +1,4 @@
 # Set up the prompt
-
 # Path to your oh-my-zsh installation.
   export ZSH="$HOME/.oh-my-zsh"
 
@@ -124,3 +123,6 @@ ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red') # To have commands st
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# java config for android-studio
+export _JAVA_AWT_WM_NONREPARENTING=1
