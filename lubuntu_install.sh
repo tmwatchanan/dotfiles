@@ -37,3 +37,6 @@ sed -i "s/Icon\=kitty/Icon\=\/home\/$USER\/.local\/kitty.app\/share\/icons\/hico
 sudo apt install -y tmux
 # tpm (tmux plugins)
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+# pdf viewer
+sudo apt install -y zathura
