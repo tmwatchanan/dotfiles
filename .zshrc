@@ -81,6 +81,7 @@ alias st="speedtest-cli"
 alias rg="ranger --cmd='cd pwd'"
 alias rgg="urxvt -e ranger --cmd='cd pwd' &"
 alias cat="bat"
+alias code="vscodium"
 alias rmp="shred -zvu -n 5"
 alias j="jobs -l"
 alias sudodolphin="pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY KDE_SESSION_VERSION=5 KDE_FULL_SESSION=true dolphin"
@@ -123,6 +124,9 @@ ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red') # To have commands st
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# xterm
+export TERM=xterm
 
 # java config for android-studio
 export _JAVA_AWT_WM_NONREPARENTING=1
