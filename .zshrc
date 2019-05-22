@@ -76,6 +76,7 @@ alias cfp=" nvim ~/.config/polybar/config"
 alias cfr=" nvim ~/.config/ranger/rc.conf"
 alias cfc="nvim ~/.config/compton.conf"
 alias cftm="nvim ~/.tmux.conf"
+alias cfnw="sudo nvim /etc/netplan/01-network-manager-all.yaml && sudo netplan apply"
 alias cv="conda activate cv"
 alias st="speedtest-cli"
 alias rg="ranger --cmd='cd pwd'"
@@ -125,8 +126,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# xterm
-export TERM=xterm
+# kitty + tmux
+[[ $TMUX = "" ]] && export TERM="xterm-256color"
 
 # java config for android-studio
 export _JAVA_AWT_WM_NONREPARENTING=1
