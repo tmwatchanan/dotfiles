@@ -55,6 +55,9 @@ super + ctrl + {m,x,y,z}
 # focus/swap
 #
 
+super + ctrl + .
+    bspc node @/ -R 90
+
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
@@ -143,3 +146,10 @@ super + {e}
 
 super + shift + {e, b, g}
     {pcmanfm, firefox, gthumb}
+
+# flameshot
+Print
+    flameshot gui
+
+ctrl + Print
+    flameshot full -p ~/Pictures
