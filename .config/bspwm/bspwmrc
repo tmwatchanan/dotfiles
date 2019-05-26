@@ -2,8 +2,8 @@
 
 sxhkd &
 
-bspc monitor eDP-1 -d I II III IV V
-bspc monitor HDMI-1 -d VI VII VIII IX X
+bspc monitor eDP-1-1 -d I II III IV V
+bspc monitor HDMI-1-1 -d VI VII VIII IX X
 
 bspc config bottom_padding       20
 bspc config border_width         2
