@@ -115,21 +115,25 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-# added by Miniconda3 4.5.12 installer
-# >>> conda init >>>
+
+# >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$(CONDA_REPORT_ERRORS=false '/home/tommie/miniconda3/bin/conda' shell.bash hook 2> /dev/null)"
+__conda_setup="$('/home/tommie/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
-    \eval "$__conda_setup"
+    eval "$__conda_setup"
 else
     if [ -f "/home/tommie/miniconda3/etc/profile.d/conda.sh" ]; then
         . "/home/tommie/miniconda3/etc/profile.d/conda.sh"
-        CONDA_CHANGEPS1=false conda activate base
     else
-        \export PATH="/home/tommie/miniconda3/bin:$PATH"
+        export PATH="/home/tommie/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
-# <<< conda init <<<
+# <<< conda initialize <<<
+
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
