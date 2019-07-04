@@ -9,6 +9,7 @@ super + Return
 # program launcher
 super + @space
 	zsh -c -i "rofi -show run"
+    #rofi -show run
     #rofi -run-command "zsh -c -i '{cmd}'" -show {run,window}
 
 # make sxhkd reload its configuration files:
@@ -145,7 +146,7 @@ super + {e}
     {kitty ranger}
 
 super + shift + {e, b, g}
-    {pcmanfm, firefox, gthumb}
+    {pcmanfm, google-chrome, gthumb}
 
 # flameshot
 Print
