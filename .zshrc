@@ -87,6 +87,7 @@ alias rmp="shred -zvu -n 5"
 alias j="jobs -l"
 alias sudodolphin="pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY KDE_SESSION_VERSION=5 KDE_FULL_SESSION=true dolphin"
 alias cdtk="cd /var/www/html/tksrisangar"
+alias vdo="ffmpeg -video_size 1366x768 -framerate 25 -f x11grab -i :0.0 -f pulse -ac 2 -i 0"
 
 # useful functions
 
