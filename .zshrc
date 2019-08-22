@@ -9,6 +9,7 @@ export EDITOR=nvim
 
 # make all scripts in ~/bin global
 export PATH=$HOME/bin:$PATH
+export PATH=/snap/bin:$PATH
 
 # flutter
 export PATH=$PATH:$HOME/dev/flutter/bin
@@ -126,34 +127,34 @@ ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red') # To have commands st
 # lazyload nvm
 # all props goes to http://broken-by.me/lazy-load-nvm/
 # grabbed from reddit @ https://www.reddit.com/r/node/comments/4tg5jg/lazy_load_nvm_for_faster_shell_start/
-lazynvm() {
-  unset -f nvm node npm npx
+# lazynvm() {
+  # unset -f nvm node npm npx
   export NVM_DIR=~/.nvm
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
   if [ -f "$NVM_DIR/bash_completion" ]; then
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
   fi
-}
+# }
 
-nvm() {
-  lazynvm
-  nvm $@
-}
+# nvm() {
+  # lazynvm
+  # nvm $@
+# }
 
-node() {
-  lazynvm
-  node $@
-}
+# node() {
+  # lazynvm
+  # node $@
+# }
 
-npm() {
-  lazynvm
-  npm $@
-}
+# npm() {
+  # lazynvm
+  # npm $@
+# }
 
-npx() {
-  lazynvm
-  npx $@
-}
+# npx() {
+  # lazynvm
+  # npx $@
+# }
 
 # kitty + tmux
 [[ $TMUX = "" ]] && export TERM="xterm-256color"
