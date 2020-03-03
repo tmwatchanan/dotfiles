@@ -1,7 +1,3 @@
-# Activate Numlock on Bootup
-numlockx &
+# java config for android-studio
+export _JAVA_AWT_WM_NONREPARENTING=1
 
-xrandr --setprovideroutputsource modesetting NVIDIA-0
-xrandr --auto
-xrandr --output eDP1 --scale 1x1 --pos 1368x768 --primary
-exec i3
