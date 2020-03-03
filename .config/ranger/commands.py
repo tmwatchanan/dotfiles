@@ -106,6 +106,7 @@ class extracthere(Command):
         self.fm.loader.add(obj)
 
 
+
 class compress(Command):
     def execute(self):
         """ Compress marked files to current directory """
@@ -124,22 +125,17 @@ class compress(Command):
         au_flags = parts[1:]
 
         descr = "compressing files in: " + os.path.basename(parts[1])
-        obj = CommandLoader(
-            args=['apack'] + au_flags +
-            [os.path.relpath(f.path, cwd.path) for f in marked_files],
-            descr=descr)
+        obj = CommandLoader(args=['apack'] + au_flags + \
+                [os.path.relpath(f.path, cwd.path) for f in marked_files], descr=descr, read=True)
 
         obj.signal_bind('after', refresh)
         self.fm.loader.add(obj)
 
-    def tab(self):
+    def tab(self, tabnum):
         """ Complete with current folder name """
 
         extension = ['.zip', '.tar.gz', '.rar', '.7z']
-        return [
-            'compress ' + os.path.basename(self.fm.thisdir.path) + ext
-            for ext in extension
-        ]
+        return ['compress ' + os.path.basename(self.fm.thisdir.path) + ext for ext in extension]
 
 
 # Require: ranger fzf findutils mlocate

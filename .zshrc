@@ -11,6 +11,9 @@ export EDITOR=nvim
 export PATH=$HOME/bin:$PATH
 export PATH=/snap/bin:$PATH
 
+# python module search path (PMSP)
+export PYTHONPATH="$PYTHONPATH:$HOME/.python"
+
 # flutter
 export PATH=$PATH:$HOME/dev/flutter/bin
 
@@ -82,6 +85,7 @@ alias cv="conda activate cv"
 alias st="speedtest-cli"
 alias rg="ranger --cmd='cd pwd'"
 alias rgg="urxvt -e ranger --cmd='cd pwd' &"
+alias rm="trash-put"
 alias cat="bat"
 alias code="vscodium"
 alias rmp="shred -zvu -n 5"
