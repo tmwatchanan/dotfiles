@@ -1,7 +1,13 @@
 sudo pacman -S --noconfirm systemd-swap
 
 sudo pacman -S --noconfirm yay
+# neovim
 sudo pacman -S --noconfirm neovim
+pip install pynvim
+# vim-plug
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 sudo pacman -S --noconfirm kitty
 sudo pacman -S --noconfirm trash-cli
 sudo pacman -S --noconfirm sxiv
@@ -10,7 +16,7 @@ sudo pacman -S --noconfirm tmux
 # tpm (tmux plugins)
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-sudo pacman -S --noconfirm imagemagick
+sudo pacman -S --noconfirm graphicsmagick
 sudo pacman -S --noconfirm bat
 sudo pacman -S --noconfirm fzf
 
