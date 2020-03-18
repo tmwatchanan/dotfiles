@@ -7,6 +7,8 @@ pip install pynvim
 # vim-plug
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# install neovim's plugins
+nvim +'PlugInstall --sync' +qa
 
 sudo pacman -S --noconfirm kitty
 sudo pacman -S --noconfirm trash-cli
