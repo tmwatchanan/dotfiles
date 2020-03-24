@@ -26,6 +26,7 @@ sudo pacman -S --noconfirm yay
 yay -S --noconfirm visual-studio-code-insiders
 yay -S --noconfirm ttf-fira-code
 yay -S --noconfirm ttf-monoid
+yay -S --noconfirm ttf-joypixels
 yay -S --noconfirm mmv
 
 yay -S --noconfirm spotify
