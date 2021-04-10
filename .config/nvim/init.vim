@@ -1,6 +1,7 @@
 call plug#begin()
 "theme
-Plug 'sonph/onehalf', { 'rtp': 'vim' }
+Plug 'kuntau/ayu-vim' " 'ayu-theme/ayu-vim'
+Plug 'drewtempelmeyer/palenight.vim'
 
 "status line
 Plug 'hoob3rt/lualine.nvim'
@@ -47,6 +48,10 @@ call plug#end()
 "===============================================================================
 " THEME
 "===============================================================================
+if (has("nvim"))
+    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
 if exists('+termguicolors')
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -54,11 +59,19 @@ if exists('+termguicolors')
 endif
 
 set t_Co=256
-colorscheme onehalfdark
-let g:airline_theme='onehalfdark'
-" lightline
-let g:lightline = { 'colorscheme': 'onehalfdark' }
 
+" ayu theme
+let ayucolor="dark"
+let ayu_comment_italic=1 " enable italic for comments
+let ayu_string_italic=0  " enable italic for strings
+let ayu_type_italic=0    " enable italic for types
+let ayu_keyword_italic=0 " enable italic for keywords
+colorscheme ayu
+
+" palenight
+"set background=dark
+"colorscheme palenight
+"let g:palenight_terminal_italics=1
 
 "===============================================================================
 " BUILT-IN CONFIGS
@@ -153,6 +166,7 @@ nnoremap <M-0> 10gt
 " PLUGINS
 "===============================================================================
 
+" lualine ----------------------------------------------------------------------
 let g:lualine = {
     \'options' : {
     \  'theme' : 'gruvbox',
