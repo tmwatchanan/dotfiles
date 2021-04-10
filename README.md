@@ -7,7 +7,7 @@
 + `kitty` for terminal emulator
 + `compton` for enabling transparency with urxvt, and shadows
 + `ranger` as a file manager
-+ `neovim` for text editing
++ `neovim (nightly)` for text editing
 + `dunst` for notification server
 + `Xbindkeys` for binding special keys
 + `imagemagick` for every possible image manipulation
@@ -17,3 +17,5 @@
 ## Set Wallpapers
 ```feh --randomize --bg-fill $HOME/.wallpapers/*```
 
+## Note
++ `neovim` must be the nightly version at this time, otherwise some plugins do not work.

@@ -178,7 +178,8 @@ let g:lualine = {
     \},
     \'extensions' : [ 'fzf', 'fugitive', 'nerdtree' ],
     \}
-"lua require("lualine").setup()
+lua require("lualine").setup()
+" lualine ----------------------------------------------------------------------
 
 " fzf.vim and ripgrep-----------------------------------------------------------
 nnoremap <silent> <leader>f :Rg<CR>
