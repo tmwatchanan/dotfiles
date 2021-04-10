@@ -1,81 +1,87 @@
-" plugin via vim-plug
 call plug#begin()
-Plug 'vim-airline/vim-airline'
-Plug 'chrisbra/NrrwRgn'
-Plug 'tpope/vim-surround'
-Plug 'godlygeek/tabular'
+"theme
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
 
-" movement
-Plug 'easymotion/vim-easymotion'
+"status line
+Plug 'hoob3rt/lualine.nvim'
+Plug 'ryanoasis/vim-devicons'
+
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'majutsushi/tagbar'
+Plug 'pseewald/nerdtree-tagbar-combined'
+
+Plug 'tpope/vim-fugitive'
+Plug 'rbong/vim-flog'
+Plug 'idanarye/vim-merginal'
+
+Plug 'tpope/vim-surround'
+
 Plug 'wesQ3/vim-windowswap'
 
-" indentation
+Plug 'chaoren/vim-wordmotion'
+Plug 'easymotion/vim-easymotion'
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch-easymotion.vim'
+Plug 'haya14busa/incsearch-fuzzy.vim'
+
+Plug 'luochen1990/rainbow'
+Plug 'jiangmiao/auto-pairs'
+
 Plug 'Yggdroot/indentLine'
 
-" file browsing
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-" tag browsing
-Plug 'majutsushi/tagbar'
+Plug 'mg979/vim-visual-multi'
 
-" syntax checking
-Plug 'w0rp/ale'
-" syntax highlighting
-Plug 'sheerun/vim-polyglot'
+Plug 'sakshamgupta05/vim-todo-highlight'
 
-" git
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-
-" auto completion
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-
-" software development
-Plug 'scrooloose/nerdcommenter'
-Plug 'ternjs/tern_for_vim' " must be underneath YouCompleteMe
-
-" supertab
-Plug 'ervandew/supertab'
-
-" markdown
-" have nodejs and yarn
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-
-" csv
 Plug 'chrisbra/csv.vim'
 
-" color theme
-Plug 'trevordmiller/nova-vim'
-Plug 'joshdick/onedark.vim'
-
-" always load the vim-devicons as the very last one
-" it does require Nerd Font
-Plug 'ryanoasis/vim-devicons'
+Plug 'glepnir/dashboard-nvim'
 call plug#end()
-filetype plugin on
 
-" set <leader> key
-let mapleader = "\<Space>"
-" set <localleader> key
-let maplocalleader = "\\"
+"===============================================================================
+" THEME
+"===============================================================================
+if exists('+termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+endif
 
-" basic configs =============================================
+set t_Co=256
+colorscheme onehalfdark
+let g:airline_theme='onehalfdark'
+" lightline
+let g:lightline = { 'colorscheme': 'onehalfdark' }
+
+
+"===============================================================================
+" BUILT-IN CONFIGS
+"===============================================================================
+"set clipboard=unnamedplus " uninstall xclip as well
 set nocompatible
-"filetyle plugin on
+" "filetyle plugin on
 set number
 set relativenumber
 autocmd FileType nerdtree setlocal relativenumber
 set cursorline
 set encoding=utf-8
-set noswapfile " disable swap file .swp
 syntax on
-set autoindent
-" set ts=4 " 1 tab = 4 spaces (ts is tabstop)
-" set shiftwidth=4 " >> or << commands, shift lines by 4 spaces
+set mouse=n " drag mouse for resizing splits
+"set paste " paste without auto indentation
+set pastetoggle=<F2>
+set formatoptions-=cro " Disable automatic comment insertion
+set showmatch " show the matching part of the pair for [] {} and ()
+
 " indentation ===============================================
+filetype plugin indent on
+set autoindent
+set expandtab " expand tabs into spaces
 " default indentation
 set shiftwidth=4
 set softtabstop=4
@@ -87,305 +93,235 @@ autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype python setlocal ts=4 sw=4 sts=4 expandtab
 " indentation ===============================================
 
-set expandtab " expand tabs into spaces
-set showmatch " show the matching part of the pair for [] {} and ()
-" disable highlight in / (search) after pressing <Enter>
-"set nohlsearch
-" basic configs =============================================
+"keymapping
+" leader key
+nnoremap <SPACE> <Nop>
+let mapleader=" "
 
-" auto-reload configuration =================================
-" auto-reload configuration =================================
+" switch between split panes
+nnoremap <M-j> <C-W><C-j>
+nnoremap <M-k> <C-W><C-k>
+nnoremap <M-l> <C-W><C-l>
+nnoremap <M-h> <C-W><C-h>
 
-" geek ======================================================
-" find the next placeholder
-nnoremap <leader><Tab> <Esc>/<++><CR>"_c4l
-inoremap <leader><Tab> <Esc>/<++><Enter>"_c4l
-vnoremap <leader><Tab> <Esc>/<++><Enter>"_c4l
-map <leader><Tab> <Esc>/<++><Enter>"_c4l
+" clipboard
+" " Copy to clipboard
+vnoremap  <leader>y  "+y
+nnoremap  <leader>Y  "+yg_
+nnoremap  <leader>y  "+y
+
+" " Paste from clipboard
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
+
+" hide search highlight
+nnoremap <CR> :noh<CR><CR>
+
 " switch back from insert mode to normal mode quickly
-inoremap jk <Esc>
-" geek ======================================================
+inoremap jk <esc>
+inoremap kj <esc>
+
+" search smart case, apply to /, *, #
+set ignorecase
+set smartcase
+nnoremap * /\<<C-R>=expand('<cword>')<CR>\><CR>
+nnoremap # ?\<<C-R>=expand('<cword>')<CR>\><CR>
+
+" Tab navigation like a web browser -------------------------------------------
+"nnoremap <M-S-tab> :tabprevious<CR>
+"nnoremap <M-tab>   :tabnext<CR>
+"inoremap <M-S-tab> <Esc>:tabprevious<CR>i
+"inoremap <M-tab>   <Esc>:tabnext<CR>i
+nnoremap <M-t>     :tabnew<CR>
+nnoremap <M-w>     :tabclose<CR>
+inoremap <M-t>     <Esc>:tabnew<CR>
+inoremap <M-w>     <Esc>:tabclose<CR>
+nnoremap <M-1> 1gt
+nnoremap <M-2> 2gt
+nnoremap <M-3> 3gt
+nnoremap <M-4> 4gt
+nnoremap <M-5> 5gt
+nnoremap <M-6> 6gt
+nnoremap <M-7> 7gt
+nnoremap <M-8> 8gt
+nnoremap <M-9> 9gt
+nnoremap <M-0> 10gt
+" Tab navigation like a web browser -------------------------------------------
+
+"===============================================================================
+" PLUGINS
+"===============================================================================
+
+let g:lualine = {
+    \'options' : {
+    \  'theme' : 'gruvbox',
+    \  'section_separators' : ['', ''],
+    \  'component_separators' : ['', ''],
+    \  'icons_enabled' : v:true,
+    \},
+    \'sections' : {
+    \  'lualine_a' : [ ['mode', {'upper': v:true,},], ],
+    \  'lualine_b' : [ ['branch', {'icon': '',}, ], ],
+    \  'lualine_c' : [ ['filename', {'file_status': v:true,},], ],
+    \  'lualine_x' : [ 'encoding', 'fileformat', 'filetype' ],
+    \  'lualine_y' : [ 'progress' ],
+    \  'lualine_z' : [ 'location'  ],
+    \},
+    \'inactive_sections' : {
+    \  'lualine_a' : [  ],
+    \  'lualine_b' : [  ],
+    \  'lualine_c' : [ 'filename' ],
+    \  'lualine_x' : [ 'location' ],
+    \  'lualine_y' : [  ],
+    \  'lualine_z' : [  ],
+    \},
+    \'extensions' : [ 'fzf', 'fugitive', 'nerdtree' ],
+    \}
+"lua require("lualine").setup()
+
+" fzf.vim and ripgrep-----------------------------------------------------------
+nnoremap <silent> <leader>f :Rg<CR>
+nnoremap <silent> <leader>F :Files<CR>
+nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <silent> <leader>/ :BLines<CR>
+nnoremap <silent> <leader>' :Marks<CR>
+nnoremap <silent> <leader>hh :History<CR>
+nnoremap <silent> <leader>h: :History:<CR>
+nnoremap <silent> <leader>h/ :History/<CR> 
+" fzf.vim and ripgrep-----------------------------------------------------------
+
+" NERDTree --------------------------------------------------------------------
+"nnoremap <C-n> :NERDTree<CR>
+"nnoremap <C-t> :NERDTreeToggle<CR>
+
+" Tagbar
+let g:tagbar_left = 1
+"let g:tagbar_vertical = 25
+let g:tagbar_position = 'bottom'
+let NERDTreeWinPos = 'left'
+nnoremap <C-t> :ToggleNERDTreeAndTagbar<CR>
 
 
-" theme =====================================================
-set background=dark
-colorscheme onedark
-let g:onedark_terminal_bold = 1
-let g:onedark_terminal_italics = 1
-let g:onedark_terminal_underline = 1
-let g:airline_theme='onedark'
-"set notermguicolors
-" theme =====================================================
+nnoremap <C-f> :NERDTreeFind<CR>
+" Start NERDTree. If a file is specified, move the cursor to its window.
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
+" Exit Vim if NERDTree is the only window left.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+            \ quit | endif
 
-" indentLine ================================================
-let g:indentLine_char = '¦' " ¦, ┆, │, ⎸, or ▏
-" indentLine ================================================
 
-" tabularize
-if exists(":Tabularize")
-  nmap ,a= :Tabularize /=<CR>
-  vmap ,a= :Tabularize /=<CR>
-  nmap ,a: :Tabularize /:\zs<CR>
-  vmap ,a: :Tabularize /:\zs<CR>
-endif
+" Synchronizing nerdtree with the currently opened file ________________________
+"thanks to https://www.reddit.com/r/vim/comments/g47z4f/synchronizing_nerdtree_with_the_currently_opened/
 
-inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
-function! s:align()
-  let p = '^\s*|\s.*\s|\s*$'
-  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-    Tabularize/|/l1
-    normal! 0
-    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-  endif
+" Check if NERDTree is open or active
+function! IsNERDTreeOpen()
+    return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
 endfunction
-" tabularize
 
-" vim-easymotion ============================================
+" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
+" file, and we're not in vimdiff
+function! SyncTree()
+    if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+        NERDTreeFind
+        wincmd p
+    endif
+endfunction
+
+" Highlight currently open buffer in NERDTree
+autocmd BufRead * call SyncTree()
+" Synchronizing nerdtree with the currently opened file _______________________
+
+" NERDTree --------------------------------------------------------------------
+
+" vim-todo-highlight ----------------------------------------------------------
+augroup vimrc_todo
+    au!
+    au Syntax * syn match MyTodo /\v<(FIXME|NOTE|TODO|OPTIMIZE|XXX):/
+                \ containedin=.*Comment.*
+augroup END
+"hi def link vimrc_todo Todo
+"highlight vimrc_todo ctermbg=green guibg=green ctermfg=black guifg=black
+" vim-todo-highlight ----------------------------------------------------------
+
+" vim-wordmotion --------------------------------------------------------------
+let g:wordmotion_nomap = 1
+nmap w          <Plug>WordMotion_w
+nmap b          <Plug>WordMotion_b
+nmap gE         <Plug>WordMotion_gE
+omap aW         <Plug>WordMotion_aW
+cmap <C-R><C-W> <Plug>WordMotion_<C-R><C-W>
+" vim-wordmotion --------------------------------------------------------------
+
+
+" vim-easymotion --------------------------------------------------------------
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
-map <Leader> <Plug>(easymotion-prefix)
-" Turn on case insensitive feature
-let g:EasyMotion_smartcase = 1
-" hjkl motion
-map <Leader>l <Plug>(easymotion-lineforward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>h <Plug>(easymotion-linebackward)
+
+" hjkl motions
+map <leader>l <Plug>(easymotion-lineforward)
+map <leader>j <Plug>(easymotion-j)
+map <leader>k <Plug>(easymotion-k)
+map <leader>h <Plug>(easymotion-linebackward)
 let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
-" Without these mappings, `n` & `N` works fine. (These mappings just provide
-" different highlight method and have some other features )
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
-" vim-easymotion ============================================
 
-" air-line ==================================================
-let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
-" airline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
-" air-line ==================================================
+" Turn on case-insensitive feature
+let g:EasyMotion_smartcase = 1
 
-" NERDCommenter =============================================
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
-" NERDCommenter =============================================
+" JK motions: Line motions
+map <leader>j <Plug>(easymotion-j)
+map <leader>k <Plug>(easymotion-k)
 
-" ctrlp =====================================================
-let g:ctrlp_match_window = 'results:100' " overcome limit imposed by max height
-" ctrlp =====================================================
+" vim-easymotion --------------------------------------------------------------
 
-" ale =======================================================
-let g:ale_linters = {
-  \ 'python': ['flake8', 'pylint'],
-  \ 'javascript': ['eslint'],
-  \ 'json': ['jsonlint']
-\}
-let g:ale_fixers = {
-  \ 'python': ['autopep8', 'yapf'],
-  \ 'javascript': ['eslint'],
-  \ 'json': ['fixjson']
-\ }
+" incsearch.vim x fuzzy x vim-easymotion --------------------------------------
+" thanks to https://francopasut.github.io/editors/vim-easymotion/
 
-" python
-let g:ale_python_pylint_options = "--extension-pkg-whitelist=cv2"
+" To enable fuzzy and fuzzy spell, add these converters
+"                \   'converters': [
+"                \     incsearch#config#fuzzy#converter(),
+"                \     incsearch#config#fuzzyspell#converter()
+"                \   ],
+function! s:incsearch_config(...) abort
+    return incsearch#util#deepextend(deepcopy({
+                \   'converters': [
+                \   ],
+                \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
+                \   'keymap': {
+                \     "\<CR>": '<Over>(easymotion)'
+                \   },
+                \   'is_expr': 0,
+                \   'is_stay': 1,
+                \ }), get(a:, 1, {}))
+endfunction
+noremap <silent><expr> /  incsearch#go(<SID>incsearch_config())
+noremap <silent><expr> ?  incsearch#go(<SID>incsearch_config({'command': '?'}))
+noremap <silent><expr> g/ incsearch#go(<SID>incsearch_config({'is_stay': 0}))
 
-let g:ale_virtualtext_cursor = 1
-let g:ale_virtualtext_prefix = "--> "
-let g:ale_echo_msg_error_str='[ERROR]'
-let g:ale_echo_msg_info_str='[INFO]'
-let g:ale_echo_msg_warning_str='[WARNING]'
-let g:ale_echo_msg_format = '%severity% -> %linter% -> %code% %s'
-let g:ale_lint_on_save = 1
-let g:ale_fix_on_save = 1
-let g:airline#extensions#ale#enabled = 1
-let g:ale_sign_error = '✘'
-let g:ale_sign_warning = '⚠'
-" let g:airline#extensions#ale#enabled = 1
-highlight ALEErrorSign ctermbg=NONE ctermfg=red
-highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
-" ale =======================================================
+" :h g:incsearch#auto_nohlsearch
+set hlsearch
+let g:incsearch#auto_nohlsearch = 1
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
 
-" YouCompleteMe =============================================
-" ref: https://stackoverflow.com/a/22253548/7150241
-" make YCM compatible with UltiSnips (using supertab)"
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-" auto close preview window without pressing ctrl-w z
-" let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
+" incsearch.vim x fuzzy x vim-easymotion --------------------------------------
 
-" auto trigger completion without pressing ctrl-space
-let g:ycm_auto_trigger = 1
-let g:ycm_min_num_of_chars_for_completion = 1
+" dashboard-nvim --------------------------------------------------------------
+let g:dashboard_default_executive = 'fzf'
+nmap <Leader>ss :<C-u>SessionSave<CR>
+nmap <Leader>sl :<C-u>SessionLoad<CR>
+nnoremap <silent> <Leader>cn :DashboardNewFile<CR>
+" dashboard-nvim --------------------------------------------------------------
 
-" python language
-let g:ycm_python_binary_path = 'python'
-" YouCompleteMe =============================================
+" indentLine ------------------------------------------------------------------
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+" indentLine ------------------------------------------------------------------
 
-" UltiSnips =================================================
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-" UltiSnips =================================================
+" vim-fugitive ----------------------------------------------------------------
 
-" Tagbar ====================================================
-nmap <F8> :TagbarToggle<CR>
-" Tagbar ====================================================
-
-" tern_for_vim ==============================================
-let g:tern_map_keys=1
-" tern_for_vim ==============================================
-
-" miscellaneous =============================================
-set colorcolumn=80
-
-" clear highlight on pressing <Esc>
-nnoremap <Esc> <Esc>:noh<CR><Esc>
-
-" ease for split navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-
-" miscellaneous =============================================
-
-" developement ==============================================
-" NERDtree
-" map <C-n> :NERDTreeToggle<CR>"
-" map <C-n> :NERDTreeFind<CR>
-map <C-n> :NERDTreeToggle %<CR>
-let g:NERDTreeWinSize = 25
-let g:NERDTreeShowLineNumbers = 1
-
-" Tab navigation like Firefox.
-nnoremap <A-S-tab> :tabprevious<CR>
-nnoremap <A-tab>   :tabnext<CR>
-nnoremap <A-t>     :tabnew<CR>
-nnoremap <A-w>     :tabclose<CR>
-inoremap <A-S-tab> <Esc>:tabprevious<CR>i
-inoremap <A-tab>   <Esc>:tabnext<CR>i
-inoremap <A-t>     <Esc>:tabnew<CR>
-inoremap <A-w>     <Esc>:tabclose<CR>
-nnoremap <A-1> 1gt
-nnoremap <A-2> 2gt
-nnoremap <A-3> 3gt
-nnoremap <A-4> 4gt
-nnoremap <A-5> 5gt
-nnoremap <A-6> 6gt
-nnoremap <A-7> 7gt
-nnoremap <A-8> 8gt
-nnoremap <A-9> 9gt
-nnoremap <A-0> 10gt
-" nnoremap H gT
-" nnoremap L gt
-
-" enable all Python syntax highlighting features
-let python_highlight_all = 1
-
-" syntastic
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-
-" HTML
-autocmd FileType html inoremap ;i <em></em><leader><Esc>Fet>i
-
-" Markdown language
-autocmd Filetype markdown map <leader>w yiWi[<esc>Ea](<esc>pa)
-autocmd Filetype markdown inoremap ,n ---<Enter><Enter>
-autocmd Filetype markdown inoremap ,b ****<++><Esc>F*hi
-autocmd Filetype markdown inoremap ,s ~~~~<++><Esc>F~hi
-autocmd Filetype markdown inoremap ,e **<++><Esc>F*i
-autocmd Filetype markdown inoremap ,h ====<Space><++><Esc>F=hi
-autocmd Filetype markdown inoremap ,i ![](<++>)<++><Esc>F[a
-autocmd Filetype markdown inoremap ,a [](<++>)<++><Esc>F[a
-autocmd Filetype markdown inoremap ,1 #<Space><Enter><++><Esc>kA
-autocmd Filetype markdown inoremap ,2 ##<Space><Enter><++><Esc>kA
-autocmd Filetype markdown inoremap ,3 ###<Space><Enter><++><Esc>kA
-autocmd Filetype markdown inoremap ,l --------<Enter>
-
-" LaTeX
-
-    " Open corresponding.pdf
-    map <leader>p :!zathura %:r.pdf &<CR><CR>
-    " Word count:
-    autocmd FileType tex map <F3> :w !detex \| wc -w<CR>
-    autocmd FileType tex inoremap <F3> <Esc>:w !detex \| wc -w<CR>
-    " Compile document using xelatex:
-    autocmd FileType tex inoremap <F5> <Esc>:!xelatex<space><c-r>%<Enter>a
-    autocmd FileType tex nnoremap <F5> :!xelatex<space><c-r>%<Enter>
-    " Code snippets
-    autocmd FileType tex inoremap ,fr \begin{frame}<Enter>\frametitle{}<Enter><Enter><++><Enter><Enter>\end{frame}<Enter><Enter><++><Esc>6kf}i
-    autocmd FileType tex inoremap ,fi \begin{fitch}<Enter><Enter>\end{fitch}<Enter><Enter><++><Esc>3kA
-    autocmd FileType tex inoremap ,exe \begin{exe}<Enter>\ex<Space><Enter>\end{exe}<Enter><Enter><++><Esc>3kA
-    autocmd FileType tex inoremap ,em \emph{}<++><Esc>T{i
-    autocmd FileType tex inoremap ,bf \textbf{}<++><Esc>T{i
-    autocmd FileType tex vnoremap , <ESC>`<i\{<ESC>`>2la}<ESC>?\\{<Enter>a
-    autocmd FileType tex inoremap ,it \textit{}<++><Esc>T{i
-    autocmd FileType tex inoremap ,ct \textcite{}<++><Esc>T{i
-    autocmd FileType tex inoremap ,cp \parencite{}<++><Esc>T{i
-    autocmd FileType tex inoremap ,glos {\gll<Space><++><Space>\\<Enter><++><Space>\\<Enter>\trans{``<++>''}}<Esc>2k2bcw
-    autocmd FileType tex inoremap ,x \begin{xlist}<Enter>\ex<Space><Enter>\end{xlist}<Esc>kA<Space>
-    autocmd FileType tex inoremap ,ol \begin{enumerate}<Enter><Enter>\end{enumerate}<Enter><Enter><++><Esc>3kA\item<Space>
-    autocmd FileType tex inoremap ,ul \begin{itemize}<Enter><Enter>\end{itemize}<Enter><Enter><++><Esc>3kA\item<Space>
-    autocmd FileType tex inoremap ,li <Enter>\item<Space>
-    autocmd FileType tex inoremap ,ref \ref{}<Space><++><Esc>T{i
-    autocmd FileType tex inoremap ,tab \begin{tabular}<Enter><++><Enter>\end{tabular}<Enter><Enter><++><Esc>4kA{}<Esc>i
-    autocmd FileType tex inoremap ,ot \begin{tableau}<Enter>\inp{<++>}<Tab>\const{<++>}<Tab><++><Enter><++><Enter>\end{tableau}<Enter><Enter><++><Esc>5kA{}<Esc>i
-    autocmd FileType tex inoremap ,can \cand{}<Tab><++><Esc>T{i
-    autocmd FileType tex inoremap ,con \const{}<Tab><++><Esc>T{i
-    autocmd FileType tex inoremap ,v \vio{}<Tab><++><Esc>T{i
-    autocmd FileType tex inoremap ,a \href{}{<++>}<Space><++><Esc>2T{i
-    autocmd FileType tex inoremap ,sc \textsc{}<Space><++><Esc>T{i
-    autocmd FileType tex inoremap ,chap \chapter{}<Enter><Enter><++><Esc>2kf}i
-    autocmd FileType tex inoremap ,sec \section{}<Enter><Enter><++><Esc>2kf}i
-    autocmd FileType tex inoremap ,ssec \subsection{}<Enter><Enter><++><Esc>2kf}i
-    autocmd FileType tex inoremap ,sssec \subsubsection{}<Enter><Enter><++><Esc>2kf}i
-    autocmd FileType tex inoremap ,st <Esc>F{i*<Esc>f}i
-    autocmd FileType tex inoremap ,beg \begin{DELRN}<Enter><++><Enter>\end{DELRN}<Enter><Enter><++><Esc>4k0fR:MultipleCursorsFind<Space>DELRN<Enter>c
-    autocmd FileType tex inoremap ,up <Esc>/usepackage<Enter>o\usepackage{}<Esc>i
-    autocmd FileType tex nnoremap ,up /usepackage<Enter>o\usepackage{}<Esc>i
-    autocmd FileType tex inoremap ,tt \texttt{}<Space><++><Esc>T{i
-    autocmd FileType tex inoremap ,bt {\blindtext}
-    autocmd FileType tex inoremap ,nu $\varnothing$
-    autocmd FileType tex inoremap ,col \begin{columns}[T]<Enter>\begin{column}{.5\textwidth}<Enter><Enter>\end{column}<Enter>\begin{column}{.5\textwidth}<Enter><++><Enter>\end{column}<Enter>\end{columns}<Esc>5kA
-    autocmd FileType tex inoremap ,rn (\ref{})<++><Esc>F}i
-
-" developement ==============================================
-
-" fix issue with spurious q's appearing
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
-set guicursor=
+" vim-fugitive ----------------------------------------------------------------
