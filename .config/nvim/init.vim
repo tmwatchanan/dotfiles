@@ -1,6 +1,5 @@
 call plug#begin()
 "theme
-Plug 'kuntau/ayu-vim' " 'ayu-theme/ayu-vim'
 Plug 'drewtempelmeyer/palenight.vim'
 
 "status line
@@ -64,18 +63,10 @@ endif
 
 set t_Co=256
 
-" ayu theme
-let ayucolor="dark"
-let ayu_comment_italic=1 " enable italic for comments
-let ayu_string_italic=0  " enable italic for strings
-let ayu_type_italic=0    " enable italic for types
-let ayu_keyword_italic=0 " enable italic for keywords
-colorscheme ayu
-
 " palenight
-"set background=dark
-"colorscheme palenight
-"let g:palenight_terminal_italics=1
+set background=dark
+let g:palenight_terminal_italics=1
+colorscheme palenight
 
 "===============================================================================
 " BUILT-IN CONFIGS
@@ -173,7 +164,7 @@ nnoremap <M-0> 10gt
 " lualine ----------------------------------------------------------------------
 let g:lualine = {
     \'options' : {
-    \  'theme' : 'gruvbox',
+    \  'theme' : 'palenight',
     \  'section_separators' : ['', ''],
     \  'component_separators' : ['', ''],
     \  'icons_enabled' : v:true,
