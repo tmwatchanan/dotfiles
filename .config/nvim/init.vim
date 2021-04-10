@@ -73,11 +73,10 @@ set cursorline
 set encoding=utf-8
 syntax on
 set mouse=n " drag mouse for resizing splits
-"set paste " paste without auto indentation
 set pastetoggle=<F2>
-set formatoptions-=cro " Disable automatic comment insertion
 set showmatch " show the matching part of the pair for [] {} and ()
-
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o " Disable automatic comment insertion
+"set paste " paste without auto indentation
 " indentation ===============================================
 filetype plugin indent on
 set autoindent
@@ -321,7 +320,3 @@ nnoremap <silent> <Leader>cn :DashboardNewFile<CR>
 " indentLine ------------------------------------------------------------------
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 " indentLine ------------------------------------------------------------------
-
-" vim-fugitive ----------------------------------------------------------------
-
-" vim-fugitive ----------------------------------------------------------------
