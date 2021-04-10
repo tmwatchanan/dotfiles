@@ -45,6 +45,8 @@ Plug 'chrisbra/csv.vim'
 Plug 'glepnir/dashboard-nvim'
 
 Plug 'tommcdo/vim-exchange'
+
+Plug 'machakann/vim-highlightedyank'
 call plug#end()
 
 "===============================================================================
