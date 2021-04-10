@@ -43,6 +43,8 @@ Plug 'sakshamgupta05/vim-todo-highlight'
 Plug 'chrisbra/csv.vim'
 
 Plug 'glepnir/dashboard-nvim'
+
+Plug 'tommcdo/vim-exchange'
 call plug#end()
 
 "===============================================================================
