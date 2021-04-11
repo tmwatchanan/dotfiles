@@ -332,6 +332,7 @@ let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 " indentLine ------------------------------------------------------------------
 
 " vim-fugitive ----------------------------------------------------------------
+set diffopt+=vertical
 autocmd BufReadPost fugitive://* set bufhidden=delete
 nnoremap <leader>gs :G<CR>
 nnoremap <leader>gf :diffget //2<CR>
