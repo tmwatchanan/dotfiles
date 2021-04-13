@@ -19,6 +19,7 @@ Plug 'pseewald/nerdtree-tagbar-combined'
 Plug 'tpope/vim-fugitive'
 Plug 'rbong/vim-flog'
 Plug 'idanarye/vim-merginal'
+Plug 'airblade/vim-gitgutter'
 
 Plug 'tpope/vim-surround'
 
@@ -338,3 +339,23 @@ nnoremap <leader>gs :G<CR>
 nnoremap <leader>gf :diffget //2<CR>
 nnoremap <leader>gj :diffget //3<CR>
 " vim-fugitive ----------------------------------------------------------------
+
+" vim-gitgutter ---------------------------------------------------------------
+set updatetime=250
+
+" symbols from https://mmore500.com/2020/04/12/vim-gitgutter.html
+let g:gitgutter_sign_added = '█|'
+let g:gitgutter_sign_modified = '█⫶'
+let g:gitgutter_sign_removed = '█▁'
+let g:gitgutter_sign_removed_first_line = '█▔'
+let g:gitgutter_sign_modified_removed = "█▟"
+
+" git add (chunk)
+nmap <leader>ga <Plug>(GitGutterStageHunk)
+" git undo (chunk)
+nmap <leader>gu <Plug>(GitGutterUndoHunk)
+" fold all unchanged lines
+nmap <leader>gz :GitGutterFold<CR>
+" highlight changed lines
+nmap <leader>gt :GitGutterLineHighlightsToggle<CR>
+" vim-gitgutter ---------------------------------------------------------------
