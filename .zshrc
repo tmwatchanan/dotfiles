@@ -143,6 +143,11 @@ export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/nu
 export LIBGL_ALWAYS_INDIRECT=1
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+alias fzf="fzf --preview 'fzf-bat-preview {1} {2}'"
+zv() {
+    nvim -O $(fzf --preview 'fzf-bat-preview {1} {2}')
+}
+# `ff` command is in /bin/ff
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -268,3 +273,4 @@ bind-git-helper() {
 bind-git-helper f b t r h s
 unset -f bind-git-helper
 # git with fzf (Thanks Junegunn Choi) =========================================
+
