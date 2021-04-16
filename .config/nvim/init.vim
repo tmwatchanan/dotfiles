@@ -37,6 +37,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'Yggdroot/indentLine'
 
 Plug 'mg979/vim-visual-multi'
+Plug 'triglav/vim-visual-increment'
 
 Plug 'sakshamgupta05/vim-todo-highlight'
 
