@@ -1,34 +1,96 @@
-# Set up the prompt
+# If you come from bash you might have to change your $PATH.
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+
 # Path to your oh-my-zsh installation.
-  export ZSH="$HOME/.oh-my-zsh"
+export ZSH="/home/mie/.oh-my-zsh"
 
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="spaceship"
+SPACESHIP_BATTERY_SHOW=false
 
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
 # ranger (file manager)
 export EDITOR=nvim
 
-# make all scripts in ~/bin global
-export PATH=$HOME/bin:$PATH
-export PATH=/snap/bin:$PATH
-
-# python module search path (PMSP)
-export PYTHONPATH="$PYTHONPATH:$HOME/.python"
-
-# flutter
-export PATH=$PATH:$HOME/dev/flutter/bin
-
-# pure theme
-fpath=( "$HOME/.zfunctions" $fpath )
-plugins=(sudo systemd vi-mode tmux wd z history colored-man-pages extract git copyfile gem npm yarn ruby gem composer python pip docker zsh-autosuggestions zsh-syntax-highlighting)
-source $ZSH/oh-my-zsh.sh
-autoload -Uz promptinit; promptinit
-# prompt spaceship
-# prompt pure
-
-setopt histignorealldups sharehistory
-
-# Use emacs keybindings even if our EDITOR is set to vi
-bindkey -e
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
@@ -38,61 +100,32 @@ HISTFILE=~/.zsh_history
 # auto cd paths
 setopt auto_cd
 
-# Use modern completion system
-autoload -Uz compinit
-compinit
-# Completion for kitty
-kitty + complete setup zsh | source /dev/stdin
-
-zstyle ':completion:*' auto-description 'specify: %d'
-zstyle ':completion:*' completer _expand _complete _correct _approximate
-zstyle ':completion:*' format 'Completing %d'
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*' menu select=2
-eval "$(dircolors -b)"
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
-zstyle ':completion:*' menu select=long
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle ':completion:*' use-compctl false
-zstyle ':completion:*' verbose true
-
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
-
-# Aliases
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ..='cd ..'
 alias ...='cd ../..'
 alias sudo='sudo '
 alias vim=nvim
+alias vi=nvim
 alias v=nvim
-alias vv='sudo nvim'
+alias vv='sudoedit'
 alias cdd="cd $HOME/dev"
+alias cdwd="cd /mnt/d/dev"
+alias cdtmp="cd /tmp"
 alias cfv=" nvim ~/.config/nvim/init.vim"
 alias cfz=" nvim ~/.zshrc"
 alias cfb=" nvim ~/.bashrc"
-alias cfrxvt=" nvim ~/.Xdefaults"
-alias cfk=" nvim ~/.config/kitty/kitty.conf"
-alias cfi3=" nvim ~/.config/i3/config"
-alias cfp=" nvim ~/.config/polybar/config"
-alias cfr=" nvim ~/.config/ranger/rc.conf"
-alias cfc="nvim ~/.config/compton.conf"
 alias cftm="nvim ~/.tmux.conf"
-alias cfnw="sudo nvim /etc/netplan/01-network-manager-all.yaml && sudo netplan apply"
-alias cv="conda activate cv"
 alias st="speedtest-cli"
-alias rg="ranger --cmd='cd pwd'"
-alias rgg="urxvt -e ranger --cmd='cd pwd' &"
+#alias rg="ranger --cmd='cd pwd'"
 alias rm="trash-put"
-alias cat="bat"
-alias code="vscodium"
-alias rmp="shred -zvu -n 5"
-alias j="jobs -l"
-alias sudodolphin="pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY KDE_SESSION_VERSION=5 KDE_FULL_SESSION=true dolphin"
-alias cdtk="cd /var/www/html/tksrisangar"
-alias vdo="ffmpeg -video_size 1366x768 -framerate 25 -f x11grab -i :0.0 -f pulse -ac 2 -i 0"
+alias cat="batcat"
 
 # useful functions
 
@@ -106,62 +139,132 @@ mkcd() { mkdir -p $1; cd $1; }
 targz() { tar -zcvf $1.tar.gz $1; rm -r $1; }
 untargz() { tar -zxvf $1; rm -r $1; }
 
+export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
+export LIBGL_ALWAYS_INDIRECT=1
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/tommie/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/mie/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/tommie/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/tommie/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/mie/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/mie/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/tommie/miniconda3/bin:$PATH"
+        export PATH="/home/mie/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-#.# zsh-syntax-highlighting
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
-ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red') # To have commands st
+export LD_LIBRARY_PATH="/usr/local/lib":$LD_LIBRARY_PATH
 
-# nvm (node.js)
-# lazyload nvm
-# all props goes to http://broken-by.me/lazy-load-nvm/
-# grabbed from reddit @ https://www.reddit.com/r/node/comments/4tg5jg/lazy_load_nvm_for_faster_shell_start/
-# lazynvm() {
-  # unset -f nvm node npm npx
-  export NVM_DIR=~/.nvm
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-  if [ -f "$NVM_DIR/bash_completion" ]; then
-    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-  fi
-# }
+# for fzf.vim to use ripgrep
+if type rg &> /dev/null; then
+  export FZF_DEFAULT_COMMAND='rg --files'
+  export FZF_DEFAULT_OPTS='-m --height 50% --border'
+fi
 
-# nvm() {
-  # lazynvm
-  # nvm $@
-# }
+# nnn
+export NNN_PLUG='c:fzcd;f:finder;o:fzopen;p:preview_tui;d:diffs;t:nmount;i:imgview'
 
-# node() {
-  # lazynvm
-  # node $@
-# }
+# linuxbrew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-# npm() {
-  # lazynvm
-  # npm $@
-# }
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh"  ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion"  ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH=$PATH:$(npm get prefix)/bin
 
-# npx() {
-  # lazynvm
-  # npx $@
-# }
+# git with fzf (Thanks Junegunn Choi) =========================================
 
-# kitty + tmux
-[[ $TMUX = "" ]] && export TERM="xterm-256color"
+is_in_git_repo() {
+  git rev-parse HEAD > /dev/null 2>&1
+}
 
-# java config for android-studio
-export _JAVA_AWT_WM_NONREPARENTING=1
+fzf-down() {
+  fzf --height 50% --min-height 20 --border --bind ctrl-/:toggle-preview "$@"
+}
+
+# ctrl-g f
+_gf() {
+  is_in_git_repo || return
+  git -c color.status=always status --short |
+  fzf-down -m --ansi --nth 2..,.. \
+    --preview '(git diff --color=always -- {-1} | sed 1,4d; cat {-1})' |
+  cut -c4- | sed 's/.* -> //'
+}
+
+# ctrl-g b
+_gb() {
+  is_in_git_repo || return
+  git branch -a --color=always | grep -v '/HEAD\s' | sort |
+  fzf-down --ansi --multi --tac --preview-window right:70% \
+    --preview 'git log --oneline --graph --date=short --color=always --pretty="format:%C(auto)%cd %h%d %s" $(sed s/^..// <<< {} | cut -d" " -f1)' |
+  sed 's/^..//' | cut -d' ' -f1 |
+  sed 's#^remotes/##'
+}
+
+# ctrl-g t
+_gt() {
+  is_in_git_repo || return
+  git tag --sort -version:refname |
+  fzf-down --multi --preview-window right:70% \
+    --preview 'git show --color=always {}'
+}
+
+# ctrl-g h
+_gh() {
+  is_in_git_repo || return
+  git log --date=short --format="%C(green)%C(bold)%cd %C(auto)%h%d %s (%an)" --graph --color=always |
+  fzf-down --ansi --no-sort --reverse --multi --bind 'ctrl-s:toggle-sort' \
+    --header 'Press CTRL-S to toggle sort' \
+    --preview 'grep -o "[a-f0-9]\{7,\}" <<< {} | xargs git show --color=always' |
+  grep -o "[a-f0-9]\{7,\}"
+}
+
+# ctrl-g r
+_gr() {
+  is_in_git_repo || return
+  git remote -v | awk '{print $1 "\t" $2}' | uniq |
+  fzf-down --tac \
+    --preview 'git log --oneline --graph --date=short --pretty="format:%C(auto)%cd %h%d %s" {1}' |
+  cut -d$'\t' -f1
+}
+
+# ctrl-g s
+_gs() {
+  is_in_git_repo || return
+  git stash list | fzf-down --reverse -d: --preview 'git show --color=always {1}' |
+  cut -d: -f1
+}
+
+join-lines() {
+  local item
+    while read item; do
+            echo -n "${(q)item} "
+              done
+              
+}
+
+join-lines() {
+  local item
+  while read item; do
+    echo -n "${(q)item} "
+  done
+}
+
+bind-git-helper() {
+  local c
+  for c in $@; do
+    eval "fzf-g$c-widget() { local result=\$(_g$c | join-lines); zle reset-prompt; LBUFFER+=\$result }"
+    eval "zle -N fzf-g$c-widget"
+    eval "bindkey '^g$c' fzf-g$c-widget"
+  done
+}
+bind-git-helper f b t r h s
+unset -f bind-git-helper
+# git with fzf (Thanks Junegunn Choi) =========================================
