@@ -194,6 +194,8 @@ lua require("lualine").setup()
 " lualine ----------------------------------------------------------------------
 
 " fzf.vim and ripgrep-----------------------------------------------------------
+" exclude file name search for Rg
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
 nnoremap <silent> <leader>f :Rg<CR>
 nnoremap <silent> <leader>F :Files<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
