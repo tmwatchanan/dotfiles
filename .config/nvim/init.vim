@@ -132,6 +132,9 @@ nnoremap <CR> :noh<CR><CR>
 " switch back from insert mode to normal mode quickly
 inoremap jk <esc>
 inoremap kj <esc>
+" create a new line in insert mode
+inoremap jl <esc><S-o>
+inoremap j; <esc>o
 
 " search smart case, apply to /, *, #
 set ignorecase
