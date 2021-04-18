@@ -75,9 +75,10 @@ colorscheme palenight
 "===============================================================================
 " BUILT-IN CONFIGS
 "===============================================================================
-"set clipboard=unnamedplus " uninstall xclip as well
 set nocompatible
+"set clipboard=unnamedplus " uninstall xclip as well
 " "filetyle plugin on
+set history=10000 " must be after set nocompatible
 set number
 set relativenumber
 autocmd FileType nerdtree setlocal relativenumber
