@@ -136,6 +136,9 @@ nnoremap <CR> :noh<CR><CR>
 " switch back from insert mode to normal mode quickly
 inoremap jk <esc>
 inoremap kj <esc>
+" move to front or back of the line in insert mode
+inoremap jj <esc>I
+inoremap JJ <esc>A
 " create a new line in insert mode
 inoremap jl <esc><S-o>
 inoremap j; <esc>o
@@ -166,6 +169,10 @@ nnoremap <M-8> 8gt
 nnoremap <M-9> 9gt
 nnoremap <M-0> 10gt
 " Tab navigation like a web browser -------------------------------------------
+
+" change multiple occurrences combined cgn with . (thanks u/Popeye_Lifting)
+nnoremap <Leader>x /\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgn
+nnoremap <Leader>X ?\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgN
 
 "===============================================================================
 " PLUGINS
