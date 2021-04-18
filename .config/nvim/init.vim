@@ -50,6 +50,8 @@ Plug 'tommcdo/vim-exchange'
 Plug 'machakann/vim-highlightedyank'
 
 Plug 'chrisbra/NrrwRgn'
+
+Plug 'dense-analysis/ale'
 call plug#end()
 
 "===============================================================================
@@ -444,3 +446,7 @@ nmap <leader>gz :GitGutterFold<CR>
 nmap <leader>gt :GitGutterLineHighlightsToggle<CR>
 " vim-gitgutter ---------------------------------------------------------------
 
+" ale -------------------------------------------------------------------------
+nmap <silent> <leader>aj :ALENext<cr>
+nmap <silent> <leader>ak :ALEPrevious<cr>
+" ale -------------------------------------------------------------------------
