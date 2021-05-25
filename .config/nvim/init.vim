@@ -210,10 +210,10 @@ lua require("lualine").setup()
 " fzf.vim and ripgrep-----------------------------------------------------------
 " exclude file name search for Rg
 command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
-let $FZF_PREVIEW_COMMAND = 'rougify --theme thankful_eyes {} || batcat {}'
 " thanks junegunn for rg with preview
+let $FZF_PREVIEW_COMMAND = 'rougify --theme thankful_eyes {} || batcat {}'
 command! -bang -nargs=* Rg
-  \ call fzf#vim#grep('rg --column --no-heading --line-number --color=always '.shellescape(<q-args>),
+  \ call fzf#vim#grep('rg --column --no-heading --line-number --color=always --smart-case '.shellescape(<q-args>),
   \ 1,
   \ fzf#vim#with_preview(),
   \ <bang>0)
@@ -230,7 +230,7 @@ nnoremap <silent> <leader>h/ :History/<CR>
 if executable('rg')
     let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
     set grepprg=rg\ --vimgrep
-    command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)  
+    command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color=always '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)  
 
     " Overriding fzf.vim's default :Files command.
     " Pass zero or one args to Files command (which are then passed to Fzf_dev). Support file path completion too.
@@ -240,7 +240,7 @@ if executable('rg')
 endif
 
 function! Fzf_dev(qargs)
-    let l:fzf_files_options = '--preview "batcat --theme="OneHalfDark" --style=numbers,changes --color always {2..-1} | head -'.&lines.'" --expect=ctrl-t,ctrl-v,ctrl-x --multi --bind=ctrl-a:select-all,ctrl-d:deselect-all'
+    let l:fzf_files_options = '--preview "batcat --theme="OneHalfDark" --style=numbers,changes --color=always {2..-1} | head -'.&lines.'" --expect=ctrl-t,ctrl-v,ctrl-x --multi --bind=ctrl-a:select-all,ctrl-d:deselect-all'
 
     function! s:files(dir)
         let l:cmd = $FZF_DEFAULT_COMMAND
@@ -287,6 +287,7 @@ endfunction
 " NERDTree --------------------------------------------------------------------
 "nnoremap <C-n> :NERDTree<CR>
 "nnoremap <C-t> :NERDTreeToggle<CR>
+map <leader>r :NERDTreeFind<cr>
 
 " Tagbar
 let g:tagbar_left = 1
