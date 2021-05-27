@@ -75,6 +75,9 @@ Plug 'tpope/vim-commentary'
 Plug 'craigemery/vim-autotag'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'akinsho/nvim-bufferline.lua'
 call plug#end()
 
 "===============================================================================
@@ -139,6 +142,9 @@ nnoremap <M-j> <C-W><C-j>
 nnoremap <M-k> <C-W><C-k>
 nnoremap <M-l> <C-W><C-l>
 nnoremap <M-h> <C-W><C-h>
+
+" buffer
+nnoremap <leader>d :bd<CR>
 
 " clipboard
 " " Copy to clipboard
@@ -590,3 +596,13 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 " nvim-treesitter -------------------------------------------------------------
+
+" nvim-bufferline -------------------------------------------------------------
+lua require('nvim-web-devicons').get_icons()
+lua require('bufferline').setup{}
+
+" These commands will navigate through buffers in order regardless of which mode you are using
+" e.g. if you change the order of buffers :bnext and :bprevious will not respect the custom ordering
+nnoremap <Tab> :BufferLineCycleNext<CR>
+nnoremap <S-Tab> :BufferLineCyclePrev<CR>
+" nvim-bufferline -------------------------------------------------------------
