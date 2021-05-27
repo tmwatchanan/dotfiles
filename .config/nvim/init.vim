@@ -73,6 +73,8 @@ Plug 'svermeulen/vim-easyclip'
 Plug 'tpope/vim-commentary'
 
 Plug 'craigemery/vim-autotag'
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 "===============================================================================
@@ -575,3 +577,16 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " coc-explorer ----------------------------------------------------------------
 nnoremap <C-e> :CocCommand explorer<CR>
 " coc-explorer ----------------------------------------------------------------
+
+" nvim-treesitter -------------------------------------------------------------
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ignore_install = {}, -- List of parsers to ignore installing
+  highlight = {
+    enable = true, -- false will disable the whole extension
+    disable = {},  -- list of language that will be disabled
+  },
+}
+EOF
+" nvim-treesitter -------------------------------------------------------------
