@@ -52,6 +52,12 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'chrisbra/NrrwRgn'
 
 Plug 'dense-analysis/ale'
+
+Plug 'tpope/vim-repeat'
+
+Plug 'svermeulen/vim-easyclip'
+
+Plug 'tpope/vim-commentary'
 call plug#end()
 
 "===============================================================================
@@ -219,6 +225,7 @@ command! -bang -nargs=* Rg
   \ <bang>0)
 nnoremap <silent> <leader>f :Rg<CR>
 "nnoremap <silent> <leader>F :Files<CR>
+nnoremap <silent> <leader>t :Tags<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>/ :BLines<CR>
 nnoremap <silent> <leader>' :Marks<CR>
