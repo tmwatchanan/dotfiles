@@ -359,7 +359,6 @@ omap aW         <Plug>WordMotion_aW
 cmap <C-R><C-W> <Plug>WordMotion_<C-R><C-W>
 " vim-wordmotion --------------------------------------------------------------
 
-
 " vim-easymotion --------------------------------------------------------------
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 
@@ -372,10 +371,6 @@ let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
 
 " Turn on case-insensitive feature
 let g:EasyMotion_smartcase = 1
-
-" JK motions: Line motions
-map <leader>j <Plug>(easymotion-j)
-map <leader>k <Plug>(easymotion-k)
 
 " vim-easymotion --------------------------------------------------------------
 
