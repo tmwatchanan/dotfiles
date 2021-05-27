@@ -28,7 +28,8 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': { -> coc#util#install() } }
 Plug 'weirongxu/coc-explorer'
-Plug 'majutsushi/tagbar'
+
+Plug 'liuchengxu/vista.vim'
 
 Plug 'tpope/vim-fugitive'
 Plug 'rbong/vim-flog'
@@ -70,6 +71,8 @@ Plug 'tpope/vim-repeat'
 Plug 'svermeulen/vim-easyclip'
 
 Plug 'tpope/vim-commentary'
+
+Plug 'craigemery/vim-autotag'
 call plug#end()
 
 "===============================================================================
@@ -196,35 +199,7 @@ nnoremap <Leader>X ?\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgN
 "===============================================================================
 
 " lualine ----------------------------------------------------------------------
-lua << EOF
-require'lualine'.setup {
-  options = {
-    icons_enabled = true,
-    theme = 'palenight',
-    component_separators = {'', ''},
-    section_separators = {'', ''},
-    disabled_filetypes = {}
-  },
-  sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch'},
-    lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
-  },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
-    lualine_y = {},
-    lualine_z = {}
-  },
-  tabline = {},
-  extensions = {'fzf', 'fugitive'},
-}
-EOF
+lua require('lualine_config')
 " lualine ----------------------------------------------------------------------
 
 " fzf.vim and ripgrep-----------------------------------------------------------
@@ -305,12 +280,29 @@ function! Fzf_dev(qargs)
 endfunction
 " fzf.vim and ripgrep-----------------------------------------------------------
 
-" tagbar -----------------------------------------------------------------------
-let g:tagbar_left = 1
-"let g:tagbar_vertical = 25
-let g:tagbar_position = 'bottom'
-nnoremap <C-t> :TagbarToggle<CR>
-" tagbar -----------------------------------------------------------------------
+" visa ------------------------------------------------------------------------
+nnoremap <C-t> :Vista!!<CR>
+
+" How each level is indented and what to prepend.
+" This could make the display more compact or more spacious.
+" e.g., more compact: ["▸ ", ""]
+" Note: this option only works for the kind renderer, not the tree renderer.
+let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+
+" To enable fzf's preview window set g:vista_fzf_preview.
+" The elements of g:vista_fzf_preview will be passed as arguments to fzf#vim#with_preview()
+" For example:
+let g:vista_fzf_preview = ['right:50%']
+
+" Ensure you have installed some decent font to show these pretty symbols, then you can enable icon for the kind.
+let g:vista#renderer#enable_icon = 1
+
+" The default icons can't be suitable for all the filetypes, you can extend it as you wish.
+let g:vista#renderer#icons = {
+\   "function": "\uf794",
+\   "variable": "\uf71b",
+\  }
+" visa ------------------------------------------------------------------------
 
 " vim-todo-highlight ----------------------------------------------------------
 let g:todo_highlight_config = {
@@ -581,5 +573,5 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " coc -------------------------------------------------------------------------
 
 " coc-explorer ----------------------------------------------------------------
-nnoremap <leader>e :CocCommand explorer<CR>
+nnoremap <C-e> :CocCommand explorer<CR>
 " coc-explorer ----------------------------------------------------------------

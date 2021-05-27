@@ -16,6 +16,7 @@ cp $HOME/.config/bspwm/* $HOME/dotfiles/.config/bspwm/
 cp $HOME/.config/sxhkd/* $HOME/dotfiles/.config/sxhkd/
 cp $HOME/.config/kitty/kitty.conf $HOME/dotfiles/.config/kitty/
 cp $HOME/.config/nvim/init.vim $HOME/dotfiles/.config/nvim/
+cp -r $HOME/.config/nvim/lua/* $HOME/dotfiles/.config/nvim/lua/
 cp -r $HOME/.config/polybar/* $HOME/dotfiles/.config/polybar/
 cp $HOME/.config/ranger/commands.py $HOME/dotfiles/.config/ranger/
 cp $HOME/.config/ranger/rc.conf $HOME/dotfiles/.config/ranger/
