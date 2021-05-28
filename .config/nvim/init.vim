@@ -34,7 +34,8 @@ Plug 'liuchengxu/vista.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'rbong/vim-flog'
 Plug 'idanarye/vim-merginal'
-Plug 'airblade/vim-gitgutter'
+" Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
 
 Plug 'tpope/vim-surround'
 
@@ -420,7 +421,13 @@ let g:gitgutter_sign_added = '█|'
 let g:gitgutter_sign_modified = '█⫶'
 let g:gitgutter_sign_removed = '█▁'
 let g:gitgutter_sign_removed_first_line = '█▔'
-let g:gitgutter_sign_modified_removed = "█▟"
+let g:gitgutter_sign_modified_removed = '█▟'
+
+let g:signify_sign_add = '█|'
+let g:signify_sign_delete = '█▁'
+let g:signify_sign_delete_first_line = '█▔'
+let g:signify_sign_change = '█⫶'
+let g:signify_sign_change_delete = '█▟'
 
 " git add (chunk)
 nmap <leader>ga <Plug>(GitGutterStageHunk)
@@ -436,6 +443,7 @@ nmap <leader>gt :GitGutterLineHighlightsToggle<CR>
 let g:ale_disable_lsp = 1
 let g:ale_sign_error = '●'
 let g:ale_sign_warning = '⚠'
+let g:ale_virtualtext_cursor = 0
 nmap <silent> <leader>aj :ALENext<cr>
 nmap <silent> <leader>ak :ALEPrevious<cr>
 " ale -------------------------------------------------------------------------
@@ -514,8 +522,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+xmap <leader>=  <Plug>(coc-format-selected)
+nmap <leader>=  <Plug>(coc-format-selected)
 
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
@@ -607,3 +615,4 @@ lua require('bufferline').setup{}
 nnoremap <Tab> :BufferLineCycleNext<CR>
 nnoremap <S-Tab> :BufferLineCyclePrev<CR>
 " nvim-bufferline -------------------------------------------------------------
+
