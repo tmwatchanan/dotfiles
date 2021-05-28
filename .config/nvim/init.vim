@@ -434,6 +434,7 @@ nmap <leader>gt :GitGutterLineHighlightsToggle<CR>
 
 " ale -------------------------------------------------------------------------
 let g:ale_disable_lsp = 1
+let g:ale_sign_error = '●'
 let g:ale_sign_warning = '⚠'
 nmap <silent> <leader>aj :ALENext<cr>
 nmap <silent> <leader>ak :ALEPrevious<cr>
