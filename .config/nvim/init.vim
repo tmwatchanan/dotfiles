@@ -37,16 +37,12 @@ autocmd Filetype python setlocal ts=4 sw=4 sts=4 expandtab
 set updatetime=250
 " indentation ===============================================
 
+command So execute "source ~/.config/nvim/init.vim"
+
 "keymapping
 " leader key
 nnoremap <SPACE> <Nop>
 let mapleader=" "
-
-" switch between split panes
-nnoremap <M-j> <C-W><C-j>
-nnoremap <M-k> <C-W><C-k>
-nnoremap <M-l> <C-W><C-l>
-nnoremap <M-h> <C-W><C-h>
 
 " buffer
 nnoremap <leader>d :bd<CR>
@@ -86,6 +82,7 @@ nnoremap # ?\<<C-R>=expand('<cword>')<CR>\><CR>
 nnoremap <Leader>. /\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgn
 nnoremap <Leader>, ?\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgN
 
+source ~/.config/nvim/configs/splits.vim
 
 "===============================================================================
 " PLUGINS
