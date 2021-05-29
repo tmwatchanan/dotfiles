@@ -65,4 +65,6 @@ Plug 'romgrk/nvim-treesitter-context'
 
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'akinsho/nvim-bufferline.lua'
+
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
