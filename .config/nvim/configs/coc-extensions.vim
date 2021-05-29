@@ -11,4 +11,5 @@ let g:coc_global_extensions = [
 \ 'coc-tsserver',
 \ 'coc-markdownlint',
 \ 'coc-sql',
+\ 'coc-pyright',
 \ ]
