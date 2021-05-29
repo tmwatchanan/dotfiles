@@ -61,6 +61,7 @@ Plug 'tpope/vim-commentary'
 Plug 'craigemery/vim-autotag'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'romgrk/nvim-treesitter-context'
 
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'akinsho/nvim-bufferline.lua'
