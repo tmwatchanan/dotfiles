@@ -1,6 +1,7 @@
 call plug#begin()
 "theme
-Plug 'drewtempelmeyer/palenight.vim'
+" Plug 'drewtempelmeyer/palenight.vim'
+Plug 'ayu-theme/ayu-vim'
 
 "status line
 Plug 'hoob3rt/lualine.nvim'
@@ -67,4 +68,6 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'akinsho/nvim-bufferline.lua'
 
 Plug 'christoomey/vim-tmux-navigator'
+
+Plug 'jeetsukumaran/vim-indentwise'
 call plug#end()

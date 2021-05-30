@@ -5,12 +5,16 @@ endif
 if exists('+termguicolors')
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-    set termguicolors
+    set termguicolors " enable true colors support
 endif
 
 set t_Co=256
 
 " palenight
-set background=dark
-let g:palenight_terminal_italics=1
-colorscheme palenight
+" set background=dark
+" let g:palenight_terminal_italics=1
+" colorscheme palenight
+
+" ayu
+let ayucolor="mirage"  " light, mirage, dark
+colorscheme ayu

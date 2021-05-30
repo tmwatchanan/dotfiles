@@ -1,7 +1,7 @@
 require'lualine'.setup {
   options = {
     icons_enabled = true,
-    theme = 'palenight',
+    theme = 'ayu_mirage', -- palenight
     component_separators = {'', ''},
     section_separators = {'', ''},
     disabled_filetypes = {}
