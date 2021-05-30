@@ -44,6 +44,9 @@ command So execute "source ~/.config/nvim/init.vim"
 nnoremap <SPACE> <Nop>
 let mapleader=" "
 
+" working directory
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+
 " buffer
 nnoremap <leader>d :bd<CR>
 
@@ -64,7 +67,7 @@ nnoremap <CR> :noh<CR><CR>
 
 " switch back from insert mode to normal mode quickly
 inoremap jk <esc>
-inoremap kj <esc>
+" inoremap kj <esc>
 " move to front or back of the line in insert mode
 inoremap jj <esc>I
 inoremap JJ <esc>A
@@ -81,6 +84,9 @@ nnoremap # ?\<<C-R>=expand('<cword>')<CR>\><CR>
 " change multiple occurrences combined cgn with . (thanks u/Popeye_Lifting)
 nnoremap <Leader>. /\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgn
 nnoremap <Leader>, ?\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgN
+
+" jump to the last position when reopening a file
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 source ~/.config/nvim/configs/splits.vim
 
