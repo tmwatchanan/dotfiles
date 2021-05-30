@@ -1,3 +1,6 @@
+set splitbelow
+set splitright
+
 " switch between split panes
 nnoremap <M-j> <C-W><C-j>
 nnoremap <M-k> <C-W><C-k>

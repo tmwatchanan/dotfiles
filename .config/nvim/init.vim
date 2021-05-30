@@ -9,6 +9,7 @@ source ~/.config/nvim/configs/tab.vim
 set nocompatible
 "set clipboard=unnamedplus " uninstall xclip as well
 " "filetyle plugin on
+set updatetime=250
 set history=10000 " must be after set nocompatible
 set number
 set relativenumber
@@ -33,9 +34,10 @@ autocmd Filetype html setlocal ts=2 sw=2 expandtab
 autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
 autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype python setlocal ts=4 sw=4 sts=4 expandtab
-
-set updatetime=250
 " indentation ===============================================
+hi markdownItalic gui=italic cterm=italic
+hi markdownBold gui=bold cterm=bold
+hi Comment gui=italic cterm=italic
 
 command So execute "source ~/.config/nvim/init.vim"
 
@@ -86,7 +88,7 @@ nnoremap <Leader>. /\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgn
 nnoremap <Leader>, ?\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgN
 
 " jump to the last position when reopening a file
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 source ~/.config/nvim/configs/splits.vim
 
@@ -94,7 +96,10 @@ source ~/.config/nvim/configs/splits.vim
 " PLUGINS
 "===============================================================================
 
-lua require("tmwatchanan")
+lua require("plug/lualine_config")
+lua require("plug/nvim-treesitter")
+lua require("plug/nvim-treesitter-context")
+lua require("plug/nvim-bufferline")
 
 source ~/.config/nvim/configs/incsearch.vim
 source ~/.config/nvim/configs/fzf.vim
@@ -103,11 +108,11 @@ source ~/.config/nvim/configs/vim-todo-highlight.vim
 source ~/.config/nvim/configs/vim-wordmotion.vim
 source ~/.config/nvim/configs/vim-easymotion.vim
 source ~/.config/nvim/configs/dashboard-nvim.vim
-source ~/.config/nvim/configs/indentLine.vim
+source ~/.config/nvim/configs/indent-blankline.nvim.vim
 source ~/.config/nvim/configs/vim-fugitive.vim
 " source ~/.config/nvim/configs/vim-gitgutter.vim
 source ~/.config/nvim/configs/vim-signify.vim
 source ~/.config/nvim/configs/ale.vim
 source ~/.config/nvim/configs/coc.nvim.vim
 source ~/.config/nvim/configs/coc-explorer.vim
-source ~/.config/nvim/configs/nvim-bufferline.vim
+source ~/.config/nvim/configs/rainbow_parentheses.vim

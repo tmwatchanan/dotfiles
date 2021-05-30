@@ -2,6 +2,8 @@ call plug#begin()
 "theme
 " Plug 'drewtempelmeyer/palenight.vim'
 Plug 'ayu-theme/ayu-vim'
+" Plug 'adrian5/oceanic-next-vim'
+Plug 'junegunn/seoul256.vim'
 
 "status line
 Plug 'hoob3rt/lualine.nvim'
@@ -33,10 +35,10 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
 
-Plug 'luochen1990/rainbow'
+Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'jiangmiao/auto-pairs'
 
-Plug 'Yggdroot/indentLine'
+Plug 'lukas-reineke/indent-blankline.nvim', { 'branch': 'lua' }
 
 Plug 'mg979/vim-visual-multi'
 Plug 'triglav/vim-visual-increment'
@@ -63,6 +65,7 @@ Plug 'craigemery/vim-autotag'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'romgrk/nvim-treesitter-context'
+Plug 'nvim-treesitter/nvim-treesitter-refactor'
 
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'akinsho/nvim-bufferline.lua'
