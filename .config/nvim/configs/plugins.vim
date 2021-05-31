@@ -73,4 +73,6 @@ Plug 'akinsho/nvim-bufferline.lua'
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'jeetsukumaran/vim-indentwise'
+
+Plug 'airblade/vim-rooter'
 call plug#end()
