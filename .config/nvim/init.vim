@@ -114,6 +114,7 @@ lua require("plug/nvim-compe")
 lua require("plug/nvim-lspconfig")
 lua require("plug/nvim-treesitter")
 lua require("plug/nvim-treesitter-context")
+lua require("plug/symbols-outline-nvim")
 lua require("plug/trouble-nvim")
 
 source ~/.config/nvim/configs/ale.vim
@@ -132,4 +133,4 @@ source ~/.config/nvim/configs/vim-fugitive.vim
 " source ~/.config/nvim/configs/vim-signify.vim
 source ~/.config/nvim/configs/vim-todo-highlight.vim
 source ~/.config/nvim/configs/vim-wordmotion.vim
-source ~/.config/nvim/configs/vista.vim
+" source ~/.config/nvim/configs/vista.vim

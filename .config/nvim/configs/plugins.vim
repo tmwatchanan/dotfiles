@@ -27,7 +27,8 @@ Plug 'folke/trouble.nvim'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
 
-Plug 'liuchengxu/vista.vim'
+" Plug 'liuchengxu/vista.vim'
+Plug 'simrat39/symbols-outline.nvim'
 
 Plug 'tpope/vim-fugitive'
 Plug 'rbong/vim-flog'
