@@ -15,6 +15,12 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+" plugins that requiree plenary
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'lewis6991/gitsigns.nvim'
+
 " Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': { -> coc#util#install() } }
 " Plug 'weirongxu/coc-explorer'
 
@@ -35,8 +41,6 @@ Plug 'rbong/vim-flog'
 Plug 'idanarye/vim-merginal'
 " Plug 'airblade/vim-gitgutter'
 " Plug 'mhinz/vim-signify'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'lewis6991/gitsigns.nvim'
 
 Plug 'tpope/vim-surround'
 

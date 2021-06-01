@@ -11,17 +11,18 @@ command! -bang -nargs=* RgNoFileNames
   \ 1,
   \ fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}),
   \ <bang>0)
-nnoremap <silent> <leader>f :Rg<CR>
-nnoremap <silent> <leader>g :RgNoFileNames<CR>
-nnoremap <silent> <leader>F :Files<CR>
-nnoremap <silent> <leader>t :Tags<CR>
-nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <silent> <leader>fg :Rg<CR>
+nnoremap <silent> <leader>fG :RgNoFileNames<CR>
 nnoremap <silent> <leader>// :Lines<CR>
 nnoremap <silent> <leader>/ :BLines<CR>
-nnoremap <silent> <leader>' :Marks<CR>
-nnoremap <silent> <leader>hh :History<CR>
-nnoremap <silent> <leader>h: :History:<CR>
-nnoremap <silent> <leader>h/ :History/<CR> 
+" change to nvim-telescope
+" nnoremap <silent> <leader>f :Files<CR>
+" nnoremap <silent> <leader>b :Buffers<CR>
+" nnoremap <silent> <leader>t :Tags<CR>
+" nnoremap <silent> <leader>hh :History<CR>
+" nnoremap <silent> <leader>h: :History:<CR>
+" nnoremap <silent> <leader>h/ :History/<CR> 
+" nnoremap <silent> <leader>' :Marks<CR>
 
 " Files + devicons by acepukas
 if executable('rg')
