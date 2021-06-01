@@ -1,1 +1,1 @@
-nnoremap <C-e> :CocCommand explorer<CR>
+nnoremap <silent> <C-e> :CocCommand explorer<CR>

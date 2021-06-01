@@ -14,6 +14,7 @@ set updatetime=250
 set history=10000 " must be after set nocompatible
 set number
 set relativenumber
+set signcolumn=yes
 set cursorline
 set encoding=utf-8
 syntax on
@@ -41,6 +42,11 @@ hi markdownBold gui=bold cterm=bold
 hi Comment gui=italic cterm=italic
 " buffer
 set hidden
+" highlight on yank
+augroup highlight_yank
+    autocmd!
+    au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=500 }
+augroup END
 
 command So execute "source ~/.config/nvim/init.vim"
 
@@ -99,23 +105,31 @@ source ~/.config/nvim/configs/splits.vim
 " PLUGINS
 "===============================================================================
 
+lua require("plug/gitsigns-nvim")
+lua require("plug/lspkind-nvim")
+lua require("plug/lspsaga-nvim")
 lua require("plug/lualine_config")
+lua require("plug/nvim-bufferline")
+lua require("plug/nvim-compe")
+lua require("plug/nvim-lspconfig")
 lua require("plug/nvim-treesitter")
 lua require("plug/nvim-treesitter-context")
-lua require("plug/nvim-bufferline")
+lua require("plug/trouble-nvim")
 
-source ~/.config/nvim/configs/incsearch.vim
-source ~/.config/nvim/configs/fzf.vim
-source ~/.config/nvim/configs/vista.vim
-source ~/.config/nvim/configs/vim-todo-highlight.vim
-source ~/.config/nvim/configs/vim-wordmotion.vim
-source ~/.config/nvim/configs/vim-easymotion.vim
+source ~/.config/nvim/configs/ale.vim
+" source ~/.config/nvim/configs/coc-explorer.vim
+" source ~/.config/nvim/configs/coc.nvim.vim
 source ~/.config/nvim/configs/dashboard-nvim.vim
+source ~/.config/nvim/configs/fzf.vim
+source ~/.config/nvim/configs/incsearch.vim
 source ~/.config/nvim/configs/indent-blankline.nvim.vim
+source ~/.config/nvim/configs/lsp.vim
+source ~/.config/nvim/configs/nvim-tree.lua.vim
+source ~/.config/nvim/configs/rainbow_parentheses.vim
+source ~/.config/nvim/configs/vim-easymotion.vim
 source ~/.config/nvim/configs/vim-fugitive.vim
 " source ~/.config/nvim/configs/vim-gitgutter.vim
-source ~/.config/nvim/configs/vim-signify.vim
-source ~/.config/nvim/configs/ale.vim
-source ~/.config/nvim/configs/coc.nvim.vim
-source ~/.config/nvim/configs/coc-explorer.vim
-source ~/.config/nvim/configs/rainbow_parentheses.vim
+" source ~/.config/nvim/configs/vim-signify.vim
+source ~/.config/nvim/configs/vim-todo-highlight.vim
+source ~/.config/nvim/configs/vim-wordmotion.vim
+source ~/.config/nvim/configs/vista.vim
