@@ -1,5 +1,3 @@
-" exclude file name search for Rg
-command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
 " thanks junegunn for rg with preview
 let $FZF_PREVIEW_COMMAND = 'rougify --theme thankful_eyes {} || batcat {}'
 command! -bang -nargs=* Rg
@@ -7,8 +5,15 @@ command! -bang -nargs=* Rg
   \ 1,
   \ fzf#vim#with_preview(),
   \ <bang>0)
+" to exclude file name search for Rg, add {'options': '--delimiter : --nth 4..'}
+command! -bang -nargs=* RgNoFileNames
+  \ call fzf#vim#grep('rg --column --no-heading --line-number --color=always --smart-case '.shellescape(<q-args>),
+  \ 1,
+  \ fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}),
+  \ <bang>0)
 nnoremap <silent> <leader>f :Rg<CR>
-"nnoremap <silent> <leader>F :Files<CR>
+nnoremap <silent> <leader>g :RgNoFileNames<CR>
+nnoremap <silent> <leader>F :Files<CR>
 nnoremap <silent> <leader>t :Tags<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>// :Lines<CR>
@@ -27,8 +32,6 @@ if executable('rg')
     " Overriding fzf.vim's default :Files command.
     " Pass zero or one args to Files command (which are then passed to Fzf_dev). Support file path completion too.
     command! -nargs=? -complete=file Files call Fzf_dev(<q-args>)
-
-    nnoremap <silent> <leader>F :Files<CR>
 endif
 
 function! Fzf_dev(qargs)
