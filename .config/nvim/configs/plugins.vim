@@ -1,9 +1,10 @@
 call plug#begin()
-"theme
+"themes
+" Plug 'ayu-theme/ayu-vim'
+" Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 " Plug 'drewtempelmeyer/palenight.vim'
-Plug 'ayu-theme/ayu-vim'
-" Plug 'adrian5/oceanic-next-vim'
 Plug 'junegunn/seoul256.vim'
+Plug 'folke/tokyonight.nvim'
 
 "status line
 Plug 'hoob3rt/lualine.nvim'

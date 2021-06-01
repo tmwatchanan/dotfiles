@@ -6,29 +6,9 @@ endif
 
 set t_Co=256
 
-" palenight
-" set background=dark
-" let g:palenight_terminal_italics=1
-" colorscheme palenight
 
-" ayu
-" let ayucolor="light"  " light, mirage, dark
-" colorscheme ayu
-
-" oceanicnext
-" colorscheme oceanicnext
-
-" material
-" let g:material_terminal_italics = 1
-" let g:material_theme_style = 'default'
-" colorscheme material
-
-" seoul256 (dark):
-"   Range:   233 (darkest) ~ 239 (lightest)
-"   Default: 237
-" seoul256 (light):
-"   Range:   252 (darkest) ~ 256 (lightest)
-"   Default: 253
-let g:seoul256_background = 235
-let g:seoul256_srgb = 1
-colorscheme seoul256
+" source ~/.config/nvim/themes/ayu.vim
+" source ~/.config/nvim/themes/material.vim
+" source ~/.config/nvim/themes/palenight.vim
+" source ~/.config/nvim/themes/seoul256.vim
+source ~/.config/nvim/themes/tokyonight.vim

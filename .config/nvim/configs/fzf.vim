@@ -11,6 +11,7 @@ nnoremap <silent> <leader>f :Rg<CR>
 "nnoremap <silent> <leader>F :Files<CR>
 nnoremap <silent> <leader>t :Tags<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <silent> <leader>// :Lines<CR>
 nnoremap <silent> <leader>/ :BLines<CR>
 nnoremap <silent> <leader>' :Marks<CR>
 nnoremap <silent> <leader>hh :History<CR>

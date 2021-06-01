@@ -10,6 +10,7 @@ set nocompatible
 "set clipboard=unnamedplus " uninstall xclip as well
 " "filetyle plugin on
 set updatetime=250
+" set timeoutlen=500
 set history=10000 " must be after set nocompatible
 set number
 set relativenumber
@@ -38,6 +39,8 @@ autocmd Filetype python setlocal ts=4 sw=4 sts=4 expandtab
 hi markdownItalic gui=italic cterm=italic
 hi markdownBold gui=bold cterm=bold
 hi Comment gui=italic cterm=italic
+" buffer
+set hidden
 
 command So execute "source ~/.config/nvim/init.vim"
 
@@ -50,7 +53,7 @@ let mapleader=" "
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " buffer
-nnoremap <leader>d :bd<CR>
+nnoremap <silent> <leader>d :bd<CR>
 
 " clipboard
 " " Copy to clipboard
