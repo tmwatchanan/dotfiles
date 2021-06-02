@@ -1,3 +1,13 @@
+function NvimTreeLineNumber()
+    set relativenumber
+    set signcolumn=number
+endfunction
+
+augroup nvim_tree_line_number
+    autocmd!
+    autocmd BufWinEnter NvimTree call NvimTreeLineNumber()
+augroup END
+
 let g:nvim_tree_width = 40
 let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache' ]
 let g:nvim_tree_auto_ignore_ft = [ 'startify', 'dashboard' ]
@@ -18,9 +28,9 @@ vim.g.nvim_tree_bindings = {
 }
 EOF
 
-nnoremap <C-e> :NvimTreeToggle<CR>
-nnoremap <leader>r :NvimTreeRefresh<CR>
-nnoremap <leader>e :NvimTreeFindFile<CR>
+nnoremap <silent> <C-e> :NvimTreeToggle<CR>
+nnoremap <silent> <leader>e :NvimTreeFindFile<CR>
+" nnoremap <leader>r :NvimTreeRefresh<CR>
 
 " auto change dir when :cd
 lua <<EOF
