@@ -24,6 +24,8 @@ Plug 'lewis6991/gitsigns.nvim'
 " Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': { -> coc#util#install() } }
 " Plug 'weirongxu/coc-explorer'
 
+" Plug 'dense-analysis/ale'
+
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 Plug 'onsails/lspkind-nvim'
@@ -70,15 +72,13 @@ Plug 'tommcdo/vim-exchange'
 
 Plug 'chrisbra/NrrwRgn'
 
-Plug 'dense-analysis/ale'
-
 Plug 'tpope/vim-repeat'
 
 Plug 'svermeulen/vim-easyclip'
 
 Plug 'tpope/vim-commentary'
 
-Plug 'craigemery/vim-autotag'
+" Plug 'craigemery/vim-autotag'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'romgrk/nvim-treesitter-context'

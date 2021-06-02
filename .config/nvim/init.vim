@@ -118,7 +118,7 @@ lua require("plug/nvim-treesitter")
 lua require("plug/symbols-outline-nvim")
 lua require("plug/trouble-nvim")
 
-source ~/.config/nvim/configs/ale.vim
+" source ~/.config/nvim/configs/ale.vim
 " source ~/.config/nvim/configs/coc-explorer.vim
 " source ~/.config/nvim/configs/coc.nvim.vim
 source ~/.config/nvim/configs/dashboard-nvim.vim
