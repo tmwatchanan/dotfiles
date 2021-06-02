@@ -93,4 +93,6 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'jeetsukumaran/vim-indentwise'
 
 Plug 'airblade/vim-rooter'
+
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 call plug#end()

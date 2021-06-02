@@ -131,6 +131,7 @@ source ~/.config/nvim/configs/rainbow_parentheses.vim
 source ~/.config/nvim/configs/vim-easymotion.vim
 source ~/.config/nvim/configs/vim-fugitive.vim
 " source ~/.config/nvim/configs/vim-gitgutter.vim
+source ~/.config/nvim/configs/vim-hexokinase.vim
 " source ~/.config/nvim/configs/vim-signify.vim
 source ~/.config/nvim/configs/vim-todo-highlight.vim
 source ~/.config/nvim/configs/vim-wordmotion.vim
