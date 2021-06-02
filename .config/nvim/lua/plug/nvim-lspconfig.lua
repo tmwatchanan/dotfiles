@@ -10,7 +10,7 @@ npm install -g dockerfile-language-server-nodejs
 --]]
 
 --Show function signature
-local function on_attach(client)
+local function on_attach(client, bufnr)
     local cfg = {
         use_lspsaga = false,
     }
@@ -53,7 +53,7 @@ else
 end
 
 local sumneko_root_path = "/home/mie/.config/nvim/language_servers/lua-language-server"
-local sumneko_binary = sumneko_root_path .. "/bin/Linux/lua-language-server"
+local sumneko_binary = string.format("%s/bin/%s/lua-language-server", sumneko_root_path, system_name)
 
 nvim_lsp.sumneko_lua.setup {
     on_attach = on_attach,
