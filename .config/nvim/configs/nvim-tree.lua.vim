@@ -30,7 +30,7 @@ EOF
 
 nnoremap <silent> <C-e> :NvimTreeToggle<CR>
 nnoremap <silent> <leader>e :NvimTreeFindFile<CR>
-" nnoremap <leader>r :NvimTreeRefresh<CR>
+" nnoremap <silent> <leader>r :NvimTreeRefresh<CR>
 
 " auto change dir when :cd
 lua <<EOF

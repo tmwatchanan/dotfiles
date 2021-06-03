@@ -23,5 +23,5 @@ require'lualine'.setup {
     lualine_z = {}
   },
   tabline = {},
-  extensions = {'fzf', 'fugitive'},
+  extensions = {'fzf', 'fugitive', 'nvim-tree'},
 }
