@@ -107,10 +107,11 @@ source ~/.config/nvim/configs/splits.vim
 " PLUGINS
 "===============================================================================
 
+lua require("plug/galaxyline")
 lua require("plug/gitsigns-nvim")
 lua require("plug/lspkind-nvim")
 lua require("plug/lspsaga-nvim")
-lua require("plug/lualine_config")
+" lua require("plug/lualine_config")
 lua require("plug/nvim-bufferline")
 lua require("plug/nvim-compe")
 lua require("plug/nvim-lspconfig")

@@ -7,8 +7,9 @@ Plug 'junegunn/seoul256.vim'
 Plug 'folke/tokyonight.nvim'
 
 "status line
-Plug 'hoob3rt/lualine.nvim'
-Plug 'ryanoasis/vim-devicons'
+Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+" Plug 'hoob3rt/lualine.nvim'
+" Plug 'ryanoasis/vim-devicons'
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
@@ -97,4 +98,6 @@ Plug 'airblade/vim-rooter'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 Plug 'metakirby5/codi.vim'
+
+Plug 'blueyed/vim-diminactive'
 call plug#end()

@@ -1,6 +1,9 @@
 set splitbelow
 set splitright
 
+highlight VertSplit guibg=#3b4261 guifg=#3b4261
+highlight ColorColumn guibg=#1f2335
+
 " switch between split panes
 nnoremap <M-j> <C-W><C-j>
 nnoremap <M-k> <C-W><C-k>
@@ -16,7 +19,7 @@ if &term == 'screen-256color'
 endif
 
 " resize panes
-nnoremap <M--> <C-W>3-
-nnoremap <M-=> <C-W>3+
-nnoremap <M-,> <C-W>3<
-nnoremap <M-.> <C-W>3>
+nnoremap <silent> <M--> :resize -3<CR>
+nnoremap <silent> <M-=> :resize +3<CR>
+nnoremap <silent> <M-,> :vertical resize -3<CR>
+nnoremap <silent> <M-.> :vertical resize +3<CR>
