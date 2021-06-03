@@ -95,4 +95,6 @@ Plug 'jeetsukumaran/vim-indentwise'
 Plug 'airblade/vim-rooter'
 
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+
+Plug 'metakirby5/codi.vim'
 call plug#end()
