@@ -1,0 +1,45 @@
+[user]
+	name = Watchanan Chantapakul
+	email = watchanan.c@lmwn.com
+[delta]
+	navigate = true
+	features = nightfox
+[include]
+	path = /Users/watchanan.c/.config/delta/themes.gitconfig
+[init]
+	defaultBranch = main
+[core]
+	excludesfile = /Users/watchanan.c/.gitignore_global
+	pager = delta --paging=never
+
+; Diff Tool -------------------------------------------------------------------
+[interactive]
+    diffFilter = delta --color-only
+[add.interactive]
+    useBuiltin = false
+[difftool]
+	prompt = false
+[diff]
+    colorMoved = default
+    tool = nvimdiff
+[difftool "nvimdiff"]
+	cmd = nvim -d $LOCAL $REMOTE
+;
+; Merge Tool ------------------------------------------------------------------
+[merge]
+    conflictstyle = diff3
+    tool = nvimmerge
+[mergetool]
+	keepBackup = false
+	prompt = false
+[mergetool "nvimmerge"]
+	; cmd = nvim -d $MERGED $REMOTE $LOCAL -c 'wincmd J | norm ]c'
+	cmd = nvim -d $MERGED -c ':DiffviewOpen'
+
+; Credential ------------------------------------------------------------------
+[credential]
+	helper = /usr/local/share/gcm-core/git-credential-manager
+	gitLabAuthModes = browser
+	credentialStore = cache
+	guiPrompt = false
+	gitHubAuthModes = browser
