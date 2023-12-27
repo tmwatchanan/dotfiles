@@ -3,9 +3,9 @@ gui:
   showBottomLine: false
   theme:
     selectedLineBgColor:
-      - default
+      - '#393939'
     selectedRangeBgColor:
-      - default
+      - reverse
 git:
   paging:
     colorArg: always
