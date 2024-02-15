@@ -64,3 +64,4 @@ if type -q exa
 	alias lla "ll -a"
 end
 
+alias ipy='ipython -i -c "%load_ext autoreload" "%autoreload 2"'
