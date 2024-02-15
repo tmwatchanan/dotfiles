@@ -28,27 +28,32 @@ if test -f /opt/homebrew/Caskroom/miniforge/base/bin/conda
 end
 # <<< conda initialize <<<
 
+set -gx CONFIG_DIR ~/.config
+set -gx DOTFILE_DIR ~/dev/dotfiles
+set -gx DOTFILE_CONFIG_DIR ~/dev/dotfiles-config
+
 alias v="nvim"
 alias python3="python"
 alias lg="lazygit"
 alias cat="bat"
-alias cdv="cd ~/.config/nvim"
-alias cddf="cd ~/dev/dotfiles"
-alias cddc="cd ~/dev/dotfiles-config"
+alias cdc="cd $CONFIG_DIR"
+alias cdv="cd $CONFIG_DIR/nvim"
+alias cddf="cd $DOTFILE_DIR"
+alias cddc="cd $DOTFILE_CONFIG_DIR"
 alias cfv="cdv && nvim"
-alias cff="nvim ~/.config/fish/config.fish"
-alias ref="source ~/.config/fish/config.fish"
+alias cff="nvim $CONFIG_DIR/fish/config.fish"
+alias ref="source $CONFIG_DIR/fish/config.fish"
 
 alias cftm="nvim ~/.tmux.conf"
 alias cfwt="nvim ~/.wezterm.lua"
-alias cflf="nvim ~/.config/lf/lfrc"
+alias cflf="nvim $CONFIG_DIR/lf/lfrc"
 
-alias cptm2git="cp ~/.tmux.conf ~/dev/dotfiles/"
-alias cpwt2git="cp ~/.wezterm.lua ~/dev/dotfiles/"
-alias cplf2git="cp ~/.config/lf/lfrc ~/dev/dotfiles/.config/lf/"
-alias cpf2git="cp ~/.config/fish/config.fish ~/dev/dotfiles/.config/fish/"
-alias cpv2git="cp -r ~/.config/nvim/* ~/dev/dotfiles-config/nvim/"
-alias cpv2local="cp -r ~/dev/dotfiles-config/nvim ~/.config/"
+alias cptm2git="cp ~/.tmux.conf $DOTFILE_DIR/"
+alias cpwt2git="cp ~/.wezterm.lua $DOTFILE_DIR/"
+alias cplf2git="cp $CONFIG_DIR/lf/lfrc $DOTFILE_DIR/.config/lf/"
+alias cpf2git="cp $CONFIG_DIR/fish/config.fish $DOTFILE_DIR/.config/fish/"
+alias cpv2git="cp -r $CONFIG_DIR/nvim/* $DOTFILE_CONFIG_DIR/nvim/"
+alias cpv2local="cp -r $DOTFILE_CONFIG_DIR/nvim $CONFIG_DIR/"
 
 alias lfd="cd ~/dev && lf"
 alias lfdl="cd ~/Downloads && lf"
