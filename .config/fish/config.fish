@@ -33,6 +33,7 @@ set -gx DOTFILE_DIR ~/dev/dotfiles
 set -gx DOTFILE_CONFIG_DIR ~/dev/dotfiles-config
 
 alias v="nvim"
+alias vv="sudo nvim"
 alias python3="python"
 alias lg="lazygit"
 alias cat="bat"
@@ -41,6 +42,7 @@ alias cdv="cd $CONFIG_DIR/nvim"
 alias cddf="cd $DOTFILE_DIR"
 alias cddc="cd $DOTFILE_CONFIG_DIR"
 alias cfv="cdv && nvim"
+alias cfv="cdv && nvim $CONFIG_DIR/nvim/lua/config/keymaps.lua"
 alias cff="nvim $CONFIG_DIR/fish/config.fish"
 alias ref="source $CONFIG_DIR/fish/config.fish"
 
@@ -48,12 +50,14 @@ alias cftm="nvim ~/.tmux.conf"
 alias cfwt="nvim ~/.wezterm.lua"
 alias cflf="nvim $CONFIG_DIR/lf/lfrc"
 
-alias cptm2git="cp ~/.tmux.conf $DOTFILE_DIR/"
-alias cpwt2git="cp ~/.wezterm.lua $DOTFILE_DIR/"
-alias cplf2git="cp $CONFIG_DIR/lf/lfrc $DOTFILE_DIR/.config/lf/"
-alias cpf2git="cp $CONFIG_DIR/fish/config.fish $DOTFILE_DIR/.config/fish/"
-alias cpv2git="cp -r $CONFIG_DIR/nvim/* $DOTFILE_CONFIG_DIR/nvim/"
-alias cpv2local="cp -r $DOTFILE_CONFIG_DIR/nvim $CONFIG_DIR/"
+alias baktm="cp ~/.tmux.conf $DOTFILE_DIR/"
+alias bakwt="cp ~/.wezterm.lua $DOTFILE_DIR/; cp $CONFIG_DIR/wezterm/* $DOTFILE_DIR/.config/wezterm/"
+alias baklf="cp $CONFIG_DIR/lf/lfrc $DOTFILE_DIR/.config/lf/"
+alias bakf="cp $CONFIG_DIR/fish/{config.fish,fish_plugins} $DOTFILE_DIR/.config/fish/"
+alias bakv="cp -r $CONFIG_DIR/nvim/* $DOTFILE_CONFIG_DIR/nvim/; cddc; lazygit"
+alias cpv="cp -r $DOTFILE_CONFIG_DIR/nvim $CONFIG_DIR/"
+alias lgdf="cddf; lazygit"
+alias lgdc="cddc; lazygit"
 
 alias lfd="cd ~/dev && lf"
 alias lfdl="cd ~/Downloads && lf"
@@ -65,6 +69,16 @@ if type -q exa
 end
 
 alias ipy='ipython -i -c "%load_ext autoreload" "%autoreload 2"'
+
+alias cdd="cd ~/dev"
+alias cdpreda="cd ~/dev/preda"
+alias cdvks="cd ~/dev/vks-thds-k8s"
+alias cdvksllm="cd ~/dev/vks-thds-k8s/apps/lmllm-monitoring"
+alias cdllm="cd ~/dev/lmllm"
+alias cdtrec="cd ~/dev/sequential-recommender"
+
+# Created by `pipx` on 2024-02-16 13:06:34
+set PATH $PATH /Users/watchanan.c/.local/bin
 
 # fzf
 set fzf_directory_opts --bind "ctrl-o:execute($EDITOR {} &> /dev/tty)"
