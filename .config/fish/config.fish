@@ -65,3 +65,7 @@ if type -q exa
 end
 
 alias ipy='ipython -i -c "%load_ext autoreload" "%autoreload 2"'
+
+# fzf
+set fzf_directory_opts --bind "ctrl-o:execute($EDITOR {} &> /dev/tty)"
+fzf_configure_bindings --directory=\cf
