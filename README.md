@@ -22,6 +22,10 @@
 - `ripgre` for a better _grep_
 - `exa` for a better _ls_
 - `bat` for a better _cat_
+- `hyperfine` for benchmarking
+
+- `glow` for markdown (.md) preview
+- `miller` for CSV, TSV, and tabular JSON preview
 
 ## Set Wallpapers
 
