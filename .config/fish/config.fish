@@ -36,7 +36,11 @@ alias v="nvim"
 alias vv="sudo nvim"
 alias python3="python"
 alias lg="lazygit"
+alias f="yazi"
+alias yz="yazi"
 alias cat="bat"
+alias df="duf"
+alias du="dust"
 alias cdc="cd $CONFIG_DIR"
 alias cdv="cd $CONFIG_DIR/nvim"
 alias cddf="cd $DOTFILE_DIR"
@@ -45,6 +49,7 @@ alias cfv="cdv && nvim"
 alias cfv="cdv && nvim $CONFIG_DIR/nvim/lua/config/keymaps.lua"
 alias cff="nvim $CONFIG_DIR/fish/config.fish"
 alias ref="source $CONFIG_DIR/fish/config.fish"
+alias cfyz="nvim $CONFIG_DIR/yazi/yazi.toml"
 
 alias cftm="nvim ~/.tmux.conf"
 alias cfwt="nvim ~/.wezterm.lua"
@@ -55,6 +60,7 @@ alias bakwt="cp ~/.wezterm.lua $DOTFILE_DIR/; cp $CONFIG_DIR/wezterm/* $DOTFILE_
 alias baklf="cp $CONFIG_DIR/lf/lfrc $DOTFILE_DIR/.config/lf/"
 alias bakf="cp $CONFIG_DIR/fish/{config.fish,fish_plugins} $DOTFILE_DIR/.config/fish/"
 alias bakv="cp -r $CONFIG_DIR/nvim/* $DOTFILE_CONFIG_DIR/nvim/; cddc; lazygit"
+alias bakyz="cp -r $CONFIG_DIR/yazi/* $DOTFILE_CONFIG_DIR/yazi/; cddc; lazygit"
 alias cpv="cp -r $DOTFILE_CONFIG_DIR/nvim $CONFIG_DIR/"
 alias lgdf="cddf; lazygit"
 alias lgdc="cddc; lazygit"
@@ -83,3 +89,13 @@ set PATH $PATH /Users/watchanan.c/.local/bin
 # fzf
 set fzf_directory_opts --bind "ctrl-o:execute($EDITOR {} &> /dev/tty)"
 fzf_configure_bindings --directory=\cf
+
+# yazi
+function ya
+	set tmp (mktemp -t "yazi-cwd.XXXXX")
+	yazi $argv --cwd-file="$tmp"
+	if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+		cd -- "$cwd"
+	end
+	rm -f -- "$tmp"
+end
