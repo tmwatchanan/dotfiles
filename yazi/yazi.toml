@@ -1,0 +1,10 @@
+[manager]
+sort_by = "natural"
+sort_dir_first = true
+linemode = "size"
+
+[plugin]
+prepend_previewers = [
+  { name = "*.md", exec = "glow" },
+  { mime = "text/csv", exec = "miller" },
+]
