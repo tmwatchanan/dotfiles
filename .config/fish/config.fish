@@ -41,6 +41,11 @@ alias yz="yazi"
 alias cat="bat"
 alias df="duf"
 alias du="dust"
+alias bm="hyperfine"
+
+alias bi="brew install"
+alias bu="brew upgrade --fetch-HEAD"
+
 alias cdc="cd $CONFIG_DIR"
 alias cdv="cd $CONFIG_DIR/nvim"
 alias cddf="cd $DOTFILE_DIR"
@@ -50,23 +55,22 @@ alias cfv="cdv && nvim $CONFIG_DIR/nvim/lua/config/keymaps.lua"
 alias cff="nvim $CONFIG_DIR/fish/config.fish"
 alias ref="source $CONFIG_DIR/fish/config.fish"
 alias cfyz="nvim $CONFIG_DIR/yazi/yazi.toml"
-
 alias cftm="nvim ~/.tmux.conf"
 alias cfwt="nvim ~/.wezterm.lua"
-alias cflf="nvim $CONFIG_DIR/lf/lfrc"
+alias cfskhd="nvim $CONFIG_DIR/skhd/skhdrc"
 
 alias baktm="cp ~/.tmux.conf $DOTFILE_DIR/"
 alias bakwt="cp ~/.wezterm.lua $DOTFILE_DIR/; cp $CONFIG_DIR/wezterm/* $DOTFILE_DIR/.config/wezterm/"
-alias baklf="cp $CONFIG_DIR/lf/lfrc $DOTFILE_DIR/.config/lf/"
-alias bakf="cp $CONFIG_DIR/fish/{config.fish,fish_plugins} $DOTFILE_DIR/.config/fish/"
+alias baklf="cp $CONFIG_DIR/yazi/{yazi.toml,keymap.toml,init.lua} $DOTFILE_DIR/.config/yazi/"
+alias bakf="cp $CONFIG_DIR/fish/{config.fish,fish_plugins} $DOTFILE_DIR/.config/fish/; cddf; lazygit"
 alias bakv="cp -r $CONFIG_DIR/nvim/* $DOTFILE_CONFIG_DIR/nvim/; cddc; lazygit"
 alias bakyz="cp -r $CONFIG_DIR/yazi/* $DOTFILE_CONFIG_DIR/yazi/; cddc; lazygit"
 alias cpv="cp -r $DOTFILE_CONFIG_DIR/nvim $CONFIG_DIR/"
 alias lgdf="cddf; lazygit"
 alias lgdc="cddc; lazygit"
 
-alias lfd="cd ~/dev && lf"
-alias lfdl="cd ~/Downloads && lf"
+alias fdev="cd ~/dev && f"
+alias fdl="cd ~/Downloads && f"
 
 if type -q exa
 	alias ls "exa -l -g --icons"
@@ -98,4 +102,22 @@ function ya
 		cd -- "$cwd"
 	end
 	rm -f -- "$tmp"
+end
+
+function yazi_install_plugins
+	mkdir -p $CONFIG_DIR/yazi/plugins
+
+	for plugin_repo in "dedukun/relative-motions.yazi" \
+						"Reledia/glow.yazi" \
+						"Reledia/miller.yazi"
+		echo "Plugin `$plugin_repo`"
+		set onwer (string split "/" $plugin_repo -f1)
+		set repository (string split "/" $plugin_repo -f2)
+		set plugin_dir "$CONFIG_DIR/yazi/plugins/$repository"
+		if test -d $plugin_dir
+			cd $plugin_dir && git pull
+		else
+			git clone "https://github.com/$plugin_repo.git" $plugin_dir
+		end
+	end
 end
