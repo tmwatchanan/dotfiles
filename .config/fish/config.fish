@@ -119,3 +119,6 @@ function yazi_install_plugins
 		end
 	end
 end
+
+# zoxide, must be at the end
+zoxide init fish | source
