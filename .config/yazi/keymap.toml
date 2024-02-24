@@ -1,0 +1,59 @@
+[[manager.prepend_keymap]]
+on   = [ "$" ]
+exec = 'shell "$SHELL" --block --confirm'
+desc = 'Open shell here'
+
+[[manager.prepend_keymap]]
+on   = [ '<A-a>' ]
+exec = 'select_all --state=true'
+desc = 'Select all files'
+
+[[manager.prepend_keymap]]
+on   = [ '<A-r>' ]
+exec = 'select_all --state=none'
+desc = 'Inverse selection of all files'
+
+[[manager.prepend_keymap]]
+on = [ '1' ]
+exec = 'plugin relative-motions --args=1'
+desc = 'Move in relative steps'
+
+[[manager.prepend_keymap]]
+on = [ '2' ]
+exec = 'plugin relative-motions --args=2'
+desc = 'Move in relative steps'
+
+[[manager.prepend_keymap]]
+on = [ '3' ]
+exec = 'plugin relative-motions --args=3'
+desc = 'Move in relative steps'
+
+[[manager.prepend_keymap]]
+on = [ '4' ]
+exec = 'plugin relative-motions --args=4'
+desc = 'Move in relative steps'
+
+[[manager.prepend_keymap]]
+on = [ '5' ]
+exec = 'plugin relative-motions --args=5'
+desc = 'Move in relative steps'
+
+[[manager.prepend_keymap]]
+on = [ '6' ]
+exec = 'plugin relative-motions --args=6'
+desc = 'Move in relative steps'
+
+[[manager.prepend_keymap]]
+on = [ '7' ]
+exec = 'plugin relative-motions --args=7'
+desc = 'Move in relative steps'
+
+[[manager.prepend_keymap]]
+on = [ '8' ]
+exec = 'plugin relative-motions --args=8'
+desc = 'Move in relative steps'
+
+[[manager.prepend_keymap]]
+on = [ '9' ]
+exec = 'plugin relative-motions --args=9'
+desc = 'Move in relative steps'
