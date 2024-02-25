@@ -4,9 +4,11 @@ end
 
 set -gx EDITOR nvim
 
+# golang
 set GOBIN $HOME/go/bin
 fish_add_path $GOBIN
 
+# ruby
 fish_add_path /opt/homebrew/opt/ruby/bin
 
 function verda_stg --description 'access VKS staging'
@@ -29,8 +31,8 @@ end
 # <<< conda initialize <<<
 
 set -gx CONFIG_DIR ~/.config
-set -gx DOTFILE_DIR ~/dev/dotfiles
-set -gx DOTFILE_CONFIG_DIR ~/dev/dotfiles-config
+set -gx DOTFILES_DIR ~/dev/dotfiles
+set -gx DOTFILES_CONFIG_DIR ~/dev/dotfiles-config
 
 alias v="nvim"
 alias vv="sudo nvim"
@@ -47,28 +49,22 @@ alias bu="brew upgrade --fetch-HEAD"
 
 alias cdc="cd $CONFIG_DIR"
 alias cdv="cd $CONFIG_DIR/nvim"
-alias cddf="cd $DOTFILE_DIR"
-alias cddc="cd $DOTFILE_CONFIG_DIR"
+alias cddf="cd $DOTFILES_DIR"
+alias cddc="cd $DOTFILES_CONFIG_DIR"
 alias cfv="cdv && nvim"
 alias cfv="cdv && nvim $CONFIG_DIR/nvim/lua/config/keymaps.lua"
 alias cff="nvim $CONFIG_DIR/fish/config.fish"
 alias ref="source $CONFIG_DIR/fish/config.fish"
-alias cfyz="nvim $CONFIG_DIR/yazi/yazi.toml"
-alias cftm="nvim ~/.tmux.conf"
-alias cfwt="nvim ~/.wezterm.lua"
-alias cfskhd="nvim $CONFIG_DIR/skhd/skhdrc"
+alias cfyz="v $CONFIG_DIR/yazi/yazi.toml"
+alias cftm="v ~/.tmux.conf"
+alias cfwt="v ~/.wezterm.lua"
+alias cfskhd="v $CONFIG_DIR/skhd/skhdrc"
 
-alias baktm="cp ~/.tmux.conf $DOTFILE_DIR/; cddf; lazygit"
-alias bakwt="cp ~/.wezterm.lua $DOTFILE_DIR/; cp $CONFIG_DIR/wezterm/* $DOTFILE_DIR/.config/wezterm/; cddf; lazygit"
-alias bakyz="cp $CONFIG_DIR/yazi/{yazi.toml,keymap.toml,init.lua} $DOTFILE_DIR/.config/yazi/; cddf; lazygit"
-alias bakf="cp $CONFIG_DIR/fish/{config.fish,fish_plugins} $DOTFILE_DIR/.config/fish/; cddf; lazygit"
-alias bakv="cp -r $CONFIG_DIR/nvim/* $DOTFILE_CONFIG_DIR/nvim/; cddc; lazygit"
-alias cpv="cp -r $DOTFILE_CONFIG_DIR/nvim $CONFIG_DIR/"
-alias lgdf="cddf; lazygit"
-alias lgdc="cddc; lazygit"
+alias lgdf="lg -p $DOTFILES_DIR"
+alias lgdc="lg -p $DOTFILES_CONFIG_DIR"
 
-alias fdev="cd ~/dev && f"
-alias fdl="cd ~/Downloads && f"
+alias fdev="f ~/dev"
+alias fdl="f ~/Downloads"
 
 if type -q exa
 	alias ls "exa -l -g --icons"
@@ -80,11 +76,6 @@ alias ipy='ipython -i -c "%load_ext autoreload" "%autoreload 2"'
 
 alias cdd="cd ~/dev"
 alias cddl="cd ~/Downloads"
-alias cdpreda="cd ~/dev/preda"
-alias cdvks="cd ~/dev/vks-thds-k8s"
-alias cdvksllm="cd ~/dev/vks-thds-k8s/apps/lmllm-monitoring"
-alias cdllm="cd ~/dev/lmllm"
-alias cdtrec="cd ~/dev/sequential-recommender"
 
 # Created by `pipx` on 2024-02-16 13:06:34
 set PATH $PATH /Users/watchanan.c/.local/bin
