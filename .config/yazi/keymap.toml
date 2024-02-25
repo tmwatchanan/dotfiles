@@ -1,4 +1,24 @@
 [[manager.prepend_keymap]]
+on   = [ 'g', 'd' ]
+exec = 'cd ~/dev'
+desc = 'Go to the dev directory'
+
+[[manager.prepend_keymap]]
+on   = [ 'g', 'D' ]
+exec = 'cd ~/Downloads'
+desc = 'Go to the downloads directory'
+
+[[manager.prepend_keymap]]
+on   = [ 'g', '<Enter>' ]
+exec = 'cd ~/Desktop'
+desc = 'Go to the Desktop directory'
+
+[[manager.prepend_keymap]]
+on   = [ 'g', 'v' ]
+exec = 'cd ~/.config/nvim'
+desc = 'Go to the neovim config directory'
+
+[[manager.prepend_keymap]]
 on   = [ "$" ]
 exec = 'shell "$SHELL" --block --confirm'
 desc = 'Open shell here'
@@ -12,6 +32,30 @@ desc = 'Select all files'
 on   = [ '<A-r>' ]
 exec = 'select_all --state=none'
 desc = 'Inverse selection of all files'
+
+# Bookmarks--------------------------------------------------------------------
+
+[[manager.prepend_keymap]]
+on = [ 'm' ]
+exec = 'plugin bookmarks --args=save'
+desc = 'Save current position as a bookmark'
+
+[[manager.prepend_keymap]]
+on = [ "'" ]
+exec = 'plugin bookmarks --args=jump'
+desc = 'Jump to a bookmark'
+
+[[manager.prepend_keymap]]
+on = [ 'b', 'd' ]
+exec = 'plugin bookmarks --args=delete'
+desc = 'Delete a bookmark'
+
+[[manager.prepend_keymap]]
+on = [ 'b', 'D' ]
+exec = 'plugin bookmarks --args=delete_all'
+desc = 'Delete all bookmarks'
+
+# Relative motions ------------------------------------------------------------
 
 [[manager.prepend_keymap]]
 on = [ '1' ]
