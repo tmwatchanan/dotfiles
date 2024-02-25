@@ -1,7 +1,7 @@
 set -g fish_greeting ''
 
 # function fish_mode_prompt; end
-# fish_default_key_bindings
+set -g fish_key_bindings fish_default_key_bindings
 
 if status is-interactive
 	# Commands to run in interactive sessions can go here
