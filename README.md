@@ -10,10 +10,11 @@ brew install yazi --HEAD
 brew install wezterm fish
 ```
 
-- Install fisher
+- Install fisher, tpm
 
 ```sh
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
 - Set up the symlink farm using GNU Stow for managing dotfiles
@@ -39,7 +40,7 @@ stow . --target=$HOME
 - [`dust`](https://github.com/bootandy/dust) for a better _du_
 - [`fd`](https://github.com/sharkdp/fd) for a better _find_
 - [`ripgrep`](https://github.com/BurntSushi/ripgrep) for a better _grep_
-- [`exa`](https://github.com/ogham/exa) for a better _ls_
+- [`eza`](https://github.com/eza-community/eza) for a better _ls_
 - [`bat`](https://github.com/sharkdp/bat) for a better _cat_
 - [`hyperfine`](https://github.com/sharkdp/hyperfine) for benchmarking
 - [`zoxide`](https://github.com/ajeetdsouza/zoxide) for _cd_ based on frecency
