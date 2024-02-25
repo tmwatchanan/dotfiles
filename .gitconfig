@@ -37,6 +37,11 @@
 	cmd = nvim -d $MERGED -c ':DiffviewOpen'
 
 ; Credential ------------------------------------------------------------------
+[credential "https://git.linecorp.com"]
+	provider = github
+[credential "https://git.wndv.co"]
+	provider = gitlab
+	gitLabAuthModes = browser
 [credential]
 	helper = /usr/local/share/gcm-core/git-credential-manager
 	gitLabAuthModes = browser

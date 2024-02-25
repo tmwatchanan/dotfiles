@@ -3,6 +3,7 @@
 ## Installation
 
 - Install packages
+
 ```sh
 brew install neovim --HEAD
 brew install yazi --HEAD
@@ -19,6 +20,15 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
 
 ```sh
 stow . --target=$HOME
+```
+
+## Git Ignore
+
+We need to define a git filter to ignore specific lines, in this case, lines that contain the `;gitignore` text.
+This is really useful for ignoring some credentials that might be present in the files.
+
+```sh
+git config --global filter.gitignore.clean "sed '/;gitignore\$/d'"
 ```
 
 ## Tools
