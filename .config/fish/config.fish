@@ -89,8 +89,9 @@ alias cdtrec="cd ~/dev/sequential-recommender"
 # Created by `pipx` on 2024-02-16 13:06:34
 set PATH $PATH /Users/watchanan.c/.local/bin
 
-# fzf
-set fzf_directory_opts --bind "ctrl-o:execute($EDITOR {} &> /dev/tty)"
+# fzf.fish
+set fzf_fd_opts --hidden --max-depth 5
+set fzf_directory_opts --bind "ctrl-o:execute($EDITOR {} &> /dev/tty)" # open file with <C-o>
 fzf_configure_bindings --directory=\cf
 
 # yazi
