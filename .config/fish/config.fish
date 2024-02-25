@@ -1,5 +1,13 @@
 set -g fish_greeting ""
 
+# homebrew
+set -gx HOMEBREW_PREFIX "/opt/homebrew";
+set -gx HOMEBREW_CELLAR "/opt/homebrew/Cellar";
+set -gx HOMEBREW_REPOSITORY "/opt/homebrew";
+fish_add_path -gP "/opt/homebrew/bin" "/opt/homebrew/sbin";
+! set -q MANPATH; and set MANPATH ''; set -gx MANPATH "/opt/homebrew/share/man" $MANPATH;
+! set -q INFOPATH; and set INFOPATH ''; set -gx INFOPATH "/opt/homebrew/share/info" $INFOPATH;
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
@@ -12,6 +20,9 @@ fish_add_path $GOBIN
 
 # ruby
 fish_add_path /opt/homebrew/opt/ruby/bin
+
+# rust & cargo
+fish_add_path $HOME/.cargo/bin/
 
 function verda_stg --description 'access VKS staging'
 	source $HOME/dev/verda_data_staging-tokyo-fish.sh
@@ -73,6 +84,11 @@ if type -q eza
 	alias ls="ll"
 end
 
+if type -q runiq # need $ cargo install runiq
+	alias uniq="runiq"
+	alias sort="runiq -f sorted"
+end
+
 alias ipy='ipython -i -c "%load_ext autoreload" "%autoreload 2"'
 
 alias cdd="cd ~/dev"
@@ -84,7 +100,7 @@ set PATH $PATH /Users/watchanan.c/.local/bin
 # fzf.fish
 set fzf_fd_opts --hidden --max-depth 5
 set fzf_directory_opts --bind "ctrl-o:execute($EDITOR {} &> /dev/tty)" # open file with <C-o>
-fzf_configure_bindings --directory=\cf
+fzf_configure_bindings --directory=\cf --git_log=\cg --git_status=\ct
 
 # yazi
 function fa
