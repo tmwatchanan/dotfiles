@@ -66,10 +66,9 @@ alias lgdc="lg -p $DOTFILES_CONFIG_DIR"
 alias fdev="f ~/dev"
 alias fdl="f ~/Downloads"
 
-if type -q exa
-	alias ls "exa -l -g --icons"
-	alias ll "exa -l -g --icons --tree -L 2"
-	alias lla "ll -a"
+if type -q eza
+	set -gx EZA_STANDARD_OPTIONS --icons --long --all
+	alias ls="ll"
 end
 
 alias ipy='ipython -i -c "%load_ext autoreload" "%autoreload 2"'
