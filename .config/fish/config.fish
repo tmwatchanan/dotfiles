@@ -79,6 +79,7 @@ end
 alias ipy='ipython -i -c "%load_ext autoreload" "%autoreload 2"'
 
 alias cdd="cd ~/dev"
+alias cddl="cd ~/Downloads"
 alias cdpreda="cd ~/dev/preda"
 alias cdvks="cd ~/dev/vks-thds-k8s"
 alias cdvksllm="cd ~/dev/vks-thds-k8s/apps/lmllm-monitoring"
