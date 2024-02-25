@@ -9,8 +9,8 @@
 /.config/nvim
 /.config/polybar
 /.config/ranger
-/.config/sxhkd
 /.config/compton.conf
+/.config/sxhkd
 
 .fonts
 .profile
@@ -18,7 +18,7 @@
 .xbindkeysrc
 .Xdefaults
 bin
-^/*_install.sh
+.+_install.sh
 restore_conf.sh
 backup_conf.sh
 
