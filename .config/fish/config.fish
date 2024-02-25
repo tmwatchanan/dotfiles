@@ -1,3 +1,5 @@
+set -g fish_greeting ""
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
@@ -35,7 +37,7 @@ set -gx DOTFILES_DIR ~/dev/dotfiles
 set -gx DOTFILES_CONFIG_DIR ~/dev/dotfiles-config
 
 alias v="nvim"
-alias vv="sudo nvim"
+alias vv="sudo v"
 alias python3="python"
 alias lg="lazygit"
 alias f="yazi"
@@ -51,9 +53,9 @@ alias cdc="cd $CONFIG_DIR"
 alias cdv="cd $CONFIG_DIR/nvim"
 alias cddf="cd $DOTFILES_DIR"
 alias cddc="cd $DOTFILES_CONFIG_DIR"
-alias cfv="cdv && nvim"
-alias cfv="cdv && nvim $CONFIG_DIR/nvim/lua/config/keymaps.lua"
-alias cff="nvim $CONFIG_DIR/fish/config.fish"
+alias cfv="cdv & v"
+alias cfvkm="cdv & v $CONFIG_DIR/nvim/lua/config/keymaps.lua"
+alias cff="v $CONFIG_DIR/fish/config.fish"
 alias ref="source $CONFIG_DIR/fish/config.fish"
 alias cfyz="v $CONFIG_DIR/yazi/yazi.toml"
 alias cftm="v ~/.tmux.conf"
