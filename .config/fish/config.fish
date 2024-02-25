@@ -1,5 +1,8 @@
 set -g fish_greeting ''
 
+# function fish_mode_prompt; end
+# fish_default_key_bindings
+
 if status is-interactive
 	# Commands to run in interactive sessions can go here
 end
@@ -140,6 +143,10 @@ function yazi_install_plugins
 
 	cd $current_dir
 end
+
+
+
+
 
 # zoxide, must be at the end
 zoxide init fish | source
