@@ -1,4 +1,8 @@
-set -g fish_greeting ""
+set -g fish_greeting ''
+
+if status is-interactive
+	# Commands to run in interactive sessions can go here
+end
 
 # homebrew
 set -gx HOMEBREW_PREFIX "/opt/homebrew";
@@ -7,10 +11,6 @@ set -gx HOMEBREW_REPOSITORY "/opt/homebrew";
 fish_add_path -gP "/opt/homebrew/bin" "/opt/homebrew/sbin";
 ! set -q MANPATH; and set MANPATH ''; set -gx MANPATH "/opt/homebrew/share/man" $MANPATH;
 ! set -q INFOPATH; and set INFOPATH ''; set -gx INFOPATH "/opt/homebrew/share/info" $INFOPATH;
-
-if status is-interactive
-    # Commands to run in interactive sessions can go here
-end
 
 set -gx EDITOR nvim
 
@@ -66,7 +66,7 @@ alias cddc="cd $DOTFILES_CONFIG_DIR"
 alias cdv="cd $DOTFILES_CONFIG_DIR/nvim"
 alias cfv="cdv & v"
 alias cfvkm="cdv & v $DOTFILES_CONFIG_DIR/.config/nvim/lua/config/keymaps.lua"
-alias cff="v $DOTFILES_DIR/.config/fish/config.fish"
+alias cff="cddf & v $DOTFILES_DIR/.config/fish/config.fish"
 alias ref="source $DOTFILES_DIR/.config/fish/config.fish"
 alias cfyz="v $DOTFILES_DIR/.config/yazi/yazi.toml"
 alias cftm="v ~/.tmux.conf"
@@ -80,7 +80,7 @@ alias fdev="f ~/dev"
 alias fdl="f ~/Downloads"
 
 if type -q eza
-	set -gx EZA_STANDARD_OPTIONS --icons --long --all
+	set -gx EZA_STANDARD_OPTIONS --icons --long --all --color=always
 	alias ls="ll"
 end
 
@@ -99,7 +99,14 @@ set PATH $PATH /Users/watchanan.c/.local/bin
 
 # fzf.fish
 set fzf_fd_opts --hidden --max-depth 5
-set fzf_directory_opts --bind "ctrl-o:execute($EDITOR {} &> /dev/tty)" # open file with <C-o>
+set fzf_edit "become($EDITOR {} &> /dev/tty)"
+set fzf_directory_opts --bind ctrl-h:toggle-preview \
+					   --bind ctrl-o:$fzf_edit \
+					   --bind ctrl-e:$fzf_edit \
+					   --bind ctrl-y:"execute-silent(echo {} | pbcopy)+abort"
+set fzf_diff_highlighter delta --paging=never --width=20
+set fzf_preview_file_cmd preview # requires `jisher install kidonng/preview.fish`
+set fzf_preview_dir_cmd lo --group-directories-first # requires `fisher install plttn/fish-eza`
 fzf_configure_bindings --directory=\cf --git_log=\cg --git_status=\ct
 
 # yazi
