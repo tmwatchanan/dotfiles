@@ -1,5 +1,11 @@
 # dotfiles
 
+## Installation
+
+```sh
+stow . --target=$HOME
+```
+
 ## Tools
 
 - [`GNU stow`](https://www.gnu.org/software/stow/) for managing dotfiles
