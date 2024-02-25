@@ -9,10 +9,6 @@ fish_add_path $GOBIN
 
 fish_add_path /opt/homebrew/opt/ruby/bin
 
-# git filter: ignore specific lines
-# ref: https://stackoverflow.com/a/16244970/7150241
-git config --global filter.gitignore.clean "sed '/;gitignore\$/d'"
-
 function verda_stg --description 'access VKS staging'
 	source $HOME/dev/verda_data_staging-tokyo-fish.sh
 	vksctl use dap-vks-staging

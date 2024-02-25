@@ -16,19 +16,10 @@ brew install wezterm fish
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 ```
 
-- Set up the symlink farm using GNU Stow
+- Set up the symlink farm using GNU Stow for managing dotfiles
 
 ```sh
 stow . --target=$HOME
-```
-
-## Git Ignore
-
-We need to define a git filter to ignore specific lines, in this case, lines that contain the `;gitignore` text.
-This is really useful for ignoring some credentials that might be present in the files.
-
-```sh
-git config --global filter.gitignore.clean "sed '/;gitignore\$/d'"
 ```
 
 ## Tools
@@ -68,6 +59,13 @@ git config --global filter.gitignore.clean "sed '/;gitignore\$/d'"
 
 `feh --randomize --bg-fill $HOME/.wallpapers/*`
 
-## Note
+## Git Ignore
 
-- `neovim` must be the nightly version at this time, otherwise some plugins do not work.
+We need to define a git filter to ignore specific lines, in this case, lines that contain the `;gitignore` text.
+This is really useful for ignoring some credentials that might be present in the files.
+
+```sh
+git config filter.gitignore.clean "sed '/;gitignore\$/d'"
+# or 
+git config --global filter.gitignore.clean "sed '/;gitignore\$/d'"
+```

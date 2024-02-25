@@ -48,3 +48,5 @@
 	credentialStore = cache
 	guiPrompt = false
 	gitHubAuthModes = browser
+[filter "gitignore"]
+	clean = "sed '/;gitignore$/d'"
