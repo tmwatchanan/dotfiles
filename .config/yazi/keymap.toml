@@ -1,103 +1,39 @@
-[[manager.prepend_keymap]]
-on   = [ 'g', 'd' ]
-exec = 'cd ~/dev'
-desc = 'Go to the dev directory'
+[manager]
+prepend_keymap = [
+	{ on = [ 'g', 'd' ], exec = "cd ~/dev", desc = "Go to the dev directory" },
+	{ on = [ 'g', 'D' ], exec = "cd ~/Downloads", desc = "Go to the downloads directory" },
+	{ on = [ 'g', '<Enter>' ], exec = "cd ~/Desktop", desc = "Go to the Desktop directory" },
+	{ on = [ 'g', 'v' ], exec = "cd ~/Downloads", desc = "Go to the Neovim config directory" },
+	{ on = [ '$' ], exec = 'shell "$SHELL" --block --confirm', desc = "Open shell here" },
+	{ on = [ '<A-a>' ], exec = 'select_all --state=true', desc = "Select all files" },
+	{ on = [ '<A-r>' ], exec = 'select_all --state=none', desc = "Inverse selection of all files" },
 
-[[manager.prepend_keymap]]
-on   = [ 'g', 'D' ]
-exec = 'cd ~/Downloads'
-desc = 'Go to the downloads directory'
+    # Bookmarks
+	{ on = [ 'm' ], exec = "plugin bookmarks --args=save", desc = "Save current position as a bookmark" },
+	{ on = [ "'" ], exec = "plugin bookmarks --args=jump", desc = "Jump to a bookmark" },
+	{ on = [ 'b', 'd' ], exec = "plugin bookmarks --args=delete", desc = "Delete a bookmark" },
+	{ on = [ 'b', 'D' ], exec = "plugin bookmarks --args=delete_all", desc = "Delete all bookmarks" },
 
-[[manager.prepend_keymap]]
-on   = [ 'g', '<Enter>' ]
-exec = 'cd ~/Desktop'
-desc = 'Go to the Desktop directory'
+    # Fix conflicts with relatvie motions
+    { on = [ "t","t" ], exec = "tab_create --current", desc = "Create a new tab using the current path" },
+	{ on = [ "t","1" ], exec = "tab_switch 0", desc = "Switch to the first tab" },
+	{ on = [ "t","2" ], exec = "tab_switch 1", desc = "Switch to the second tab" },
+	{ on = [ "t","3" ], exec = "tab_switch 2", desc = "Switch to the third tab" },
+	{ on = [ "t","4" ], exec = "tab_switch 3", desc = "Switch to the fourth tab" },
+	{ on = [ "t","5" ], exec = "tab_switch 4", desc = "Switch to the fifth tab" },
+	{ on = [ "t","6" ], exec = "tab_switch 5", desc = "Switch to the sixth tab" },
+	{ on = [ "t","7" ], exec = "tab_switch 6", desc = "Switch to the seventh tab" },
+	{ on = [ "t","8" ], exec = "tab_switch 7", desc = "Switch to the eighth tab" },
+	{ on = [ "t","9" ], exec = "tab_switch 8", desc = "Switch to the ninth tab" },
 
-[[manager.prepend_keymap]]
-on   = [ 'g', 'v' ]
-exec = 'cd ~/.config/nvim'
-desc = 'Go to the neovim config directory'
-
-[[manager.prepend_keymap]]
-on   = [ "$" ]
-exec = 'shell "$SHELL" --block --confirm'
-desc = 'Open shell here'
-
-[[manager.prepend_keymap]]
-on   = [ '<A-a>' ]
-exec = 'select_all --state=true'
-desc = 'Select all files'
-
-[[manager.prepend_keymap]]
-on   = [ '<A-r>' ]
-exec = 'select_all --state=none'
-desc = 'Inverse selection of all files'
-
-# Bookmarks--------------------------------------------------------------------
-
-[[manager.prepend_keymap]]
-on = [ 'm' ]
-exec = 'plugin bookmarks --args=save'
-desc = 'Save current position as a bookmark'
-
-[[manager.prepend_keymap]]
-on = [ "'" ]
-exec = 'plugin bookmarks --args=jump'
-desc = 'Jump to a bookmark'
-
-[[manager.prepend_keymap]]
-on = [ 'b', 'd' ]
-exec = 'plugin bookmarks --args=delete'
-desc = 'Delete a bookmark'
-
-[[manager.prepend_keymap]]
-on = [ 'b', 'D' ]
-exec = 'plugin bookmarks --args=delete_all'
-desc = 'Delete all bookmarks'
-
-# Relative motions ------------------------------------------------------------
-
-[[manager.prepend_keymap]]
-on = [ '1' ]
-exec = 'plugin relative-motions --args=1'
-desc = 'Move in relative steps'
-
-[[manager.prepend_keymap]]
-on = [ '2' ]
-exec = 'plugin relative-motions --args=2'
-desc = 'Move in relative steps'
-
-[[manager.prepend_keymap]]
-on = [ '3' ]
-exec = 'plugin relative-motions --args=3'
-desc = 'Move in relative steps'
-
-[[manager.prepend_keymap]]
-on = [ '4' ]
-exec = 'plugin relative-motions --args=4'
-desc = 'Move in relative steps'
-
-[[manager.prepend_keymap]]
-on = [ '5' ]
-exec = 'plugin relative-motions --args=5'
-desc = 'Move in relative steps'
-
-[[manager.prepend_keymap]]
-on = [ '6' ]
-exec = 'plugin relative-motions --args=6'
-desc = 'Move in relative steps'
-
-[[manager.prepend_keymap]]
-on = [ '7' ]
-exec = 'plugin relative-motions --args=7'
-desc = 'Move in relative steps'
-
-[[manager.prepend_keymap]]
-on = [ '8' ]
-exec = 'plugin relative-motions --args=8'
-desc = 'Move in relative steps'
-
-[[manager.prepend_keymap]]
-on = [ '9' ]
-exec = 'plugin relative-motions --args=9'
-desc = 'Move in relative steps'
+    # Relative motions
+	{ on = [ "1" ], exec = "plugin relative-motions --args=1", desc = "Move in relative steps" },
+	{ on = [ "2" ], exec = "plugin relative-motions --args=2", desc = "Move in relative steps" },
+	{ on = [ "3" ], exec = "plugin relative-motions --args=3", desc = "Move in relative steps" },
+	{ on = [ "4" ], exec = "plugin relative-motions --args=4", desc = "Move in relative steps" },
+	{ on = [ "5" ], exec = "plugin relative-motions --args=5", desc = "Move in relative steps" },
+	{ on = [ "6" ], exec = "plugin relative-motions --args=6", desc = "Move in relative steps" },
+	{ on = [ "7" ], exec = "plugin relative-motions --args=7", desc = "Move in relative steps" },
+	{ on = [ "8" ], exec = "plugin relative-motions --args=8", desc = "Move in relative steps" },
+	{ on = [ "9" ], exec = "plugin relative-motions --args=9", desc = "Move in relative steps" },
+]
