@@ -2,6 +2,19 @@
 
 ## Installation
 
+- Install Neovim
+```sh
+brew install neovim --HEAD
+```
+
+- Install fisher
+
+```sh
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+```
+
+- Set up the symlink farm using GNU Stow
+
 ```sh
 stow . --target=$HOME
 ```
@@ -12,6 +25,7 @@ stow . --target=$HOME
 
 - [`neovim (nightly)`](https://github.com/neovim/neovim) for text editing
 - [`fish`](https://github.com/fish-shell/fish-shell) as a command-line shell
+- [`fisher`](https://github.com/jorgebucaran/fisher) as a pluginer manager for fish
 - [`wezterm`](https://github.com/wez/wezterm) for terminal emulator
 - [`yazi`](https://github.com/sxyazi/yazi) as a file manager
 
