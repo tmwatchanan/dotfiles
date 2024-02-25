@@ -2,9 +2,11 @@
 
 ## Installation
 
-- Install Neovim
+- Install packages
 ```sh
 brew install neovim --HEAD
+brew install yazi --HEAD
+brew install wezterm fish
 ```
 
 - Install fisher
