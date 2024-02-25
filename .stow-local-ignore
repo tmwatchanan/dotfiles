@@ -1,0 +1,44 @@
+# Comments and blank lines are allowed.
+
+/.config/bspwm
+/.config/colors
+/.config/dunst
+/.config/i3
+/.config/kitty
+/.config/lf
+/.config/nvim
+/.config/polybar
+/.config/ranger
+/.config/sxhkd
+/.config/compton.conf
+
+.fonts
+.profile
+.wallpaper
+.xbindkeysrc
+.Xdefaults
+bin
+^/*_install.sh
+restore_conf.sh
+backup_conf.sh
+
+RCS
+.+,v
+
+CVS
+\.\#.+       # CVS conflict files / emacs lock files
+\.cvsignore
+
+\.svn
+_darcs
+\.hg
+
+\.git
+\.gitignore
+
+.+~          # emacs backup files
+\#.*\#       # emacs autosave files
+
+^/README.*
+^/LICENSE.*
+^/COPYING
