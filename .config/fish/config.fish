@@ -66,6 +66,10 @@ if type -q fnm
     fnm env --use-on-cd | source
 end
 
+# git filter: ignore specific lines
+# ref: https://stackoverflow.com/a/16244970/7150241
+git config --global filter.gitignore.clean "sed '/;gitignore\$/d'"
+
 
 # # >>> conda initialize >>>
 # Cache `conda shell.fish hook` (spawns Python, ~120ms) and regenerate only when

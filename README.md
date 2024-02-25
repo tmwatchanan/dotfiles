@@ -38,6 +38,15 @@ stow -d ~/dev/dotfiles -t "$HOME" claude
 just -g install-yazi
 ```
 
+## Git Ignore
+
+We need to define a git filter to ignore specific lines, in this case, lines that contain the `;gitignore` text.
+This is really useful for ignoring some credentials that might be present in the files.
+
+```sh
+git config --global filter.gitignore.clean "sed '/;gitignore\$/d'"
+```
+
 ## Tools
 
 ### Dotfile management
