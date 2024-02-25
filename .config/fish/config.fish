@@ -61,17 +61,17 @@ alias bi="brew install"
 alias bu="brew upgrade --fetch-HEAD"
 
 alias cdc="cd $CONFIG_DIR"
-alias cdv="cd $CONFIG_DIR/nvim"
 alias cddf="cd $DOTFILES_DIR"
 alias cddc="cd $DOTFILES_CONFIG_DIR"
+alias cdv="cd $DOTFILES_CONFIG_DIR/nvim"
 alias cfv="cdv & v"
-alias cfvkm="cdv & v $CONFIG_DIR/nvim/lua/config/keymaps.lua"
-alias cff="v $CONFIG_DIR/fish/config.fish"
-alias ref="source $CONFIG_DIR/fish/config.fish"
-alias cfyz="v $CONFIG_DIR/yazi/yazi.toml"
+alias cfvkm="cdv & v $DOTFILES_CONFIG_DIR/nvim/lua/config/keymaps.lua"
+alias cff="v $DOTFILES_DIR/fish/config.fish"
+alias ref="source $DOTFILES_DIR/fish/config.fish"
+alias cfyz="v $DOTFILES_DIR/yazi/yazi.toml"
 alias cftm="v ~/.tmux.conf"
 alias cfwt="v ~/.wezterm.lua"
-alias cfskhd="v $CONFIG_DIR/skhd/skhdrc"
+alias cfskhd="v $DOTFILES_CONFIG_DIR/skhd/skhdrc"
 
 alias lgdf="lg -p $DOTFILES_DIR"
 alias lgdc="lg -p $DOTFILES_CONFIG_DIR"
@@ -113,11 +113,13 @@ function fa
 end
 
 function yazi_install_plugins
-	mkdir -p $CONFIG_DIR/yazi/plugins
+	set current_dir (pwd)
 
+	mkdir -p $CONFIG_DIR/yazi/plugins
 	for plugin_repo in "dedukun/relative-motions.yazi" \
 						"Reledia/glow.yazi" \
-						"Reledia/miller.yazi"
+						"Reledia/miller.yazi" \
+						"dedukun/bookmarks.yazi"
 		echo "Plugin `$plugin_repo`"
 		set onwer (string split "/" $plugin_repo -f1)
 		set repository (string split "/" $plugin_repo -f2)
@@ -128,6 +130,8 @@ function yazi_install_plugins
 			git clone "https://github.com/$plugin_repo.git" $plugin_dir
 		end
 	end
+
+	cd $current_dir
 end
 
 # zoxide, must be at the end
