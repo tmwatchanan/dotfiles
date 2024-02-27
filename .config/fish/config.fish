@@ -39,12 +39,24 @@ function verda_prod --description 'access VKS production'
 	kubectl config use-context dap-release-tokyo
 end
 
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 if test -f /opt/homebrew/Caskroom/miniforge/base/bin/conda
     eval /opt/homebrew/Caskroom/miniforge/base/bin/conda "shell.fish" "hook" $argv | source
+else
+    if test -f "/opt/homebrew/Caskroom/miniforge/base/etc/fish/conf.d/conda.fish"
+        . "/opt/homebrew/Caskroom/miniforge/base/etc/fish/conf.d/conda.fish"
+    else
+        set -x PATH "/opt/homebrew/Caskroom/miniforge/base/bin" $PATH
+    end
+end
+
+if test -f "/opt/homebrew/Caskroom/miniforge/base/etc/fish/conf.d/mamba.fish"
+    source "/opt/homebrew/Caskroom/miniforge/base/etc/fish/conf.d/mamba.fish"
 end
 # <<< conda initialize <<<
+
 
 set -gx CONFIG_DIR ~/.config
 set -gx DOTFILES_DIR ~/dev/dotfiles
@@ -52,7 +64,8 @@ set -gx DOTFILES_CONFIG_DIR ~/dev/dotfiles-config
 
 alias v="nvim"
 alias vv="sudo v"
-alias python3="python"
+alias pip="uv pip"
+alias conda="mamba"
 alias lg="lazygit"
 alias f="yazi"
 alias cat="bat"
@@ -73,7 +86,7 @@ alias cff="cddf & v $DOTFILES_DIR/.config/fish/config.fish"
 alias ref="source $DOTFILES_DIR/.config/fish/config.fish"
 alias cfyz="v $DOTFILES_DIR/.config/yazi/yazi.toml"
 alias cftm="v ~/.tmux.conf"
-alias cfwt="v ~/.wezterm.lua"
+alias cfwt="v $DOTFILES_DIR/.config/wezterm/keys.lua"
 alias cfskhd="v $DOTFILES_CONFIG_DIR/.config/skhd/skhdrc"
 
 alias lgdf="lg -p $DOTFILES_DIR"
