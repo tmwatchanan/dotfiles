@@ -27,6 +27,11 @@ stow . --target=$HOME
 
 - [`GNU stow`](https://www.gnu.org/software/stow/) for managing dotfiles
 
+- [`mise`](https://github.com/jdx/mise) for managing dev tools or runtimes (think about nvm, etc.)
+- [`pixi`](https://github.com/prefix-dev/pixi) as a multi-language package manager (thiking about conda)
+- [`uv`](https://github.com/astral-sh/uv) as a drop-in replacement for _pip_
+- [`mamba` (via `miniforge`)](https://github.com/conda-forge/miniforge) as a drop-in replacement for _conda_
+
 - [`neovim (nightly)`](https://github.com/neovim/neovim) for text editing
 - [`fish`](https://github.com/fish-shell/fish-shell) as a command-line shell
 - [`fisher`](https://github.com/jorgebucaran/fisher) as a pluginer manager for fish
