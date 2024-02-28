@@ -57,8 +57,9 @@ if test -f "/opt/homebrew/Caskroom/miniforge/base/etc/fish/conf.d/mamba.fish"
 end
 # <<< conda initialize <<<
 
-
-set -gx CONFIG_DIR ~/.config
+set -e -g CONFIG_DIR # TODO: remove this
+set -gx CONFIG_HOME $HOME/.config
+set -gx XDG_CONFIG_HOME $CONFIG_HOME
 set -gx DOTFILES_DIR ~/dev/dotfiles
 set -gx DOTFILES_CONFIG_DIR ~/dev/dotfiles-config
 
@@ -76,7 +77,7 @@ alias bm="hyperfine"
 alias bi="brew install"
 alias bu="brew upgrade --fetch-HEAD"
 
-alias cdc="cd $CONFIG_DIR"
+alias cdc="cd $CONFIG_HOME"
 alias cddf="cd $DOTFILES_DIR"
 alias cddc="cd $DOTFILES_CONFIG_DIR"
 alias cdv="cd $DOTFILES_CONFIG_DIR/nvim"
@@ -87,7 +88,8 @@ alias ref="source $DOTFILES_DIR/.config/fish/config.fish"
 alias cfyz="v $DOTFILES_DIR/.config/yazi/yazi.toml"
 alias cftm="v ~/.tmux.conf"
 alias cfwt="v $DOTFILES_DIR/.config/wezterm/keys.lua"
-alias cfskhd="v $DOTFILES_CONFIG_DIR/.config/skhd/skhdrc"
+alias cfskhd="v $DOTFILES_CONFIG_DIR/skhd/skhdrc"
+alias cflg="v $DOTFILES_CONFIG_DIR/lazygit/config.yml"
 
 alias lgdf="lg -p $DOTFILES_DIR"
 alias lgdc="lg -p $DOTFILES_CONFIG_DIR"
@@ -138,7 +140,7 @@ end
 function yazi_install_plugins
 	set current_dir (pwd)
 
-	mkdir -p $CONFIG_DIR/yazi/plugins
+	mkdir -p $CONFIG_HOME/yazi/plugins
 	for plugin_repo in "dedukun/relative-motions.yazi" \
 						"Reledia/glow.yazi" \
 						"Reledia/miller.yazi" \
@@ -146,7 +148,7 @@ function yazi_install_plugins
 		echo "Plugin `$plugin_repo`"
 		set onwer (string split "/" $plugin_repo -f1)
 		set repository (string split "/" $plugin_repo -f2)
-		set plugin_dir "$CONFIG_DIR/yazi/plugins/$repository"
+		set plugin_dir "$CONFIG_HOME/yazi/plugins/$repository"
 		if test -d $plugin_dir
 			cd $plugin_dir && git pull
 		else
