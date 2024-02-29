@@ -90,12 +90,16 @@ alias cftm="v ~/.tmux.conf"
 alias cfwt="v $DOTFILES_DIR/.config/wezterm/keys.lua"
 alias cfskhd="v $DOTFILES_CONFIG_DIR/skhd/skhdrc"
 alias cflg="v $DOTFILES_CONFIG_DIR/lazygit/config.yml"
+alias cfssh="v $HOME/.ssh/config"
+alias cfgit="v $HOME/.gitconfig"
 
 alias lgdf="lg -p $DOTFILES_DIR"
 alias lgdc="lg -p $DOTFILES_CONFIG_DIR"
 
 alias fdev="f ~/dev"
 alias fdl="f ~/Downloads"
+alias cdd="cd ~/dev"
+alias cddl="cd ~/Downloads"
 
 if type -q eza
 	set -gx EZA_STANDARD_OPTIONS --icons --long --all --color=always
@@ -109,8 +113,9 @@ end
 
 alias ipy='ipython -i -c "%load_ext autoreload" "%autoreload 2"'
 
-alias cdd="cd ~/dev"
-alias cddl="cd ~/Downloads"
+function vmlu
+	v scp://mlu//root/workspace/$argv[1]
+end
 
 # Created by `pipx` on 2024-02-16 13:06:34
 set PATH $PATH /Users/watchanan.c/.local/bin
