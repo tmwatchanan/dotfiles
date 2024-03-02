@@ -8,12 +8,18 @@ if status is-interactive
 end
 
 # homebrew
-set -gx HOMEBREW_PREFIX "/opt/homebrew";
-set -gx HOMEBREW_CELLAR "/opt/homebrew/Cellar";
-set -gx HOMEBREW_REPOSITORY "/opt/homebrew";
-fish_add_path -gP "/opt/homebrew/bin" "/opt/homebrew/sbin";
-! set -q MANPATH; and set MANPATH ''; set -gx MANPATH "/opt/homebrew/share/man" $MANPATH;
-! set -q INFOPATH; and set INFOPATH ''; set -gx INFOPATH "/opt/homebrew/share/info" $INFOPATH;
+if test -d /home/linuxbrew/.linuxbrew # Linux
+	set -gx HOMEBREW_PREFIX "/home/linuxbrew/.linuxbrew"
+	set -gx HOMEBREW_CELLAR "$HOMEBREW_PREFIX/Cellar"
+	set -gx HOMEBREW_REPOSITORY "$HOMEBREW_PREFIX/Homebrew"
+else if test -d /opt/homebrew # MacOS
+	set -gx HOMEBREW_PREFIX "/opt/homebrew"
+	set -gx HOMEBREW_CELLAR "$HOMEBREW_PREFIX/Cellar"
+	set -gx HOMEBREW_REPOSITORY "$HOMEBREW_PREFIX/homebrew"
+end
+fish_add_path -gP "$HOMEBREW_PREFIX/bin" "$HOMEBREW_PREFIX/sbin";
+! set -q MANPATH; and set MANPATH ''; set -gx MANPATH "$HOMEBREW_PREFIX/share/man" $MANPATH;
+! set -q INFOPATH; and set INFOPATH ''; set -gx INFOPATH "$HOMEBREW_PREFIX/share/info" $INFOPATH;
 
 set -gx EDITOR nvim
 
