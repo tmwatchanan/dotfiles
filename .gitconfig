@@ -1,15 +1,17 @@
 [user]
 	name = Watchanan Chantapakul
 	email = watchanan.c@lmwn.com
+[includeIf "gitdir:~/tm/"]
+	path = ~/tm/.gitconfig
 [delta]
 	navigate = true
 	features = nightfox
 [include]
-	path = /Users/watchanan.c/.config/delta/themes.gitconfig
+	path = ~/.config/delta/themes.gitconfig
 [init]
 	defaultBranch = main
 [core]
-	excludesfile = /Users/watchanan.c/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	pager = delta --paging=never
 [alias]
     mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
