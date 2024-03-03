@@ -1,6 +1,8 @@
 [user]
-	name = Watchanan Chantapakul
-	email = watchanan.c@lmwn.com
+	name = tmwatchanan
+	email = tmwatchanan@gmail.com
+[includeIf "gitdir:~/dev/"]
+	path = ~/dev/.gitconfig
 [includeIf "gitdir:~/tm/"]
 	path = ~/tm/.gitconfig
 [delta]
