@@ -63,7 +63,6 @@ if test -f "/opt/homebrew/Caskroom/miniforge/base/etc/fish/conf.d/mamba.fish"
 end
 # <<< conda initialize <<<
 
-set -e -g CONFIG_DIR # TODO: remove this
 set -gx CONFIG_HOME $HOME/.config
 set -gx XDG_CONFIG_HOME $CONFIG_HOME
 set -gx DOTFILES_DIR ~/dev/dotfiles
@@ -81,7 +80,8 @@ alias du="dust"
 alias bm="hyperfine"
 
 alias bi="brew install"
-alias bu="brew upgrade --fetch-HEAD"
+alias bu="brew update"
+alias bup="brew upgrade --fetch-HEAD"
 
 alias cdc="cd $CONFIG_HOME"
 alias cddf="cd $DOTFILES_DIR"
@@ -119,9 +119,10 @@ end
 
 alias ipy='ipython -i -c "%load_ext autoreload" "%autoreload 2"'
 
-function vmlu
-	v scp://mlu//root/workspace/$argv[1]
+function vscp
+	v scp://$argv[1]//root/workspace/$argv[2]
 end
+alias vrsa="v ~/.ssh/jutopia_rsa"
 
 # Created by `pipx` on 2024-02-16 13:06:34
 set PATH $PATH /Users/watchanan.c/.local/bin
