@@ -95,6 +95,7 @@ alias cfyz="v $DOTFILES_DIR/.config/yazi/yazi.toml"
 alias cftm="v ~/.tmux.conf"
 alias cfwt="v $DOTFILES_DIR/.config/wezterm/keys.lua"
 alias cfskhd="v $DOTFILES_CONFIG_DIR/skhd/skhdrc"
+alias cfyb="v $DOTFILES_CONFIG_DIR/yabai/yabairc"
 alias cflg="v $DOTFILES_CONFIG_DIR/lazygit/config.yml"
 alias cfssh="v $HOME/.ssh/config"
 alias cfgit="v $HOME/.gitconfig"
@@ -104,8 +105,13 @@ alias lgdc="lg -p $DOTFILES_CONFIG_DIR"
 
 alias fdev="f ~/dev"
 alias fdl="f ~/Downloads"
+alias ftm="f ~/tm"
 alias cdd="cd ~/dev"
+alias cdtm="cd ~/tm"
 alias cddl="cd ~/Downloads"
+
+alias vkh="v ~/tm/obsidian/know-how/README.md"
+alias vmie="v ~/tm/obsidian/personal/README.md"
 
 if type -q eza
 	set -gx EZA_STANDARD_OPTIONS --icons --long --all --color=always
