@@ -1,6 +1,7 @@
 [user]
 	name = tmwatchanan
 	email = tmwatchanan@gmail.com
+	signingkey = /Users/watchanan.c/.ssh/id_ed25519.pub
 [includeIf "gitdir:~/dev/"]
 	path = ~/dev/.gitconfig
 [includeIf "gitdir:~/tm/"]
@@ -48,6 +49,9 @@
 [credential "https://git.wndv.co"]
 	provider = gitlab
 	gitLabAuthModes = browser
+[url "ssh://git@git.wndv.co/"]
+	; for private go module
+    insteadOf = https://git.wndv.co/
 [credential]
 	helper = /usr/local/share/gcm-core/git-credential-manager
 	gitLabAuthModes = browser
@@ -56,3 +60,6 @@
 	gitHubAuthModes = browser
 [filter "gitignore"]
 	clean = "sed '/;gitignore$/d'"
+
+[gpg] ; signing key
+	format = ssh
