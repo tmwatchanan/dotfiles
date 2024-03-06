@@ -23,6 +23,9 @@ fish_add_path -gP "$HOMEBREW_PREFIX/bin" "$HOMEBREW_PREFIX/sbin";
 
 set -gx EDITOR nvim
 
+# git & GPG
+set -x GPG_TTY $(tty)
+
 # golang
 set GOBIN $HOME/go/bin
 fish_add_path $GOBIN
