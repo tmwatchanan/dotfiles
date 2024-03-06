@@ -57,7 +57,7 @@ else
     if test -f "/opt/homebrew/Caskroom/miniforge/base/etc/fish/conf.d/conda.fish"
         . "/opt/homebrew/Caskroom/miniforge/base/etc/fish/conf.d/conda.fish"
     else
-        set -x PATH "/opt/homebrew/Caskroom/miniforge/base/bin" $PATH
+		fish_add_path "/opt/homebrew/Caskroom/miniforge/base/bin"
     end
 end
 
@@ -115,6 +115,8 @@ alias cddl="cd ~/Downloads"
 
 alias vkh="v ~/tm/obsidian/know-how/README.md"
 alias vmie="v ~/tm/obsidian/personal/README.md"
+alias cdob="cd ~/tm/obsidian/know-how"
+alias cfob="cdob & v .obsidian.vimrc"
 
 if type -q eza
 	set -gx EZA_STANDARD_OPTIONS --icons --long --all --color=always
