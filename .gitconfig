@@ -1,14 +1,11 @@
 [user]
 	name = tmwatchanan
-	email = tmwatchanan@gmail.com
-	signingkey = ~/.ssh/id_ed25519.pub
+	email = tmwatchanan@users.noreply.github.com
+	signingkey = F4D43507B7A7F4AC
 [includeIf "gitdir:~/dev/"]
 	path = ~/dev/.gitconfig
 [includeIf "gitdir:~/tm/"]
 	path = ~/tm/.gitconfig
-[delta]
-	navigate = true
-	features = nightfox
 [include]
 	path = ~/.config/delta/themes.gitconfig
 [init]
@@ -31,7 +28,10 @@
     tool = nvimdiff
 [difftool "nvimdiff"]
 	cmd = nvim -d $LOCAL $REMOTE
-;
+[delta]
+	navigate = true
+	features = nightfox
+
 ; Merge Tool ------------------------------------------------------------------
 [merge]
     conflictstyle = diff3
@@ -61,5 +61,5 @@
 [filter "gitignore"]
 	clean = "sed '/;gitignore$/d'"
 
-[gpg] ; signing key
-	format = ssh
+[commit]
+	gpgsign = true
