@@ -1,45 +1,45 @@
 [manager]
 prepend_keymap = [
-	{ on = [ "<C-k>" ], exec = "seek -5", desc = "Seek up 5 units in the preview" },
-	{ on = [ "<C-j>" ], exec = "seek 5",  desc = "Seek down 5 units in the preview" },
-	{ on = [ "<A-k>" ], exec = "kill eol",      desc = "Kill forwards to the EOL" }, # original <C-k>
+	{ on = [ "<C-k>" ], run = "seek -5", desc = "Seek up 5 units in the preview" },
+	{ on = [ "<C-j>" ], run = "seek 5",  desc = "Seek down 5 units in the preview" },
+	{ on = [ "<A-k>" ], run = "kill eol",      desc = "Kill forwards to the EOL" }, # original <C-k>
 
-	{ on = [ "g", "d" ], exec = "cd ~/dev", desc = "Go to the dev directory" },
-	{ on = [ "g", "D" ], exec = "cd ~/Downloads", desc = "Go to the downloads directory" },
-	{ on = [ "g", "<Enter>" ], exec = "cd ~/Desktop", desc = "Go to the Desktop directory" },
-	{ on = [ "g", "v" ], exec = "cd ~/Downloads", desc = "Go to the Neovim config directory" },
-	{ on = [ "$" ], exec = "shell '$SHELL' --block --confirm", desc = "Open shell here" },
-	{ on = [ "<A-a>" ], exec = "select_all --state=true", desc = "Select all files" },
-	{ on = [ "<A-r>" ], exec = "select_all --state=none", desc = "Inverse selection of all files" },
+	{ on = [ "g", "d" ], run = "cd ~/dev", desc = "Go to the dev directory" },
+	{ on = [ "g", "D" ], run = "cd ~/Downloads", desc = "Go to the downloads directory" },
+	{ on = [ "g", "<Enter>" ], run = "cd ~/Desktop", desc = "Go to the Desktop directory" },
+	{ on = [ "g", "v" ], run = "cd ~/Downloads", desc = "Go to the Neovim config directory" },
+	{ on = [ "$" ], run = "shell '$SHELL' --block --confirm", desc = "Open shell here" },
+	{ on = [ "<A-a>" ], run = "select_all --state=true", desc = "Select all files" },
+	{ on = [ "<A-r>" ], run = "select_all --state=none", desc = "Inverse selection of all files" },
 
-	{ on = [ "<C-s>" ], exec = "shell '$SHELL' --block --confirm", desc = "Open shell here" }, # dropping to the shell
+	{ on = [ "<C-s>" ], run = "shell '$SHELL' --block --confirm", desc = "Open shell here" }, # dropping to the shell
 
     # Bookmarks
-	{ on = [ "m" ], exec = "plugin bookmarks --args=save", desc = "Save current position as a bookmark" },
-	{ on = [ "'" ], exec = "plugin bookmarks --args=jump", desc = "Jump to a bookmark" },
-	{ on = [ "b", "d" ], exec = "plugin bookmarks --args=delete", desc = "Delete a bookmark" },
-	{ on = [ "b", "D" ], exec = "plugin bookmarks --args=delete_all", desc = "Delete all bookmarks" },
+	{ on = [ "m" ], run = "plugin bookmarks --args=save", desc = "Save current position as a bookmark" },
+	{ on = [ "'" ], run = "plugin bookmarks --args=jump", desc = "Jump to a bookmark" },
+	{ on = [ "b", "d" ], run = "plugin bookmarks --args=delete", desc = "Delete a bookmark" },
+	{ on = [ "b", "D" ], run = "plugin bookmarks --args=delete_all", desc = "Delete all bookmarks" },
 
     # Fix conflicts with relatvie motions
-    { on = [ "t","t" ], exec = "tab_create --current", desc = "Create a new tab using the current path" },
-	{ on = [ "t","1" ], exec = "tab_switch 0", desc = "Switch to the first tab" },
-	{ on = [ "t","2" ], exec = "tab_switch 1", desc = "Switch to the second tab" },
-	{ on = [ "t","3" ], exec = "tab_switch 2", desc = "Switch to the third tab" },
-	{ on = [ "t","4" ], exec = "tab_switch 3", desc = "Switch to the fourth tab" },
-	{ on = [ "t","5" ], exec = "tab_switch 4", desc = "Switch to the fifth tab" },
-	{ on = [ "t","6" ], exec = "tab_switch 5", desc = "Switch to the sixth tab" },
-	{ on = [ "t","7" ], exec = "tab_switch 6", desc = "Switch to the seventh tab" },
-	{ on = [ "t","8" ], exec = "tab_switch 7", desc = "Switch to the eighth tab" },
-	{ on = [ "t","9" ], exec = "tab_switch 8", desc = "Switch to the ninth tab" },
+    { on = [ "t","t" ], run = "tab_create --current", desc = "Create a new tab using the current path" },
+	{ on = [ "t","1" ], run = "tab_switch 0", desc = "Switch to the first tab" },
+	{ on = [ "t","2" ], run = "tab_switch 1", desc = "Switch to the second tab" },
+	{ on = [ "t","3" ], run = "tab_switch 2", desc = "Switch to the third tab" },
+	{ on = [ "t","4" ], run = "tab_switch 3", desc = "Switch to the fourth tab" },
+	{ on = [ "t","5" ], run = "tab_switch 4", desc = "Switch to the fifth tab" },
+	{ on = [ "t","6" ], run = "tab_switch 5", desc = "Switch to the sixth tab" },
+	{ on = [ "t","7" ], run = "tab_switch 6", desc = "Switch to the seventh tab" },
+	{ on = [ "t","8" ], run = "tab_switch 7", desc = "Switch to the eighth tab" },
+	{ on = [ "t","9" ], run = "tab_switch 8", desc = "Switch to the ninth tab" },
 
     # Relative motions
-	{ on = [ "1" ], exec = "plugin relative-motions --args=1", desc = "Move in relative steps" },
-	{ on = [ "2" ], exec = "plugin relative-motions --args=2", desc = "Move in relative steps" },
-	{ on = [ "3" ], exec = "plugin relative-motions --args=3", desc = "Move in relative steps" },
-	{ on = [ "4" ], exec = "plugin relative-motions --args=4", desc = "Move in relative steps" },
-	{ on = [ "5" ], exec = "plugin relative-motions --args=5", desc = "Move in relative steps" },
-	{ on = [ "6" ], exec = "plugin relative-motions --args=6", desc = "Move in relative steps" },
-	{ on = [ "7" ], exec = "plugin relative-motions --args=7", desc = "Move in relative steps" },
-	{ on = [ "8" ], exec = "plugin relative-motions --args=8", desc = "Move in relative steps" },
-	{ on = [ "9" ], exec = "plugin relative-motions --args=9", desc = "Move in relative steps" },
+	{ on = [ "1" ], run = "plugin relative-motions --args=1", desc = "Move in relative steps" },
+	{ on = [ "2" ], run = "plugin relative-motions --args=2", desc = "Move in relative steps" },
+	{ on = [ "3" ], run = "plugin relative-motions --args=3", desc = "Move in relative steps" },
+	{ on = [ "4" ], run = "plugin relative-motions --args=4", desc = "Move in relative steps" },
+	{ on = [ "5" ], run = "plugin relative-motions --args=5", desc = "Move in relative steps" },
+	{ on = [ "6" ], run = "plugin relative-motions --args=6", desc = "Move in relative steps" },
+	{ on = [ "7" ], run = "plugin relative-motions --args=7", desc = "Move in relative steps" },
+	{ on = [ "8" ], run = "plugin relative-motions --args=8", desc = "Move in relative steps" },
+	{ on = [ "9" ], run = "plugin relative-motions --args=9", desc = "Move in relative steps" },
 ]
