@@ -42,10 +42,12 @@
     file-removed-label = [-]
     file-renamed-label = [->]
     hunk-header-style = omit
+    map-styles = "bold purple => syntax #957FB8, bold cyan => syntax #2D4F67" ; color moved
 [delta "kanagawa"]
     dark = true
     syntax-theme = kanagawa ; from tmTheme (bat, delta, lazygit)
     file-style = bold yellow
+    whitespace-error-style = syntax "#FF9E3B" ; roninYellow
     minus-style = syntax "#43242B" ; winterRed
     plus-style = syntax "#2B3328" ; winterGreen
     line-numbers-minus-style = "#C34043" ; autumnRed
