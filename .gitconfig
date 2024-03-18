@@ -43,7 +43,7 @@
 [delta "kanagawa"]
     dark = true
     syntax-theme = kanagawa ; from tmTheme (bat, delta, lazygit)
-    file-style = cyan
+    file-style = yellow bold
 
 ; Merge Tool ------------------------------------------------------------------
 [merge]
