@@ -73,7 +73,7 @@
     line-numbers-zero-style       = "#3b4261"
 
 [delta "nightfox"]
-    dark = false
+    dark = true
     line-numbers = true
     side-by-side = false
     keep-plus-minus-markers = false

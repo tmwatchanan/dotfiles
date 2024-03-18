@@ -12,6 +12,7 @@
 	defaultBranch = main
 [core]
 	excludesfile = ~/.gitignore_global
+	editor = nvim
 	pager = delta --paging=never
 [alias]
     mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
@@ -30,7 +31,19 @@
 	cmd = nvim -d $LOCAL $REMOTE
 [delta]
 	navigate = true
-	features = nightfox
+	features = kanagawa
+    line-numbers = true
+    file-decoration-style = ul
+    file-added-label = [+]
+    file-copied-label = [==]
+    file-modified-label = [*]
+    file-removed-label = [-]
+    file-renamed-label = [->]
+    hunk-header-style = omit
+[delta "kanagawa"]
+    dark = true
+    syntax-theme = kanagawa ; from tmTheme (bat, delta, lazygit)
+    file-style = cyan
 
 ; Merge Tool ------------------------------------------------------------------
 [merge]
