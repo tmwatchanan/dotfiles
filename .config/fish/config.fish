@@ -43,9 +43,9 @@ function verda_stg --description 'access VKS staging'
 end
 
 function verda_prod --description 'access VKS production'
-	source $HOME/dev/verda_data_staging-tokyo-fish.sh
+	source $HOME/dev/verda_data_prod-tokyo-fish.sh
 	vksctl use dap-vks-release
-	kubectl config use-context dap-release-tokyo
+	kubectl config use-context dap-vks-release-tokyo
 end
 
 
@@ -73,7 +73,7 @@ set -gx DOTFILES_CONFIG_DIR ~/dev/dotfiles-config
 
 alias v="nvim"
 alias vv="sudo v"
-alias pip="uv pip"
+# alias pip="uv pip"
 alias conda="mamba"
 alias lg="lazygit"
 alias f="yazi"
@@ -181,6 +181,26 @@ function yazi_install_plugins
 
 	cd $current_dir
 end
+
+function update_local_nvim_plugins
+	set current_dir (pwd)
+
+	set local_plugin_dir ~/tm/nvim-plugins
+	cd $local_plugin_dir
+	for plugin_repo in */
+		echo "Plugin `$plugin_repo`"
+		cd $local_plugin_dir/$plugin_repo
+		git pull
+	end
+
+	cd $current_dir
+end
+
+function git_config_gpg
+	git config --global gpg.program (which gpg)
+end
+
+
 
 
 
