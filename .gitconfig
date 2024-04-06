@@ -32,8 +32,8 @@
 [difftool "nvimdiff"]
 	cmd = nvim -d $LOCAL $REMOTE
 [delta]
-	navigate = true
-	features = kanagawa
+    navigate = true
+    features = kanagawa
     line-numbers = true
     file-decoration-style = ul
     file-added-label = [+]
@@ -42,7 +42,7 @@
     file-removed-label = [-]
     file-renamed-label = [->]
     hunk-header-style = omit
-    map-styles = "bold purple => syntax #957FB8, bold cyan => syntax #2D4F67" ; color moved
+    map-styles = "bold purple => syntax #3D324A, bold cyan => syntax #20394a" ; color moved
 [delta "kanagawa"]
     dark = true
     syntax-theme = kanagawa ; from tmTheme (bat, delta, lazygit)
@@ -90,3 +90,5 @@
 
 [commit]
 	gpgsign = true
+[gpg]
+	program = /opt/homebrew/bin/gpg
