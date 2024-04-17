@@ -9,7 +9,10 @@ function M.apply(config)
     config.window_background_opacity = 0.9
     config.macos_window_background_blur = 50
 
-    config.font = wezterm.font('Maple Mono NF', { weight = 'Regular' })
+    config.font = wezterm.font_with_fallback({
+        { family = 'Maple Mono NF', weight = 'Regular' },
+        { family = 'JuliaMono',     weight = 'Regular' },
+    })
     config.font_size = 18
 
     config.enable_tab_bar = false
