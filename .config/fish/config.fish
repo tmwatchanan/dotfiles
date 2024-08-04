@@ -36,6 +36,9 @@ fish_add_path /opt/homebrew/opt/ruby/bin
 # rust & cargo
 fish_add_path $HOME/.cargo/bin/
 
+# julia
+alias jl="julia --project=. -i -e 'using Revise'"
+
 function verda_stg --description 'access VKS staging'
 	source $HOME/dev/verda_data_staging-tokyo-fish.sh
 	vksctl use dap-vks-staging
@@ -72,7 +75,7 @@ set -gx DOTFILES_DIR ~/dev/dotfiles
 set -gx DOTFILES_CONFIG_DIR ~/dev/dotfiles-config
 
 alias v="nvim"
-alias vv="sudo v"
+alias vv="sudo nvim"
 # alias pip="uv pip"
 alias conda="mamba"
 alias lg="lazygit"
@@ -99,6 +102,7 @@ alias cftm="v ~/.tmux.conf"
 alias cfwt="v $DOTFILES_DIR/.config/wezterm/keys.lua"
 alias cfskhd="v $DOTFILES_CONFIG_DIR/skhd/skhdrc"
 alias cfyb="v $DOTFILES_CONFIG_DIR/yabai/yabairc"
+alias cfsb="v $DOTFILES_CONFIG_DIR/sketchybar/sketchybarrc"
 alias cflg="v $DOTFILES_CONFIG_DIR/lazygit/config.yml"
 alias cfssh="v $HOME/.ssh/config"
 alias cfgit="v $HOME/.gitconfig"
@@ -134,6 +138,12 @@ function vscp
 	v scp://$argv[1]//root/workspace/$argv[2]
 end
 alias vrsa="v ~/.ssh/jutopia_rsa"
+alias ssm-ssh="aws ssm start-session --target"
+function ssm-port -d "ssm-port <instance-id>"
+	aws ssm start-session --target $argv[1] \
+	--document-name AWS-StartPortForwardingSession \
+	--parameters '{"portNumber":["8080"],"localPortNumber":["8080"]}'
+end
 
 # Created by `pipx` on 2024-02-16 13:06:34
 set PATH $PATH /Users/watchanan.c/.local/bin
@@ -199,8 +209,6 @@ end
 function git_config_gpg
 	git config --global gpg.program (which gpg)
 end
-
-
 
 
 
