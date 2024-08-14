@@ -14,6 +14,7 @@ function M.apply(config)
         { family = 'JuliaMono',     weight = 'Regular' },
     })
     config.font_size = 18
+    config.line_height = 0.85
 
     config.enable_tab_bar = false
     config.window_decorations = 'RESIZE'
