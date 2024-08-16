@@ -6,7 +6,7 @@ function M.apply(config)
     config.colors = {
         cursor_fg = 'black',
     }
-    config.window_background_opacity = 0.9
+    config.window_background_opacity = 0.925
     config.macos_window_background_blur = 50
 
     config.font = wezterm.font_with_fallback({
