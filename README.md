@@ -53,6 +53,8 @@ stow . --target=$HOME
 - [`glow`](https://github.com/charmbracelet/glow) for markdown (.md) preview
 - [`miller`](https://github.com/johnkerl/miller) for CSV, TSV, and tabular JSON preview
 
+- [`tokei`](https://github.com/XAMPPRocky/tokei) for code statistics (LOCs, # of files, etc.)
+
 - `i3`-gaps as a window management
 - `polybar` for top bar
 - `compton` for enabling transparency with _urxvt_, and shadows
