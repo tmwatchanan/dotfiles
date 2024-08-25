@@ -15,7 +15,13 @@
 	editor = nvim
 	pager = delta --paging=never
 [alias]
+    # GitLab
     mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
+    # GitHub
+    pr  = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
+    pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
+    # Diffview
+    dv = "! args=$@; shift $#; nvim -c \"DiffviewOpen $args\""
 
 ; Diff Tool -------------------------------------------------------------------
 [interactive]
