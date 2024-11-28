@@ -4,24 +4,26 @@ set -g fish_greeting ''
 set -g fish_key_bindings fish_default_key_bindings
 
 if status is-interactive
-	# Commands to run in interactive sessions can go here
+    # Commands to run in interactive sessions can go here
 end
 
 set -gx EDITOR nvim
 
 # homebrew
 if test -d /home/linuxbrew/.linuxbrew # Linux
-	set -gx HOMEBREW_PREFIX "/home/linuxbrew/.linuxbrew"
-	set -gx HOMEBREW_CELLAR "$HOMEBREW_PREFIX/Cellar"
-	set -gx HOMEBREW_REPOSITORY "$HOMEBREW_PREFIX/Homebrew"
+    set -gx HOMEBREW_PREFIX "/home/linuxbrew/.linuxbrew"
+    set -gx HOMEBREW_CELLAR "$HOMEBREW_PREFIX/Cellar"
+    set -gx HOMEBREW_REPOSITORY "$HOMEBREW_PREFIX/Homebrew"
 else if test -d /opt/homebrew # MacOS
-	set -gx HOMEBREW_PREFIX "/opt/homebrew"
-	set -gx HOMEBREW_CELLAR "$HOMEBREW_PREFIX/Cellar"
-	set -gx HOMEBREW_REPOSITORY "$HOMEBREW_PREFIX/homebrew"
+    set -gx HOMEBREW_PREFIX /opt/homebrew
+    set -gx HOMEBREW_CELLAR "$HOMEBREW_PREFIX/Cellar"
+    set -gx HOMEBREW_REPOSITORY "$HOMEBREW_PREFIX/homebrew"
 end
-fish_add_path -gP "$HOMEBREW_PREFIX/bin" "$HOMEBREW_PREFIX/sbin";
-! set -q MANPATH; and set MANPATH ''; set -gx MANPATH "$HOMEBREW_PREFIX/share/man" $MANPATH;
-! set -q INFOPATH; and set INFOPATH ''; set -gx INFOPATH "$HOMEBREW_PREFIX/share/info" $INFOPATH;
+fish_add_path -gP "$HOMEBREW_PREFIX/bin" "$HOMEBREW_PREFIX/sbin"
+! set -q MANPATH; and set MANPATH ''
+set -gx MANPATH "$HOMEBREW_PREFIX/share/man" $MANPATH
+! set -q INFOPATH; and set INFOPATH ''
+set -gx INFOPATH "$HOMEBREW_PREFIX/share/info" $INFOPATH
 
 
 function install_programs
@@ -55,12 +57,12 @@ fish_add_path $HOME/.cargo/bin/
 # # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 if test -f /opt/homebrew/Caskroom/miniforge/base/bin/conda
-    eval /opt/homebrew/Caskroom/miniforge/base/bin/conda "shell.fish" "hook" $argv | source
+    eval /opt/homebrew/Caskroom/miniforge/base/bin/conda "shell.fish" hook $argv | source
 else
     if test -f "/opt/homebrew/Caskroom/miniforge/base/etc/fish/conf.d/conda.fish"
         . "/opt/homebrew/Caskroom/miniforge/base/etc/fish/conf.d/conda.fish"
     else
-		fish_add_path "/opt/homebrew/Caskroom/miniforge/base/bin"
+        fish_add_path /opt/homebrew/Caskroom/miniforge/base/bin
     end
 end
 
