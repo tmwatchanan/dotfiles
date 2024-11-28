@@ -78,6 +78,9 @@ thefuck --alias | source
 
 source ~/.config/fish/lmwn.fish
 
+mamba_activate $PWD
+
+
 
 
 
