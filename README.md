@@ -77,3 +77,14 @@ git config filter.gitignore.clean "sed '/;gitignore\$/d'"
 # or 
 git config --global filter.gitignore.clean "sed '/;gitignore\$/d'"
 ```
+
+## Windows
+
+Open Command Prompt with Administrator privileges.
+
+### Wezterm
+
+```sh
+mkdir %USERPROFILE%\.config
+mklink /D %USERPROFILE%\.config\wezterm D:\dev\dotfiles\.config\wezterm
+```
