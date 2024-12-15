@@ -8,6 +8,9 @@ if status is-interactive
 end
 
 set -gx EDITOR nvim
+# NOTE: Enable undercurl in neovim with wezterm (need a proper `~/.terminfo`)
+# ref: https://wezfurlong.org/wezterm/faq.html#how-do-i-enable-undercurl-curly-underlines
+set -gx TERM wezterm
 
 # homebrew
 if test -d /home/linuxbrew/.linuxbrew # Linux
