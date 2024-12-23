@@ -23,11 +23,10 @@ function __auto_env_mamba_env --on-variable PWD --description 'Automatically mam
 end
 
 function disable_conda
-    if test (commandline) = 'conda'
-        echo
-        echo "Just use mamba!"
-        commandline ""
-        commandline -f repaint
+    if test (string split " " -- (commandline | string trim))[1] = conda
+        commandline --replace (string replace -r '^conda' 'mamba' -- (commandline))
+        # commandline -f repaint
+        commandline -f execute
     else
         commandline -f execute
     end
