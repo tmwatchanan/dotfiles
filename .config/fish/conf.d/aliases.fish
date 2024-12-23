@@ -47,6 +47,7 @@ alias cfas="v $DOTFILES_CONFIG_DIR/aerospace/aerospace.toml"
 alias lgdf="lg -p $DOTFILES_DIR"
 alias lgdc="lg -p $DOTFILES_CONFIG_DIR"
 
+alias resb="sketchybar --reload"
 
 # python
 alias ipy='ipython -i -c "%load_ext autoreload" "%autoreload 2"'
