@@ -21,3 +21,16 @@ function __auto_env_mamba_env --on-variable PWD --description 'Automatically mam
 
     mamba_activate $PWD
 end
+
+function disable_conda
+    if test (commandline) = 'conda'
+        echo
+        echo "Just use mamba!"
+        commandline ""
+        commandline -f repaint
+    else
+        commandline -f execute
+    end
+end
+bind \r disable_conda
+bind \n disable_conda

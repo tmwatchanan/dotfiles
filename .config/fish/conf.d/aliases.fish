@@ -1,7 +1,5 @@
 alias v="nvim"
 alias vv="sudo nvim"
-# alias pip="uv pip"
-alias conda="mamba"
 alias e="mamba activate"
 alias lg="lazygit"
 alias f="yazi"
@@ -48,6 +46,7 @@ alias cfas="v $DOTFILES_CONFIG_DIR/aerospace/aerospace.toml"
 
 alias lgdf="lg -p $DOTFILES_DIR"
 alias lgdc="lg -p $DOTFILES_CONFIG_DIR"
+
 
 # python
 alias ipy='ipython -i -c "%load_ext autoreload" "%autoreload 2"'
