@@ -2,11 +2,9 @@ local wezterm = require 'wezterm'
 local M = {}
 
 function M.apply(config)
-    config.color_scheme = 'Kanagawa (Gogh)'
-    config.colors = {
-        cursor_fg = 'black',
-    }
-    config.window_background_opacity = 0.925
+    require('themes.kanagawa').apply(config)
+
+    config.window_background_opacity = 0.93
     config.macos_window_background_blur = 50
 
     config.font = wezterm.font_with_fallback({
