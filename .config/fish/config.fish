@@ -12,6 +12,11 @@ set -gx EDITOR nvim
 # ref: https://wezfurlong.org/wezterm/faq.html#how-do-i-enable-undercurl-curly-underlines
 set -gx TERM wezterm
 
+function fish_user_key_bindings
+    bind \cl forward-word
+    # bind \cl 'tput reset; clear; commandline -f repaint'
+end
+
 # homebrew
 if test -d /home/linuxbrew/.linuxbrew # Linux
     set -gx HOMEBREW_PREFIX "/home/linuxbrew/.linuxbrew"
@@ -83,7 +88,7 @@ thefuck --alias | source
 
 source ~/.config/fish/lmwn.fish
 
-mamba_activate $PWD
+activate_environment
 
 
 
