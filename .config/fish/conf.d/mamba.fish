@@ -16,10 +16,33 @@ function mamba_activate
     end
 end
 
-function __auto_env_mamba_env --on-variable PWD --description 'Automatically mamba activate depending on the directory'
-    status --is-command-substitution; and return
+function activate_environment
+    if test -n "$VIRTUAL_ENV"
+        deactivate
+        if test -z "$CONDA_PREFIX"
+            mamba activate base
+        end
+    end
+    if test -n "$CONDA_PREFIX"
+        set -l env_names (string split "/" "$CONDA_PREFIX")
+        if [ $env_names[-1] != "base" ] 
+            mamba deactivate
+        end
+    end
 
-    mamba_activate $PWD
+    if test -e .venv/bin/activate.fish
+        if test -n "$CONDA_PREFIX"
+            mamba deactivate
+        end
+        source .venv/bin/activate.fish
+    else
+        mamba_activate $PWD
+    end
+end
+
+function __auto_env_python_env --on-variable PWD --description 'Automatically activate venv or mamba env depending on the directory'
+    status --is-command-substitution; and return
+    activate_environment
 end
 
 function disable_conda

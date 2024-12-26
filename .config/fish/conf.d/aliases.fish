@@ -1,6 +1,7 @@
 alias v="nvim"
 alias vv="sudo nvim"
 alias e="mamba activate"
+alias activate="source .venv/bin/activate.fish"
 alias lg="lazygit"
 alias f="yazi"
 alias cat="bat"
