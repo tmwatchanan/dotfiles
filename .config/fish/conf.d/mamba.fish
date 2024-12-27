@@ -44,15 +44,3 @@ function __auto_env_python_env --on-variable PWD --description 'Automatically ac
     status --is-command-substitution; and return
     activate_environment
 end
-
-function disable_conda
-    if test (string split " " -- (commandline | string trim))[1] = conda
-        commandline --replace (string replace -r '^conda' 'mamba' -- (commandline))
-        # commandline -f repaint
-        commandline -f execute
-    else
-        commandline -f execute
-    end
-end
-bind \r disable_conda
-bind \n disable_conda
