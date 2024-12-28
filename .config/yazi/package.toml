@@ -1,0 +1,10 @@
+[plugin]
+deps = [
+    { use = "dedukun/relative-motions", rev = "df97039" },
+    { use = "Reledia/glow", rev = "5ce76dc" },
+    { use = "Reledia/miller", rev = "40e0265" },
+    { use = "dedukun/bookmarks", rev = "35da107" },
+]
+
+[flavor]
+deps = []
