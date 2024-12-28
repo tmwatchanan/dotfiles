@@ -1,4 +1,5 @@
 alias v="nvim"
+abbr vi nvim
 alias vv="sudo nvim"
 abbr conda mamba
 alias e="mamba activate"
