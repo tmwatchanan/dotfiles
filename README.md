@@ -23,6 +23,12 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 stow . --target=$HOME
 ```
 
+- Install yazi plugins
+
+```sh
+ya pack -i
+```
+
 ## Tools
 
 - [`GNU stow`](https://www.gnu.org/software/stow/) for managing dotfiles

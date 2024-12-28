@@ -7,6 +7,6 @@ scrolloff = 5
 
 [plugin]
 prepend_previewers = [
-  { name = "*.md", run = "glow" },
-  { mime = "text/csv", run = "miller" },
+    { name = "*.md", run = "glow" },
+    { mime = "text/csv", run = "miller" },
 ]
