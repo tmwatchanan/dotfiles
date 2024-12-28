@@ -17,6 +17,9 @@ prepend_keymap = [
 
 	{ on = [ "c", "z" ], run = """shell 'printf "zip name: "; read name; zip "$name.zip" "$@"' --block --confirm""" },
 
+    # custom-open plugin
+    { on = ["<Enter>"], run = "plugin custom-open", desc = "Open directory or symlink target" },
+
     # Bookmarks
 	{ on = [ "m" ], run = "plugin bookmarks --args=save", desc = "Save current position as a bookmark" },
 	{ on = [ "'" ], run = "plugin bookmarks --args=jump", desc = "Jump to a bookmark" },
