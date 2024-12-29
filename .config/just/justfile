@@ -1,0 +1,57 @@
+# install dependencies
+install: install-brew install-cargo install-tuis install-fisher install-tpm
+
+# install stow
+install-stow:
+    brew install stow
+
+# install terminal
+install-terminal:
+    brew install wezterm
+    brew install fish
+
+# install TUIs
+install-tuis: install-terminal
+    brew install neovim --HEAD
+    brew install yazi --HEAD
+    brew install lazygit --HEAD
+
+    brew install eza
+    brew install bat --HEAD
+    brew install zoxide --HEAD
+    brew install duf --HEAD
+    brew install dust --HEAD
+    brew install hyperfine --HEAD
+
+    cargo install runiq
+
+# install Homebrew
+install-brew:
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# install Rust and Cargo
+install-cargo:
+    curl https://sh.rustup.rs -sSf | sh
+
+# install `fisher`
+install-fisher:
+    curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+
+# install `tpm`
+install-tpm:
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+# apply the farm of symbolic links
+dotfiles-path := "$HOME/dev/dotfiles/"
+dotfiles-config-path := "$HOME/dev/dotfiles-config/"
+stow:
+    stow --dir="{{dotfiles-path}}" --target="$HOME" .
+    stow --dir="{{dotfiles-config-path}}" --target="$HOME/.config" .
+
+# install yazi plugins
+install-yazi:
+    ya pack -i
+    
+# update yazi plugins
+update-yazi:
+    ya pack -u

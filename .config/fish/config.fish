@@ -34,20 +34,6 @@ set -gx MANPATH "$HOMEBREW_PREFIX/share/man" $MANPATH
 set -gx INFOPATH "$HOMEBREW_PREFIX/share/info" $INFOPATH
 
 
-function install_programs
-    brew install yazi --HEAD
-    brew install lazygit --HEAD
-    brew install eza
-    brew install bat --HEAD
-    brew install zoxide --HEAD
-    brew install duf --HEAD
-    brew install dust --HEAD
-    brew install hyperfine --HEAD
-
-    cargo install runiq
-end
-
-
 # git & GPG
 set -x GPG_TTY $(tty)
 
