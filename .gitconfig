@@ -62,12 +62,8 @@
     plus-style = syntax "#2B3328" ; winterGreen
     line-numbers-minus-style = "#C34043" ; autumnRed
     line-numbers-plus-style = "#76946A" ; autumnGreen
-    ; minus-emph-style              = syntax "#C34043" ; autumnRed
-    ; plus-emph-style               = syntax "#76946A" ; autumnGreen
-    ; minus-non-emph-style          = syntax "#e1b7c3"
-    ; plus-non-emph-style           = syntax "#76946A"
-    ; minus-empty-line-marker-style = syntax "#e1b7c3"
-    ; plus-empty-line-marker-style  = syntax "#c0d8cc"
+    minus-emph-style = auto "#C34043" ; autumnRed
+    plus-emph-style = auto "#76946A" ; autumnGreen
 
 ; Merge Tool ------------------------------------------------------------------
 [merge]
