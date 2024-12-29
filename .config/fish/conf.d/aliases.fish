@@ -9,6 +9,7 @@ alias cat="bat"
 alias df="duf"
 alias du="dust"
 alias bm="hyperfine"
+alias j="just -g"
 
 alias bi="brew install"
 alias bu="brew update"
