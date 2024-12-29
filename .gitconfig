@@ -60,12 +60,12 @@
     syntax-theme = kanagawa ; from tmTheme (bat, delta, lazygit)
     file-style = bold yellow
     whitespace-error-style = syntax "#FF9E3B" ; roninYellow
-    minus-style = syntax "#43242B" ; winterRed
-    plus-style = syntax "#2B3328" ; winterGreen
     line-numbers-minus-style = "#C34043" ; autumnRed
     line-numbers-plus-style = "#76946A" ; autumnGreen
-    minus-emph-style = auto "#C34043" ; autumnRed
-    plus-emph-style = auto "#76946A" ; autumnGreen
+    minus-style = syntax "#43242B" ; winterRed
+    plus-style = syntax "#2B3328" ; winterGreen
+    minus-emph-style = syntax "#804552" ; lighter winterRed
+    plus-emph-style = syntax "#586952" ; lighter winterGreen
 
 ; Merge Tool ------------------------------------------------------------------
 [merge]
