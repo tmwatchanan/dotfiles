@@ -1,5 +1,5 @@
 # install dependencies
-install: install-brew install-cargo install-tuis install-fisher install-tpm
+install: install-brew install-cargo install-tuis install-fisher install-tpm install-misc
 
 # install stow
 install-stow:
@@ -49,9 +49,13 @@ stow:
     stow --dir="{{dotfiles-config-path}}" --target="$HOME/.config" .
 
 # install yazi plugins
-install-yazi:
+install-yazi-plugins:
     ya pack -i
     
 # update yazi plugins
-update-yazi:
+update-yazi-plugins:
     ya pack -u
+
+# install miscellaneous programs
+install-misc:
+    brew install watchexec
