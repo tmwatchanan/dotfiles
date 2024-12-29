@@ -2,41 +2,34 @@
 
 ## Installation
 
+- Install [`just`](https://github.com/casey/just?tab=readme-ov-file#packages)
+
+```sh
+brew install just
+```
+
 - Install packages
 
 ```sh
-brew install neovim --HEAD
-brew install yazi --HEAD
-brew install wezterm fish
-```
-
-- Install fisher, tpm
-
-```sh
-curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+just -g install
 ```
 
 - Set up the symlink farm using GNU Stow for managing dotfiles
 
 ```sh
-stow . --target=$HOME
+just -g stow
 ```
 
 - Install yazi plugins
 
 ```sh
-ya pack -i
+just -g install-yazi
 ```
 
 ## Tools
 
+- [`just`](https://github.com/casey/just) as a command runner
 - [`GNU stow`](https://www.gnu.org/software/stow/) for managing dotfiles
-
-- [`mise`](https://github.com/jdx/mise) for managing dev tools or runtimes (think about nvm, etc.)
-- [`pixi`](https://github.com/prefix-dev/pixi) as a multi-language package manager (thiking about conda)
-- [`uv`](https://github.com/astral-sh/uv) as a drop-in replacement for _pip_
-- [`mamba` (via `miniforge`)](https://github.com/conda-forge/miniforge) as a drop-in replacement for _conda_
 
 - [`neovim (nightly)`](https://github.com/neovim/neovim) for text editing
 - [`fish`](https://github.com/fish-shell/fish-shell) as a command-line shell
@@ -55,6 +48,11 @@ ya pack -i
 - [`bat`](https://github.com/sharkdp/bat) for a better _cat_
 - [`hyperfine`](https://github.com/sharkdp/hyperfine) for benchmarking
 - [`zoxide`](https://github.com/ajeetdsouza/zoxide) for _cd_ based on frecency
+
+- [`uv`](https://github.com/astral-sh/uv) as a drop-in replacement for _pip_
+- [`mamba` (via `miniforge`)](https://github.com/conda-forge/miniforge) as a drop-in replacement for _conda_
+- [`mise`](https://github.com/jdx/mise) for managing dev tools or runtimes (think about nvm, etc.)
+- [`pixi`](https://github.com/prefix-dev/pixi) as a multi-language package manager (thiking about conda)
 
 - [`glow`](https://github.com/charmbracelet/glow) for markdown (.md) preview
 - [`miller`](https://github.com/johnkerl/miller) for CSV, TSV, and tabular JSON preview
