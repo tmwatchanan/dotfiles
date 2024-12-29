@@ -67,10 +67,6 @@ just -g install-yazi
 - `imagemagick` for every possible image manipulation
 - `zathura` as a PDF viewer
 
-## Set Wallpapers
-
-`feh --randomize --bg-fill $HOME/.wallpapers/*`
-
 ## Git Ignore
 
 We need to define a git filter to ignore specific lines, in this case, lines that contain the `;gitignore` text.
