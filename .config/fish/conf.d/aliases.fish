@@ -4,7 +4,7 @@ alias vv="sudo nvim"
 abbr conda mamba
 alias e="mamba activate"
 alias activate="source .venv/bin/activate.fish"
-alias lg="lazygit"
+alias lg="TERM=xterm-256color lazygit"
 alias cat="bat"
 alias df="duf"
 alias du="dust"
