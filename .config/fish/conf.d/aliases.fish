@@ -45,7 +45,7 @@ alias cfsb="v $DOTFILES_CONFIG_DIR/sketchybar/sketchybarrc"
 alias cflg="v $DOTFILES_CONFIG_DIR/lazygit/config.yml"
 alias cfssh="v $HOME/.ssh/config"
 alias cfgit="v $HOME/.gitconfig"
-alias cfas="v $DOTFILES_CONFIG_DIR/aerospace/aerospace.toml"
+alias cfas="v $DOTFILES_DIR/.config/aerospace/aerospace.toml"
 
 alias lgdf="lg -p $DOTFILES_DIR"
 alias lgdc="lg -p $DOTFILES_CONFIG_DIR"
