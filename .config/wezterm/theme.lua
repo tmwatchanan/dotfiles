@@ -11,11 +11,18 @@ function M.apply(config)
         { family = 'Maple Mono NF', weight = 'Regular' },
         { family = 'JuliaMono',     weight = 'Regular' },
     })
-    config.font_size = 18
-    config.line_height = 0.80
+    config.font_size = 17.2
+    config.line_height = 0.75
 
     config.enable_tab_bar = false
     config.window_decorations = 'RESIZE'
+
+    config.window_padding = {
+        left = '0.5cell',
+        right = '0cell',
+        top = '0.3cell',
+        bottom = '0cell',
+    }
 end
 
 return M
