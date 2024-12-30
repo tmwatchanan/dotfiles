@@ -6,9 +6,10 @@ set -g @kanagawa-ignore-window-colors true # preserve emulator background
 
 set -g @kanagawa-plugins "battery ram-usage network-ping"
 set -g @kanagawa-show-powerline true
-set -g @kanagawa-ram-usage-colors "cyan dark_gray"
+set -g @kanagawa-battery-colors "sumi_ink_5 lotus_pink"
+set -g @kanagawa-ram-usage-colors "sumi_ink_4 autumn_green"
 set -g @kanagawa-network-bandwidth "en0"
-set -g @kanagawa-network-ping-colors "green dark_gray"
+set -g @kanagawa-network-ping-colors "sumi_ink_5 dragon_blue"
 
 set -g @kanagawa-show-left-sep ''
 set -g @kanagawa-show-right-sep ''
