@@ -1,0 +1,11 @@
+# https://github.com/Nybkox/tmux-kanagawa/blob/master/INSTALL.md
+set -g @plugin 'Nybkox/tmux-kanagawa'
+
+set -g @kanagawa-theme 'wave'
+set -g @kanagawa-ignore-window-colors true # preserve emulator background
+
+set -g @kanagawa-plugins "battery ram-usage network-ping"
+set -g @kanagawa-show-powerline true
+set -g @kanagawa-ram-usage-colors "cyan dark_gray"
+set -g @kanagawa-network-bandwidth "en0"
+set -g @kanagawa-network-ping-colors "green dark_gray"
