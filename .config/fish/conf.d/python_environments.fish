@@ -12,24 +12,29 @@ function mamba_activate
         set -l value (string split '=' $pair)[2]
         if string match -q "*$key*" "$argv[1]"
             mamba activate $value
+            return 0
         end
     end
+    mamba activate base
 end
 
 function activate_environment
+    if test -n "$NO_AUTO_ENV"
+        return 0
+    end
+
+    # deactivate the active environment(s)
     if test -n "$VIRTUAL_ENV"
         deactivate
-        if test -z "$CONDA_PREFIX"
-            mamba activate base
-        end
     end
     if test -n "$CONDA_PREFIX"
         set -l env_names (string split "/" "$CONDA_PREFIX")
-        if [ $env_names[-1] != "base" ] 
+        if [ $env_names[-1] != base ]
             mamba deactivate
         end
     end
 
+    # activate only one environment
     if test -e .venv/bin/activate.fish
         if test -n "$CONDA_PREFIX"
             mamba deactivate
