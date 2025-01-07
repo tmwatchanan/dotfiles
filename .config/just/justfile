@@ -59,3 +59,11 @@ update-yazi-plugins:
 # install miscellaneous programs
 install-misc:
     brew install watchexec
+
+# https://wezfurlong.org/wezterm/faq.html#how-do-i-enable-undercurl-curly-underlines
+# install a copy of a `wezterm` terminfo file (to enable undercurl)
+wezterm-undercurl:
+    tempfile=$(mktemp) \
+        && curl -o $tempfile https://raw.githubusercontent.com/wez/wezterm/master/termwiz/data/wezterm.terminfo \
+        && tic -x -o ~/.terminfo $tempfile \
+        && rm $tempfile
