@@ -187,6 +187,7 @@ equal = 'resize smart +50'
 O = ['built-in', 'main', 'secondary']
 S = ['built-in', 'main', 'secondary']
 W = ['built-in', 'main', 'secondary']
+P = ['main', 'built-in', 'secondary']
 
 [[on-window-detected]]
 if.app-id = 'md.obsidian'
