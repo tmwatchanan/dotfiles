@@ -2,10 +2,11 @@ function mamba_activate
     set -l mamba_directory_environments \
         'dev/preda=preda' \
         'dev/ds-project-template=template' \
-        'dev/sequential-recommender=trec' \
+        'dev/sequential-recommender=t-rec' \
         'dev/i18n=i18n' \
         'dev/ranker=ranker' \
         'dev/llmaas=llm' \
+        'dev/livy-run=livy-run' \
         'dev/real-time-recommender=rt-rec'
     for pair in $mamba_directory_environments
         set -l key (string split '=' $pair)[1]
