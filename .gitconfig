@@ -4,6 +4,8 @@
 	signingkey = F4D43507B7A7F4AC
 [includeIf "gitdir:~/dev/"]
 	path = ~/dev/.gitconfig
+[includeIf "gitdir:/home/mie/dev/"]
+    path = ~/.config/git/.gitconfig.wsl
 [includeIf "gitdir:~/tm/"]
 	path = ~/tm/.gitconfig
 [include]
