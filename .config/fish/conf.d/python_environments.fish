@@ -1,4 +1,7 @@
 function mamba_activate
+    if not type -q mamba
+        return 0
+    end
     set -l mamba_directory_environments \
         'dev/preda=preda' \
         'dev/ds-project-template=template' \

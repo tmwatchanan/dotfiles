@@ -74,7 +74,9 @@ thefuck --alias | source
 
 source ~/.config/fish/lmwn.fish
 
-activate_environment
+if type -q mamba
+    activate_environment
+end
 
 
 
