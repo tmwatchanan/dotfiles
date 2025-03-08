@@ -10,7 +10,10 @@ end
 set -gx EDITOR nvim
 # NOTE: Enable undercurl in neovim with wezterm (need a proper `~/.terminfo`)
 # ref: https://wezfurlong.org/wezterm/faq.html#how-do-i-enable-undercurl-curly-underlines
-set -gx TERM wezterm
+switch (uname)
+    case Darwin
+        set -gx TERM wezterm
+end
 
 function fish_user_key_bindings
     bind \cl forward-word
