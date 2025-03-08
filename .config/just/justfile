@@ -18,6 +18,7 @@ install-tuis: install-terminal
 
     brew install eza
     brew install bat --HEAD
+    bat cache --build
     brew install zoxide --HEAD
     brew install duf --HEAD
     brew install dust --HEAD

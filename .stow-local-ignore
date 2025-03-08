@@ -12,6 +12,9 @@
 /.config/compton.conf
 /.config/sxhkd
 
+/.config/fish/fish_variables
+fisher.fish
+
 .fonts
 .profile
 .wallpaper
