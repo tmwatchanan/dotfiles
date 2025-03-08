@@ -8,6 +8,12 @@
 brew install just
 ```
 
+- Create the symlink farm, and then after this we can use the global justfile
+
+```sh
+just -f ~/dev/dotfiles/.config/just/justfile stow
+```
+
 - Install packages
 
 ```sh
