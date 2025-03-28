@@ -88,6 +88,12 @@ git config --global filter.gitignore.clean "sed '/;gitignore\$/d'"
 
 Open Command Prompt with Administrator privileges.
 
+### Git
+
+```sh
+mklink "%USERPROFILE%\.gitconfig" "D:\dev\dotfiles\.config\git\.gitconfig.windows"
+```
+
 ### Wezterm
 
 ```sh
