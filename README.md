@@ -94,3 +94,10 @@ Open Command Prompt with Administrator privileges.
 mkdir %USERPROFILE%\.config
 mklink /D %USERPROFILE%\.config\wezterm D:\dev\dotfiles\.config\wezterm
 ```
+
+### AutoHotkey
+
+```sh
+mklink "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\mie.ahk" "D:\dev\dotfiles\AutoHotkey\mie.ahk"
+```
+
