@@ -1,7 +1,38 @@
+; order matters
+
+; choose only one vlaue for each key (comment the unused ones)
+; macOS ------------------------------------------------------------------------
+
+[user]
+	signingkey = F4D43507B7A7F4AC
+[credential]
+    helper = /usr/local/share/gcm-core/git-credential-manager
+[gpg]
+    program = /opt/homebrew/bin/gpg
+
+; WSL --------------------------------------------------------------------------
+
+; [user]
+;     signingkey = 75BFCB83FDFE020D
+; [credential]
+; 	helper = /mnt/c/Program Files/Git/mingw64/bin/git-credential-manager.exe
+; [gpg]
+;     program = /mnt/c/Program Files (x86)/gnupg/bin/gpg.exe
+
+; ------------------------------------------------------------------------------
+
+[includeIf "gitdir:/home/mie/dev/dotfiles"]
+    path = ~/.config/git/.gitconfig.wsl
+[includeIf "gitdir:~/dev/"]
+	path = ~/dev/.gitconfig
+[includeIf "gitdir:~/tm/"]
+	path = ~/tm/.gitconfig
+[includeIf "hasconfig:remote.*.url:https://github.com/**"]
+    path = ~/.config/git/.gitconfig.github
+
 [user]
 	name = tmwatchanan
 	email = tmwatchanan@users.noreply.github.com
-	signingkey = F4D43507B7A7F4AC
 [include]
 	path = ~/.config/delta/themes.gitconfig
 [init]
@@ -84,7 +115,6 @@
 	; for private go module
     insteadOf = https://git.wndv.co/
 [credential]
-	helper = /usr/local/share/gcm-core/git-credential-manager
 	gitLabAuthModes = browser
 	credentialStore = cache
 	guiPrompt = false
@@ -95,17 +125,4 @@
 ; gpg --------------------------------------------------------------------------
 [commit]
 	gpgsign = true
-[gpg]
-	program = /opt/homebrew/bin/gpg ; comment this if not MacOS
 
-
-
-; [must be at the bottom] conditional includes ---------------------------------
-[includeIf "gitdir:~/dev/"]
-	path = ~/dev/.gitconfig
-[includeIf "gitdir:~/tm/"]
-	path = ~/tm/.gitconfig
-[includeIf "gitdir:/home/mie/dev/"]
-    path = ~/.config/git/.gitconfig.wsl
-[includeIf "hasconfig:remote.*.url:https://github.com/**"]
-    path = ~/.config/git/.gitconfig.github
