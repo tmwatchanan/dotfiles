@@ -15,9 +15,9 @@
 ; [user]
 ;     signingkey = 75BFCB83FDFE020D
 ; [credential]
-; 	helper = /mnt/c/Program Files/Git/mingw64/bin/git-credential-manager.exe
+; 	helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
 ; [gpg]
-;     program = /mnt/c/Program Files (x86)/gnupg/bin/gpg.exe
+; 	program = /mnt/c/Program\\ Files\\ (x86)/gnupg/bin/gpg.exe
 
 ; ------------------------------------------------------------------------------
 
