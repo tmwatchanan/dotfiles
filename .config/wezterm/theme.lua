@@ -23,6 +23,12 @@ function M.apply(config)
         top = '0.3cell',
         bottom = '0cell',
     }
+
+    if wezterm.target_triple == 'x86_64-pc-windows-msvc' then -- Windows
+        config.window_background_opacity = 1.0
+        config.font_size = 14
+        config.enable_tab_bar = true
+    end
 end
 
 return M
