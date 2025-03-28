@@ -101,3 +101,10 @@ mklink /D %USERPROFILE%\.config\wezterm D:\dev\dotfiles\.config\wezterm
 mklink "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\mie.ahk" "D:\dev\dotfiles\AutoHotkey\mie.ahk"
 ```
 
+Open PowerShell
+
+### PowerShell profile, a script that runs when PowerShell starts
+
+```powershell
+New-Item -Path $PROFILE -ItemType SymbolicLink -Value D:\dev\dotfiles\PowerShell\profile.ps1
+```
