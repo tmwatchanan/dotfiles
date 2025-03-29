@@ -4,6 +4,7 @@
     path = ~/.config/git/.gitconfig.macos
     ; path = ~/.config/git/.gitconfig.wsl
     ; path = ~/.config/git/.gitconfig.windows
+	path = D:\\dev\\dotfiles\\.config\\git\\.gitconfig.windows
 
 [includeIf "gitdir:~/dev/"]
 	path = ~/dev/.gitconfig
@@ -17,6 +18,7 @@
 	email = tmwatchanan@users.noreply.github.com
 [include]
 	path = ~/.config/delta/themes.gitconfig
+	path = D:\\dev\\dotfiles\\.config\\delta\\themes.gitconfig
 [init]
 	defaultBranch = main
 [core]
@@ -90,7 +92,6 @@
 ; Credential ------------------------------------------------------------------
 [credential]
 	gitLabAuthModes = browser
-	credentialStore = cache
 	guiPrompt = false
 	gitHubAuthModes = browser
 [filter "gitignore"]
