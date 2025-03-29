@@ -1,7 +1,13 @@
+$dotfilesPath = "D:\dev\dotfiles"
+$dotfilesConfigPath = "D:\dev\dotfiles-config"
+
 Set-Alias v nvim
 Set-Alias lg lazygit
 
-function goto_dotfiles { set-location "D:\dev\dotfiles" }
-function goto_dotfiles-config { set-location "D:\dev\dotfiles-config" }
-Set-Alias cd. goto_dotfiles
-Set-Alias cd.c goto_dotfiles-config
+function reload { . $PROFILE }
+function cfp { nvim $PROFILE }
+
+function cfgit { nvim $env:USERPROFILE/.gitconfig }
+
+function cd. { set-location $dotfilesPath }
+function cd.c { set-location $dotfilesConfigPath }
