@@ -28,6 +28,8 @@ function M.apply(config)
         config.window_background_opacity = 1.0
         config.font_size = 14
         config.enable_tab_bar = true
+        config.initial_cols = 120
+        config.initial_rows = 40
     end
 end
 
