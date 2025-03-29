@@ -1,0 +1,7 @@
+[user]
+	signingkey = F4D43507B7A7F4AC
+[credential]
+    helper = /usr/local/share/gcm-core/git-credential-manager
+[gpg]
+    program = /opt/homebrew/bin/gpg
+

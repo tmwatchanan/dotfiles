@@ -90,8 +90,15 @@ Open Command Prompt with Administrator privileges.
 
 ### Git
 
-```sh
+In Windows,
+```cmd
 mklink "%USERPROFILE%\.gitconfig" "D:\dev\dotfiles\.config\git\.gitconfig.windows"
+```
+
+In WSL2,
+```sh
+sudo ln -s /mnt/c/Program\ Files/Git/usr/bin/gpg.exe /usr/local/bin/gpg
+sudo ln -s gpg /usr/local/bin/gpg2
 ```
 
 ### Wezterm
