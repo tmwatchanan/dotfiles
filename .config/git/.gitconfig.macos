@@ -1,0 +1,15 @@
+[user]
+	signingkey = F4D43507B7A7F4AC
+[credential]
+    helper = /usr/local/share/gcm-core/git-credential-manager
+[gpg]
+    program = /opt/homebrew/bin/gpg
+
+[credential "https://git.linecorp.com"]
+	provider = github
+[credential "https://git.wndv.co"]
+	provider = gitlab
+	gitLabAuthModes = browser
+[url "ssh://git@git.wndv.co/"]
+	; for private go module
+    insteadOf = https://git.wndv.co/
