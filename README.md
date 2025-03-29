@@ -92,7 +92,7 @@ Open Command Prompt with Administrator privileges.
 
 In Windows,
 ```cmd
-mklink "%USERPROFILE%\.gitconfig" "D:\dev\dotfiles\.config\git\.gitconfig.windows"
+mklink "%USERPROFILE%\.gitconfig" "D:\dev\dotfiles\.gitconfig"
 ```
 
 In WSL2,
