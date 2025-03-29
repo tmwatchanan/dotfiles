@@ -30,6 +30,9 @@ function M.apply(config)
         config.enable_tab_bar = true
         config.initial_cols = 120
         config.initial_rows = 40
+
+        -- config.default_prog = { 'powershell.exe' }
+        config.default_domain = 'WSL:Ubuntu'
     end
 end
 
