@@ -1,7 +1,7 @@
 [user]
 	name = tmwatchanan
 	email = tmwatchanan@users.noreply.github.com
-	signingkey = 75BFCB83FDFE020D
+	signingkey = 63DDCDEAE2A5A5C0
 [credential]
 	helper = manager
 [core]
@@ -12,4 +12,4 @@
 [commit]
 	gpgsign = true
 [gpg]
-	program = C:/Program Files (x86)/gnupg/bin/gpg.exe
+	program = C:\\Program Files\\Git\\usr\\bin\\gpg.exe
