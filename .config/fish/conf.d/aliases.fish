@@ -6,6 +6,7 @@ alias e="mamba activate"
 alias activate="source .venv/bin/activate.fish"
 alias lg="TERM=xterm-256color lazygit"
 alias cat="bat"
+abbr sed sd
 alias df="duf"
 alias du="dust"
 alias bm="hyperfine"

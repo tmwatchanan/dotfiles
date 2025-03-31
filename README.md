@@ -46,6 +46,7 @@ just -g install-yazi
 - [`lazygit`](https://github.com/jesseduffield/lazygit) for git TUI
 - [`delta`](https://github.com/dandavison/delta) for git diff
 - [`fzf`](https://github.com/junegunn/fzf) for fuzzy finder
+- [`sd`](https://github.com/chmln/sd) for a better _sed_
 - [`duf`](https://github.com/muesli/duf) for a better _df_
 - [`dust`](https://github.com/bootandy/dust) for a better _du_
 - [`fd`](https://github.com/sharkdp/fd) for a better _find_
