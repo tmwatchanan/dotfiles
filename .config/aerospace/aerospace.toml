@@ -67,7 +67,7 @@ inner.horizontal = 10
 inner.vertical = 10
 outer.left = 5
 outer.bottom = 5
-outer.top = [{ monitor."mi" = 40 }, { monitor."DELL" = 40 }, 5]
+outer.top = [{ monitor."mi" = 45 }, { monitor."DELL" = 45 }, 12]
 outer.right = 5
 
 # 'main' binding mode declaration
