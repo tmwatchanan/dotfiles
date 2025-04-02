@@ -1,7 +1,7 @@
 [user]
 	name = tmwatchanan
 	email = tmwatchanan@users.noreply.github.com
-	signingkey = 75BFCB83FDFE020D
+	signingkey = 6DEE799DFFBDA141
 [credential]
 	helper = manager
 [core]
