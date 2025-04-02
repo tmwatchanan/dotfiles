@@ -1,5 +1,5 @@
 [user]
-    signingkey = 75BFCB83FDFE020D
+    signingkey = 6DEE799DFFBDA141
 [credential]
     helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
 [gpg]
