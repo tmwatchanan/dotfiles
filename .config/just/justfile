@@ -52,11 +52,11 @@ stow:
 
 # install yazi plugins
 install-yazi-plugins:
-    ya pack -i
+    ya pkg -i
     
 # update yazi plugins
 update-yazi-plugins:
-    ya pack -u
+    ya pkg -u
 
 # install miscellaneous programs
 install-misc:
