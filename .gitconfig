@@ -13,9 +13,6 @@
 [includeIf "hasconfig:remote.*.url:https://github.com/**"]
     path = ~/.config/git/.gitconfig.github
 
-[user]
-	name = tmwatchanan
-	email = tmwatchanan@users.noreply.github.com
 [include]
 	path = ~/.config/delta/themes.gitconfig
 	path = D:\\dev\\dotfiles\\.config\\delta\\themes.gitconfig
