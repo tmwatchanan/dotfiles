@@ -119,6 +119,7 @@ ctrl-alt-0 = 'balance-sizes'
 ctrl-alt-space = 'layout floating tiling'
 
 ctrl-alt-f = 'fullscreen'
+ctrl-alt-shift-f = 'macos-native-fullscreen'
 ctrl-alt-backspace = 'close'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
@@ -206,3 +207,7 @@ run = 'move-node-to-workspace W'
 if.app-id = 'com.github.wez.wezterm'
 if.window-title-regex-substring = '-t tm'
 run = 'move-node-to-workspace P'
+
+[[on-window-detected]]
+if.app-id = 'cc.ffitch.shottr'
+run = 'layout floating'
