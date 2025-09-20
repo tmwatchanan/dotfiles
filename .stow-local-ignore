@@ -11,6 +11,7 @@
 /.config/ranger
 /.config/compton.conf
 /.config/sxhkd
+/.config/vscode
 
 /.config/fish/fish_variables
 fisher.fish
