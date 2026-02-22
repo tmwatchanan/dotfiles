@@ -67,7 +67,7 @@ inner.horizontal = 10
 inner.vertical = 10
 outer.left = 5
 outer.bottom = 5
-outer.top = [{ monitor."mi" = 45 }, { monitor."DELL" = 45 }, 12]
+outer.top = [{ monitor."main" = 0 }, 5]
 outer.right = 5
 
 # 'main' binding mode declaration
@@ -120,31 +120,35 @@ ctrl-alt-space = 'layout floating tiling'
 
 ctrl-alt-f = 'fullscreen'
 ctrl-alt-shift-f = 'macos-native-fullscreen'
-ctrl-alt-backspace = 'close'
+# ctrl-alt-backspace = 'close'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
-alt-4 = 'workspace 4'
-alt-5 = 'workspace 5'
-alt-6 = 'workspace 6'
+alt-q = 'workspace Q'
+alt-w = 'workspace W'
+alt-e = 'workspace E'
 alt-o = 'workspace O' # Obsidian
 alt-p = 'workspace P' # Personal, dotfiles config (neovim and such)
 alt-s = 'workspace S' # Slack
-alt-w = 'workspace W' # Wezterm
+alt-backtick = 'workspace 9' # Quick work
+alt-g = 'workspace G' # Gather
+alt-t = 'workspace T' # Terminal
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace 1'
 alt-shift-2 = 'move-node-to-workspace 2'
 alt-shift-3 = 'move-node-to-workspace 3'
-alt-shift-4 = 'move-node-to-workspace 4'
-alt-shift-5 = 'move-node-to-workspace 5'
-alt-shift-6 = 'move-node-to-workspace 6'
+alt-shift-q = 'move-node-to-workspace Q'
+alt-shift-w = 'move-node-to-workspace W'
+alt-shift-e = 'move-node-to-workspace E'
 alt-shift-o = 'move-node-to-workspace O'
 alt-shift-p = 'move-node-to-workspace P'
 alt-shift-s = 'move-node-to-workspace S'
-alt-shift-w = 'move-node-to-workspace W'
+alt-shift-backtick = 'move-node-to-workspace 9'
+alt-shift-g = 'move-node-to-workspace G'
+alt-shift-t = 'move-node-to-workspace T'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus-back-and-forth
 alt-tab = 'focus-back-and-forth'
@@ -181,13 +185,15 @@ equal = 'resize smart +50'
 1 = 'main'
 2 = 'main'
 3 = 'main'
-4 = 'secondary'
-5 = 'secondary'
-6 = 'secondary'
+Q = 'secondary'
+W = 'secondary'
+E = 'secondary'
 O = ['built-in', 'main', 'secondary']
 S = ['built-in', 'main', 'secondary']
-W = ['built-in', 'main', 'secondary']
+9 = ['built-in', 'main', 'secondary']
 P = ['main', 'built-in', 'secondary']
+G = ['built-in', 'main', 'secondary']
+T = ['built-in', 'main', 'secondary']
 
 [[on-window-detected]]
 if.app-id = 'md.obsidian'
@@ -209,5 +215,13 @@ run = 'move-node-to-workspace P'
 
 [[on-window-detected]]
 if.app-id = 'cc.ffitch.shottr'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.gather.Gather'
+run = 'move-node-to-workspace G'
+
+[[on-window-detected]]
+if.app-id = 'com.cisco.secureclient.gui'
 run = 'layout floating'
 
