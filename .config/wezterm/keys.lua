@@ -4,6 +4,11 @@ local wezterm = require 'wezterm'
 function M.apply(config)
     config.keys = {
         {
+            key = 'Enter',
+            mods = 'ALT',
+            action = wezterm.action.DisableDefaultAssignment,
+        },
+        {
             key = ',',
             mods = 'CMD',
             action = wezterm.action.SpawnCommandInNewTab {
