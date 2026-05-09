@@ -135,6 +135,9 @@ alt-s = 'workspace S' # Slack
 alt-backtick = 'workspace 9' # Quick work
 alt-g = 'workspace G' # Gather
 alt-t = 'workspace T' # Terminal
+alt-c = 'workspace C' # Claude
+alt-x = 'workspace X' # Codex
+alt-d = 'workspace D' # ChatGPT
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace 1'
@@ -149,6 +152,9 @@ alt-shift-s = 'move-node-to-workspace S'
 alt-shift-backtick = 'move-node-to-workspace 9'
 alt-shift-g = 'move-node-to-workspace G'
 alt-shift-t = 'move-node-to-workspace T'
+alt-shift-c = 'move-node-to-workspace C'
+alt-shift-x = 'move-node-to-workspace X'
+alt-shift-d = 'move-node-to-workspace D'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus-back-and-forth
 alt-tab = 'focus-back-and-forth'
@@ -224,4 +230,16 @@ run = 'move-node-to-workspace G'
 [[on-window-detected]]
 if.app-id = 'com.cisco.secureclient.gui'
 run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.openai.chat'
+run = 'move-node-to-workspace D'
+
+[[on-window-detected]]
+if.app-id = 'com.anthropic.claudefordesktop'
+run = 'move-node-to-workspace C'
+
+[[on-window-detected]]
+if.app-id = 'com.openai.codex'
+run = 'move-node-to-workspace X'
 
