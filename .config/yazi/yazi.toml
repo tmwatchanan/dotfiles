@@ -7,10 +7,10 @@ scrolloff = 5
 
 [plugin]
 prepend_previewers = [
-    { name = "*.md", run = "glow" },
+    { url = "*.md", run = "glow" },
     { mime = "text/csv", run = "miller" },
 ]
 prepend_fetchers = [
-    { id = "git", name = "*", run = "git" },
-    { id = "git", name = "*/", run = "git" },
+    { url = "*", run = "git", group = "git" },
+    { url = "*/", run = "git", group = "git" },
 ]
