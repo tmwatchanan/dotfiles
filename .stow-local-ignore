@@ -25,6 +25,7 @@ bin
 .+_install.sh
 restore_conf.sh
 backup_conf.sh
+claude
 
 RCS
 .+,v
