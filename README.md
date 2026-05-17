@@ -26,6 +26,12 @@ just -g install
 just -g stow
 ```
 
+- Install Claude Code config
+
+```sh
+stow -d ~/dev/dotfiles -t "$HOME" claude
+```
+
 - Install yazi plugins
 
 ```sh
