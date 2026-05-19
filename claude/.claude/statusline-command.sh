@@ -120,8 +120,30 @@ format_date_time() {
   date -r "$epoch" "+%b %-d, %-I:%M %p" 2>/dev/null || date -d "@$epoch" "+%b %-d, %-I:%M %p" 2>/dev/null || echo ""
 }
 
-five_reset_fmt=$(format_time "$five_reset")
-weekly_reset_fmt=$(format_date_time "$weekly_reset")
+format_countdown() {
+  local epoch="$1"
+  [ -z "$epoch" ] || [ "$epoch" = "null" ] && echo "" && return
+  local now delta
+  now=$(date +%s)
+  delta=$(( epoch - now ))
+  if   [ "$delta" -le 60 ];    then echo "now"
+  elif [ "$delta" -lt 3600 ];  then echo "in $(( delta / 60 ))m"
+  elif [ "$delta" -lt 86400 ]; then echo "in $(( delta / 3600 ))h"
+  else                              echo "in $(( delta / 86400 ))d"
+  fi
+}
+
+combine_reset() {
+  local cd="$1" abs="$2"
+  if   [ -z "$cd" ];      then echo ""
+  elif [ "$cd" = "now" ]; then echo "now"
+  elif [ -z "$abs" ];     then echo "$cd"
+  else                         echo "$cd ($abs)"
+  fi
+}
+
+five_reset_fmt=$(combine_reset   "$(format_countdown "$five_reset")"   "$(format_time      "$five_reset")")
+weekly_reset_fmt=$(combine_reset "$(format_countdown "$weekly_reset")" "$(format_date_time "$weekly_reset")")
 
 # ---------------------------------------------------------------------------
 # ANSI truecolor helpers
@@ -242,5 +264,5 @@ render_rate_row() {
   printf '%b\n' "$row"
 }
 
-render_rate_row "Current" "$five_pct"  "$five_reset_fmt"
+render_rate_row "5-hour limit" "$five_pct"  "$five_reset_fmt"
 render_rate_row "Weekly"  "$weekly_pct" "$weekly_reset_fmt"
