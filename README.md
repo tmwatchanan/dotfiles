@@ -48,6 +48,7 @@ just -g install-yazi
 - [`fisher`](https://github.com/jorgebucaran/fisher) as a pluginer manager for fish
 - [`wezterm`](https://github.com/wez/wezterm) for terminal emulator
 - [`yazi`](https://github.com/sxyazi/yazi) as a file manager
+- [`unar`](https://theunarchiver.com/command-line) as Yazi's archive extractor
 
 - [`lazygit`](https://github.com/jesseduffield/lazygit) for git TUI
 - [`delta`](https://github.com/dandavison/delta) for git diff
