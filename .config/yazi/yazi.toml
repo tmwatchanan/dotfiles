@@ -5,6 +5,11 @@ linemode = "size"
 show_hidden = true
 scrolloff = 5
 
+[opener]
+extract = [
+    { run = 'for archive in %s; do unar -q -r "$archive"; done', desc = "Extract here (unar)", for = "unix", block = true },
+]
+
 [plugin]
 prepend_previewers = [
     { url = "*.md", run = "glow" },
