@@ -1,5 +1,54 @@
 [
   {
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-l": "workspace::ActivatePaneRight"
+    }
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "H": "pane::ActivatePreviousItem",
+      "L": "pane::ActivateNextItem"
+    }
+  },
+  {
+    "context": "NotebookEditor && notebook_mode == command",
+    "bindings": {
+      "h": "menu::SelectPrevious",
+      "j": "menu::SelectNext",
+      "k": "menu::SelectPrevious",
+      "l": "menu::SelectNext"
+    }
+  },
+  {
+    "context": "NotebookEditor > Editor && VimControl && vim_mode == normal",
+    "bindings": {
+      "j": "notebook::NotebookMoveDown",
+      "k": "notebook::NotebookMoveUp"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-shift-h": "pane::ActivatePreviousItem",
+      "ctrl-shift-l": "pane::ActivateNextItem"
+    }
+  },
+  {
+    "context": "menu",
+    "bindings": {
+      "ctrl-j": "menu::SelectNext",
+      "ctrl-k": "menu::SelectPrevious"
+    }
+  },
+  {
     "context": "Workspace",
     "bindings": {
       "cmd-shift-g": [
