@@ -27,6 +27,9 @@ restore_conf.sh
 backup_conf.sh
 claude
 
+# Repository documentation.
+^/docs(/.*)?$
+
 RCS
 .+,v
 
