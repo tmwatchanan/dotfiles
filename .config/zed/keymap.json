@@ -1,0 +1,39 @@
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-shift-g": [
+        "task::Spawn",
+        {
+          "task_name": "LazyGit",
+          "reveal_target": "center"
+        }
+      ],
+      "cmd-p": [
+        "task::Spawn",
+        {
+          "task_name": "Television File Finder",
+          "reveal_target": "center"
+        }
+      ]
+    }
+  },
+  {
+    "context": "vim_mode == normal && !menu",
+    "bindings": {
+      "space g": [
+        "task::Spawn",
+        {
+          "task_name": "LazyGit",
+          "reveal_target": "center"
+        }
+      ]
+    }
+  },
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      "j k": "vim::NormalBefore"
+    }
+  }
+]
