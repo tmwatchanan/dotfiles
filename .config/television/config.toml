@@ -148,6 +148,8 @@ enter = "confirm_selection"
 # --------------------
 pagedown = "scroll_preview_half_page_down"
 pageup = "scroll_preview_half_page_up"
+ctrl-d = "scroll_preview_half_page_down"
+ctrl-u = "scroll_preview_half_page_up"
 ctrl-f = "cycle_previews"
 
 # Data operations
@@ -169,7 +171,6 @@ ctrl-l = "toggle_layout"
 # ----------------------------------------
 backspace = "delete_prev_char"
 ctrl-w = "delete_prev_word"
-ctrl-u = "delete_line"
 delete = "delete_next_char"
 left = "go_to_prev_char"
 right = "go_to_next_char"

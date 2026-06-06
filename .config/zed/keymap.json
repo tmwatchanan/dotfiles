@@ -34,8 +34,8 @@
     "context": "Terminal",
     "bindings": {
       "ctrl-h": "workspace::ActivatePaneLeft",
-      "ctrl-j": "workspace::ActivatePaneDown",
-      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": ["terminal::SendKeystroke", "ctrl-j"],
+      "ctrl-k": ["terminal::SendKeystroke", "ctrl-k"],
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-shift-h": "pane::ActivatePreviousItem",
       "ctrl-shift-l": "pane::ActivateNextItem"
