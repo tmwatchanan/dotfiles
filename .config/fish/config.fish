@@ -85,5 +85,7 @@ end
 
 
 
+fish_add_path $HOME/.local/bin
+
 # zoxide, must be at the end
 zoxide init fish | source

@@ -122,10 +122,9 @@ alias cfv=" nvim ~/.config/nvim/init.vim"
 alias cfz=" nvim ~/.zshrc"
 alias cfb=" nvim ~/.bashrc"
 alias cftm="nvim ~/.tmux.conf"
-alias st="speedtest-cli"
 #alias rg="ranger --cmd='cd pwd'"
-alias rm="trash-put"
-alias cat="batcat"
+# alias rm="trash-put"
+# alias cat="batcat"
 
 # useful functions
 
