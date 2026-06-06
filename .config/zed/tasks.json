@@ -25,5 +25,15 @@
     "hide": "always",
     "allow_concurrent_runs": true,
     "use_new_terminal": true
+  },
+  {
+    "label": "Television Text Search",
+    "command": "zed \"$(tv text)\"",
+    "env": {
+      "BAT_THEME": "OneHalfLight"
+    },
+    "hide": "always",
+    "allow_concurrent_runs": true,
+    "use_new_terminal": true
   }
 ]
