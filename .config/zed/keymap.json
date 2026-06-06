@@ -115,6 +115,13 @@
           "reveal_target": "center"
         }
       ],
+      "space y": [
+        "task::Spawn",
+        {
+          "task_name": "Yazi",
+          "reveal_target": "center"
+        }
+      ],
       "space f s": [
         "task::Spawn",
         {

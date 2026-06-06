@@ -120,6 +120,9 @@
   "ui_font_size": 15.0,
   "buffer_font_size": 14.0,
   "buffer_line_height": "standard",
+  "terminal": {
+    "font_family": "Maple Mono NF",
+  },
   "theme": {
     "mode": "light",
     "light": "One Light",
