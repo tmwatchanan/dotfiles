@@ -2,9 +2,7 @@
   {
     "label": "LazyGit",
     "command": "lazygit",
-    "shell": {
-      "program": "sh"
-    },
+    "shell": "system",
     "hide": "on_success",
     "reveal_target": "center",
     "show_summary": false,
@@ -14,7 +12,13 @@
   },
   {
     "label": "Television File Finder",
-    "command": "zed \"$(tv files)\"",
+    "command": "$env:Path = [Environment]::GetEnvironmentVariable('Path', 'Machine') + ';' + [Environment]::GetEnvironmentVariable('Path', 'User'); zed \"$(tv files)\"",
+    "shell": {
+      "with_arguments": {
+        "program": "pwsh",
+        "args": ["-NoLogo"]
+      }
+    },
     "env": {
       "BAT_THEME": "OneHalfLight"
     },

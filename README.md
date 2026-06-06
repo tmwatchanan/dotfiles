@@ -117,6 +117,42 @@ mkdir %USERPROFILE%\.config
 mklink /D %USERPROFILE%\.config\wezterm D:\dev\dotfiles\.config\wezterm
 ```
 
+### Zed
+
+Zed stores user config on Windows in `%APPDATA%\Zed`. Link the individual
+config files so local data under that directory, such as themes or generated
+state, can stay there.
+
+Open Command Prompt with Administrator privileges.
+
+```cmd
+mkdir "%APPDATA%\Zed"
+mklink "%APPDATA%\Zed\settings.json" "D:\dev\dotfiles\.config\zed\settings.json"
+mklink "%APPDATA%\Zed\keymap.json" "D:\dev\dotfiles\.config\zed\keymap.json"
+mklink "%APPDATA%\Zed\tasks.json" "D:\dev\dotfiles\.config\zed\tasks.json"
+```
+
+Without Administrator privileges, move any existing `%APPDATA%\Zed` directory
+out of the way and use a directory junction instead.
+
+```cmd
+move "%APPDATA%\Zed" "%APPDATA%\Zed.backup"
+mklink /J "%APPDATA%\Zed" "D:\dev\dotfiles\.config\zed"
+```
+
+### Television
+
+Install Television with its file-listing and preview dependencies, then link
+its Windows config directory.
+
+```cmd
+winget install --id alexpasmantier.television
+winget install --id sharkdp.fd
+winget install --id sharkdp.bat
+mkdir "%LOCALAPPDATA%\television"
+mklink /J "%LOCALAPPDATA%\television\config" "D:\dev\dotfiles\.config\television"
+```
+
 ### AutoHotkey
 
 ```sh
