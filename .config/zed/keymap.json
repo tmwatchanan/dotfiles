@@ -114,6 +114,20 @@
           "task_name": "LazyGit",
           "reveal_target": "center"
         }
+      ],
+      "space f s": [
+        "task::Spawn",
+        {
+          "task_name": "Television File Finder",
+          "reveal_target": "center"
+        }
+      ],
+      "space f w": [
+        "task::Spawn",
+        {
+          "task_name": "Television Text Search",
+          "reveal_target": "center"
+        }
       ]
     }
   },
