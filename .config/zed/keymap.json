@@ -135,6 +135,19 @@
           "task_name": "Television Text Search",
           "reveal_target": "center"
         }
+      ],
+      "g w": ["workspace::SendKeystrokes", "v i w g w"]
+    }
+  },
+  {
+    "context": "vim_mode == visual && !menu",
+    "bindings": {
+      "g w": [
+        "task::Spawn",
+        {
+          "task_name": "Television Text Search (Word)",
+          "reveal_target": "center"
+        }
       ]
     }
   },
