@@ -25,13 +25,8 @@
   },
   {
     "label": "Television File Finder",
-    "command": "$env:Path = [Environment]::GetEnvironmentVariable('Path', 'Machine') + ';' + [Environment]::GetEnvironmentVariable('Path', 'User'); zed \"$(tv files)\"",
-    "shell": {
-      "with_arguments": {
-        "program": "pwsh",
-        "args": ["-NoLogo"]
-      }
-    },
+    "command": "zed \"$(tv files)\"",
+    "shell": "system",
     "env": {
       "BAT_THEME": "OneHalfLight"
     },
