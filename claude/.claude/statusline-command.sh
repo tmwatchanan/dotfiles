@@ -162,13 +162,24 @@ C_NUM=$(rgb 220 220 230)       # near-white for numbers
 C_COST=$(rgb 180 200 140)      # muted green for cost
 C_TIME=$(rgb 160 190 220)      # pale blue for times
 
-# Color a progress bar/percentage by fill level
+# Color a progress bar/percentage by fill level (high usage = bad)
 pct_color() {
   local pct="$1"
   local int_pct
   int_pct=$(printf '%.0f' "$pct" 2>/dev/null || echo 0)
   if   [ "$int_pct" -ge 80 ]; then rgb 220 80  80   # red
   elif [ "$int_pct" -ge 50 ]; then rgb 220 180 60   # amber
+  else                              rgb 80  200 120  # green
+  fi
+}
+
+# Color a remaining-percentage display (low remaining = bad)
+remaining_color() {
+  local pct="$1"
+  local int_pct
+  int_pct=$(printf '%.0f' "$pct" 2>/dev/null || echo 0)
+  if   [ "$int_pct" -le 20 ]; then rgb 220 80  80   # red
+  elif [ "$int_pct" -le 50 ]; then rgb 220 180 60   # amber
   else                              rgb 80  200 120  # green
   fi
 }
@@ -240,22 +251,25 @@ printf '%b\n' "$line1"
 
 render_rate_row() {
   local label="$1"
-  local pct="$2"
+  local used_pct="$2"
   local reset_fmt="$3"
 
-  [ -z "$pct" ] || [ "$pct" = "null" ] && return
+  [ -z "$used_pct" ] || [ "$used_pct" = "null" ] && return
 
+  # Show what's remaining rather than what's been used
+  local remaining
+  remaining=$(python3 -c "print(max(0.0, 100.0 - float('$used_pct')))" 2>/dev/null || echo 0)
   local pct_int
-  pct_int=$(printf '%.0f' "$pct" 2>/dev/null || echo 0)
+  pct_int=$(printf '%.0f' "$remaining" 2>/dev/null || echo 0)
   local bar_color
-  bar_color=$(pct_color "$pct")
+  bar_color=$(remaining_color "$remaining")
   local bar
-  bar=$(make_bar "$pct")
+  bar=$(make_bar "$remaining")
 
   local row=""
   row+="$(printf '%b' "${C_LABEL}")${label}$(printf '%b' "${RESET}")"
   row+="  "
-  row+="$(printf '%b' "${C_NUM}")${pct_int}%$(printf '%b' "${RESET}")"
+  row+="$(printf '%b' "${C_NUM}")${pct_int}% left$(printf '%b' "${RESET}")"
   row+=" "
   row+="$(printf '%b' "${bar_color}")${bar}$(printf '%b' "${RESET}")"
   if [ -n "$reset_fmt" ]; then
