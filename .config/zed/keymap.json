@@ -115,6 +115,13 @@
           "reveal_target": "center",
         },
       ],
+      "space c": [
+        "task::Spawn",
+        {
+          "task_name": "Claude Code",
+          "reveal_target": "center",
+        },
+      ],
       "g w": ["workspace::SendKeystrokes", "v i w g w"],
     },
   },
