@@ -4,15 +4,15 @@
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-j": "workspace::ActivatePaneDown",
       "ctrl-k": "workspace::ActivatePaneUp",
-      "ctrl-l": "workspace::ActivatePaneRight"
-    }
+      "ctrl-l": "workspace::ActivatePaneRight",
+    },
   },
   {
     "context": "VimControl && !menu",
     "bindings": {
       "H": "pane::ActivatePreviousItem",
-      "L": "pane::ActivateNextItem"
-    }
+      "L": "pane::ActivateNextItem",
+    },
   },
   {
     "context": "NotebookEditor && notebook_mode == command",
@@ -20,15 +20,15 @@
       "h": "menu::SelectPrevious",
       "j": "menu::SelectNext",
       "k": "menu::SelectPrevious",
-      "l": "menu::SelectNext"
-    }
+      "l": "menu::SelectNext",
+    },
   },
   {
     "context": "NotebookEditor > Editor && VimControl && vim_mode == normal",
     "bindings": {
       "j": "notebook::NotebookMoveDown",
-      "k": "notebook::NotebookMoveUp"
-    }
+      "k": "notebook::NotebookMoveUp",
+    },
   },
   {
     "context": "Terminal",
@@ -38,15 +38,15 @@
       "ctrl-k": ["terminal::SendKeystroke", "ctrl-k"],
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-shift-h": "pane::ActivatePreviousItem",
-      "ctrl-shift-l": "pane::ActivateNextItem"
-    }
+      "ctrl-shift-l": "pane::ActivateNextItem",
+    },
   },
   {
     "context": "menu",
     "bindings": {
       "ctrl-j": "menu::SelectNext",
-      "ctrl-k": "menu::SelectPrevious"
-    }
+      "ctrl-k": "menu::SelectPrevious",
+    },
   },
   {
     "context": "Workspace && os == macos",
@@ -55,17 +55,10 @@
         "task::Spawn",
         {
           "task_name": "LazyGit",
-          "reveal_target": "center"
-        }
+          "reveal_target": "center",
+        },
       ],
-      "cmd-p": [
-        "task::Spawn",
-        {
-          "task_name": "Television File Finder",
-          "reveal_target": "center"
-        }
-      ]
-    }
+    },
   },
   {
     "context": "Workspace && os == windows",
@@ -74,17 +67,10 @@
         "task::Spawn",
         {
           "task_name": "LazyGit",
-          "reveal_target": "center"
-        }
+          "reveal_target": "center",
+        },
       ],
-      "secondary-p": [
-        "task::Spawn",
-        {
-          "task_name": "Television File Finder",
-          "reveal_target": "center"
-        }
-      ]
-    }
+    },
   },
   {
     "context": "Workspace && os == linux",
@@ -93,17 +79,10 @@
         "task::Spawn",
         {
           "task_name": "LazyGit",
-          "reveal_target": "center"
-        }
+          "reveal_target": "center",
+        },
       ],
-      "secondary-p": [
-        "task::Spawn",
-        {
-          "task_name": "Television File Finder",
-          "reveal_target": "center"
-        }
-      ]
-    }
+    },
   },
   {
     "context": "vim_mode == normal && !menu",
@@ -112,32 +91,32 @@
         "task::Spawn",
         {
           "task_name": "LazyGit",
-          "reveal_target": "center"
-        }
+          "reveal_target": "center",
+        },
       ],
       "space y": [
         "task::Spawn",
         {
           "task_name": "Yazi",
-          "reveal_target": "center"
-        }
+          "reveal_target": "center",
+        },
       ],
       "space f s": [
         "task::Spawn",
         {
           "task_name": "Television File Finder",
-          "reveal_target": "center"
-        }
+          "reveal_target": "center",
+        },
       ],
       "space f w": [
         "task::Spawn",
         {
           "task_name": "Television Text Search",
-          "reveal_target": "center"
-        }
+          "reveal_target": "center",
+        },
       ],
-      "g w": ["workspace::SendKeystrokes", "v i w g w"]
-    }
+      "g w": ["workspace::SendKeystrokes", "v i w g w"],
+    },
   },
   {
     "context": "vim_mode == visual && !menu",
@@ -146,15 +125,15 @@
         "task::Spawn",
         {
           "task_name": "Television Text Search (Word)",
-          "reveal_target": "center"
-        }
-      ]
-    }
+          "reveal_target": "center",
+        },
+      ],
+    },
   },
   {
     "context": "vim_mode == insert",
     "bindings": {
-      "j k": "vim::NormalBefore"
-    }
-  }
+      "j k": "vim::NormalBefore",
+    },
+  },
 ]
