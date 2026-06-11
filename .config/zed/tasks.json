@@ -26,6 +26,19 @@
     "use_new_terminal": true
   },
   {
+    "label": "Claude Code",
+    "command": "claude",
+    "shell": {
+      "program": "/bin/sh"
+    },
+    "hide": "on_success",
+    "reveal_target": "center",
+    "show_summary": false,
+    "show_command": false,
+    "allow_concurrent_runs": true,
+    "use_new_terminal": true
+  },
+  {
     "label": "Television File Finder",
     "command": "zed \"$(tv files)\"",
     "shell": {
