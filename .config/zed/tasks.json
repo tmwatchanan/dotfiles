@@ -2,7 +2,9 @@
   {
     "label": "LazyGit",
     "command": "lazygit",
-    "shell": "system",
+    "shell": {
+      "program": "/bin/sh"
+    },
     "hide": "on_success",
     "reveal_target": "center",
     "show_summary": false,
@@ -26,7 +28,9 @@
   {
     "label": "Television File Finder",
     "command": "zed \"$(tv files)\"",
-    "shell": "system",
+    "shell": {
+      "program": "/bin/sh"
+    },
     "env": {
       "BAT_THEME": "OneHalfLight"
     },
@@ -37,6 +41,9 @@
   {
     "label": "Television Text Search",
     "command": "zed \"$(tv text)\"",
+    "shell": {
+      "program": "/bin/sh"
+    },
     "env": {
       "BAT_THEME": "OneHalfLight"
     },
@@ -47,6 +54,9 @@
   {
     "label": "Television Text Search (Word)",
     "command": "zed \"$(tv text --input \"$ZED_SELECTED_TEXT\")\"",
+    "shell": {
+      "program": "/bin/sh"
+    },
     "env": {
       "BAT_THEME": "OneHalfLight"
     },
