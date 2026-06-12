@@ -101,6 +101,7 @@
           "reveal_target": "center",
         },
       ],
+      "space f f": "file_finder::Toggle",
       "space f s": [
         "task::Spawn",
         {
@@ -112,6 +113,13 @@
         "task::Spawn",
         {
           "task_name": "Television Text Search",
+          "reveal_target": "center",
+        },
+      ],
+      "space f p": [
+        "task::Spawn",
+        {
+          "task_name": "Television Project Finder",
           "reveal_target": "center",
         },
       ],
@@ -143,4 +151,15 @@
       "j k": "vim::NormalBefore",
     },
   },
+  {
+    "bindings": {
+      "cmd-shift-c": [
+        "task::Spawn",
+        {
+          "task_name": "Claude Code",
+          "reveal_target": "center"
+        }
+      ]
+    }
+  }
 ]
