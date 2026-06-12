@@ -28,7 +28,9 @@ function activate_environment
     end
 
     # deactivate the active environment(s)
-    if test -n "$VIRTUAL_ENV"
+    # functions -q: VIRTUAL_ENV may be inherited from the parent process
+    # without activate.fish having been sourced in this shell
+    if test -n "$VIRTUAL_ENV"; and functions -q deactivate
         deactivate
     end
     if test -n "$CONDA_PREFIX"
@@ -51,5 +53,6 @@ end
 
 function __auto_env_python_env --on-variable PWD --description 'Automatically activate venv or mamba env depending on the directory'
     status --is-command-substitution; and return
+    status is-interactive; or return
     activate_environment
 end
