@@ -5,13 +5,41 @@
       "ctrl-j": "workspace::ActivatePaneDown",
       "ctrl-k": "workspace::ActivatePaneUp",
       "ctrl-l": "workspace::ActivatePaneRight",
+      // Open a new terminal in the center pane (there is no action to move an
+      // existing dock terminal to center — drag its tab for that)
+      "ctrl-alt-`": "workspace::NewCenterTerminal",
     },
   },
   {
     "context": "VimControl && !menu",
     "bindings": {
-      "H": "pane::ActivatePreviousItem",
-      "L": "pane::ActivateNextItem",
+      "ctrl-shift-h": "pane::ActivatePreviousItem",
+      "ctrl-shift-l": "pane::ActivateNextItem",
+      // Move the current tab into the neighboring pane (creates the split if
+      // needed; overrides vim's default ctrl-w hjkl pane navigation, which
+      // ctrl-hjkl already covers)
+      "ctrl-w h": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "left" },
+      ],
+      "ctrl-w j": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "down" },
+      ],
+      "ctrl-w k": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "up" },
+      ],
+      "ctrl-w l": [
+        "workspace::MoveItemToPaneInDirection",
+        { "direction": "right" },
+      ],
+      // Swap the focused pane with its neighbor (overrides vim's default
+      // ctrl-w shift-hjkl "move pane to far edge")
+      "ctrl-w shift-h": "workspace::SwapPaneLeft",
+      "ctrl-w shift-j": "workspace::SwapPaneDown",
+      "ctrl-w shift-k": "workspace::SwapPaneUp",
+      "ctrl-w shift-l": "workspace::SwapPaneRight",
     },
   },
   {
@@ -37,6 +65,7 @@
       "ctrl-j": ["terminal::SendKeystroke", "ctrl-j"],
       "ctrl-k": ["terminal::SendKeystroke", "ctrl-k"],
       "ctrl-l": "workspace::ActivatePaneRight",
+      // Pane navigation incl. up/down, since ctrl-j/k are sent to the shell
       "ctrl-shift-h": "pane::ActivatePreviousItem",
       "ctrl-shift-l": "pane::ActivateNextItem",
     },
@@ -157,9 +186,9 @@
         "task::Spawn",
         {
           "task_name": "Claude Code",
-          "reveal_target": "center"
-        }
-      ]
-    }
-  }
+          "reveal_target": "center",
+        },
+      ],
+    },
+  },
 ]
