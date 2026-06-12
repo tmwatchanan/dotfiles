@@ -3,91 +3,107 @@
     "label": "LazyGit",
     "command": "lazygit",
     "shell": {
-      "program": "/bin/sh"
+      "program": "/bin/sh",
     },
     "hide": "on_success",
     "reveal_target": "center",
     "show_summary": false,
     "show_command": false,
     "allow_concurrent_runs": true,
-    "use_new_terminal": true
+    "use_new_terminal": true,
   },
   {
     "label": "Yazi",
     "command": "f",
     "shell": {
-      "program": "fish"
+      "program": "fish",
     },
     "hide": "on_success",
     "reveal_target": "center",
     "show_summary": false,
     "show_command": false,
     "allow_concurrent_runs": true,
-    "use_new_terminal": true
+    "use_new_terminal": true,
+  },
+  {
+    "label": "Yazi (Current File)",
+    // $ZED_FILE in the template would make Zed hide the task whenever it
+    // can't resolve (terminal focus, untitled buffer) — read the env var at
+    // runtime instead and fall back to the cwd
+    "command": "yazi \"$(printenv ZED_FILE || pwd)\"",
+    "shell": {
+      "program": "/bin/sh",
+    },
+    "hide": "on_success",
+    "reveal_target": "center",
+    "show_summary": false,
+    "show_command": false,
+    "allow_concurrent_runs": true,
+    "use_new_terminal": true,
   },
   {
     "label": "Claude Code",
     "command": "claude",
     "shell": {
-      "program": "/bin/sh"
+      "program": "/bin/sh",
     },
     "hide": "on_success",
     "reveal_target": "center",
     "show_summary": false,
     "show_command": false,
     "allow_concurrent_runs": true,
-    "use_new_terminal": true
+    "use_new_terminal": true,
   },
   {
     "label": "Television File Finder",
     "command": "zed \"$(tv files)\"",
     "shell": {
-      "program": "/bin/sh"
+      "program": "/bin/sh",
     },
     "env": {
-      "BAT_THEME": "OneHalfLight"
+      "BAT_THEME": "OneHalfLight",
     },
     "hide": "always",
     "allow_concurrent_runs": true,
-    "use_new_terminal": true
+    "use_new_terminal": true,
   },
   {
     "label": "Television Text Search",
     "command": "zed \"$(tv text)\"",
     "shell": {
-      "program": "/bin/sh"
+      "program": "/bin/sh",
     },
     "env": {
-      "BAT_THEME": "OneHalfLight"
+      "BAT_THEME": "OneHalfLight",
     },
     "hide": "always",
     "allow_concurrent_runs": true,
-    "use_new_terminal": true
+    "use_new_terminal": true,
   },
   {
     "label": "Television Project Finder",
     "command": "d=\"$(tv dirs)\"; [ -n \"$d\" ] && zed -n \"$d\"",
     "shell": {
-      "program": "/bin/sh"
+      "program": "/bin/sh",
     },
     "env": {
-      "BAT_THEME": "OneHalfLight"
+      "BAT_THEME": "OneHalfLight",
     },
     "hide": "always",
     "allow_concurrent_runs": true,
-    "use_new_terminal": true
+    "use_new_terminal": true,
   },
   {
     "label": "Television Text Search (Word)",
     "command": "zed \"$(tv text --input \"$ZED_SELECTED_TEXT\")\"",
     "shell": {
-      "program": "/bin/sh"
+      "program": "/bin/sh",
     },
     "env": {
-      "BAT_THEME": "OneHalfLight"
+      "BAT_THEME": "OneHalfLight",
     },
     "hide": "always",
     "allow_concurrent_runs": true,
-    "use_new_terminal": true
-  }
+    "use_new_terminal": true,
+  },
 ]
