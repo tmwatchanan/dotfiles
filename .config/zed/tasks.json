@@ -65,6 +65,19 @@
     "use_new_terminal": true
   },
   {
+    "label": "Television Project Finder",
+    "command": "d=\"$(tv dirs)\"; [ -n \"$d\" ] && zed -n \"$d\"",
+    "shell": {
+      "program": "/bin/sh"
+    },
+    "env": {
+      "BAT_THEME": "OneHalfLight"
+    },
+    "hide": "always",
+    "allow_concurrent_runs": true,
+    "use_new_terminal": true
+  },
+  {
     "label": "Television Text Search (Word)",
     "command": "zed \"$(tv text --input \"$ZED_SELECTED_TEXT\")\"",
     "shell": {
