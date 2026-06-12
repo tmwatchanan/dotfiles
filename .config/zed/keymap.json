@@ -102,6 +102,14 @@
           "reveal_target": "center",
         },
       ],
+      // Likewise override the default cmd-shift-o (outline::Toggle)
+      "cmd-shift-o": [
+        "task::Spawn",
+        {
+          "task_name": "Television Project Finder",
+          "reveal_target": "center",
+        },
+      ],
     },
   },
   {
@@ -208,6 +216,13 @@
         "task::Spawn",
         {
           "task_name": "Yazi (Current File)",
+          "reveal_target": "center",
+        },
+      ],
+      "cmd-shift-o": [
+        "task::Spawn",
+        {
+          "task_name": "Television Project Finder",
           "reveal_target": "center",
         },
       ],
