@@ -1,0 +1,9 @@
+[metadata]
+name = "dirs"
+description = "Recent Zed projects + ~/dev directories"
+
+[source]
+command = "sh $HOME/.config/television/zed-dirs.sh"
+
+[preview]
+command = "eza -la --color=always '{}'"
