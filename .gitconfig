@@ -12,6 +12,10 @@
 	path = ~/tm/.gitconfig
 [includeIf "hasconfig:remote.*.url:https://github.com/**"]
     path = ~/.config/git/.gitconfig.github
+[includeIf "hasconfig:remote.*.url:git@github.com:*/**"]
+    path = ~/.config/git/.gitconfig.github
+[includeIf "hasconfig:remote.*.url:ssh://git@github.com/**"]
+    path = ~/.config/git/.gitconfig.github
 
 [include]
 	path = ~/.config/delta/themes.gitconfig
