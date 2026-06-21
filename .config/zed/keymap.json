@@ -71,6 +71,12 @@
     },
   },
   {
+    "context": "Terminal",
+    "unbind": {
+      "alt-enter": "search::SelectAllMatches",
+    },
+  },
+  {
     "context": "menu",
     "bindings": {
       "ctrl-j": "menu::SelectNext",
