@@ -1,10 +1,15 @@
 [
   {
+    "context": "!menu && !CommandPalette && !FileFinder",
     "bindings": {
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-j": "workspace::ActivatePaneDown",
       "ctrl-k": "workspace::ActivatePaneUp",
       "ctrl-l": "workspace::ActivatePaneRight",
+    },
+  },
+  {
+    "bindings": {
       // Open a new terminal in the center pane (there is no action to move an
       // existing dock terminal to center — drag its tab for that)
       "ctrl-alt-`": "workspace::NewCenterTerminal",
@@ -77,7 +82,14 @@
     },
   },
   {
-    "context": "menu",
+    "context": "(CommandPalette > Picker > Editor) || (FileFinder > Picker > Editor)",
+    "unbind": {
+      "ctrl-j": "vim::Down",
+      "ctrl-k": ["vim::PushDigraph", {}],
+    },
+  },
+  {
+    "context": "menu || (CommandPalette > Picker > Editor) || (FileFinder > Picker > Editor)",
     "bindings": {
       "ctrl-j": "menu::SelectNext",
       "ctrl-k": "menu::SelectPrevious",
