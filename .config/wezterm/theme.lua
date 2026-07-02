@@ -1,17 +1,20 @@
 local wezterm = require 'wezterm'
+local cyberdream = require 'themes.cyberdream'
 local M = {}
 
 function M.apply(config)
-    require('themes.kanagawa').apply(config)
+    cyberdream.apply(config)
 
     config.window_background_opacity = 0.93
     config.macos_window_background_blur = 50
 
     config.font = wezterm.font_with_fallback({
-        { family = 'Maple Mono NF', weight = 'Regular' },
-        { family = 'JuliaMono',     weight = 'Regular' },
+        { family = 'UDEV Gothic NFLG', weight = 'Regular' },
+        { family = 'Maple Mono NF',    weight = 'Regular' },
+        { family = 'JuliaMono',        weight = 'Regular' },
     })
-    config.font_size = 17.2
+    config.harfbuzz_features = { 'calt=1', 'liga=1', 'clig=1' }
+    config.font_size = 18
     config.line_height = 0.75
 
     config.enable_tab_bar = false
