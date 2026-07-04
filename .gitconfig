@@ -54,7 +54,7 @@
 [delta]
     navigate = true
     true-color = always
-    features = kanagawa
+    features = rose-pine
     line-numbers = true
     file-decoration-style = ul
     file-added-label = [+]
@@ -78,6 +78,19 @@
     plus-style = syntax "#2B3328" ; winterGreen
     minus-emph-style = syntax "#804552" ; lighter winterRed
     plus-emph-style = syntax "#586952" ; lighter winterGreen
+[delta "rose-pine"]
+    ; Rosé Pine (main dark) — matches the WezTerm palette
+    dark = true
+    syntax-theme = base16 ; renders syntax from the terminal's rosé pine ANSI colors
+    file-style = bold "#f6c177" ; gold
+    whitespace-error-style = syntax "#eb6f92" ; love
+    line-numbers-minus-style = "#eb6f92" ; love
+    line-numbers-plus-style = "#31748f" ; pine
+    line-numbers-zero-style = "#6e6a86" ; muted
+    minus-style = syntax "#402a3a" ; love-tinted base
+    plus-style = syntax "#22332c" ; pine-tinted base
+    minus-emph-style = syntax "#5e3a4e" ; lighter love
+    plus-emph-style = syntax "#35513f" ; lighter pine
 
 ; Merge Tool ------------------------------------------------------------------
 [merge]
