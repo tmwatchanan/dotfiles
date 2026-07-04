@@ -14,7 +14,7 @@ function M.apply(config)
         { family = 'JuliaMono',        weight = 'Regular' },
     })
     config.harfbuzz_features = { 'calt=1', 'liga=1', 'clig=1' }
-    config.font_size = 18
+    config.font_size = 20
     config.line_height = 0.75
 
     config.enable_tab_bar = false
