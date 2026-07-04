@@ -95,10 +95,16 @@
 	gitLabAuthModes = browser
 	guiPrompt = false
 	gitHubAuthModes = browser
+	helper = 
 [filter "gitignore"]
 	clean = "sed '/;gitignore$/d'"
 
 ; gpg --------------------------------------------------------------------------
 [commit]
 	gpgsign = true
-
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
