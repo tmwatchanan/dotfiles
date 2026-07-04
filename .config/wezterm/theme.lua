@@ -1,9 +1,9 @@
 local wezterm = require 'wezterm'
-local cyberdream = require 'themes.cyberdream'
+local nightfox = require 'themes.nightfox'
 local M = {}
 
 function M.apply(config)
-    cyberdream.apply(config)
+    nightfox.apply(config)
 
     config.window_background_opacity = 0.93
     config.macos_window_background_blur = 50
@@ -14,7 +14,7 @@ function M.apply(config)
         { family = 'JuliaMono',        weight = 'Regular' },
     })
     config.harfbuzz_features = { 'calt=1', 'liga=1', 'clig=1' }
-    config.font_size = 20
+    config.font_size = 18
     config.line_height = 0.75
 
     config.enable_tab_bar = false
