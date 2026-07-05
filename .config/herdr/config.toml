@@ -10,8 +10,12 @@ next_tab = ["prefix+n", "ctrl+shift+l"]
 
 detach = "prefix+d"
 
-# leader+s opens the workspace ("spaces") picker (settings moves off prefix+s to make room)
-workspace_picker = "prefix+s"
+# prefix+g launches lazygit in a vertical split (see [[keys.command]] at the
+# bottom); to free it, goto moves prefix+g -> prefix+s, and the workspace
+# ("spaces") picker moves prefix+s -> prefix+w (its default). settings stays on
+# prefix+shift+s.
+goto = "prefix+s"
+workspace_picker = "prefix+w"
 settings = "prefix+shift+s"
 
 # vim-style j/k move the selection up/down inside the spaces picker
@@ -43,3 +47,12 @@ focus_pane_right = ["prefix+l", "alt+shift+l"]
 
 [ui.toast]
 delivery = "herdr"
+
+# prefix+g: open lazygit in a vertical split (to the right) of the focused pane,
+# in that pane's cwd. The helper resolves the focused pane over the socket,
+# splits it, and runs `lazygit; exit` so the pane auto-closes when you quit.
+[[keys.command]]
+key = "prefix+g"
+type = "shell"
+command = "/Users/watchanan.c/.config/herdr/herdr-lazygit.sh"
+description = "lazygit — vertical split, focused pane cwd"
