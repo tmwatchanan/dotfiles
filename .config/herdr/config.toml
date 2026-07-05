@@ -2,6 +2,7 @@ onboarding = false
 [ui]
 agent_panel_scope = "all"
 
+agent_panel_sort = "priority"
 [keys]
 # prefix-free Ctrl+h/l: vim-style previous/next tab (keeps default prefix+n/p too)
 # (ctrl+h is BS — may clash with programs that use it)
@@ -21,11 +22,15 @@ navigate_workspace_down = "j"
 navigate_pane_up = ""
 navigate_pane_down = ""
 
-# next / previous agent in the panel — prefix-free Opt+Shift+n/p and Ctrl+j/k
+# next / previous agent in the panel — prefix-free Opt+Shift+n/p
 # (Ghostty macos-option-as-alt=true sends Option as Alt, so alt+… reaches herdr)
+next_agent = "alt+shift+n"
+previous_agent = "alt+shift+p"
+
+# next / previous space (workspace) — prefix-free Ctrl+j/k
 # Ctrl+j/k mirror vim down/next & up/previous (ctrl+j is LF — may clash with agents that use it)
-next_agent = ["alt+shift+n", "ctrl+j"]
-previous_agent = ["alt+shift+p", "ctrl+k"]
+next_workspace = "ctrl+j"
+previous_workspace = "ctrl+k"
 
 # leader+a focuses the agent panel for keyboard browsing
 # (j/k to move, enter to jump, esc to leave) — needs the rebuilt binary
