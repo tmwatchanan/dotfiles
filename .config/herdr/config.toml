@@ -1,0 +1,41 @@
+onboarding = false
+[ui]
+agent_panel_scope = "all"
+
+[keys]
+# prefix-free Ctrl+h/l: vim-style previous/next tab (keeps default prefix+n/p too)
+# (ctrl+h is BS — may clash with programs that use it)
+next_tab = ["prefix+n", "ctrl+l"]
+previous_tab = ["prefix+p", "ctrl+h"]
+
+detach = "prefix+d"
+
+# leader+s opens the workspace ("spaces") picker (settings moves off prefix+s to make room)
+workspace_picker = "prefix+s"
+settings = "prefix+shift+s"
+
+# vim-style j/k move the selection up/down inside the spaces picker
+# (frees pane up/down in navigate mode; use arrows or ctrl+b j/k for pane focus)
+navigate_workspace_up = "k"
+navigate_workspace_down = "j"
+navigate_pane_up = ""
+navigate_pane_down = ""
+
+# next / previous agent in the panel — prefix-free Opt+Shift+n/p and Ctrl+j/k
+# (Ghostty macos-option-as-alt=true sends Option as Alt, so alt+… reaches herdr)
+# Ctrl+j/k mirror vim down/next & up/previous (ctrl+j is LF — may clash with agents that use it)
+next_agent = ["alt+shift+n", "ctrl+j"]
+previous_agent = ["alt+shift+p", "ctrl+k"]
+
+# leader+a focuses the agent panel for keyboard browsing
+# (j/k to move, enter to jump, esc to leave) — needs the rebuilt binary
+agent_picker = "prefix+a"
+
+# prefix-free: Opt+Shift+h/j/k/l focus panes directly (keeps default prefix+h/j/k/l too)
+focus_pane_left = ["prefix+h", "alt+shift+h"]
+focus_pane_down = ["prefix+j", "alt+shift+j"]
+focus_pane_up = ["prefix+k", "alt+shift+k"]
+focus_pane_right = ["prefix+l", "alt+shift+l"]
+
+[ui.toast]
+delivery = "herdr"
