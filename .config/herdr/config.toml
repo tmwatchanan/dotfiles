@@ -4,10 +4,9 @@ agent_panel_scope = "all"
 
 agent_panel_sort = "priority"
 [keys]
-# prefix-free Ctrl+h/l: vim-style previous/next tab (keeps default prefix+n/p too)
-# (ctrl+h is BS — may clash with programs that use it)
-next_tab = ["prefix+n", "ctrl+l"]
-previous_tab = ["prefix+p", "ctrl+h"]
+# prefix-free Ctrl+Shift+h/l: previous/next tab (keeps default prefix+n/p too)
+previous_tab = ["prefix+p", "ctrl+shift+h"]
+next_tab = ["prefix+n", "ctrl+shift+l"]
 
 detach = "prefix+d"
 
@@ -27,10 +26,10 @@ navigate_pane_down = ""
 next_agent = "alt+shift+n"
 previous_agent = "alt+shift+p"
 
-# next / previous space (workspace) — prefix-free Ctrl+j/k
-# Ctrl+j/k mirror vim down/next & up/previous (ctrl+j is LF — may clash with agents that use it)
-next_workspace = "ctrl+j"
-previous_workspace = "ctrl+k"
+# next / previous space (workspace) — prefix-free Opt+j/k
+# Opt+j/k mirror vim down/next & up/previous
+next_workspace = "alt+j"
+previous_workspace = "alt+k"
 
 # leader+a focuses the agent panel for keyboard browsing
 # (j/k to move, enter to jump, esc to leave) — needs the rebuilt binary
