@@ -8,6 +8,17 @@ function M.apply(config)
             mods = 'ALT',
             action = wezterm.action.DisableDefaultAssignment,
         },
+        -- Free ctrl+shift+h and ctrl+shift+l for Herdr tab navigation
+        {
+            key = 'h',
+            mods = 'CTRL|SHIFT',
+            action = wezterm.action.DisableDefaultAssignment,
+        },
+        {
+            key = 'l',
+            mods = 'CTRL|SHIFT',
+            action = wezterm.action.DisableDefaultAssignment,
+        },
         {
             key = ',',
             mods = 'CMD',
