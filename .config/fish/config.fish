@@ -75,8 +75,6 @@ set PATH $PATH /Users/watchanan.c/.local/bin
 set -x THEFUCK_OVERRIDDEN_ALIASES 'mamba,ll'
 thefuck --alias | source
 
-source ~/.config/fish/lmwn.fish
-
 if type -q mamba
     activate_environment
 end

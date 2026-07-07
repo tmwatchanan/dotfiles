@@ -4,4 +4,3 @@
     helper = /usr/local/share/gcm-core/git-credential-manager
 [gpg]
     program = /opt/homebrew/bin/gpg
-
