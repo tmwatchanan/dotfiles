@@ -20,15 +20,16 @@ function fish_user_key_bindings
     # bind \cl 'tput reset; clear; commandline -f repaint'
 end
 
-# homebrew
-if test -d /home/linuxbrew/.linuxbrew # Linux
-    set -gx HOMEBREW_PREFIX "/home/linuxbrew/.linuxbrew"
-    set -gx HOMEBREW_CELLAR "$HOMEBREW_PREFIX/Cellar"
-    set -gx HOMEBREW_REPOSITORY "$HOMEBREW_PREFIX/Homebrew"
-else if test -d /opt/homebrew # MacOS
+# homebrew — check /opt/homebrew (macOS) first; stat'ing the nonexistent
+# /home/linuxbrew path stalls the filesystem for ~40ms on macOS.
+if test -d /opt/homebrew # MacOS
     set -gx HOMEBREW_PREFIX /opt/homebrew
     set -gx HOMEBREW_CELLAR "$HOMEBREW_PREFIX/Cellar"
     set -gx HOMEBREW_REPOSITORY "$HOMEBREW_PREFIX/homebrew"
+else if test -d /home/linuxbrew/.linuxbrew # Linux
+    set -gx HOMEBREW_PREFIX "/home/linuxbrew/.linuxbrew"
+    set -gx HOMEBREW_CELLAR "$HOMEBREW_PREFIX/Cellar"
+    set -gx HOMEBREW_REPOSITORY "$HOMEBREW_PREFIX/Homebrew"
 end
 fish_add_path -gP "$HOMEBREW_PREFIX/bin" "$HOMEBREW_PREFIX/sbin"
 ! set -q MANPATH; and set MANPATH ''
