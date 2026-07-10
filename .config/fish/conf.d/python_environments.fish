@@ -19,7 +19,11 @@ function mamba_activate
             return 0
         end
     end
-    mamba activate base
+    # No project env matched: don't auto-activate base (it spawns Python ~130ms
+    # per shell / cd). activate_environment already deactivated any active env
+    # above, so we just leave the shell with no conda env. Run `mamba activate
+    # base` manually if you need it.
+    return 0
 end
 
 function activate_environment

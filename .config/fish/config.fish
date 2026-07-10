@@ -52,15 +52,21 @@ fish_add_path $HOME/.cargo/bin/
 
 
 # # >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-if test -f /opt/homebrew/Caskroom/miniforge/base/bin/conda
-    eval /opt/homebrew/Caskroom/miniforge/base/bin/conda "shell.fish" hook $argv | source
-else
-    if test -f "/opt/homebrew/Caskroom/miniforge/base/etc/fish/conf.d/conda.fish"
-        . "/opt/homebrew/Caskroom/miniforge/base/etc/fish/conf.d/conda.fish"
-    else
-        fish_add_path /opt/homebrew/Caskroom/miniforge/base/bin
+# Cache `conda shell.fish hook` (spawns Python, ~120ms) and regenerate only when
+# the conda binary changes. The trailing `conda activate base` is stripped so new
+# shells don't auto-activate base (another ~130ms spawn) — run `conda activate`
+# or `mamba activate` manually when you need it.
+set -l __conda_exe /opt/homebrew/Caskroom/miniforge/base/bin/conda
+if test -f $__conda_exe
+    set -l __conda_cache (set -q XDG_CACHE_HOME; and echo $XDG_CACHE_HOME; or echo $HOME/.cache)/conda_hook.fish
+    if not test -f $__conda_cache; or test $__conda_exe -nt $__conda_cache
+        $__conda_exe shell.fish hook | string match -rv '^conda activate base$' >$__conda_cache
     end
+    source $__conda_cache
+else if test -f "/opt/homebrew/Caskroom/miniforge/base/etc/fish/conf.d/conda.fish"
+    source "/opt/homebrew/Caskroom/miniforge/base/etc/fish/conf.d/conda.fish"
+else
+    fish_add_path /opt/homebrew/Caskroom/miniforge/base/bin
 end
 
 if test -f "/opt/homebrew/Caskroom/miniforge/base/etc/fish/conf.d/mamba.fish"
