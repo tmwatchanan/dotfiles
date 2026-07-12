@@ -51,6 +51,7 @@ delivery = "herdr"
 # prefix+g: open lazygit in a vertical split (to the right) of the focused pane,
 # in that pane's cwd. The helper resolves the focused pane over the socket,
 # splits it, and runs `lazygit; exit` so the pane auto-closes when you quit.
+# If the cwd isn't a git repo, it toasts "Not a git repository" and skips the split.
 [[keys.command]]
 key = "prefix+g"
 type = "shell"
