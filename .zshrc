@@ -134,9 +134,17 @@ shdl() {
 }
 # make a folder and cd at the same time
 mkcd() { mkdir -p $1; cd $1; }
-# compress/extract .tar.gz 
+# compress/extract .tar.gz
 targz() { tar -zcvf $1.tar.gz $1; rm -r $1; }
 untargz() { tar -zxvf $1; rm -r $1; }
+# yazi: q quits without cd, Q quits and cd's here (see ~/.config/yazi/keymap.toml)
+yazi() {
+	local tmp; tmp=$(mktemp -t "yazi-cwd.XXXXXX") || return
+	command yazi "$@" --cwd-file="$tmp"
+	local cwd; cwd=$(command cat -- "$tmp")
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
 
 export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
 export LIBGL_ALWAYS_INDIRECT=1
