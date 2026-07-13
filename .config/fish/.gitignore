@@ -1,0 +1,29 @@
+# Fisher-managed plugin files and fish runtime state.
+#
+# The source of truth for plugins is `fish_plugins`; running `fisher update`
+# regenerates everything below. We ignore the plugin-populated locations and
+# re-include only the hand-written files.
+#
+# NOTE: functions/ is ignored wholesale, so a NEW hand-written function must be
+# added to the allowlist below (or `git add -f`) to be tracked.
+
+# fish runtime universal-variable state (machine-local)
+/fish_variables
+
+# completions/ is populated entirely by fisher
+/completions/
+
+# plugin-generated conf.d snippets (fzf.fish, fish-eza.fish); hand-written
+# conf.d files are tracked and unaffected because they're already committed
+/conf.d/fzf.fish
+/conf.d/fish-eza.fish
+
+# functions/ is dominated by plugin output — ignore all, allow hand-written
+/functions/*
+!/functions/export.fish
+!/functions/git_config_gpg.fish
+!/functions/p.fish
+!/functions/ssm-port.fish
+!/functions/update_local_nvim_plugins.fish
+!/functions/vscp.fish
+!/functions/yazi.fish
