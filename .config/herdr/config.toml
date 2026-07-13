@@ -55,5 +55,5 @@ delivery = "herdr"
 [[keys.command]]
 key = "prefix+g"
 type = "shell"
-command = "/Users/watchanan.c/.config/herdr/herdr-lazygit.sh"
+command = "~/.config/herdr/herdr-lazygit.sh"
 description = "lazygit — vertical split, focused pane cwd"

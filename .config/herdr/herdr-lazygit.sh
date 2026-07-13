@@ -9,7 +9,7 @@
 #   [[keys.command]]
 #   key = "prefix+g"
 #   type = "shell"
-#   command = "/Users/watchanan.c/.config/herdr/herdr-lazygit.sh"
+#   command = "~/.config/herdr/herdr-lazygit.sh"
 #
 # It resolves the focused pane over herdr's socket API (herdr pane current)
 # rather than relying on env vars, so it works from a detached shell command.
