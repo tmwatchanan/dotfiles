@@ -17,6 +17,7 @@ alias bi="brew install"
 alias bu="brew update"
 alias bup="brew upgrade --fetch-HEAD"
 
+abbr f yazi
 alias fdev="yazi ~/dev"
 alias fdl="yazi ~/Downloads"
 alias ftm="yazi ~/tm"
