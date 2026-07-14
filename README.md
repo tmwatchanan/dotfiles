@@ -66,7 +66,7 @@ just -g install-yazi
 
 - [`uv`](https://github.com/astral-sh/uv) as a drop-in replacement for _pip_
 - [`mamba` (via `miniforge`)](https://github.com/conda-forge/miniforge) as a drop-in replacement for _conda_
-- [`mise`](https://github.com/jdx/mise) for managing dev tools or runtimes (think about nvm, etc.)
+- [`fnm`](https://github.com/Schniz/fnm) for managing Node.js versions (auto-switches on `cd` via `.node-version`/`.nvmrc`)
 - [`pixi`](https://github.com/prefix-dev/pixi) as a multi-language package manager (thiking about conda)
 
 - [`glow`](https://github.com/charmbracelet/glow) for markdown (.md) preview
