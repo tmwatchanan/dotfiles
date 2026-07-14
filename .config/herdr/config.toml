@@ -25,10 +25,12 @@ navigate_workspace_down = "j"
 navigate_pane_up = ""
 navigate_pane_down = ""
 
-# next / previous agent in the panel — prefix-free Opt+Shift+n/p
-# (Ghostty macos-option-as-alt=true sends Option as Alt, so alt+… reaches herdr)
-next_agent = "alt+shift+n"
-previous_agent = "alt+shift+p"
+# next / previous agent in the panel
+# - prefix-free Opt+Shift+n/p (Ghostty macos-option-as-alt=true sends Option as
+#   Alt, so alt+… reaches herdr)
+# - prefix-free Ctrl+Shift+j/k (vim-style: j=down=next, k=up=previous)
+next_agent = ["alt+shift+n", "ctrl+shift+j"]
+previous_agent = ["alt+shift+p", "ctrl+shift+k"]
 
 # next / previous space (workspace) — prefix-free Opt+j/k
 # Opt+j/k mirror vim down/next & up/previous
