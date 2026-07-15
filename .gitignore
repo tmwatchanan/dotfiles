@@ -1,6 +1,9 @@
 .config/yazi/plugins
 !.config/yazi/plugins/custom-open.yazi
 
+# tmux: TPM-managed plugins (installed via `prefix + I`), not committed
+.config/tmux/plugins/
+
 # macOS
 .DS_Store
 
