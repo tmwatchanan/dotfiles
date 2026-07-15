@@ -9,3 +9,8 @@
 
 # Karabiner: track config, ignore local auto-backups
 .config/karabiner/automatic_backups/
+
+# herdr: track config + helper scripts, ignore runtime artifacts
+.config/herdr/*.log
+.config/herdr/*.sock
+.config/herdr/session.json
