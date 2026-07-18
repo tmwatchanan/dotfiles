@@ -8,7 +8,8 @@ agent_panel_sort = "priority"
 previous_tab = ["prefix+p", "ctrl+shift+h"]
 next_tab = ["prefix+n", "ctrl+shift+l"]
 
-detach = "prefix+d"
+# detach moved off prefix+d (now hunk) → prefix+ctrl+d keeps the "d" mnemonic.
+detach = "prefix+ctrl+d"
 
 # prefix+g launches lazygit in a vertical split (see [[keys.command]] at the
 # bottom); to free it, goto moves prefix+g -> prefix+s, and the workspace
@@ -47,6 +48,10 @@ focus_pane_down = ["prefix+j", "alt+shift+j"]
 focus_pane_up = ["prefix+k", "alt+shift+k"]
 focus_pane_right = ["prefix+l", "alt+shift+l"]
 
+# split_vertical moved off prefix+v (now nvim) → prefix+| (mnemonic: | looks like
+# a vertical divider). split_horizontal stays on its default prefix+minus.
+split_vertical = "prefix+|"
+
 [ui.toast]
 delivery = "herdr"
 
@@ -69,11 +74,45 @@ type = "shell"
 command = "~/.config/herdr/herdr-yazi.sh"
 description = "yazi — vertical split, focused pane cwd"
 
-# prefix+t: open nvim in a new (focused) tab, in the focused pane's cwd. The
+# prefix+v: open nvim in a new (focused) tab, in the focused pane's cwd. The
 # helper resolves the focused pane over the socket, creates a tab, and runs
-# `nvim; exit` so the tab auto-closes when you quit.
+# `nvim; exit` so the tab auto-closes when you quit. (Moved off prefix+t;
+# split_vertical moved to prefix+| to free this key.)
 [[keys.command]]
-key = "prefix+t"
+key = "prefix+v"
 type = "shell"
 command = "~/.config/herdr/herdr-nvim.sh"
 description = "nvim — new tab, focused pane cwd"
+
+# prefix+shift+g: fzf-pick a top-level git repo under ~/dev and launch lazygit in
+# it, in a vertical split (to the right) of the focused pane. The helper resolves
+# the focused pane over the socket, splits it, and runs the picker inside the new
+# pane; selecting a repo runs $LAUNCH (default "lazygit"). Overrides herdr's
+# default new_worktree binding on this key. Set HERDR_REPO_ROOT / HERDR_REPO_LAUNCH
+# in the script to change the scan root or launched tool.
+[[keys.command]]
+key = "prefix+shift+g"
+type = "shell"
+command = "~/.config/herdr/herdr-repo-picker.sh"
+description = "repo picker — fzf ~/dev git repos, launch lazygit in split"
+
+# prefix+d: open hunk (diff review TUI) in a vertical split (to the right) of the
+# focused pane, in that pane's cwd. Runs `hunk diff; exit` so the pane auto-closes
+# when you quit; watch=true in ~/.config/hunk/config.toml keeps the diff live
+# while an agent edits. Toasts and skips if not a git repo. (Moved off prefix+u;
+# detach moved to prefix+ctrl+d to free this key.)
+[[keys.command]]
+key = "prefix+d"
+type = "shell"
+command = "~/.config/herdr/herdr-hunk.sh"
+description = "hunk — diff review, vertical split, focused pane cwd"
+
+# prefix+shift+d: fzf-pick a top-level git repo under ~/dev and launch hunk (diff
+# review) in it, in a vertical split. Same helper as prefix+shift+g, just passing
+# "hunk diff" instead of the default lazygit. Overrides herdr's default
+# close_workspace binding on this key.
+[[keys.command]]
+key = "prefix+shift+d"
+type = "shell"
+command = "~/.config/herdr/herdr-repo-picker.sh 'hunk diff'"
+description = "repo picker — fzf ~/dev git repos, launch hunk in split"
