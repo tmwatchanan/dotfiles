@@ -91,7 +91,7 @@ exec jq -r '
       + SEP + C_COST + "$" + ($cost | fmt_cost) + RESET
 
   # Lines 2 & 3: rate-limit rows (only if data is present)
-    , (.rate_limits.five_hour // {} | rate_row("5-hour limit"; "%-I:%M %p"))
+    , (.rate_limits.five_hour // {} | rate_row("5-hour"; "%-I:%M %p"))
     , (.rate_limits.seven_day // {} | rate_row("Weekly"; "%b %-d, %-I:%M %p"))
     ]
   | join("\n")
