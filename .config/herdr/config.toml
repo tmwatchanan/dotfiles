@@ -65,14 +65,26 @@ type = "shell"
 command = "~/.config/herdr/herdr-lazygit.sh"
 description = "lazygit — vertical split, focused pane cwd"
 
-# prefix+f: open yazi in a vertical split (to the right) of the focused pane,
+# prefix+y: open yazi in a horizontal split (below) the focused pane,
 # in that pane's cwd. The helper resolves the focused pane over the socket,
 # splits it, and runs `yazi; exit` so the pane auto-closes when you quit.
+# (Moved off prefix+f, which now branches the Claude conversation.)
+[[keys.command]]
+key = "prefix+y"
+type = "shell"
+command = "~/.config/herdr/herdr-yazi.sh"
+description = "yazi — horizontal split, focused pane cwd"
+
+# prefix+f: branch (fork) the focused pane's Claude Code conversation into a new
+# focused tab, in that pane's cwd. The helper reads the pane's Claude session ID
+# over the socket and runs `claude --resume <id> --fork-session`, so the original
+# session is untouched and the new tab explores an independent branch. Toasts and
+# skips if the focused pane has no Claude session.
 [[keys.command]]
 key = "prefix+f"
 type = "shell"
-command = "~/.config/herdr/herdr-yazi.sh"
-description = "yazi — vertical split, focused pane cwd"
+command = "~/.config/herdr/herdr-claude-branch.sh"
+description = "claude branch — fork this conversation into a new tab"
 
 # prefix+v: open nvim in a new (focused) tab, in the focused pane's cwd. The
 # helper resolves the focused pane over the socket, creates a tab, and runs

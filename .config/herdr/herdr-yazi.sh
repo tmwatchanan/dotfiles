@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# herdr-yazi.sh — open yazi in a vertical split to the RIGHT of the currently
-# focused pane, in that pane's working directory. The split closes automatically
-# when you quit yazi (the trailing `exit` ends the shell that hosts it).
+# herdr-yazi.sh — open yazi in a horizontal split BELOW the currently focused
+# pane, in that pane's working directory. The split closes automatically when
+# you quit yazi (the trailing `exit` ends the shell that hosts it).
 #
 # Bound in ~/.config/herdr/config.toml as a custom command:
 #   [[keys.command]]
@@ -24,7 +24,7 @@ cwd=$(printf '%s' "$current" | json_field cwd)
 
 # --env SHELL=/bin/sh so the split spawns a near-instant login sh instead of the
 # default fish, whose startup would flash a prompt before yazi takes over.
-new=$(herdr pane split --pane "$src" --direction right --focus \
+new=$(herdr pane split --pane "$src" --direction down --focus \
         --env SHELL=/bin/sh ${cwd:+--cwd "$cwd"} | json_field pane_id)
 
 [ -n "$new" ] || { echo "herdr-yazi: split failed" >&2; exit 1; }
