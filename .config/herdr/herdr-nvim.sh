@@ -19,8 +19,10 @@ json_field() { grep -oE "\"$1\":\"[^\"]*\"" | head -1 | cut -d'"' -f4; }
 cwd=$(herdr pane current | json_field cwd)
 
 # Create a focused tab in the same cwd; run nvim in its root pane. The first
-# pane_id in the response is the new tab's root pane.
-new=$(herdr tab create --focus ${cwd:+--cwd "$cwd"} | json_field pane_id)
+# pane_id in the response is the new tab's root pane. --env SHELL=/bin/sh so the
+# tab's root pane spawns a near-instant login sh instead of the default fish,
+# whose startup would flash a prompt before nvim takes over.
+new=$(herdr tab create --focus --env SHELL=/bin/sh ${cwd:+--cwd "$cwd"} | json_field pane_id)
 
 [ -n "$new" ] || { echo "herdr-nvim: tab create failed" >&2; exit 1; }
 

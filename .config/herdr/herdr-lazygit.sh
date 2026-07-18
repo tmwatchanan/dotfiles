@@ -31,8 +31,10 @@ if [ -n "$cwd" ] && ! git -C "$cwd" rev-parse --is-inside-work-tree >/dev/null 2
   exit 0
 fi
 
+# --env SHELL=/bin/sh so the split spawns a near-instant login sh instead of the
+# default fish, whose startup would flash a prompt before lazygit takes over.
 new=$(herdr pane split --pane "$src" --direction right --focus \
-        ${cwd:+--cwd "$cwd"} | json_field pane_id)
+        --env SHELL=/bin/sh ${cwd:+--cwd "$cwd"} | json_field pane_id)
 
 [ -n "$new" ] || { echo "herdr-lazygit: split failed" >&2; exit 1; }
 

@@ -22,8 +22,10 @@ cwd=$(printf '%s' "$current" | json_field cwd)
 
 [ -n "$src" ] || { echo "herdr-yazi: no focused pane" >&2; exit 1; }
 
+# --env SHELL=/bin/sh so the split spawns a near-instant login sh instead of the
+# default fish, whose startup would flash a prompt before yazi takes over.
 new=$(herdr pane split --pane "$src" --direction right --focus \
-        ${cwd:+--cwd "$cwd"} | json_field pane_id)
+        --env SHELL=/bin/sh ${cwd:+--cwd "$cwd"} | json_field pane_id)
 
 [ -n "$new" ] || { echo "herdr-yazi: split failed" >&2; exit 1; }
 
