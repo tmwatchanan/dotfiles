@@ -74,6 +74,8 @@ just -g install-yazi
 
 - [`tokei`](https://github.com/XAMPPRocky/tokei) for code statistics (LOCs, # of files, etc.)
 
+- [`Alcove`](https://tryalcove.com) for the MacBook notch (Dynamic Island-style media & battery activities), with [`boring.notch`](https://github.com/TheBoredTeam/boring.notch) as a free & open-source alternative
+
 - `i3`-gaps as a window management
 - `polybar` for top bar
 - `compton` for enabling transparency with _urxvt_, and shadows
