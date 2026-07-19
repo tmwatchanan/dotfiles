@@ -10,9 +10,18 @@ end
 set -gx EDITOR nvim
 # NOTE: Enable undercurl in neovim with wezterm (need a proper `~/.terminfo`)
 # ref: https://wezfurlong.org/wezterm/faq.html#how-do-i-enable-undercurl-curly-underlines
+#
+# Only force TERM=wezterm when actually running under WezTerm (it exports
+# WEZTERM_PANE). Under other terminals (e.g. Ghostty) this stays dormant so we
+# keep the terminal's own TERM, which has an installed terminfo entry. Without
+# this guard, a hardcoded TERM=wezterm makes ncurses tools warn "No entry for
+# terminal type wezterm" whenever the wezterm terminfo isn't installed.
+# Switch back to WezTerm and this re-activates automatically.
 switch (uname)
     case Darwin
-        set -gx TERM wezterm
+        if set -q WEZTERM_PANE
+            set -gx TERM wezterm
+        end
 end
 
 function fish_user_key_bindings
