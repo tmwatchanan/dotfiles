@@ -60,6 +60,12 @@ fish_add_path /opt/homebrew/opt/ruby/bin
 # rust & cargo
 fish_add_path $HOME/.cargo/bin/
 
+# node via fnm — activate so node/npm are on PATH (needed by nvim mason).
+# --use-on-cd switches versions when entering dirs with .node-version/.nvmrc.
+if type -q fnm
+    fnm env --use-on-cd | source
+end
+
 
 # # >>> conda initialize >>>
 # Cache `conda shell.fish hook` (spawns Python, ~120ms) and regenerate only when
