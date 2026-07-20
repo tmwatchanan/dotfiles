@@ -21,6 +21,9 @@ prepend_keymap = [
 	{ on = [ "<A-a>" ], run = "select_all --state=true", desc = "Select all files" },
 	{ on = [ "<A-r>" ], run = "select_all --state=none", desc = "Inverse selection of all files" },
 
+    # Diff the two selected files with hunk (only when exactly 2 are selected)
+	{ on = [ "<C-d>" ], run = '''shell 'if [ "$#" -ne 2 ]; then printf "\033[2J\033[H\n  hunk diff needs exactly 2 selected files.\n  You currently have %s selected.\n\n  Press Enter to go back…\n" "$#"; read _; elif [ -d "$1" ] || [ -d "$2" ]; then printf "\033[2J\033[H\n  hunk diff compares files, not directories.\n  Select two files and try again.\n\n  Press Enter to go back…\n"; read _; else hunk diff "$1" "$2"; fi' --block''', desc = "Diff two selected files with hunk" },
+
 	{ on = [ "<C-s>" ], run = "shell '$SHELL' --block --confirm", desc = "Open shell here" }, # dropping to the shell
 
 	{ on = [ "<C-o>" ], run = "shell 'open .'", desc = "Open current directory in Finder" },
