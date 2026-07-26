@@ -8,6 +8,9 @@ set -euo pipefail
 defaults write -g InitialKeyRepeat -int 15 # delay until repeat (225ms)
 defaults write -g KeyRepeat -int 2         # repeat rate (30ms)
 
+# Windows
+defaults write -g NSWindowShouldDragOnGesture -bool true # move window by Ctrl+Cmd dragging anywhere in it
+
 # Dock
 defaults write com.apple.dock autohide-delay -float 0 # show instantly on hover
 killall Dock
