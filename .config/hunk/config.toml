@@ -1,0 +1,83 @@
+# hunk — review-first terminal diff viewer (https://github.com/modem-dev/hunk)
+# Custom Rosé Pine (main dark) to match the terminal — see [custom_theme] below.
+# Press `t` inside hunk to preview built-in themes without touching this file.
+theme = "custom"
+
+mode = "auto"          # auto | split | stack
+vcs = "git"
+
+# Auto-reload the diff as files change — pairs with the herdr prefix+r split,
+# so the review pane live-updates while an agent keeps editing.
+watch = true
+
+# Show inline annotations agents attach to their changesets (hunk skill path).
+agent_notes = true
+
+line_numbers = true
+wrap_lines = false
+menu_bar = true
+exclude_untracked = false
+prompt_save_view_preferences = true
+transparent_background = false
+
+# Rosé Pine (main dark) — https://rosepinetheme.com
+# Inherits hunk's built-in `rose-pine` so anything left unset (e.g. the
+# alpha-blended diff row tints, which only accept #rrggbb here) stays correct,
+# then pins the solid palette explicitly for a self-contained, tweakable theme.
+[custom_theme]
+base  = "rose-pine"
+label = "Rosé Pine"
+
+# Surfaces & chrome
+background  = "#191724"  # base
+panel       = "#1f1d2e"  # surface
+panelAlt    = "#26233a"  # overlay
+border      = "#26233a"  # overlay
+text        = "#e0def4"  # text
+muted       = "#6e6a86"  # muted
+accent      = "#c4a7e7"  # iris
+accentMuted = "#908caa"  # subtle
+lineNumberFg = "#908caa" # subtle
+selectedHunk = "#403d52" # highlight med
+
+# Diff rows — Rosé Pine has no green, so additions read as foam.
+# Two tiers: the whole-line tint (…Bg) and the changed-word tint within it
+# (…ContentBg). hunk only uses …ContentBg verbatim when its Manhattan RGB
+# distance from …Bg is >= 28 (else it auto-blends the sign color, capped at
+# 20%, which reads as too subtle). These pairs sit ~80-100 apart so intra-line
+# edits clearly stand out. Foam/love blended over base #191724 at 14% / 34%.
+addedBg          = "#2b313d"  # foam  ~14% — added line
+addedContentBg   = "#465661"  # foam  ~34% — changed words on an added line
+removedBg        = "#362333"  # love  ~14% — removed line
+removedContentBg = "#603549"  # love  ~34% — changed words on a removed line
+addedSignColor   = "#9ccfd8"  # foam
+removedSignColor = "#eb6f92"  # love
+
+# Changed-file list
+fileNew       = "#9ccfd8"  # foam
+fileModified  = "#ebbcba"  # rose
+fileDeleted   = "#eb6f92"  # love
+fileRenamed   = "#31748f"  # pine
+fileUntracked = "#f6c177"  # gold
+badgeAdded    = "#9ccfd8"  # foam
+badgeRemoved  = "#eb6f92"  # love
+badgeNeutral  = "#908caa"  # subtle
+
+# Agent notes
+noteBackground      = "#1f1d2e"  # surface
+noteBorder          = "#c4a7e7"  # iris
+noteTitleBackground = "#26233a"  # overlay
+noteTitleText       = "#e0def4"  # text
+
+[custom_theme.syntax]
+default     = "#e0def4"  # text
+keyword     = "#31748f"  # pine
+string      = "#f6c177"  # gold
+comment     = "#6e6a86"  # muted
+operator    = "#908caa"  # subtle
+punctuation = "#908caa"  # subtle
+variable    = "#e0def4"  # text
+function    = "#ebbcba"  # rose
+number      = "#ebbcba"  # rose
+type        = "#9ccfd8"  # foam
+property    = "#9ccfd8"  # foam

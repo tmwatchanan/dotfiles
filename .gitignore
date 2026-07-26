@@ -15,4 +15,7 @@
 .config/herdr/*.sock
 .config/herdr/session.json
 
+# hunk: track config, ignore runtime state
+.config/hunk/state.json
+
 .config/git/.gitconfig.gitlab
