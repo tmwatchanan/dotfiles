@@ -1,7 +1,5 @@
 onboarding = false
 [ui]
-agent_panel_scope = "all"
-
 agent_panel_sort = "priority"
 [keys]
 # prefix-free Ctrl+Shift+h/l: previous/next tab (keeps default prefix+n/p too)
@@ -37,10 +35,6 @@ previous_agent = ["alt+shift+p", "ctrl+shift+k"]
 # Opt+j/k mirror vim down/next & up/previous
 next_workspace = "alt+j"
 previous_workspace = "alt+k"
-
-# leader+a focuses the agent panel for keyboard browsing
-# (j/k to move, enter to jump, esc to leave) — needs the rebuilt binary
-agent_picker = "prefix+a"
 
 # prefix-free: Opt+Shift+h/j/k/l focus panes directly (keeps default prefix+h/j/k/l too)
 focus_pane_left = ["prefix+h", "alt+shift+h"]
