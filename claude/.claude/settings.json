@@ -1,9 +1,9 @@
 {
+  "includeCoAuthoredBy": false,
   "permissions": {
     "defaultMode": "auto"
   },
   "model": "opus",
-  "includeCoAuthoredBy": false,
   "hooks": {
     "SessionStart": [
       {
@@ -22,5 +22,10 @@
     "type": "command",
     "command": "~/.claude/statusline-command.sh"
   },
+  "enabledPlugins": {
+    "claude-md-management@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true
+  },
+  "effortLevel": "high",
   "theme": "auto"
 }
