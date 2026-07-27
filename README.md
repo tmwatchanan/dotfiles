@@ -40,49 +40,71 @@ just -g install-yazi
 
 ## Tools
 
-- [`just`](https://github.com/casey/just) as a command runner
-- [`GNU stow`](https://www.gnu.org/software/stow/) for managing dotfiles
+### Dotfile management
 
-- [`neovim (nightly)`](https://github.com/neovim/neovim) for text editing
-- [`fish`](https://github.com/fish-shell/fish-shell) as a command-line shell
-- [`fisher`](https://github.com/jorgebucaran/fisher) as a pluginer manager for fish
-- [`wezterm`](https://github.com/wez/wezterm) for terminal emulator
-- [`yazi`](https://github.com/sxyazi/yazi) as a file manager
-- [`unar`](https://theunarchiver.com/command-line) as Yazi's archive extractor
+| Tool | Purpose |
+| --- | --- |
+| [`just`](https://github.com/casey/just) | Command runner |
+| [`GNU stow`](https://www.gnu.org/software/stow/) | Symlink farm for managing dotfiles |
 
-- [`lazygit`](https://github.com/jesseduffield/lazygit) for git TUI
-- [`delta`](https://github.com/dandavison/delta) for git diff
-- [`fzf`](https://github.com/junegunn/fzf) for fuzzy finder
-- [`television`](https://github.com/alexpasmantier/television) for fuzzy finding in terminal UIs
-- [`sd`](https://github.com/chmln/sd) for a better _sed_
-- [`duf`](https://github.com/muesli/duf) for a better _df_
-- [`dust`](https://github.com/bootandy/dust) for a better _du_
-- [`fd`](https://github.com/sharkdp/fd) for a better _find_
-- [`ripgrep`](https://github.com/BurntSushi/ripgrep) for a better _grep_
-- [`eza`](https://github.com/eza-community/eza) for a better _ls_
-- [`bat`](https://github.com/sharkdp/bat) for a better _cat_
-- [`hyperfine`](https://github.com/sharkdp/hyperfine) for benchmarking
-- [`zoxide`](https://github.com/ajeetdsouza/zoxide) for _cd_ based on frecency
+### Shell & editing
 
-- [`uv`](https://github.com/astral-sh/uv) as a drop-in replacement for _pip_
-- [`mamba` (via `miniforge`)](https://github.com/conda-forge/miniforge) as a drop-in replacement for _conda_
-- [`fnm`](https://github.com/Schniz/fnm) for managing Node.js versions (auto-switches on `cd` via `.node-version`/`.nvmrc`)
-- [`pixi`](https://github.com/prefix-dev/pixi) as a multi-language package manager (thiking about conda)
+| Tool | Purpose |
+| --- | --- |
+| [`neovim (nightly)`](https://github.com/neovim/neovim) | Text editing |
+| [`fish`](https://github.com/fish-shell/fish-shell) | Command-line shell |
+| [`fisher`](https://github.com/jorgebucaran/fisher) | Plugin manager for fish |
+| [`wezterm`](https://github.com/wez/wezterm) | Terminal emulator |
+| [`yazi`](https://github.com/sxyazi/yazi) | File manager |
+| [`unar`](https://theunarchiver.com/command-line) | Yazi's archive extractor |
 
-- [`glow`](https://github.com/charmbracelet/glow) for markdown (.md) preview
-- [`miller`](https://github.com/johnkerl/miller) for CSV, TSV, and tabular JSON preview
+### Command-line utilities
 
-- [`tokei`](https://github.com/XAMPPRocky/tokei) for code statistics (LOCs, # of files, etc.)
+| Tool | Purpose |
+| --- | --- |
+| [`lazygit`](https://github.com/jesseduffield/lazygit) | Git TUI |
+| [`delta`](https://github.com/dandavison/delta) | Git diff |
+| [`fzf`](https://github.com/junegunn/fzf) | Fuzzy finder |
+| [`television`](https://github.com/alexpasmantier/television) | Fuzzy finding in terminal UIs |
+| [`sd`](https://github.com/chmln/sd) | A better _sed_ |
+| [`duf`](https://github.com/muesli/duf) | A better _df_ |
+| [`dust`](https://github.com/bootandy/dust) | A better _du_ |
+| [`fd`](https://github.com/sharkdp/fd) | A better _find_ |
+| [`ripgrep`](https://github.com/BurntSushi/ripgrep) | A better _grep_ |
+| [`eza`](https://github.com/eza-community/eza) | A better _ls_ |
+| [`bat`](https://github.com/sharkdp/bat) | A better _cat_ |
+| [`zoxide`](https://github.com/ajeetdsouza/zoxide) | _cd_ based on frecency |
+| [`hyperfine`](https://github.com/sharkdp/hyperfine) | Benchmarking |
+| [`glow`](https://github.com/charmbracelet/glow) | Markdown (.md) preview |
+| [`miller`](https://github.com/johnkerl/miller) | CSV, TSV, and tabular JSON preview |
+| [`tokei`](https://github.com/XAMPPRocky/tokei) | Code statistics (LOCs, # of files, etc.) |
 
-- [`Alcove`](https://tryalcove.com) for the MacBook notch (Dynamic Island-style media & battery activities), with [`boring.notch`](https://github.com/TheBoredTeam/boring.notch) as a free & open-source alternative
+### Languages & packages
 
-- `i3`-gaps as a window management
-- `polybar` for top bar
-- `compton` for enabling transparency with _urxvt_, and shadows
-- `dunst` for notification server
-- `Xbindkeys` for binding special keys
-- `imagemagick` for every possible image manipulation
-- `zathura` as a PDF viewer
+| Tool | Purpose |
+| --- | --- |
+| [`uv`](https://github.com/astral-sh/uv) | Drop-in replacement for _pip_ |
+| [`mamba` (via `miniforge`)](https://github.com/conda-forge/miniforge) | Drop-in replacement for _conda_ |
+| [`fnm`](https://github.com/Schniz/fnm) | Node.js versions, auto-switches on `cd` via `.node-version`/`.nvmrc` |
+| [`pixi`](https://github.com/prefix-dev/pixi) | Multi-language package manager (thinking about conda) |
+
+### macOS
+
+| Tool | Purpose |
+| --- | --- |
+| [`Alcove`](https://tryalcove.com) | MacBook notch (Dynamic Island-style media & battery activities); [`boring.notch`](https://github.com/TheBoredTeam/boring.notch) is a free & open-source alternative |
+
+### Linux desktop
+
+| Tool | Purpose |
+| --- | --- |
+| `i3`-gaps | Window management |
+| `polybar` | Top bar |
+| `compton` | Transparency with _urxvt_, and shadows |
+| `dunst` | Notification server |
+| `Xbindkeys` | Binding special keys |
+| `imagemagick` | Every possible image manipulation |
+| `zathura` | PDF viewer |
 
 ## Git Ignore
 
