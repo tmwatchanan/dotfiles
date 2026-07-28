@@ -134,7 +134,6 @@ alt-s = 'workspace S' # Slack
 alt-backtick = 'workspace 9' # Quick work
 alt-r = 'workspace R' # Quick work
 alt-g = 'workspace G' # Gather
-alt-t = 'workspace T' # Terminal
 alt-c = 'workspace C' # Claude
 alt-x = 'workspace X' # Codex
 alt-d = 'workspace D' # ChatGPT
@@ -151,7 +150,6 @@ alt-shift-s = 'move-node-to-workspace S'
 alt-shift-backtick = 'move-node-to-workspace 9'
 alt-shift-r = 'move-node-to-workspace R'
 alt-shift-g = 'move-node-to-workspace G'
-alt-shift-t = 'move-node-to-workspace T'
 alt-shift-c = 'move-node-to-workspace C'
 alt-shift-x = 'move-node-to-workspace X'
 alt-shift-d = 'move-node-to-workspace D'
@@ -199,7 +197,6 @@ S = ['built-in', 'main', 'secondary']
 9 = ['built-in', 'main', 'secondary']
 R = ['main', 'built-in', 'secondary']
 G = ['built-in', 'main', 'secondary']
-T = ['built-in', 'main', 'secondary']
 
 [[on-window-detected]]
 if.app-id = 'md.obsidian'
@@ -213,11 +210,6 @@ run = 'move-node-to-workspace S'
 if.app-id = 'com.github.wez.wezterm'
 if.window-title-regex-substring = '-t ds'
 run = 'move-node-to-workspace W'
-
-[[on-window-detected]]
-if.app-id = 'com.github.wez.wezterm'
-if.window-title-regex-substring = '-t tm'
-run = 'move-node-to-workspace T'
 
 [[on-window-detected]]
 if.app-id = 'cc.ffitch.shottr'
