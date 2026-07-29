@@ -22,6 +22,11 @@
 	path = D:\\dev\\dotfiles\\.config\\delta\\themes.gitconfig
 [init]
 	defaultBranch = main
+[branch]
+	; don't inherit origin/develop as upstream when branch name differs
+	autoSetupMerge = simple
+[push]
+	autoSetupRemote = true
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = nvim
