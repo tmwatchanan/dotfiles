@@ -19,3 +19,4 @@
 .config/hunk/state.json
 
 .config/git/.gitconfig.gitlab
+.config/git/.gitconfig.local

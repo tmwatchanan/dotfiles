@@ -6,10 +6,13 @@
     ; path = ~/.config/git/.gitconfig.windows
 	path = D:\\dev\\dotfiles\\.config\\git\\.gitconfig.windows
 
+[include] ; default identity, kept out of the repo; the includes below override it
+	path = ~/.config/git/.gitconfig.local
+
 [includeIf "gitdir:~/dev/"]
 	path = ~/dev/.gitconfig
 [includeIf "gitdir:~/tm/"]
-	path = ~/tm/.gitconfig
+	path = ~/.config/git/.gitconfig.tmwatchanan
 [includeIf "hasconfig:remote.*.url:https://github.com/**"]
     path = ~/.config/git/.gitconfig.github
 [includeIf "hasconfig:remote.*.url:git@github.com:*/**"]
