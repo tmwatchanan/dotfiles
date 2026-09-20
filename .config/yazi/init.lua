@@ -4,3 +4,5 @@ require('relative-motions'):setup({
 })
 
 require("git"):setup()
+
+require("duckdb"):setup()

@@ -18,5 +18,10 @@ use = "yazi-rs/plugins:git"
 rev = "f703392"
 hash = "347cc6b190eb0c2fd60513cc7ae37412"
 
+[[plugin.deps]]
+use = "wylie102/duckdb"
+rev = "3f8c863"
+hash = "87b9233a74325e95011670ed20bbd0d4"
+
 [flavor]
 deps = []
