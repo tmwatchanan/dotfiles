@@ -76,7 +76,7 @@ just -g install-yazi
 | [`zoxide`](https://github.com/ajeetdsouza/zoxide) | _cd_ based on frecency |
 | [`hyperfine`](https://github.com/sharkdp/hyperfine) | Benchmarking |
 | [`glow`](https://github.com/charmbracelet/glow) | Markdown (.md) preview |
-| [`miller`](https://github.com/johnkerl/miller) | CSV, TSV, and tabular JSON preview |
+| [`duckdb`](https://github.com/duckdb/duckdb) | CSV, TSV, JSON, Parquet, and XLSX preview (via [`duckdb.yazi`](https://github.com/wylie102/duckdb.yazi)) |
 | [`tokei`](https://github.com/XAMPPRocky/tokei) | Code statistics (LOCs, # of files, etc.) |
 
 ### Languages & packages
