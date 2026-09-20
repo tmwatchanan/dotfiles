@@ -13,7 +13,7 @@ extract = [
 [plugin]
 prepend_previewers = [
     { url = "*.md", run = 'piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"' },
-    { mime = "text/csv", run = "miller" },
+    { mime = "text/csv", run = 'piper -- mlr --c2p --barred cat "$1"' },
 ]
 prepend_fetchers = [
     { url = "*", run = "git", group = "git" },
