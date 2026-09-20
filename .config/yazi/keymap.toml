@@ -40,7 +40,7 @@ prepend_keymap = [
 
     # macOS: Preview files with the system Quick Look
 	{ on = [ "<C-p>" ], run = '''
-      shell 'qlmanage -p "$@"'
+      shell 'qlmanage -p "$@"' --orphan
       ''', desc = "macOS: Preview files with the system Quick Look" },
 
     # custom-open plugin
