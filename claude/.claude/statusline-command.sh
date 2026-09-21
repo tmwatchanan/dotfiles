@@ -53,7 +53,10 @@ exec jq -r '
     | if   $d <= 60   then "now"
       elif $d < 3600  then "in \($d / 60 | floor)m"
       elif $d < 86400 then "in \($d / 3600 | floor)h"
-      else                 "in \($d / 86400 | floor)d"
+      else
+        ($d / 86400 | floor) as $days
+        | ($d % 86400 / 3600 | floor) as $hrs
+        | if $hrs == 0 then "in \($days)d" else "in \($days)d \($hrs)h" end
       end;
 
   # "in 2h (6:47 PM)" — absolute time dropped when reset is imminent
