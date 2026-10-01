@@ -235,3 +235,8 @@ run = 'move-node-to-workspace C'
 if.app-id = 'com.openai.codex'
 run = 'move-node-to-workspace X'
 
+
+[[on-window-detected]]
+if.app-id = 'com.vorssaint.utils'
+if.window-title-regex-substring = 'Settings'
+run = 'layout floating'
