@@ -1,0 +1,16 @@
+{
+  "model": "opus",
+  "advisorModel": "opus",
+  "autoCompactWindow": 500000,
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "medium"
+    },
+    "claude-sonnet-5-5": {
+      "effortLevel": "medium"
+    },
+    "claude-haiku-5-5": {
+      "autoCompactWindow": 100000
+    }
+  }
+}
